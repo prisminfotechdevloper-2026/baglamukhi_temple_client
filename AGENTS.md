@@ -7,3 +7,19 @@ This version has breaking changes — APIs, conventions, and file structure may 
 This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
 
 <!-- END:nextjs-agent-rules -->
+
+## Core Architecture & SEO Rules (MANDATORY)
+
+### 1. Server Components (RSC) by Default — Never Mark Parent Components Client-Side
+- **NO Parent `'use client'`**: NEVER place `'use client'` on parent-level components, pages (`page.tsx`), layouts (`layout.tsx`), section containers, or data wrappers.
+- Parent pages and layouts MUST remain pure React Server Components for maximum Server-Side Rendering (SSR) speed, zero client bundle bloat, and complete search engine indexability.
+
+### 2. Push `'use client'` Down to Interactive Leaves Only
+- Only specific leaf elements that require client-side interactivity (`onClick`, `useState`, `useEffect`, form handlers, interactive modals, toggles) should use `'use client'`.
+- If client interactivity wraps server content, pass the content through `children: React.ReactNode` so the children remain server-rendered.
+
+### 3. Complete SEO & Metadata Optimization
+- Every route must export full Next.js `metadata` (`title`, `description`, `openGraph`, `canonical`, `robots`, `keywords`).
+- Maintain clean semantic HTML (`<h1>` hierarchy, `<main>`, `<article>`, `<nav>`, `<section>`).
+- Add JSON-LD Structured Data on the server for rich snippet search indexing.
+

@@ -1,69 +1,72 @@
 import Image from "next/image";
 
-export default function Home() {
+export default function HomePage() {
+  const colorSwatches = [
+    { name: "Temple Gold", hex: "#E6840D", role: "Primary Gold & Outlines" },
+    { name: "Saffron Yellow", hex: "#FDB514", role: "Garments & Highlights" },
+    { name: "Soft Gold", hex: "#F9D66F", role: "Jewellery & Borders" },
+    { name: "Vermilion Red", hex: "#AF0807", role: "Arch & Sacred Accents" },
+    { name: "Deep Maroon", hex: "#540902", role: "Shadows, Text & Contrast" },
+    { name: "Warm Ivory", hex: "#FEFBDB", role: "Background & Negative Space" },
+  ];
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="flex min-h-screen flex-col items-center justify-center px-4 py-12">
+      <div className="w-full max-w-3xl rounded-3xl border-2 border-[#E6840D]/30 bg-white/70 p-8 shadow-xl backdrop-blur-sm md:p-12 text-center">
+        {/* Sacred Logo */}
+        <div className="mx-auto mb-6 relative h-48 w-48 drop-shadow-md sm:h-56 sm:w-56">
+          <Image
+            src="/images/logo.png"
+            alt="माँ बगलामुखी दिव्य स्वरूप"
+            fill
+            priority
+            sizes="(max-width: 640px) 192px, 224px"
+            className="object-contain"
+          />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        {/* Sacred Temple Header */}
+        <p className="text-sm font-semibold tracking-widest uppercase text-[#AF0807] mb-2">
+          ॥ ॐ ह्लीं बगलामुखिए नमः ॥
+        </p>
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#540902] font-serif tracking-tight">
+          श्री माँ बगलामुखी मंदिर
+        </h1>
+        <p className="mt-3 text-base sm:text-lg text-[#540902]/80 max-w-xl mx-auto">
+          परियोजना का आधार सफलतापूर्वक तैयार हो चुका है। नीचे दिए गए रंग और लोगो सेट कर दिए गए हैं।
+        </p>
+
+        {/* Brand Palette Swatches */}
+        <div className="mt-10 pt-8 border-t border-[#E6840D]/20">
+          <h2 className="text-xs font-bold uppercase tracking-wider text-[#540902]/70 mb-4">
+            कलर पैलेट (Active Theme Tokens)
+          </h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
+            {colorSwatches.map((color) => (
+              <div
+                key={color.hex}
+                className="flex flex-col items-center rounded-xl p-2.5 bg-white border border-[#E6840D]/20 shadow-sm"
+              >
+                <div
+                  className="h-10 w-full rounded-lg shadow-inner mb-2 border border-black/10"
+                  style={{ backgroundColor: color.hex }}
+                />
+                <span className="text-xs font-semibold text-[#540902] leading-tight">
+                  {color.name}
+                </span>
+                <span className="text-[11px] font-mono text-[#540902]/70">
+                  {color.hex}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
-      </main>
-    </div>
+
+        {/* Status notice */}
+        <div className="mt-8 rounded-xl bg-[#FEFBDB] border border-[#E6840D]/40 p-4 text-sm text-[#540902]">
+          ✨ <strong>Project Reset Complete</strong>: Aap agla component ya section batayein, hum use step-by-step implement karenge.
+        </div>
+      </div>
+    </main>
   );
 }

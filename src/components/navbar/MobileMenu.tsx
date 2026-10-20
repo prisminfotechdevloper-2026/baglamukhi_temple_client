@@ -2,7 +2,19 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, Phone, MessageCircle, CalendarCheck, Home, Users, Flame, Landmark, Image as ImageIcon } from "lucide-react";
+import {
+  Menu,
+  X,
+  Phone,
+  MessageCircle,
+  CalendarCheck,
+  Home,
+  Users,
+  Flame,
+  Landmark,
+  Image as ImageIcon,
+  Sparkles,
+} from "lucide-react";
 import LanguageToggle from "./LanguageToggle";
 
 interface NavItem {
@@ -36,21 +48,22 @@ export default function MobileMenu() {
   }, [isOpen]);
 
   const renderIcon = (type: string) => {
+    const iconClass = "h-4 w-4 text-amber-600";
     switch (type) {
       case "home":
-        return <Home className="h-4 w-4 text-[#E6840D]" />;
+        return <Home className={iconClass} />;
       case "pandit":
-        return <Users className="h-4 w-4 text-[#E6840D]" />;
+        return <Users className={iconClass} />;
       case "puja":
-        return <Flame className="h-4 w-4 text-[#E6840D]" />;
+        return <Flame className={iconClass} />;
       case "mandir":
-        return <Landmark className="h-4 w-4 text-[#E6840D]" />;
+        return <Landmark className={iconClass} />;
       case "gallery":
-        return <ImageIcon className="h-4 w-4 text-[#E6840D]" />;
+        return <ImageIcon className={iconClass} />;
       case "contact":
-        return <Phone className="h-4 w-4 text-[#E6840D]" />;
+        return <Phone className={iconClass} />;
       default:
-        return null;
+        return <Sparkles className={iconClass} />;
     }
   };
 
@@ -61,80 +74,83 @@ export default function MobileMenu() {
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="inline-flex items-center justify-center rounded-xl p-2 text-[#540902] hover:bg-[#E6840D]/10 hover:text-[#AF0807] focus:outline-hidden transition-colors"
+        className="inline-flex items-center justify-center rounded-xl p-2.5 text-stone-700 hover:text-[#AF0807] hover:bg-stone-100 transition-colors focus:outline-hidden"
         aria-label="Toggle navigation menu"
         aria-expanded={isOpen}
       >
         {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
       </button>
 
-      {/* Slide-out Backdrop & Drawer */}
+      {/* Modern Backdrop */}
       {isOpen && (
         <div
-          className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs transition-opacity"
+          className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm transition-opacity duration-300"
           onClick={() => setIsOpen(false)}
         />
       )}
 
+      {/* Modern Slide-over Sheet */}
       <div
-        className={`fixed top-0 right-0 z-50 h-full w-[85%] max-w-sm bg-[#FEFBDB] border-l-2 border-[#E6840D]/30 shadow-2xl transition-transform duration-300 ease-in-out flex flex-col ${
+        className={`fixed top-0 right-0 z-50 h-full w-[85%] max-w-sm bg-white shadow-2xl transition-transform duration-300 ease-out flex flex-col ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        {/* Drawer Header */}
-        <div className="flex items-center justify-between border-b border-[#E6840D]/20 px-5 py-4 bg-white/70">
+        {/* Header */}
+        <div className="flex items-center justify-between border-b border-stone-100 px-6 py-5 bg-gradient-to-r from-amber-50/50 to-white">
           <div>
-            <h3 className="font-serif font-bold text-base text-[#540902]">
+            <h3 className="font-serif font-bold text-lg text-[#540902] leading-tight">
               श्री माँ बगलामुखी मंदिर
             </h3>
-            <p className="text-xs text-[#AF0807] font-medium">
-              पं. दीपक शर्मा (मुख्य पुजारी)
+            <p className="text-xs font-semibold text-amber-800 mt-0.5">
+              पं. दीपक शर्मा <span className="text-stone-400 font-normal">• मुख्य पुजारी</span>
             </p>
           </div>
           <button
             type="button"
             onClick={() => setIsOpen(false)}
-            className="rounded-lg p-1.5 text-[#540902] hover:bg-[#E6840D]/20 transition-colors"
+            className="rounded-full p-2 text-stone-400 hover:text-stone-700 hover:bg-stone-100 transition-colors"
             aria-label="Close menu"
           >
             <X className="h-5 w-5" />
           </button>
         </div>
 
-        {/* Navigation Links */}
-        <div className="flex-1 overflow-y-auto px-4 py-4 space-y-1">
+        {/* Links List */}
+        <div className="flex-1 overflow-y-auto px-4 py-4 space-y-1.5">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               onClick={() => setIsOpen(false)}
-              className="flex items-center justify-between rounded-xl px-3.5 py-2.5 text-[#540902] hover:bg-[#E6840D]/15 transition-all group"
+              className="flex items-center justify-between rounded-xl px-4 py-3 text-stone-700 hover:bg-amber-50/60 hover:text-[#AF0807] transition-all group border border-transparent hover:border-amber-200/50"
             >
-              <div className="flex items-center gap-3">
-                <span className="p-1.5 rounded-lg bg-white/80 border border-[#E6840D]/20 shadow-xs group-hover:scale-105 transition-transform">
+              <div className="flex items-center gap-3.5">
+                <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-stone-50 border border-stone-200/60 group-hover:bg-white group-hover:border-amber-300 transition-colors shadow-2xs">
                   {renderIcon(item.icon)}
                 </span>
                 <div>
-                  <div className="text-sm font-semibold group-hover:text-[#AF0807] transition-colors">
+                  <div className="text-[14px] font-semibold text-stone-800 group-hover:text-[#AF0807] transition-colors">
                     {item.label}
                   </div>
-                  <div className="text-[11px] text-[#540902]/65">
+                  <div className="text-[11px] text-stone-400 font-medium">
                     {item.sub}
                   </div>
                 </div>
               </div>
-              <span className="text-xs text-[#E6840D] font-bold">›</span>
+              <span className="text-stone-300 group-hover:text-[#AF0807] group-hover:translate-x-0.5 transition-all text-sm font-bold">
+                ›
+              </span>
             </Link>
           ))}
 
-          {/* Quick Call & WhatsApp contact options */}
-          <div className="pt-4 mt-2 border-t border-[#E6840D]/20 space-y-2">
-            <p className="text-xs font-bold uppercase tracking-wider text-[#540902]/60 px-2">
-              सीधा संपर्क (Direct Contact)
+          {/* Quick Support Actions */}
+          <div className="pt-4 mt-3 border-t border-stone-100 space-y-2">
+            <p className="text-[11px] font-bold uppercase tracking-wider text-stone-400 px-2">
+              सहायता एवं संपर्क
             </p>
             <a
               href="tel:+919876543210"
-              className="flex items-center gap-2.5 rounded-xl px-3.5 py-2 bg-white/90 border border-[#E6840D]/20 text-xs font-semibold text-[#540902] hover:bg-[#FEFBDB] transition-colors"
+              className="flex items-center gap-3 rounded-xl px-4 py-2.5 bg-stone-50 hover:bg-amber-50 text-stone-700 hover:text-amber-900 border border-stone-200/60 text-xs font-semibold transition-colors"
             >
               <Phone className="h-4 w-4 text-[#AF0807]" />
               <span>कॉल करें (Pt. Deepak Sharma)</span>
@@ -143,22 +159,22 @@ export default function MobileMenu() {
               href="https://wa.me/919876543210"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 rounded-xl px-3.5 py-2 bg-[#25D366]/10 border border-[#25D366]/30 text-xs font-semibold text-[#128C7E] hover:bg-[#25D366]/20 transition-colors"
+              className="flex items-center gap-3 rounded-xl px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100/70 text-emerald-800 border border-emerald-200/60 text-xs font-semibold transition-colors"
             >
-              <MessageCircle className="h-4 w-4 text-[#25D366]" />
-              <span>व्हाट्सएप संदेश भेजें</span>
+              <MessageCircle className="h-4 w-4 text-emerald-600" />
+              <span>व्हाट्सएप पर बात करें</span>
             </a>
           </div>
         </div>
 
-        {/* Drawer Footer CTA */}
-        <div className="p-4 border-t border-[#E6840D]/20 bg-white/70">
+        {/* Bottom CTA */}
+        <div className="p-5 border-t border-stone-100 bg-stone-50/60">
           <Link
             href="/pujas"
             onClick={() => setIsOpen(false)}
-            className="flex items-center justify-center gap-2 w-full rounded-xl bg-gradient-to-r from-[#AF0807] via-[#8B0605] to-[#540902] px-4 py-3 text-sm font-bold text-[#FEFBDB] shadow-md hover:shadow-lg transition-all active:scale-[0.98] border border-[#FDB514]/40"
+            className="flex items-center justify-center gap-2.5 w-full rounded-xl bg-gradient-to-r from-[#AF0807] via-[#940706] to-[#690501] px-5 py-3.5 text-sm font-bold text-white shadow-md shadow-red-900/15 hover:shadow-lg transition-all active:scale-[0.99] border border-amber-400/30"
           >
-            <CalendarCheck className="h-4 w-4 text-[#FDB514]" />
+            <CalendarCheck className="h-4 w-4 text-amber-300" />
             <span>Book Puja (पूजा बुक करें)</span>
           </Link>
         </div>

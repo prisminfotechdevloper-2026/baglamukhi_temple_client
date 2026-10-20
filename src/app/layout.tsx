@@ -65,7 +65,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="hi" className={`${geistSans.variable} ${cinzel.variable}`}>
-      <body className="min-h-screen bg-ivory text-maroon antialiased flex flex-col">
+      <body className="min-h-screen bg-white text-[#221510] antialiased flex flex-col selection:bg-[#FDB514]/30 selection:text-[#AF0807]">
         <Navbar />
         <div className="flex-1 flex flex-col">{children}</div>
       </body>

@@ -7,25 +7,39 @@ export default function LanguageToggle() {
   const [lang, setLang] = useState<"HI" | "EN">("HI");
 
   const toggleLanguage = () => {
-    const nextLang = lang === "HI" ? "EN" : "HI";
-    setLang(nextLang);
-    // Future expansion: sync with i18n or cookies
+    setLang((prev) => (prev === "HI" ? "EN" : "HI"));
   };
 
   return (
     <button
       type="button"
       onClick={toggleLanguage}
-      className="inline-flex items-center gap-1.5 rounded-full border border-[#E6840D]/30 bg-white/80 px-2.5 py-1 text-xs font-semibold text-[#540902] shadow-xs transition-all hover:bg-[#FEFBDB] hover:border-[#E6840D] focus:outline-hidden cursor-pointer"
+      className="group relative inline-flex items-center gap-1.5 rounded-full bg-stone-50 hover:bg-amber-50/80 px-3 py-1.5 text-xs font-medium text-stone-700 transition-all duration-200 border border-stone-200/70 hover:border-amber-300 shadow-2xs hover:shadow-xs cursor-pointer focus:outline-hidden"
       title="भाषा बदलें / Change Language"
       aria-label="Switch Language"
     >
-      <Globe className="h-3.5 w-3.5 text-[#E6840D]" />
-      <span className="tracking-wide">
-        <span className={lang === "HI" ? "font-bold text-[#AF0807]" : "text-gray-500"}>हिं</span>
-        <span className="mx-0.5 text-gray-400">/</span>
-        <span className={lang === "EN" ? "font-bold text-[#AF0807]" : "text-gray-500"}>EN</span>
-      </span>
+      <Globe className="h-3.5 w-3.5 text-amber-600 transition-transform duration-300 group-hover:rotate-45" />
+      <div className="flex items-center text-[11px] font-semibold tracking-wider">
+        <span
+          className={`px-1 py-0.5 rounded transition-all ${
+            lang === "HI"
+              ? "text-[#AF0807] font-bold"
+              : "text-stone-400 font-normal"
+          }`}
+        >
+          हिन्दी
+        </span>
+        <span className="text-stone-300 mx-0.5 font-light">|</span>
+        <span
+          className={`px-1 py-0.5 rounded transition-all ${
+            lang === "EN"
+              ? "text-[#AF0807] font-bold"
+              : "text-stone-400 font-normal"
+          }`}
+        >
+          EN
+        </span>
+      </div>
     </button>
   );
 }

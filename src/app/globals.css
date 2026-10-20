@@ -7,11 +7,11 @@
   --color-soft-gold: #F9D66F;     /* Jewellery, borders and metallic shine */
   --color-vermilion: #AF0807;     /* Inner temple arch, lotus and sacred accents */
   --color-maroon: #540902;        /* Shadows, contrast and premium details */
-  --color-ivory: #FEFBDB;         /* Background and negative space */
+  --color-ivory: #FFFDF9;         /* Warm subtle white tone */
 
-  /* Semantic Theme Tokens */
-  --background: #FEFBDB;
-  --foreground: #540902;
+  /* Modern Crisp Clean Background & High-Contrast Typography */
+  --background: #FFFFFF;
+  --foreground: #221510;
   --primary: #E6840D;
   --secondary: #AF0807;
   --accent: #FDB514;
@@ -23,17 +23,30 @@
   --color-soft-gold: #F9D66F;
   --color-vermilion: #AF0807;
   --color-maroon: #540902;
-  --color-ivory: #FEFBDB;
+  --color-ivory: #FFFDF9;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 }
 
 body {
-  background-color: var(--background);
+  background-color: #FFFFFF;
   color: var(--foreground);
   font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
   margin: 0;
   padding: 0;
   min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Glassmorphism & Gold Glow utilities */
+.glass-header {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.gold-shimmer-border {
+  border-image: linear-gradient(to right, #E6840D, #FDB514, #AF0807) 1;
 }

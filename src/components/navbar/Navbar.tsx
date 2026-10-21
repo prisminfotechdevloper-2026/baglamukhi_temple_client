@@ -33,11 +33,11 @@ export default function Navbar() {
           {/* ================= LEFT: Divine Personal Priest Branding ================= */}
           <Link
             href="/"
-            className="flex items-center gap-2.5 sm:gap-3.5 group focus:outline-hidden"
+            className="flex items-center gap-2 sm:gap-3.5 group focus:outline-hidden min-w-0 flex-1 sm:flex-initial"
             title="आचार्य पं. दीपक शर्मा - माँ बगलामुखी सिद्धपीठ नलखेड़ा"
           >
             {/* Sacred Deity Emblem with Divine Glow & Aura Frame */}
-            <div className="relative h-13 w-13 xs:h-14 xs:w-14 sm:h-16 sm:w-16 shrink-0 flex items-center justify-center rounded-2xl bg-gradient-to-b from-amber-100/70 via-[#FFF9ED] to-[#FAEDD2] p-1 border-[1.5px] border-amber-300/80 shadow-[0_2px_14px_rgba(216,155,24,0.22)] group-hover:border-amber-400 group-hover:shadow-[0_4px_18px_rgba(216,155,24,0.35)] transition-all duration-300">
+            <div className="relative h-12 w-12 xs:h-13 xs:w-13 sm:h-16 sm:w-16 shrink-0 flex items-center justify-center rounded-2xl bg-gradient-to-b from-amber-100/70 via-[#FFF9ED] to-[#FAEDD2] p-1 border-[1.5px] border-amber-300/80 shadow-[0_2px_14px_rgba(216,155,24,0.22)] group-hover:border-amber-400 group-hover:shadow-[0_4px_18px_rgba(216,155,24,0.35)] transition-all duration-300">
               <Image
                 src="/images/baglamukhi-logo.png"
                 alt="माँ बगलामुखी दिव्य स्वरूप"

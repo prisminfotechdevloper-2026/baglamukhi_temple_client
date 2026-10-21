@@ -10,7 +10,7 @@ export default function LanguageToggle() {
     <button
       type="button"
       onClick={toggleLanguage}
-      className="group relative inline-flex items-center gap-1.5 rounded-full bg-stone-50 hover:bg-amber-50/80 px-3 py-1.5 text-xs font-medium text-stone-700 transition-all duration-200 border border-stone-200/70 hover:border-amber-300 shadow-2xs hover:shadow-xs cursor-pointer focus:outline-hidden"
+      className="group relative inline-flex items-center gap-1 sm:gap-1.5 rounded-full bg-stone-50 hover:bg-amber-50/80 px-2 sm:px-3 py-1 sm:py-1.5 text-xs font-medium text-stone-700 transition-all duration-200 border border-stone-200/70 hover:border-amber-300 shadow-2xs hover:shadow-xs cursor-pointer focus:outline-hidden shrink-0"
       title="भाषा बदलें / Switch Language (Hindi / English)"
       aria-label="Switch Language"
     >

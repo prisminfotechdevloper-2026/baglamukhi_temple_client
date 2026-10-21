@@ -21,7 +21,7 @@ export const metadata: Metadata = {
       "फोटो दीर्घा | श्री माँ बगलामुखी मंदिर नलखेड़ा - मंदिर, महाहवन एवं पंडित जी",
     description:
       "नलखेड़ा सिद्धपीठ, पावन लखुन्दर नदी, दिव्य महाहवन एवं मुख्य यज्ञाचार्य पंडित दीपक शर्मा जी की वास्तविक पावन फोटो दीर्घा।",
-    url: "https://www.baglamukhimandir.in/gallery",
+    url: "https://baglamukhi-temple-hazel.vercel.app/gallery",
     type: "website",
     locale: "hi_IN",
     images: [
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: "https://www.baglamukhimandir.in/gallery",
+    canonical: "/gallery",
   },
 };
 

@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     title: "माँ बगलामुखी मंदिर, नलखेड़ा — विस्तृत आलेख एवं दर्शन विवरण",
     description:
       "लखुन्दर नदी के किनारे बसा नलखेड़ा का यह मंदिर देश के प्राचीन सिद्धपीठों में गिना जाता है, जहाँ तंत्र-साधना और हवन की परंपरा सदियों से चली आ रही है।",
-    url: "https://baglamukhitemple.org/mandir",
+    url: "https://baglamukhi-temple-hazel.vercel.app/mandir",
     siteName: "श्री माँ बगलामुखी मंदिर नलखेड़ा",
     images: [
       {
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     type: "article",
   },
   alternates: {
-    canonical: "https://baglamukhitemple.org/mandir",
+    canonical: "/mandir",
   },
 };
 

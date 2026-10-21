@@ -27,7 +27,7 @@ export const metadata: Metadata = {
       "पंडित दीपक शर्मा परिचय | माँ बगलामुखी सिद्धपीठ नलखेड़ा - यज्ञाचार्य एवं वैदिक पुरोहित",
     description:
       "विश्वविख्यात माँ बगलामुखी सिद्धपीठ नलखेड़ा में शास्त्रोक्त तांत्रिक-वैदिक अनुष्ठान, महाहवन, सवा लाख अखंड जाप एवं सटीक कुंडली परामर्श। पंडित दीपक शर्मा (+91 82392 39249)।",
-    url: "https://www.baglamukhimandir.in/pandit-ji",
+    url: "https://baglamukhi-temple-hazel.vercel.app/pandit-ji",
     type: "profile",
     images: [
       {
@@ -37,6 +37,9 @@ export const metadata: Metadata = {
         alt: "पंडित दीपक शर्मा - माँ बगलामुखी सिद्धपीठ नलखेड़ा",
       },
     ],
+  },
+  alternates: {
+    canonical: "/pandit-ji",
   },
 };
 

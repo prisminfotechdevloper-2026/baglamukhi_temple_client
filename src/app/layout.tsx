@@ -19,36 +19,47 @@ const cinzel = Cinzel({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://baglamukhitemple.org"),
-  title: "श्री माँ बगलामुखी मंदिर | Shri Maa Baglamukhi Temple",
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "https://baglamukhi-temple-hazel.vercel.app"
+  ),
+  title: {
+    default: "Maa Baglamukhi Havan Booking in Nalkheda | Pt. Deepak Sharma",
+    template: "%s | Maa Baglamukhi Mandir Nalkheda",
+  },
   description:
-    "श्री माँ बगलामुखी जी का पावन दिव्य धाम। दर्शन, पूजा-अर्चना, अनुष्ठान, एवं आध्यात्मिक शांति का पावन केंद्र।",
+    "माँ बगलामुखी पूजा और हवन की जानकारी, उपलब्ध सेवाएँ और ऑनलाइन बुकिंग संबंधी सहायता प्राप्त करें। तारीख, प्रक्रिया और शुभ मुहूर्त की पुष्टि के लिए संपर्क करें। पं. दीपक शर्मा (+91 82392 39249)।",
   keywords: [
-    "Baglamukhi Temple",
-    "Maa Baglamukhi",
-    "बगलामुखी मंदिर",
-    "Pitambara Devi",
-    "Tantra Puja",
-    "Temple Darshan",
-    "Baglamukhi Havan",
+    "Maa Baglamukhi Havan Booking in Nalkheda",
+    "Maa Baglamukhi Temple Nalkheda",
+    "बगलामुखी मंदिर नलखेड़ा",
+    "Pitambara Devi Siddhapeeth",
+    "Baglamukhi Puja Booking",
+    "Pt Deepak Sharma Nalkheda",
+    "Tantra Puja Nalkheda",
+    "Shatru Badha Nivaran",
+    "8239239249",
+    "9079149299",
   ],
-  authors: [{ name: "Shri Maa Baglamukhi Temple Trust" }],
+  authors: [{ name: "Acharya Pt. Deepak Sharma - Chief Purohit Nalkheda" }],
   icons: {
-    icon: "/images/logo.png",
-    apple: "/images/logo.png",
+    icon: "/images/baglamukhi-logo.png",
+    apple: "/images/baglamukhi-logo.png",
+  },
+  alternates: {
+    canonical: "/",
   },
   openGraph: {
-    title: "श्री माँ बगलामुखी मंदिर | Shri Maa Baglamukhi Temple",
+    title: "Maa Baglamukhi Havan Booking in Nalkheda | Pt. Deepak Sharma",
     description:
-      "श्री माँ बगलामुखी जी का पावन दिव्य धाम। दर्शन, पूजा-अर्चना, अनुष्ठान, एवं आध्यात्मिक शांति का पावन केंद्र।",
-    url: "https://baglamukhitemple.org",
-    siteName: "Shri Maa Baglamukhi Temple",
+      "माँ बगलामुखी पूजा और हवन की जानकारी, उपलब्ध सेवाएँ और ऑनलाइन बुकिंग संबंधी सहायता प्राप्त करें। तारीख, प्रक्रिया और शुभ मुहूर्त की पुष्टि के लिए संपर्क करें।",
+    url: "https://baglamukhi-temple-hazel.vercel.app",
+    siteName: "Shri Maa Baglamukhi Temple Nalkheda",
     images: [
       {
-        url: "/images/logo.png",
+        url: "/images/baglamukhi-logo.png",
         width: 1200,
-        height: 1060,
-        alt: "माँ बगलामुखी दिव्य स्वरूप",
+        height: 1200,
+        alt: "माँ बगलामुखी दिव्य स्वरूप नलखेड़ा",
       },
     ],
     locale: "hi_IN",
@@ -56,9 +67,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "श्री माँ बगलामुखी मंदिर",
-    description: "श्री माँ बगलामुखी जी का पावन दिव्य धाम",
-    images: ["/images/logo.png"],
+    title: "Maa Baglamukhi Havan Booking in Nalkheda | Pt. Deepak Sharma",
+    description:
+      "माँ बगलामुखी पूजा और हवन की जानकारी, उपलब्ध सेवाएँ और ऑनलाइन बुकिंग संबंधी सहायता प्राप्त करें।",
+    images: ["/images/baglamukhi-logo.png"],
   },
 };
 

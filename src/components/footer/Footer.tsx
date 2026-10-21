@@ -13,6 +13,7 @@ import {
   Compass,
   Train,
   Plane,
+  Info,
 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -273,6 +274,25 @@ export default function Footer() {
             </div>
           </div>
 
+        </div>
+
+        {/* ================= TRUST & TRANSPARENCY NOTICE (Resolves Issue #4) ================= */}
+        <div className="mt-4 p-4 rounded-2xl bg-black/45 border border-amber-400/25 text-stone-300 text-xs leading-relaxed">
+          <div className="flex items-center gap-2 text-amber-300 font-bold mb-1.5">
+            <Info className="h-4 w-4 text-amber-400 shrink-0" />
+            <span>
+              {t({
+                hi: "पारदर्शिता, शुल्क एवं धार्मिक सूचना (Trust & Devotee Notice)",
+                en: "Transparency, Fee & Religious Notice",
+              })}
+            </span>
+          </div>
+          <p className="text-stone-300 text-[11px] sm:text-xs">
+            {t({
+              hi: "यह वेबसाइट माँ बगलामुखी सिद्धपीठ (नलखेड़ा) के मुख्य उपासक आचार्य पं. दीपक शर्मा जी द्वारा संचालित अधिकृत पूजा, हवन व वैदिक परामर्श सेवा है। वेबसाइट पर दी गई सभी सेवाएं प्रारंभिक पूछताछ, संकल्प एवं शुभ मुहूर्त आरक्षण हेतु हैं। विशिष्ट पूजन सामग्री, आहुति संख्या एवं वैदिक दक्षिणा का विवरण संकल्प से पूर्व पारदर्शी रूप से साझा किया जाता है। सभी अनुष्ठान शास्त्रोक्त वैदिक परंपरा एवं यजमान के नाम-गोत्र से संपन्न होते हैं; यह पोर्टल किसी भी प्रकार के अंधविश्वास या अनुचित गारंटी का दावा नहीं करता है।",
+              en: "This website is an authorized Vedic Puja, Hawan, and Astrological guidance service operated under Chief Purohit Acharya Pt. Deepak Sharma at Nalkheda Siddhapeeth. All bookings on this portal are for preliminary inquiry, Muhurat reservation, and personal Sankalp. Ritual fees, sacrificial samagri, and dakshina are communicated with complete transparency before payment. All rituals follow authentic Vedic & Tantrik scriptures; no guaranteed supernatural or financial outcomes are promised.",
+            })}
+          </p>
         </div>
 
         {/* Bottom Bar with Prism Infotech Solution credit */}

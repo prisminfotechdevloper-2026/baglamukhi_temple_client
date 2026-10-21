@@ -3,7 +3,6 @@
 import { useState } from "react";
 import {
   Compass,
-  Sparkles,
   PhoneCall,
   CheckCircle2,
   AlertCircle,
@@ -179,7 +178,7 @@ export default function KundaliRashiSection() {
               </h3>
             </div>
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FAEDD2] border border-[#D89B18]/50 text-xs font-semibold text-[#78350F]">
-              <Sparkles className="h-3.5 w-3.5 text-[#D89B18]" />
+              <span className="h-2 w-2 rounded-full bg-emerald-600 animate-pulse" />
               <span>{t({ hi: "प्रत्यक्ष परामर्श उपलब्ध", en: "Direct Consultation Available" })}</span>
             </div>
           </div>

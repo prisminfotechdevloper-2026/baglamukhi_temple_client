@@ -1,4 +1,4 @@
-import { Landmark, PhoneCall, MapPin, Sparkles as _no, ShieldCheck } from "lucide-react";
+import { Landmark, PhoneCall, MapPin, ShieldCheck } from "lucide-react";
 import WhatsAppIcon from "@/components/common/WhatsAppIcon";
 
 interface FactItem {

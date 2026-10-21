@@ -4,7 +4,7 @@ import Link from "next/link";
 import {
   Flame,
   ShieldCheck,
-  Sparkles,
+  Sun,
   Coins,
   Crown,
   Award,
@@ -34,7 +34,7 @@ export default function SacredSiddhiBar() {
       id: "divine-attraction",
       title: { hi: "दिव्य सम्मोहन", en: "Divine Attraction" },
       subtitle: { hi: "आकर्षण सिद्धि", en: "Sammohan Siddhi" },
-      icon: Sparkles,
+      icon: Sun,
     },
     {
       id: "dhan-laxmi",

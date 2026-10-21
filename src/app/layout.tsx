@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
 import BottomNav from "@/components/navbar/BottomNav";
 import Footer from "@/components/footer/Footer";
+import { LanguageProvider } from "@/context/LanguageContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -68,12 +69,14 @@ export default function RootLayout({
   return (
     <html lang="hi" className={`${geistSans.variable} ${cinzel.variable}`}>
       <body className="min-h-screen bg-white text-[#221510] antialiased flex flex-col selection:bg-[#FDB514]/30 selection:text-[#AF0807]">
-        <Navbar />
-        <div className="flex-1 flex flex-col pb-20 lg:pb-0">
-          {children}
-          <Footer />
-        </div>
-        <BottomNav />
+        <LanguageProvider>
+          <Navbar />
+          <div className="flex-1 flex flex-col pb-20 lg:pb-0">
+            {children}
+            <Footer />
+          </div>
+          <BottomNav />
+        </LanguageProvider>
       </body>
     </html>
   );

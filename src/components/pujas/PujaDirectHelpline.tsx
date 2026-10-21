@@ -1,14 +1,18 @@
+"use client";
+
 import Image from "next/image";
 import {
   PhoneCall,
   MessageCircle,
   ShieldCheck,
   CheckCircle2,
-  Clock,
   CalendarCheck,
 } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function PujaDirectHelpline() {
+  const { t } = useLanguage();
+
   const whatsappUrl =
     "https://wa.me/917726815642?text=" +
     encodeURIComponent(
@@ -28,31 +32,40 @@ export default function PujaDirectHelpline() {
               <div className="flex items-center gap-2 mb-2">
                 <span className="h-4 w-1 bg-[#AF0807] rounded-full" />
                 <span className="text-xs font-extrabold uppercase tracking-widest text-[#AF0807]">
-                  सीधा पंडित जी से परामर्श • नलखेड़ा सिद्धपीठ
+                  {t({
+                    hi: "सीधा पंडित जी से परामर्श • नलखेड़ा सिद्धपीठ",
+                    en: "Direct Consultation with Pandit Ji • Nalkheda Siddhapeeth",
+                  })}
                 </span>
               </div>
 
               <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#3E0B02] tracking-tight leading-tight mb-3">
-                शुभ मुहूर्त एवं सही अनुष्ठान का चयन करें
+                {t({
+                  hi: "शुभ मुहूर्त एवं सही अनुष्ठान का चयन करें",
+                  en: "Select Auspicious Muhurta & Appropriate Anushthan",
+                })}
               </h2>
 
               <p className="text-stone-700 text-xs sm:text-sm leading-relaxed mb-6">
-                हर समस्या की प्रकृति अलग होती है। अपनी जन्म कुंडली व परिस्थिति के अनुसार कौन सा महाहवन या जप सर्वाधिक प्रभावशाली रहेगा, इसकी नि:शुल्क शास्त्रीय सलाह सीधे पंडित दीपक शर्मा जी से प्राप्त करें।
+                {t({
+                  hi: "हर समस्या की प्रकृति अलग होती है। अपनी जन्म कुंडली व परिस्थिति के अनुसार कौन सा महाहवन या जप सर्वाधिक प्रभावशाली रहेगा, इसकी नि:शुल्क शास्त्रीय सलाह सीधे पंडित दीपक शर्मा जी से प्राप्त करें।",
+                  en: "Every circumstance is unique. Obtain authentic Shastric guidance directly from Pandit Deepak Sharma Ji on which Mahahawan or Jaap is most effective for your horoscope.",
+                })}
               </p>
 
               {/* 3 Checkpoints */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8">
                 <div className="flex items-center gap-2 p-2.5 rounded-xl bg-stone-50 border border-stone-200/80 text-xs text-stone-700">
                   <CheckCircle2 className="h-4 w-4 text-[#AF0807] shrink-0" />
-                  <span className="font-semibold">कोई अग्रिम शुल्क नहीं</span>
+                  <span className="font-semibold">{t({ hi: "कोई अग्रिम शुल्क नहीं", en: "No Advance Consultation Fee" })}</span>
                 </div>
                 <div className="flex items-center gap-2 p-2.5 rounded-xl bg-stone-50 border border-stone-200/80 text-xs text-stone-700">
                   <ShieldCheck className="h-4 w-4 text-[#AF0807] shrink-0" />
-                  <span className="font-semibold">100% गोपनीय मार्गदर्शन</span>
+                  <span className="font-semibold">{t({ hi: "100% गोपनीय मार्गदर्शन", en: "100% Confidential Guidance" })}</span>
                 </div>
                 <div className="flex items-center gap-2 p-2.5 rounded-xl bg-stone-50 border border-stone-200/80 text-xs text-stone-700">
                   <CalendarCheck className="h-4 w-4 text-[#AF0807] shrink-0" />
-                  <span className="font-semibold">सटीक नक्षत्र मुहूर्त</span>
+                  <span className="font-semibold">{t({ hi: "सटीक नक्षत्र मुहूर्त", en: "Precise Nakshatra Muhurta" })}</span>
                 </div>
               </div>
 
@@ -65,7 +78,7 @@ export default function PujaDirectHelpline() {
                   className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#AF0807] hover:bg-[#8B0605] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg transition-all transform hover:scale-[1.02] active:scale-[0.98]"
                 >
                   <MessageCircle className="h-4 w-4 text-amber-300" />
-                  <span>व्हाट्सएप पर मुहूर्त जानें</span>
+                  <span>{t({ hi: "व्हाट्सएप पर मुहूर्त जानें", en: "Find Muhurta on WhatsApp" })}</span>
                 </a>
 
                 <a
@@ -73,7 +86,7 @@ export default function PujaDirectHelpline() {
                   className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-stone-100 hover:bg-stone-200 text-[#3E0B02] text-xs sm:text-sm font-bold transition-colors"
                 >
                   <PhoneCall className="h-4 w-4 text-[#AF0807]" />
-                  <span>सीधा कॉल करें: +91 77268 15642</span>
+                  <span>{t({ hi: "सीधा कॉल करें: +91 77268 15642", en: "Direct Call: +91 77268 15642" })}</span>
                 </a>
               </div>
             </div>
@@ -91,27 +104,27 @@ export default function PujaDirectHelpline() {
                 </div>
 
                 <h3 className="font-serif text-lg font-bold text-[#3E0B02]">
-                  पंडित दीपक शर्मा
+                  {t({ hi: "पंडित दीपक शर्मा", en: "Pandit Deepak Sharma" })}
                 </h3>
                 <p className="text-xs text-[#AF0807] font-semibold mt-0.5">
-                  माँ बगलामुखी अनन्य साधक
+                  {t({ hi: "माँ बगलामुखी अनन्य साधक", en: "Maa Baglamukhi Devout Sadhak" })}
                 </p>
                 <p className="text-[11px] text-stone-500 mt-0.5">
-                  नलखेड़ा सिद्धपीठ (5+ वर्ष अनुभव)
+                  {t({ hi: "नलखेड़ा सिद्धपीठ (5+ वर्ष अनुभव)", en: "Nalkheda Siddhapeeth (5+ Yrs Exp)" })}
                 </p>
 
                 <div className="mt-4 pt-3 border-t border-amber-100 text-[11.5px] text-stone-600 space-y-1.5 text-left">
                   <div className="flex items-center justify-between">
-                    <span className="text-stone-500">स्थान:</span>
-                    <span className="font-semibold text-stone-800">नलखेड़ा मंदिर परिसर</span>
+                    <span className="text-stone-500">{t({ hi: "स्थान:", en: "Venue:" })}</span>
+                    <span className="font-semibold text-stone-800">{t({ hi: "नलखेड़ा मंदिर परिसर", en: "Nalkheda Mandir Complex" })}</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-stone-500">परामर्श समय:</span>
-                    <span className="font-semibold text-stone-800">प्रातः 7:00 से रात्रि 9:30</span>
+                    <span className="text-stone-500">{t({ hi: "परामर्श समय:", en: "Timings:" })}</span>
+                    <span className="font-semibold text-stone-800">{t({ hi: "प्रातः 7:00 से रात्रि 9:30", en: "7:00 AM to 9:30 PM" })}</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-stone-500">सेवा:</span>
-                    <span className="font-semibold text-amber-800">प्रत्यक्ष व ऑनलाइन लाइव</span>
+                    <span className="text-stone-500">{t({ hi: "सेवा:", en: "Services:" })}</span>
+                    <span className="font-semibold text-amber-800">{t({ hi: "प्रत्यक्ष व ऑनलाइन लाइव", en: "In-Person & Online Live" })}</span>
                   </div>
                 </div>
               </div>

@@ -1,3 +1,5 @@
+"use client";
+
 import {
   ShieldCheck,
   Video,
@@ -5,28 +7,43 @@ import {
   PackageCheck,
   CheckCircle2,
 } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function PujaTrustRibbon() {
+  const { t } = useLanguage();
+
   const trustPoints = [
     {
       icon: ShieldCheck,
-      title: "व्यक्तिगत नाम-गोत्र संकल्प",
-      desc: "प्रत्येक यजमान का उनके नाम, पिता का नाम, गोत्र व विशिष्ट संकट के साथ अलग संकल्प।",
+      title: { hi: "व्यक्तिगत नाम-गोत्र संकल्प", en: "Individual Name-Gotra Sankalp" },
+      desc: {
+        hi: "प्रत्येक यजमान का उनके नाम, पिता का नाम, गोत्र व विशिष्ट संकट के साथ अलग संकल्प।",
+        en: "Every Yajman receives a personalized Sankalp with their Name, Gotra, and specific prayer.",
+      },
     },
     {
       icon: Flame,
-      title: "100% सात्विक पीताम्बरा विधि",
-      desc: "हल्दी माला, पीले वस्त्र, पीली सरसों, कमल गट्टा व शुद्ध गो-घृत से शास्त्रोक्त आहुतियां।",
+      title: { hi: "100% सात्विक पीताम्बरा विधि", en: "100% Sattvic Peetambara Vidhi" },
+      desc: {
+        hi: "हल्दी माला, पीले वस्त्र, पीली सरसों, कमल गट्टा व शुद्ध गो-घृत से शास्त्रोक्त आहुतियां।",
+        en: "Sacred ahutis with turmeric mala, yellow vastra, yellow mustard, and pure cow ghee.",
+      },
     },
     {
       icon: Video,
-      title: "लाइव वीडियो दर्शन सुविधा",
-      desc: "दूर रहने वाले भक्तों के लिए WhatsApp / Zoom पर सीधे लाइव जुड़कर संकल्प की पारदर्शी व्यवस्था।",
+      title: { hi: "लाइव वीडियो दर्शन सुविधा", en: "Live Video Darshan Facility" },
+      desc: {
+        hi: "दूर रहने वाले भक्तों के लिए WhatsApp / Zoom पर सीधे लाइव जुड़कर संकल्प की पारदर्शी व्यवस्था।",
+        en: "Transparent live video streaming on WhatsApp / Zoom for remote devotees worldwide.",
+      },
     },
     {
       icon: PackageCheck,
-      title: "डाक द्वारा सिद्ध भस्म व प्रसाद",
-      desc: "हवन के बाद अभिमंत्रित पीताम्बरा रक्षा सूत्र, सिद्ध भस्म एवं प्रसाद स्पीड पोस्ट द्वारा घर तक।",
+      title: { hi: "डाक द्वारा सिद्ध भस्म व प्रसाद", en: "Postal Delivery of Sacred Prasad" },
+      desc: {
+        hi: "हवन के बाद अभिमंत्रित पीताम्बरा रक्षा सूत्र, सिद्ध भस्म एवं प्रसाद स्पीड पोस्ट द्वारा घर तक।",
+        en: "Energized Peetambara raksha sutra, consecrated bhasma, and prasad delivered via Speed Post.",
+      },
     },
   ];
 
@@ -46,15 +63,15 @@ export default function PujaTrustRibbon() {
                     <Icon className="h-5 w-5" />
                   </div>
                   <h3 className="font-serif text-base font-bold text-[#3E0B02] mb-1.5 leading-snug">
-                    {pt.title}
+                    {t(pt.title)}
                   </h3>
                   <p className="text-xs text-stone-600 leading-relaxed mb-3">
-                    {pt.desc}
+                    {t(pt.desc)}
                   </p>
                 </div>
                 <div className="pt-2.5 border-t border-stone-100 flex items-center gap-1.5 text-[11px] font-bold text-amber-950">
                   <CheckCircle2 className="h-3.5 w-3.5 text-[#AF0807] shrink-0" />
-                  <span>विश्वसनीय परंपरा</span>
+                  <span>{t({ hi: "विश्वसनीय परंपरा", en: "Vedic Tradition" })}</span>
                 </div>
               </div>
             );

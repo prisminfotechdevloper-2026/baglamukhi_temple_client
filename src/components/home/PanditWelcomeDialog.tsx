@@ -9,8 +9,10 @@ import {
   Flame,
   CheckCircle2,
 } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function PanditWelcomeDialog() {
+  const { t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [hasTriggered, setHasTriggered] = useState(false);
   const [progress, setProgress] = useState(100);
@@ -155,13 +157,22 @@ export default function PanditWelcomeDialog() {
               </div>
               <div>
                 <h4 className="font-serif text-base font-extrabold text-[#3E0B02] leading-tight">
-                  पंडित दीपक शर्मा
+                  {t({
+                    hi: "पंडित दीपक शर्मा",
+                    en: "Pandit Deepak Sharma",
+                  })}
                 </h4>
                 <p className="text-xs text-[#AF0807] font-semibold mt-0.5">
-                  माँ बगलामुखी अनन्य उपासक
+                  {t({
+                    hi: "माँ बगलामुखी अनन्य उपासक",
+                    en: "Devout Maa Baglamukhi Upasak",
+                  })}
                 </p>
                 <p className="text-[11px] text-stone-500">
-                  नलखेड़ा सिद्धपीठ • 5+ वर्ष अनुभव
+                  {t({
+                    hi: "नलखेड़ा सिद्धपीठ • 5+ वर्ष अनुभव",
+                    en: "Nalkheda Siddhapeeth • 5+ Yrs Exp",
+                  })}
                 </p>
               </div>
             </div>
@@ -169,13 +180,24 @@ export default function PanditWelcomeDialog() {
             {/* Sacred Welcoming Message */}
             <div className="p-4 rounded-2xl bg-white border border-amber-200/70 shadow-xs mb-4">
               <h3 className="font-serif text-lg font-extrabold text-[#AF0807] mb-2 leading-tight">
-                जय माँ बगलामुखी!
+                {t({
+                  hi: "जय माँ बगलामुखी!",
+                  en: "Jai Maa Baglamukhi!",
+                })}
               </h3>
               <p className="text-stone-700 text-sm leading-relaxed">
-                मैं पंडित दीपक शर्मा आपका स्वागत करता हूँ। जीवन में कोई परेशानी हो या मन किसी चिंता से घिरा हो, निःसंकोच अपनी बात साझा करें। मैं आपकी समस्या को समझकर उचित आध्यात्मिक मार्गदर्शन देने का प्रयास करूँगा।
+                {t({
+                  hi: "मैं पंडित दीपक शर्मा आपका स्वागत करता हूँ। जीवन में कोई परेशानी हो या मन किसी चिंता से घिरा हो, निःसंकोच अपनी बात साझा करें। मैं आपकी समस्या को समझकर उचित आध्यात्मिक मार्गदर्शन देने का प्रयास करूँगा।",
+                  en: "I, Pandit Deepak Sharma, warmly welcome you. If you are facing any troubles in life or have spiritual queries regarding Hawan, Anushthan or Kundali, feel free to connect directly. I will guide you with authentic Vedic guidance.",
+                })}
               </p>
               <div className="mt-3 pt-2.5 border-t border-amber-100 flex items-center gap-1.5 text-xs font-bold text-amber-950">
-                 <span>माँ पीताम्बरा आप पर अपनी कृपा बनाए रखें।</span>
+                <span>
+                  {t({
+                    hi: "माँ पीताम्बरा आप पर अपनी कृपा बनाए रखें।",
+                    en: "May Maa Pitambara bestow her divine blessings upon you.",
+                  })}
+                </span>
               </div>
             </div>
 
@@ -183,11 +205,21 @@ export default function PanditWelcomeDialog() {
             <div className="space-y-1.5 text-xs text-stone-600 px-1 mb-4">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="h-3.5 w-3.5 text-amber-600 shrink-0" />
-                <span>100% गोपनीय व व्यक्तिगत परामर्श</span>
+                <span>
+                  {t({
+                    hi: "100% गोपनीय व व्यक्तिगत परामर्श",
+                    en: "100% Confidential & Personal Guidance",
+                  })}
+                </span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="h-3.5 w-3.5 text-amber-600 shrink-0" />
-                <span>हवन, अनुष्ठान व जन्म कुंडली विचार</span>
+                <span>
+                  {t({
+                    hi: "हवन, अनुष्ठान व जन्म कुंडली विचार",
+                    en: "Hawan, Anushthan & Kundali Analysis",
+                  })}
+                </span>
               </div>
             </div>
           </div>
@@ -200,7 +232,12 @@ export default function PanditWelcomeDialog() {
               className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-full bg-gradient-to-r from-[#AF0807] via-[#940706] to-[#7A0505] hover:from-[#940706] hover:to-[#600303] text-white font-bold text-sm shadow-md border border-amber-300/40"
             >
               <MessageCircle className="h-4 w-4 text-amber-300" />
-              <span>पंडित जी से व्हाट्सएप पर बात करें</span>
+              <span>
+                {t({
+                  hi: "पंडित जी से व्हाट्सएप पर बात करें",
+                  en: "Connect with Pandit Ji on WhatsApp",
+                })}
+              </span>
             </button>
 
             <a
@@ -208,7 +245,12 @@ export default function PanditWelcomeDialog() {
               className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-full bg-[#AF0807] hover:bg-[#8B0605] text-white font-bold text-xs shadow-xs"
             >
               <PhoneCall className="h-3.5 w-3.5" />
-              <span>सीधा कॉल करें (+91 7726815642)</span>
+              <span>
+                {t({
+                  hi: "सीधा कॉल करें (+91 7726815642)",
+                  en: "Call Directly (+91 7726815642)",
+                })}
+              </span>
             </a>
 
             <button
@@ -216,7 +258,10 @@ export default function PanditWelcomeDialog() {
               onClick={handleClose}
               className="w-full py-2 text-center text-xs text-stone-500 font-semibold"
             >
-              दर्शन जारी रखें (बाद में बात करें)
+              {t({
+                hi: "दर्शन जारी रखें (बाद में बात करें)",
+                en: "Continue Darshan (Talk Later)",
+              })}
             </button>
           </div>
         </div>
@@ -235,7 +280,7 @@ export default function PanditWelcomeDialog() {
           {/* Top Decorative Bar with Close Button */}
           <div className="flex items-center justify-between pb-3 border-b border-amber-200/70 mb-3.5">
             <div className="flex items-center gap-2">
-               <span className="font-serif text-[11px] font-bold text-amber-900 tracking-wide">
+              <span className="font-serif text-[11px] font-bold text-amber-900 tracking-wide">
                 ॥ ॐ ह्लीं बगलामुख्यै नमः ॥
               </span>
             </div>
@@ -264,27 +309,47 @@ export default function PanditWelcomeDialog() {
             </div>
             <div className="min-w-0">
               <h4 className="font-serif text-base font-extrabold text-[#3E0B02] leading-tight truncate">
-                पंडित दीपक शर्मा
+                {t({
+                  hi: "पंडित दीपक शर्मा",
+                  en: "Pandit Deepak Sharma",
+                })}
               </h4>
               <p className="text-xs text-[#AF0807] font-semibold truncate">
-                माँ बगलामुखी अनन्य उपासक
+                {t({
+                  hi: "माँ बगलामुखी अनन्य उपासक",
+                  en: "Devout Maa Baglamukhi Upasak",
+                })}
               </p>
               <p className="text-[10.5px] text-stone-500">
-                नलखेड़ा सिद्धपीठ • 5+ वर्ष अनुभव
+                {t({
+                  hi: "नलखेड़ा सिद्धपीठ • 5+ वर्ष अनुभव",
+                  en: "Nalkheda Siddhapeeth • 5+ Yrs Exp",
+                })}
               </p>
             </div>
           </div>
 
-          {/* Sacred Welcome Message Requested by User */}
+          {/* Sacred Welcome Message */}
           <div className="space-y-2 mb-4">
             <h3 className="font-serif text-lg font-extrabold text-[#AF0807] leading-snug">
-              जय माँ बगलामुखी!
+              {t({
+                hi: "जय माँ बगलामुखी!",
+                en: "Jai Maa Baglamukhi!",
+              })}
             </h3>
             <p className="text-stone-700 text-xs sm:text-[13px] leading-relaxed">
-              मैं पंडित दीपक शर्मा आपका स्वागत करता हूँ। जीवन में कोई परेशानी हो या मन किसी चिंता से घिरा हो, निःसंकोच अपनी बात साझा करें। मैं आपकी समस्या को समझकर उचित आध्यात्मिक मार्गदर्शन देने का प्रयास करूँगा।
+              {t({
+                hi: "मैं पंडित दीपक शर्मा आपका स्वागत करता हूँ। जीवन में कोई परेशानी हो या मन किसी चिंता से घिरा हो, निःसंकोच अपनी बात साझा करें। मैं आपकी समस्या को समझकर उचित आध्यात्मिक मार्गदर्शन देने का प्रयास करूँगा।",
+                en: "I, Pandit Deepak Sharma, warmly welcome you. If you are facing any troubles in life or have spiritual queries regarding Hawan, Anushthan or Kundali, feel free to connect directly. I will guide you with authentic Vedic guidance.",
+              })}
             </p>
             <div className="pt-2 flex items-center gap-1.5 text-xs font-bold text-[#3E0B02]">
-               <span>माँ पीताम्बरा आप पर अपनी कृपा बनाए रखें।</span>
+              <span>
+                {t({
+                  hi: "माँ पीताम्बरा आप पर अपनी कृपा बनाए रखें।",
+                  en: "May Maa Pitambara bestow her divine blessings upon you.",
+                })}
+              </span>
             </div>
           </div>
 
@@ -296,7 +361,12 @@ export default function PanditWelcomeDialog() {
               className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-full bg-gradient-to-r from-[#AF0807] via-[#940706] to-[#7A0505] hover:from-[#940706] hover:to-[#600303] text-white font-bold text-xs shadow-md hover:shadow-lg transition-all cursor-pointer transform hover:scale-[1.01] border border-amber-300/40"
             >
               <MessageCircle className="h-4 w-4 text-amber-300" />
-              <span>पंडित जी से व्हाट्सएप पर बात करें</span>
+              <span>
+                {t({
+                  hi: "पंडित जी से व्हाट्सएप पर बात करें",
+                  en: "Connect with Pandit Ji on WhatsApp",
+                })}
+              </span>
             </button>
 
             <div className="flex items-center gap-2">
@@ -305,7 +375,12 @@ export default function PanditWelcomeDialog() {
                 className="flex-1 flex items-center justify-center gap-1.5 py-2 px-3 rounded-full bg-stone-100 hover:bg-stone-200 text-[#3E0B02] font-bold text-[11px] transition-colors"
               >
                 <PhoneCall className="h-3 w-3 text-[#AF0807]" />
-                <span>कॉल: 7726815642</span>
+                <span>
+                  {t({
+                    hi: "कॉल: 7726815642",
+                    en: "Call: 7726815642",
+                  })}
+                </span>
               </a>
 
               <button
@@ -313,7 +388,10 @@ export default function PanditWelcomeDialog() {
                 onClick={handleClose}
                 className="px-3 py-2 text-[11px] font-semibold text-stone-500 hover:text-stone-800 transition-colors cursor-pointer"
               >
-                बाद में
+                {t({
+                  hi: "बाद में",
+                  en: "Later",
+                })}
               </button>
             </div>
           </div>

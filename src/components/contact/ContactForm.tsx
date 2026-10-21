@@ -15,35 +15,73 @@ import {
   CheckCircle2,
   AlertCircle,
 } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 type QueryType = "hawan_puja" | "kundali_jyotish";
 
 const HAWAN_PUJA_OPTIONS = [
-  "माँ बगलामुखी महाहवन (शत्रु विजय व संकट नाश)",
-  "विशेष तांत्रिक-वैदिक बगलामुखी अनुष्ठान",
-  "महामृत्युंजय महाजाप एवं शांति हवन",
-  "कालसर्प / पितृ दोष निवारण अनुष्ठान",
-  "नवचंडी / शतचंडी महायज्ञ",
-  "ग्रह शांति व अन्य विशेष संकल्पित पूजा",
+  {
+    hi: "माँ बगलामुखी महाहवन (शत्रु विजय व संकट नाश)",
+    en: "Maa Baglamukhi Mahahawan (Shatru Vijay & Sankat Nash)",
+  },
+  {
+    hi: "विशेष तांत्रिक-वैदिक बगलामुखी अनुष्ठान",
+    en: "Special Tantrik-Vedic Baglamukhi Anushthan",
+  },
+  {
+    hi: "महामृत्युंजय महाजाप एवं शांति हवन",
+    en: "Mahamrityunjaya Mahajaap & Shanti Hawan",
+  },
+  {
+    hi: "कालसर्प / पितृ दोष निवारण अनुष्ठान",
+    en: "Kaal Sarp / Pitra Dosh Nivaran Anushthan",
+  },
+  {
+    hi: "नवचंडी / शतचंडी महायज्ञ",
+    en: "Navchandi / Shatchandi Mahayagya",
+  },
+  {
+    hi: "ग्रह शांति व अन्य विशेष संकल्पित पूजा",
+    en: "Graha Shanti & Special Sankalp Puja",
+  },
 ];
 
 const KUNDALI_OPTIONS = [
-  "संपूर्ण जन्म पत्रिका (कुंडली) विश्लेषण",
-  "विवाह एवं मांगलिक दोष विचार / मिलान",
-  "व्यापार, नौकरी एवं आर्थिक बाधा निवारण",
-  "ग्रह शांति एवं प्रामाणिक रत्न परामर्श",
-  "संतान, शिक्षा एवं स्वास्थ्य संबंधी विचार",
-  "दैनिक जीवन कष्ट निवारण व वर्षफल",
+  {
+    hi: "संपूर्ण जन्म पत्रिका (कुंडली) विश्लेषण",
+    en: "Complete Janam Patrika (Kundali) Analysis",
+  },
+  {
+    hi: "विवाह एवं मांगलिक दोष विचार / मिलान",
+    en: "Vivah & Manglik Dosh Analysis / Gun Milan",
+  },
+  {
+    hi: "व्यापार, नौकरी एवं आर्थिक बाधा निवारण",
+    en: "Business, Career & Financial Obstacle Nivaran",
+  },
+  {
+    hi: "ग्रह शांति एवं प्रामाणिक रत्न परामर्श",
+    en: "Graha Shanti & Certified Gemstone Consultation",
+  },
+  {
+    hi: "संतान, शिक्षा एवं स्वास्थ्य संबंधी विचार",
+    en: "Childbirth, Education & Health Consultation",
+  },
+  {
+    hi: "दैनिक जीवन कष्ट निवारण व वर्षफल",
+    en: "Daily Life Problem Solutions & Varshphal Report",
+  },
 ];
 
 export default function ContactForm() {
+  const { language, t } = useLanguage();
   const [queryType, setQueryType] = useState<QueryType>("hawan_puja");
   
   // Common Form Fields
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [city, setCity] = useState("");
-  const [serviceSubject, setServiceSubject] = useState(HAWAN_PUJA_OPTIONS[0]);
+  const [serviceSubject, setServiceSubject] = useState("");
   const [message, setMessage] = useState("");
   
   // Specific to Hawan/Puja
@@ -58,14 +96,14 @@ export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
+  const currentOptions = queryType === "hawan_puja" ? HAWAN_PUJA_OPTIONS : KUNDALI_OPTIONS;
+  const activeSubject = serviceSubject || t(currentOptions[0]);
+
   // Handle Type Change
   const handleTypeChange = (type: QueryType) => {
     setQueryType(type);
-    if (type === "hawan_puja") {
-      setServiceSubject(HAWAN_PUJA_OPTIONS[0]);
-    } else {
-      setServiceSubject(KUNDALI_OPTIONS[0]);
-    }
+    const newOptions = type === "hawan_puja" ? HAWAN_PUJA_OPTIONS : KUNDALI_OPTIONS;
+    setServiceSubject(t(newOptions[0]));
     setErrorMessage("");
   };
 
@@ -73,12 +111,22 @@ export default function ContactForm() {
     e.preventDefault();
 
     if (!name.trim()) {
-      setErrorMessage("कृपया अपना पूरा नाम दर्ज करें।");
+      setErrorMessage(
+        t({
+          hi: "कृपया अपना पूरा नाम दर्ज करें।",
+          en: "Please enter your full name.",
+        })
+      );
       return;
     }
 
     if (!phone.trim() || phone.trim().length < 10) {
-      setErrorMessage("कृपया 10 अंकों का वैध मोबाइल नंबर दर्ज करें।");
+      setErrorMessage(
+        t({
+          hi: "कृपया 10 अंकों का वैध मोबाइल नंबर दर्ज करें।",
+          en: "Please enter a valid 10-digit mobile number.",
+        })
+      );
       return;
     }
 
@@ -87,8 +135,8 @@ export default function ContactForm() {
 
     const isHawan = queryType === "hawan_puja";
     const typeLabel = isHawan
-      ? "हवन एवं पूजा अनुष्ठान"
-      : "कुंडली एवं ज्योतिष परामर्श";
+      ? t({ hi: "हवन एवं पूजा अनुष्ठान", en: "Hawan & Puja Anushthan" })
+      : t({ hi: "कुंडली एवं ज्योतिष परामर्श", en: "Kundali & Jyotish Consultation" });
 
     // Build Formatted WhatsApp Message
     let text = `॥ श्री माँ बगलामुखी शरणम् ॥\n`;
@@ -98,7 +146,7 @@ export default function ContactForm() {
     text += `*यजमान का नाम:* ${name.trim()}\n`;
     text += `*मोबाइल नंबर:* ${phone.trim()}\n`;
     if (city.trim()) text += `*शहर / राज्य:* ${city.trim()}\n`;
-    text += `*विषय / सेवा:* ${serviceSubject}\n`;
+    text += `*विषय / सेवा:* ${activeSubject}\n`;
 
     if (isHawan) {
       if (gotra.trim()) text += `*गोत्र:* ${gotra.trim()}\n`;
@@ -132,7 +180,10 @@ export default function ContactForm() {
       {/* Step 1: Query Type Selector (Two Tabs) */}
       <div className="mb-8">
         <label className="block text-xs font-bold uppercase tracking-wider text-stone-500 mb-3">
-          1. आप किस सेवा के लिए संपर्क करना चाहते हैं?
+          {t({
+            hi: "1. आप किस सेवा के लिए संपर्क करना चाहते हैं?",
+            en: "1. Select Inquiry Type / Service Requirement",
+          })}
         </label>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
@@ -157,10 +208,13 @@ export default function ContactForm() {
             </div>
             <div>
               <div className="font-serif text-sm sm:text-base font-bold text-[#3E0B02] leading-tight">
-                हवन एवं पूजा अनुष्ठान
+                {t({ hi: "हवन एवं पूजा अनुष्ठान", en: "Hawan & Puja Anushthan" })}
               </div>
               <p className="text-[11px] sm:text-xs text-stone-500 mt-1 leading-snug">
-                माँ बगलामुखी महाहवन, शत्रु बाधा निवारण, महामृत्युंजय व विशेष शांति पूजा
+                {t({
+                  hi: "माँ बगलामुखी महाहवन, शत्रु बाधा निवारण, महामृत्युंजय व विशेष शांति पूजा",
+                  en: "Maa Baglamukhi Mahahawan, Shatru Badha Nivaran, Mahamrityunjaya & Shanti Puja",
+                })}
               </p>
             </div>
           </button>
@@ -186,10 +240,13 @@ export default function ContactForm() {
             </div>
             <div>
               <div className="font-serif text-sm sm:text-base font-bold text-[#3E0B02] leading-tight">
-                कुंडली एवं ज्योतिष परामर्श
+                {t({ hi: "कुंडली एवं ज्योतिष परामर्श", en: "Kundali & Jyotish Consultation" })}
               </div>
               <p className="text-[11px] sm:text-xs text-stone-500 mt-1 leading-snug">
-                जन्म पत्रिका विश्लेषण, विवाह-मांगलिक विचार, ग्रह शांति व समस्या निदान
+                {t({
+                  hi: "जन्म पत्रिका विश्लेषण, विवाह-मांगलिक विचार, ग्रह शांति व समस्या निदान",
+                  en: "Birth Chart Analysis, Marriage-Manglik Matching, Graha Shanti & Remedies",
+                })}
               </p>
             </div>
           </button>
@@ -209,9 +266,17 @@ export default function ContactForm() {
         <div className="mb-6 flex items-start gap-3 p-4 rounded-2xl bg-amber-50 border border-amber-300 text-amber-950">
           <CheckCircle2 className="h-5 w-5 shrink-0 text-[#AF0807] mt-0.5" />
           <div className="text-xs sm:text-sm">
-            <span className="font-bold text-[#AF0807]">पूछताछ विवरण तैयार है!</span>
+            <span className="font-bold text-[#AF0807]">
+              {t({
+                hi: "पूछताछ विवरण तैयार है!",
+                en: "Inquiry Details Ready!",
+              })}
+            </span>
             <p className="text-amber-900 mt-0.5">
-              व्हाट्सएप खुल रहा है... यदि नहीं खुला, तो नीचे दिए गए सीधे नंबर <strong>7726815642</strong> पर संदेश भेजें।
+              {t({
+                hi: "व्हाट्सएप खुल रहा है... यदि नहीं खुला, तो नीचे दिए गए सीधे नंबर 7726815642 पर संदेश भेजें।",
+                en: "Opening WhatsApp... If it does not open, please message directly to 7726815642.",
+              })}
             </p>
           </div>
         </div>
@@ -223,14 +288,18 @@ export default function ContactForm() {
         {/* Section Heading: Personal Details */}
         <div className="border-t border-stone-100 pt-5">
           <label className="block text-xs font-bold uppercase tracking-wider text-stone-500 mb-3">
-            2. आपका व्यक्तिगत विवरण
+            {t({
+              hi: "2. आपका व्यक्तिगत विवरण",
+              en: "2. Personal Details (Devotee / Yajman)",
+            })}
           </label>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {/* Full Name */}
             <div>
               <label className="block text-xs font-semibold text-stone-700 mb-1.5">
-                पूरा नाम (Full Name) <span className="text-red-500">*</span>
+                {t({ hi: "पूरा नाम (Full Name)", en: "Full Name (Yajman)" })}{" "}
+                <span className="text-red-500">*</span>
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-stone-400">
@@ -239,7 +308,7 @@ export default function ContactForm() {
                 <input
                   type="text"
                   required
-                  placeholder="उदा. राहुल शर्मा"
+                  placeholder={t({ hi: "उदा. राहुल शर्मा", en: "e.g. Rahul Sharma" })}
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   className="w-full pl-10 pr-3.5 py-2.5 rounded-xl border border-stone-200 bg-stone-50/50 text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none focus:border-[#AF0807] focus:bg-white transition-colors"
@@ -250,7 +319,8 @@ export default function ContactForm() {
             {/* Mobile / WhatsApp Number */}
             <div>
               <label className="block text-xs font-semibold text-stone-700 mb-1.5">
-                मोबाइल / व्हाट्सएप नंबर <span className="text-red-500">*</span>
+                {t({ hi: "मोबाइल / व्हाट्सएप नंबर", en: "Mobile / WhatsApp Number" })}{" "}
+                <span className="text-red-500">*</span>
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-stone-400">
@@ -259,7 +329,7 @@ export default function ContactForm() {
                 <input
                   type="tel"
                   required
-                  placeholder="10 अंकों का मोबाइल नंबर"
+                  placeholder={t({ hi: "10 अंकों का मोबाइल नंबर", en: "10-digit Mobile Number" })}
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   className="w-full pl-10 pr-3.5 py-2.5 rounded-xl border border-stone-200 bg-stone-50/50 text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none focus:border-[#AF0807] focus:bg-white transition-colors"
@@ -271,7 +341,7 @@ export default function ContactForm() {
           {/* City / State */}
           <div className="mt-4">
             <label className="block text-xs font-semibold text-stone-700 mb-1.5">
-              आपका शहर एवं राज्य (City, State)
+              {t({ hi: "आपका शहर एवं राज्य (City, State)", en: "City & State (Location)" })}
             </label>
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-stone-400">
@@ -279,7 +349,7 @@ export default function ContactForm() {
               </div>
               <input
                 type="text"
-                placeholder="उदा. इंदौर, मध्य प्रदेश"
+                placeholder={t({ hi: "उदा. इंदौर, मध्य प्रदेश", en: "e.g. Indore, Madhya Pradesh" })}
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
                 className="w-full pl-10 pr-3.5 py-2.5 rounded-xl border border-stone-200 bg-stone-50/50 text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none focus:border-[#AF0807] focus:bg-white transition-colors"
@@ -291,21 +361,27 @@ export default function ContactForm() {
         {/* Section Heading: Specific Service Selection */}
         <div className="border-t border-stone-100 pt-5">
           <label className="block text-xs font-bold uppercase tracking-wider text-stone-500 mb-2">
-            3. {queryType === "hawan_puja" ? "हवन व पूजा का चयन करें" : "ज्योतिष परामर्श विषय चुनें"}
+            {queryType === "hawan_puja"
+              ? t({
+                  hi: "3. हवन व पूजा का चयन करें",
+                  en: "3. Select Hawan or Puja Anushthan",
+                })
+              : t({
+                  hi: "3. ज्योतिष परामर्श विषय चुनें",
+                  en: "3. Select Jyotish Consultation Topic",
+                })}
           </label>
 
           <select
-            value={serviceSubject}
+            value={activeSubject}
             onChange={(e) => setServiceSubject(e.target.value)}
             className="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 bg-stone-50/50 text-sm text-stone-900 font-medium focus:outline-none focus:border-[#AF0807] focus:bg-white transition-colors"
           >
-            {(queryType === "hawan_puja" ? HAWAN_PUJA_OPTIONS : KUNDALI_OPTIONS).map(
-              (item, idx) => (
-                <option key={idx} value={item}>
-                  {item}
-                </option>
-              )
-            )}
+            {currentOptions.map((item, idx) => (
+              <option key={idx} value={t(item)}>
+                {t(item)}
+              </option>
+            ))}
           </select>
         </div>
 
@@ -315,11 +391,11 @@ export default function ContactForm() {
             {/* Gotra */}
             <div>
               <label className="block text-xs font-semibold text-stone-700 mb-1.5">
-                गोत्र (यदि ज्ञात हो)
+                {t({ hi: "गोत्र (यदि ज्ञात हो)", en: "Gotra (If known / Optional)" })}
               </label>
               <input
                 type="text"
-                placeholder="उदा. भारद्वाज, कश्यप"
+                placeholder={t({ hi: "उदा. भारद्वाज, कश्यप", en: "e.g. Bharadwaj, Kashyap" })}
                 value={gotra}
                 onChange={(e) => setGotra(e.target.value)}
                 className="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 bg-stone-50/50 text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none focus:border-[#AF0807] focus:bg-white transition-colors"
@@ -329,7 +405,7 @@ export default function ContactForm() {
             {/* Preferred Date */}
             <div>
               <label className="block text-xs font-semibold text-stone-700 mb-1.5">
-                वांछित पूजा / दर्शन तिथि
+                {t({ hi: "वांछित पूजा / दर्शन तिथि", en: "Preferred Puja / Sankalp Date" })}
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-stone-400">
@@ -349,7 +425,7 @@ export default function ContactForm() {
             {/* Date of Birth */}
             <div>
               <label className="block text-xs font-semibold text-stone-700 mb-1.5">
-                जन्म तिथि (DOB)
+                {t({ hi: "जन्म तिथि (DOB)", en: "Date of Birth (DOB)" })}
               </label>
               <input
                 type="date"
@@ -362,7 +438,7 @@ export default function ContactForm() {
             {/* Birth Time */}
             <div>
               <label className="block text-xs font-semibold text-stone-700 mb-1.5">
-                जन्म समय (Birth Time)
+                {t({ hi: "जन्म समय (Birth Time)", en: "Birth Time (Approx / Exact)" })}
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-stone-400">
@@ -380,11 +456,11 @@ export default function ContactForm() {
             {/* Birth Place */}
             <div>
               <label className="block text-xs font-semibold text-stone-700 mb-1.5">
-                जन्म स्थान (City)
+                {t({ hi: "जन्म स्थान (City)", en: "Birth Place (City / District)" })}
               </label>
               <input
                 type="text"
-                placeholder="उदा. उज्जैन"
+                placeholder={t({ hi: "उदा. उज्जैन", en: "e.g. Ujjain" })}
                 value={birthPlace}
                 onChange={(e) => setBirthPlace(e.target.value)}
                 className="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 bg-stone-50/50 text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none focus:border-[#AF0807] focus:bg-white transition-colors"
@@ -396,7 +472,10 @@ export default function ContactForm() {
         {/* Message / Problem Description */}
         <div className="border-t border-stone-100 pt-5">
           <label className="block text-xs font-semibold text-stone-700 mb-1.5">
-            समस्या या विशेष संकल्प का संक्षिप्त विवरण (संदेश)
+            {t({
+              hi: "समस्या या विशेष संकल्प का संक्षिप्त विवरण (संदेश)",
+              en: "Brief Problem Description or Special Sankalp Details",
+            })}
           </label>
           <div className="relative">
             <div className="absolute top-3 left-3.5 pointer-events-none text-stone-400">
@@ -404,7 +483,10 @@ export default function ContactForm() {
             </div>
             <textarea
               rows={3}
-              placeholder="अपनी समस्या, कोर्ट केस, शत्रु बाधा, स्वास्थ्य, व्यापार रुकावट या विशेष संकल्प के बारे में लिखें..."
+              placeholder={t({
+                hi: "अपनी समस्या, कोर्ट केस, शत्रु बाधा, स्वास्थ्य, व्यापार रुकावट या विशेष संकल्प के बारे में लिखें...",
+                en: "Describe your situation: court case, enemy obstacle, health, financial issue, or special sankalp...",
+              })}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               className="w-full pl-10 pr-3.5 py-2.5 rounded-xl border border-stone-200 bg-stone-50/50 text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none focus:border-[#AF0807] focus:bg-white transition-colors resize-none"
@@ -420,7 +502,12 @@ export default function ContactForm() {
             className="w-full sm:flex-1 inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-gradient-to-r from-[#AF0807] via-[#940706] to-[#7A0505] hover:from-[#940706] hover:to-[#600303] text-white text-sm font-bold shadow-lg shadow-red-950/20 hover:shadow-xl transition-all transform hover:scale-[1.01] active:scale-[0.99] cursor-pointer border border-amber-300/40"
           >
             <Send className="h-4 w-4 text-amber-300" />
-            <span>व्हाट्सएप पर सीधी पूछताछ भेजें (WhatsApp Inquiry)</span>
+            <span>
+              {t({
+                hi: "व्हाट्सएप पर सीधी पूछताछ भेजें (WhatsApp Inquiry)",
+                en: "Send Direct WhatsApp Inquiry (Connect Now)",
+              })}
+            </span>
           </button>
 
           {/* Direct Call Button */}
@@ -429,13 +516,16 @@ export default function ContactForm() {
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#AF0807] hover:bg-[#8B0605] text-white text-sm font-bold shadow-md hover:shadow-lg transition-all cursor-pointer"
           >
             <PhoneCall className="h-4 w-4" />
-            <span>सीधा कॉल करें</span>
+            <span>{t({ hi: "सीधा कॉल करें", en: "Call Directly" })}</span>
           </a>
         </div>
 
         {/* Confidentiality Assurance */}
         <p className="text-center text-[11px] text-stone-500 pt-1">
-          🔒 आपकी समस्त जानकारी पूर्णतः गोपनीय रखी जाती है। पंडित दीपक शर्मा जी द्वारा व्यक्तिगत रूप से संपर्क किया जाएगा।
+          {t({
+            hi: "🔒 आपकी समस्त जानकारी पूर्णतः गोपनीय रखी जाती है। पंडित दीपक शर्मा जी द्वारा व्यक्तिगत रूप से संपर्क किया जाएगा।",
+            en: "🔒 100% Confidential & Secure. Pandit Deepak Sharma Ji will personally review and connect with you.",
+          })}
         </p>
 
       </form>

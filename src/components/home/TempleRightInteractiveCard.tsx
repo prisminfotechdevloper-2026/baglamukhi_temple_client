@@ -14,21 +14,50 @@ import {
   Maximize2,
   X,
 } from "lucide-react";
+import { useLanguage, TranslationPair } from "@/context/LanguageContext";
 
-const AARTI_SCHEDULE = [
+interface AartiItem {
+  time: TranslationPair;
+  title: TranslationPair;
+  desc: TranslationPair;
+  icon: typeof Sun;
+  iconColor: string;
+  bgColor: string;
+  borderColor: string;
+}
+
+const AARTI_SCHEDULE: AartiItem[] = [
   {
-    time: "प्रातः 06:00 बजे",
-    title: "मंगला आरती",
-    desc: "प्रातःकालीन प्रथम दिव्य श्रृंगार एवं मंगला पूजन आरती",
+    time: {
+      hi: "प्रातः 06:00 बजे",
+      en: "06:00 AM",
+    },
+    title: {
+      hi: "मंगला आरती",
+      en: "Mangala Aarti",
+    },
+    desc: {
+      hi: "प्रातःकालीन प्रथम दिव्य श्रृंगार एवं मंगला पूजन आरती",
+      en: "Morning first sacred Shringar & Mangala Puja Aarti",
+    },
     icon: Sun,
     iconColor: "text-amber-500",
     bgColor: "bg-amber-50/70",
     borderColor: "border-amber-200/80",
   },
   {
-    time: "सायं 07:30 बजे",
-    title: "संध्या महाआरती",
-    desc: "सांध्यकालीन शंखनाद, दीप ज्योति एवं दिव्य महाआरती",
+    time: {
+      hi: "सायं 07:30 बजे",
+      en: "07:30 PM",
+    },
+    title: {
+      hi: "संध्या महाआरती",
+      en: "Sandhya Maha Aarti",
+    },
+    desc: {
+      hi: "सांध्यकालीन शंखनाद, दीप ज्योति एवं दिव्य महाआरती",
+      en: "Evening Shankhanaad, Deep Jyoti & Divya Maha Aarti",
+    },
     icon: Moon,
     iconColor: "text-orange-600",
     bgColor: "bg-orange-50/60",
@@ -36,24 +65,67 @@ const AARTI_SCHEDULE = [
   },
 ];
 
-const TIMING_POINTS = [
+interface TimingItem {
+  label: TranslationPair;
+  time: TranslationPair;
+  desc: TranslationPair;
+  badge: TranslationPair;
+}
+
+const TIMING_POINTS: TimingItem[] = [
   {
-    label: "दैनिक सामान्य दर्शन",
-    time: "प्रातः 06:00 बजे से रात्रि 09:30 बजे तक",
-    desc: "समस्त श्रद्धालुओं एवं आगंतुकों हेतु मंदिर के मुख्य कपाट खुले रहते हैं।",
-    badge: "प्रतिदिन खुला",
+    label: {
+      hi: "दैनिक सामान्य दर्शन",
+      en: "Daily General Darshan",
+    },
+    time: {
+      hi: "प्रातः 06:00 बजे से रात्रि 09:30 बजे तक",
+      en: "06:00 AM to 09:30 PM",
+    },
+    desc: {
+      hi: "समस्त श्रद्धालुओं एवं आगंतुकों हेतु मंदिर के मुख्य कपाट खुले रहते हैं।",
+      en: "Main temple gates remain open for all devotees and visitors.",
+    },
+    badge: {
+      hi: "प्रतिदिन खुला",
+      en: "Open Daily",
+    },
   },
   {
-    label: "हवन एवं अनुष्ठान समय",
-    time: "आरती समय को छोड़कर संपूर्ण दिवस",
-    desc: "विशेष मनोकामना एवं तांत्रिक-वैदिक हवन दिनभर विधिवत संपन्न होते हैं।",
-    badge: "नियमित",
+    label: {
+      hi: "हवन एवं अनुष्ठान समय",
+      en: "Hawan & Anushthan Hours",
+    },
+    time: {
+      hi: "आरती समय को छोड़कर संपूर्ण दिवस",
+      en: "Throughout the day (except Aarti)",
+    },
+    desc: {
+      hi: "विशेष मनोकामना एवं तांत्रिक-वैदिक हवन दिनभर विधिवत संपन्न होते हैं।",
+      en: "Special Sankalp & Tantrik-Vedic Hawans conducted round the clock.",
+    },
+    badge: {
+      hi: "नियमित",
+      en: "Regular",
+    },
   },
   {
-    label: "नवरात्रि एवं विशेष पर्व",
-    time: "प्रातः 06:00 बजे से रात्रि 11:00 बजे तक",
-    desc: "चैत्र व शारदीय नवरात्रि, गुप्त नवरात्रि तथा विशेष चतुर्दशी पर विस्तारित समय।",
-    badge: "विशेष पर्व",
+    label: {
+      hi: "नवरात्रि एवं विशेष पर्व",
+      en: "Navratri & Special Parva",
+    },
+    time: {
+      hi: "प्रातः 06:00 बजे से रात्रि 11:00 बजे तक",
+      en: "06:00 AM to 11:00 PM",
+    },
+    desc: {
+      hi: "चैत्र व शारदीय नवरात्रि, गुप्त नवरात्रि तथा विशेष चतुर्दशी पर विस्तारित समय।",
+      en: "Extended timings during Chaitra, Shardiya & Gupt Navratri festivals.",
+    },
+    badge: {
+      hi: "विशेष पर्व",
+      en: "Special Occasion",
+    },
   },
 ];
 
@@ -79,6 +151,7 @@ const DARSHAN_IMAGES = [
 ];
 
 export default function TempleRightInteractiveCard() {
+  const { t } = useLanguage();
   const [showGallery, setShowGallery] = useState(false);
   const [currentIdx, setCurrentIdx] = useState(0);
   const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
@@ -108,19 +181,30 @@ export default function TempleRightInteractiveCard() {
             <div className="flex items-center gap-2">
               <span className="h-3.5 w-1 bg-[#AF0807] rounded-full" />
               <span className="text-xs font-extrabold uppercase tracking-widest text-[#3E0B02]">
-                दैनिक दर्शन व आरती सारिणी
+                {t({
+                  hi: "दैनिक दर्शन व आरती सारिणी",
+                  en: "Daily Darshan & Aarti Schedule",
+                })}
               </span>
             </div>
 
             <div className="inline-flex items-center gap-1.5 bg-amber-500/15 border border-amber-400/50 px-2.5 py-1 rounded-lg text-[11px] font-bold text-[#AF0807] shadow-2xs">
               <Clock className="h-3.5 w-3.5 text-[#AF0807]" />
-              <span>कपाट दर्शन खुले हैं</span>
+              <span>
+                {t({
+                  hi: "कपाट दर्शन खुले हैं",
+                  en: "Darshan Doors Open",
+                })}
+              </span>
             </div>
           </div>
 
           {/* Card Title */}
           <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#AF0807] leading-snug mb-6">
-            मंदिर बंद होने एवं खुलने का समय
+            {t({
+              hi: "मंदिर बंद होने एवं खुलने का समय",
+              en: "Temple Opening & Closing Timings",
+            })}
           </h3>
 
           {/* Aarti 2-Column Split */}
@@ -139,13 +223,13 @@ export default function TempleRightInteractiveCard() {
                   <div className="min-w-0">
                     <div className="flex items-center gap-1 text-xs font-bold text-[#3E0B02] mb-0.5">
                       <Icon className={`h-3.5 w-3.5 ${aarti.iconColor}`} />
-                      <span>{aarti.title}</span>
+                      <span>{t(aarti.title)}</span>
                     </div>
                     <div className="font-serif text-base sm:text-lg font-extrabold text-[#AF0807]">
-                      {aarti.time}
+                      {t(aarti.time)}
                     </div>
                     <p className="mt-0.5 text-[11px] text-stone-600 leading-tight">
-                      {aarti.desc}
+                      {t(aarti.desc)}
                     </p>
                   </div>
                 </div>
@@ -167,17 +251,17 @@ export default function TempleRightInteractiveCard() {
                 <div className="flex-1 min-w-0">
                   <div className="flex flex-wrap items-center justify-between gap-1 mb-0.5">
                     <span className="font-bold text-xs sm:text-sm text-[#3E0B02]">
-                      {item.label}
+                      {t(item.label)}
                     </span>
                     <span className="text-[10px] font-semibold text-amber-800 bg-amber-100/70 rounded-md px-1.5 py-0.5">
-                      {item.badge}
+                      {t(item.badge)}
                     </span>
                   </div>
                   <div className="text-xs sm:text-[13px] font-semibold text-[#AF0807]">
-                    {item.time}
+                    {t(item.time)}
                   </div>
                   <p className="text-[11px] text-stone-500 mt-0.5 leading-normal">
-                    {item.desc}
+                    {t(item.desc)}
                   </p>
                 </div>
               </div>
@@ -191,17 +275,25 @@ export default function TempleRightInteractiveCard() {
             href="/contact"
             className="text-xs sm:text-sm font-semibold text-stone-600 hover:text-[#AF0807] transition-colors"
           >
-            दर्शन मार्गदर्शन
+            {t({
+              hi: "दर्शन मार्गदर्शन",
+              en: "Darshan Guidance",
+            })}
           </Link>
 
-          {/* Interactive Arrow Button requested by user */}
+          {/* Interactive Arrow Button */}
           <button
             type="button"
             onClick={() => setShowGallery(true)}
             className="group inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#AF0807] hover:bg-[#8B0605] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg transition-all transform hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
             aria-label="माँ बगलामुखी के 3 दिव्य दर्शन देखें"
           >
-            <span>माँ के 3 दिव्य दर्शन</span>
+            <span>
+              {t({
+                hi: "माँ के 3 दिव्य दर्शन",
+                en: "Maa 3 Divya Darshan",
+              })}
+            </span>
             <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white/20 group-hover:translate-x-1 transition-transform">
               <ArrowRight className="h-3.5 w-3.5 text-white" />
             </span>

@@ -3,110 +3,143 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { useLanguage, TranslationPair } from "@/context/LanguageContext";
 
 interface GalleryItem {
   id: number;
-  title: string;
+  title: TranslationPair;
   category: string;
   categories: string[];
   src: string;
 }
 
-const getCategoryLabel = (category: string) => {
-  if (category === "mandir") return "मंदिर दर्शन";
-  if (category === "hawan") return "हवन-अनुष्ठान";
-  if (category === "pandit-ji") return "पंडित जी";
-  return "दर्शन";
-};
-
 const galleryData: GalleryItem[] = [
   {
     id: 1,
-    title: "माँ पीताम्बरा बगलामुखी माता रानी दिव्य दर्शन",
+    title: {
+      hi: "माँ पीताम्बरा बगलामुखी माता रानी दिव्य दर्शन",
+      en: "Maa Pitambara Baglamukhi Mata Rani Divya Darshan",
+    },
     category: "mandir",
     categories: ["mandir"],
     src: "/images/mata_rani.png",
   },
   {
     id: 2,
-    title: "माँ बगलामुखी मंदिर प्रांगण एवं परिक्रमा मार्ग",
+    title: {
+      hi: "माँ बगलामुखी मंदिर प्रांगण एवं परिक्रमा मार्ग",
+      en: "Maa Baglamukhi Mandir Complex & Parikrama Path",
+    },
     category: "mandir",
     categories: ["mandir"],
     src: "/images/mandir_parisar.png",
   },
   {
     id: 3,
-    title: "माँ बगलामुखी मंदिर नलखेड़ा शिखर एवं सिंहद्वार",
+    title: {
+      hi: "माँ बगलामुखी मंदिर नलखेड़ा शिखर एवं सिंहद्वार",
+      en: "Maa Baglamukhi Mandir Nalkheda Shikhar & Lion Gate",
+    },
     category: "mandir",
     categories: ["mandir"],
     src: "/images/baglamukhi-mandir-real.png",
   },
   {
     id: 4,
-    title: "दिव्य महाहवन एवं घृत आहुति धारा",
+    title: {
+      hi: "दिव्य महाहवन एवं घृत आहुति धारा",
+      en: "Divya Mahahawan & Sacred Ghee Ahuti Stream",
+    },
     category: "hawan",
     categories: ["hawan", "pandit-ji"],
     src: "/images/hawan-anushthan-1.jpg",
   },
   {
     id: 5,
-    title: "शास्त्रोक्त यज्ञ वेदी एवं समिधा अर्पण",
+    title: {
+      hi: "शास्त्रोक्त यज्ञ वेदी एवं समिधा अर्पण",
+      en: "Shastriya Yagya Vedi & Samidha Arpan",
+    },
     category: "hawan",
     categories: ["hawan", "pandit-ji"],
     src: "/images/hawan-anushthan-2.jpg",
   },
   {
     id: 6,
-    title: "पंडित दीपक शर्मा जी (मुख्य यज्ञाचार्य)",
+    title: {
+      hi: "पंडित दीपक शर्मा जी (मुख्य यज्ञाचार्य)",
+      en: "Pandit Deepak Sharma Ji (Chief Yagyacharya)",
+    },
     category: "pandit-ji",
     categories: ["pandit-ji"],
     src: "/images/pandit-deepak-sharma.jpg",
   },
   {
     id: 7,
-    title: "मंदिर मुख्य प्रवेश द्वार एवं लखुन्दर तट",
+    title: {
+      hi: "मंदिर मुख्य प्रवेश द्वार एवं लखुन्दर तट",
+      en: "Mandir Main Entry Gate & Lakhundar River Bank",
+    },
     category: "mandir",
     categories: ["mandir"],
     src: "/images/baglamukhi-entry-gate.jpg",
   },
   {
     id: 8,
-    title: "माँ पीताम्बरा त्रिमुखी दिव्य विग्रह स्वरूप",
+    title: {
+      hi: "माँ पीताम्बरा त्रिमुखी दिव्य विग्रह स्वरूप",
+      en: "Maa Pitambara Trimukhi Divya Vigraha Swaroop",
+    },
     category: "mandir",
     categories: ["mandir"],
     src: "/images/baglamukhi-mata.jpg",
   },
   {
     id: 9,
-    title: "नलखेड़ा मंदिर परिसर एवं दीप स्तम्भ",
+    title: {
+      hi: "नलखेड़ा मंदिर परिसर एवं दीप स्तम्भ",
+      en: "Nalkheda Mandir Complex & Deep Stambha",
+    },
     category: "mandir",
     categories: ["mandir"],
     src: "/images/mandir-darshan-1.jpg",
   },
   {
     id: 10,
-    title: "पावन गर्भगृह एवं शिखर दर्शन",
+    title: {
+      hi: "पावन गर्भगृह एवं शिखर दर्शन",
+      en: "Pawan Garbhagriha & Shikhar Darshan",
+    },
     category: "mandir",
     categories: ["mandir"],
     src: "/images/mandir-darshan-2.jpg",
   },
   {
     id: 11,
-    title: "लखुन्दर नदी तट एवं सिद्धपीठ परिसर",
+    title: {
+      hi: "लखुन्दर नदी तट एवं सिद्धपीठ परिसर",
+      en: "Lakhundar River Bank & Siddhapeeth Complex",
+    },
     category: "mandir",
     categories: ["mandir"],
     src: "/images/mandir-darshan-3.jpg",
   },
   {
     id: 12,
-    title: "श्री माँ बगलामुखी सिद्धपीठ बोर्ड नलखेड़ा",
+    title: {
+      hi: "श्री माँ बगलामुखी सिद्धपीठ बोर्ड नलखेड़ा",
+      en: "Shri Maa Baglamukhi Siddhapeeth Board Nalkheda",
+    },
     category: "mandir",
     categories: ["mandir"],
     src: "/images/temple-board-header.png",
   },
   {
     id: 13,
-    title: "अखंड बगलामुखी महायज्ञ एवं पावन ज्वाला",
+    title: {
+      hi: "अखंड बगलामुखी महायज्ञ एवं पावन ज्वाला",
+      en: "Akhand Baglamukhi Mahayagya & Sacred Flame",
+    },
     category: "hawan",
     categories: ["hawan"],
     src: "/images/hero-desktop.png",
@@ -114,15 +147,29 @@ const galleryData: GalleryItem[] = [
 ];
 
 const categoryTabs = [
-  { key: "all", label: "सभी (All)" },
-  { key: "mandir", label: "मंदिर (Mandir)" },
-  { key: "hawan", label: "हवन (Hawan)" },
-  { key: "pandit-ji", label: "पंडित जी (Pandit Ji)" },
+  { key: "all", label: { hi: "सभी", en: "All" } },
+  { key: "mandir", label: { hi: "मंदिर", en: "Mandir" } },
+  { key: "hawan", label: { hi: "हवन", en: "Hawan" } },
+  { key: "pandit-ji", label: { hi: "पंडित जी", en: "Pandit Ji" } },
 ];
 
 export default function GalleryInteractive() {
+  const { t } = useLanguage();
   const [activeTab, setActiveTab] = useState<string>("all");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  const getCategoryLabel = (category: string) => {
+    if (category === "mandir") {
+      return t({ hi: "मंदिर दर्शन", en: "Mandir Darshan" });
+    }
+    if (category === "hawan") {
+      return t({ hi: "हवन-अनुष्ठान", en: "Hawan & Yagya" });
+    }
+    if (category === "pandit-ji") {
+      return t({ hi: "पंडित जी", en: "Pandit Ji" });
+    }
+    return t({ hi: "दर्शन", en: "Darshan" });
+  };
 
   // Filter items based on active category
   const filteredItems = galleryData.filter((item) => {
@@ -172,7 +219,7 @@ export default function GalleryInteractive() {
                     : "bg-white text-stone-700 hover:text-[#AF0807] hover:bg-amber-50 border border-stone-200 shadow-2xs"
                 }`}
               >
-                <span>{tab.label}</span>
+                <span>{t(tab.label)}</span>
                 <span
                   className={`text-[10px] px-2 py-0.5 rounded-full font-semibold ${
                     isActive ? "bg-black/25 text-amber-200" : "bg-stone-100 text-stone-500"
@@ -195,13 +242,13 @@ export default function GalleryInteractive() {
               onClick={() => setLightboxIndex(idx)}
               tabIndex={0}
               role="button"
-              aria-label={item.title}
+              aria-label={t(item.title)}
               className="group relative rounded-2xl overflow-hidden bg-stone-900 border border-stone-200 hover:border-amber-500 shadow-sm hover:shadow-xl aspect-[4/3] cursor-pointer transition-all duration-300"
             >
               {/* Image */}
               <Image
                 src={item.src}
-                alt={item.title}
+                alt={t(item.title)}
                 fill
                 unoptimized
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -214,7 +261,7 @@ export default function GalleryInteractive() {
               {/* Image Name in Bottom Left on Hover / Active */}
               <div className="absolute bottom-4 left-4 right-4 z-20 text-left opacity-0 group-hover:opacity-100 group-active:opacity-100 group-focus:opacity-100 transform translate-y-1 group-hover:translate-y-0 group-active:translate-y-0 transition-all duration-300 pointer-events-none">
                 <p className="font-serif text-base sm:text-lg font-bold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] leading-snug">
-                  {item.title}
+                  {t(item.title)}
                 </p>
               </div>
             </div>
@@ -224,7 +271,10 @@ export default function GalleryInteractive() {
         {/* Empty State */}
         {filteredItems.length === 0 && (
           <div className="text-center py-16 text-stone-500">
-            इस श्रेणी में कोई छवि उपलब्ध नहीं है।
+            {t({
+              hi: "इस श्रेणी में कोई छवि उपलब्ध नहीं है।",
+              en: "No images available in this category.",
+            })}
           </div>
         )}
 
@@ -284,7 +334,7 @@ export default function GalleryInteractive() {
             <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] max-h-[75vh] rounded-2xl overflow-hidden border-2 border-amber-400/80 shadow-2xl bg-black">
               <Image
                 src={filteredItems[lightboxIndex].src}
-                alt={filteredItems[lightboxIndex].title}
+                alt={t(filteredItems[lightboxIndex].title)}
                 fill
                 unoptimized
                 sizes="100vw"
@@ -298,7 +348,7 @@ export default function GalleryInteractive() {
                 {getCategoryLabel(filteredItems[lightboxIndex].category)} • {lightboxIndex + 1} / {filteredItems.length}
               </span>
               <h4 className="font-serif text-lg sm:text-xl font-bold text-white">
-                {filteredItems[lightboxIndex].title}
+                {t(filteredItems[lightboxIndex].title)}
               </h4>
             </div>
           </div>

@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Search,
   FileText,
@@ -5,31 +7,46 @@ import {
   PackageCheck,
   CheckCircle2,
 } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function PujaHowItWorks() {
+  const { t } = useLanguage();
+
   const steps = [
     {
       step: "01",
-      title: "पूजा / अनुष्ठान का चयन",
-      desc: "अपनी समस्या (शत्रु बाधा, मुकदमा, व्यापार हानि, रोग, या कुंडली दोष) अनुसार उपयुक्त अनुष्ठान का चयन करें।",
+      title: { hi: "पूजा / अनुष्ठान का चयन", en: "Select Your Puja / Anushthan" },
+      desc: {
+        hi: "अपनी समस्या (शत्रु बाधा, मुकदमा, व्यापार हानि, रोग, या कुंडली दोष) अनुसार उपयुक्त अनुष्ठान का चयन करें।",
+        en: "Choose the appropriate anushthan according to your specific concern (enemy trouble, legal issues, business loss, or horoscope doshas).",
+      },
       icon: Search,
     },
     {
       step: "02",
-      title: "नाम-गोत्र विवरण साझा करें",
-      desc: "पंडित दीपक शर्मा जी को फोन अथवा व्हाट्सएप पर अपना नाम, पिता का नाम, गोत्र एवं संकल्प की विशिष्ट कामना बताएं।",
+      title: { hi: "नाम-गोत्र विवरण साझा करें", en: "Share Name & Gotra Details" },
+      desc: {
+        hi: "पंडित दीपक शर्मा जी को फोन अथवा व्हाट्सएप पर अपना नाम, पिता का नाम, गोत्र एवं संकल्प की विशिष्ट कामना बताएं।",
+        en: "Share your full name, father's name, Gotra, and specific prayer/wish directly with Pandit Deepak Sharma Ji via phone or WhatsApp.",
+      },
       icon: FileText,
     },
     {
       step: "03",
-      title: "सिद्धपीठ पर संकल्प व महाहवन",
-      desc: "शुभ मुहूर्त में नलखेड़ा सिद्धपीठ पर साक्षात अग्नि के समक्ष प्रत्यक्ष अथवा लाइव वीडियो कॉल पर संकल्प संपन्न होता है।",
+      title: { hi: "सिद्धपीठ पर संकल्प व महाहवन", en: "Sankalp & Mahahawan at Siddhapeeth" },
+      desc: {
+        hi: "शुभ मुहूर्त में नलखेड़ा सिद्धपीठ पर साक्षात अग्नि के समक्ष प्रत्यक्ष अथवा लाइव वीडियो कॉल पर संकल्प संपन्न होता है।",
+        en: "At the auspicious muhurta, personalized Sankalp and fire ahutis are performed directly or via live video call before the consecrated kunda.",
+      },
       icon: Flame,
     },
     {
       step: "04",
-      title: "रक्षा सूत्र व सिद्ध प्रसाद प्राप्ति",
-      desc: "हवन उपरांत अभिमंत्रित पीताम्बरा रक्षा सूत्र, भस्म एवं माँ का सिद्ध प्रसाद स्पीड पोस्ट ट्रैकिंग द्वारा घर तक प्रेषित।",
+      title: { hi: "रक्षा सूत्र व सिद्ध प्रसाद प्राप्ति", en: "Receive Raksha Sutra & Sacred Prasad" },
+      desc: {
+        hi: "हवन उपरांत अभिमंत्रित पीताम्बरा रक्षा सूत्र, भस्म एवं माँ का सिद्ध प्रसाद स्पीड पोस्ट ट्रैकिंग द्वारा घर तक प्रेषित।",
+        en: "Post-hawan, energized Peetambara raksha sutra, holy bhasma, and temple prasad are dispatched to your home with Speed Post tracking.",
+      },
       icon: PackageCheck,
     },
   ];
@@ -43,14 +60,23 @@ export default function PujaHowItWorks() {
           <div className="flex items-center gap-2 mb-2">
             <span className="h-4 w-1 bg-[#AF0807] rounded-full" />
             <span className="text-xs font-extrabold uppercase tracking-widest text-[#AF0807]">
-              सरल एवं पारदर्शी प्रक्रिया • नलखेड़ा सिद्धपीठ
+              {t({
+                hi: "सरल एवं पारदर्शी प्रक्रिया • नलखेड़ा सिद्धपीठ",
+                en: "Simple & Transparent Process • Nalkheda Siddhapeeth",
+              })}
             </span>
           </div>
           <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#3E0B02] tracking-tight leading-tight">
-            अनुष्ठान बुकिंग एवं संपन्न कराने की 4 सरल विधियाँ
+            {t({
+              hi: "अनुष्ठान बुकिंग एवं संपन्न कराने की 4 सरल विधियाँ",
+              en: "4 Simple Steps to Book & Perform Anushthan",
+            })}
           </h2>
           <p className="font-serif text-xs sm:text-sm text-stone-600 mt-2">
-            चाहे आप स्वयं नलखेड़ा आएं या घर बैठे लाइव संकल्प लें, प्रक्रिया पूरी तरह पारदर्शी और शास्त्रोक्त रहती है।
+            {t({
+              hi: "चाहे आप स्वयं नलखेड़ा आएं या घर बैठे लाइव संकल्प लें, प्रक्रिया पूरी तरह पारदर्शी और शास्त्रोक्त रहती है।",
+              en: "Whether you visit Nalkheda in-person or participate via live video Sankalp, the entire process is completely transparent and Shastric.",
+            })}
           </p>
         </div>
 
@@ -74,17 +100,17 @@ export default function PujaHowItWorks() {
                   </div>
 
                   <h3 className="font-serif text-base sm:text-lg font-bold text-[#3E0B02] mb-2 leading-snug">
-                    {item.title}
+                    {t(item.title)}
                   </h3>
 
                   <p className="text-xs text-stone-600 leading-relaxed mb-4">
-                    {item.desc}
+                    {t(item.desc)}
                   </p>
                 </div>
 
                 <div className="pt-3 border-t border-stone-200/60 flex items-center gap-1.5 text-[11px] font-bold text-amber-950">
                   <CheckCircle2 className="h-3.5 w-3.5 text-[#AF0807] shrink-0" />
-                  <span>चरण {item.step} संपन्न</span>
+                  <span>{t({ hi: `चरण ${item.step} संपन्न`, en: `Step ${item.step} Process` })}</span>
                 </div>
               </div>
             );

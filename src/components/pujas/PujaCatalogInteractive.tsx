@@ -24,6 +24,7 @@ import {
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export interface PujaItem {
   id: string;
@@ -369,36 +370,41 @@ type CategoryFilter = "all" | "tantra" | "jaap" | "dosh" | "samriddhi" | "online
 const ITEMS_PER_PAGE = 3;
 
 export default function PujaCatalogInteractive() {
+  const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState<CategoryFilter>("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedPuja, setSelectedPuja] = useState<PujaItem | null>(null);
 
   const categories = [
-    { key: "all" as CategoryFilter, label: "समस्त अनुष्ठान", count: pujasDatabase.length },
+    {
+      key: "all" as CategoryFilter,
+      label: { hi: "समस्त अनुष्ठान", en: "All Pujas" },
+      count: pujasDatabase.length,
+    },
     {
       key: "tantra" as CategoryFilter,
-      label: "शत्रु बाधा व मुकदमा विजय",
+      label: { hi: "शत्रु बाधा व मुकदमा विजय", en: "Shatru Badha & Court Victory" },
       count: pujasDatabase.filter((p) => p.category === "tantra").length,
     },
     {
       key: "jaap" as CategoryFilter,
-      label: "महामंत्र अखंड जाप",
+      label: { hi: "महामंत्र अखंड जाप", en: "Akhand Mantra Jaap" },
       count: pujasDatabase.filter((p) => p.category === "jaap").length,
     },
     {
       key: "dosh" as CategoryFilter,
-      label: "दोष शांति (कालसर्प/शनि/पितृ)",
+      label: { hi: "दोष शांति (कालसर्प/शनि/पितृ)", en: "Dosha Shanti (Kaalsarp/Shani)" },
       count: pujasDatabase.filter((p) => p.category === "dosh").length,
     },
     {
       key: "samriddhi" as CategoryFilter,
-      label: "व्यापार, समृद्धि व कर्ज मुक्ति",
+      label: { hi: "व्यापार, समृद्धि व कर्ज मुक्ति", en: "Business & Financial Growth" },
       count: pujasDatabase.filter((p) => p.category === "samriddhi").length,
     },
     {
       key: "online" as CategoryFilter,
-      label: "ई-संकल्प व ऑनलाइन सेवा",
+      label: { hi: "ई-संकल्प व ऑनलाइन सेवा", en: "E-Sankalp & Online Service" },
       count: pujasDatabase.filter((p) => p.category === "online").length,
     },
   ];
@@ -448,14 +454,23 @@ export default function PujaCatalogInteractive() {
             <div className="flex items-center gap-2 mb-2">
               <span className="h-4 w-1 bg-[#AF0807] rounded-full" />
               <span className="text-xs font-extrabold uppercase tracking-widest text-[#AF0807]">
-                नलखेड़ा सिद्धपीठ • प्रामाणिक पूजा सूची
+                {t({
+                  hi: "नलखेड़ा सिद्धपीठ • प्रामाणिक पूजा सूची",
+                  en: "Nalkheda Siddhapeeth • Authentic Puja Catalog",
+                })}
               </span>
             </div>
             <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#3E0B02] tracking-tight leading-tight">
-              16 विशिष्ट वैदिक एवं तांत्रिक महाअनुष्ठान
+              {t({
+                hi: "16 विशिष्ट वैदिक एवं तांत्रिक महाअनुष्ठान",
+                en: "16 Sacred Vedic & Tantric Mahahawans",
+              })}
             </h2>
             <p className="font-serif text-xs sm:text-sm text-stone-600 mt-2">
-              बिना किसी मध्यस्थ के सीधे पंडित दीपक शर्मा जी से शास्त्रोक्त संकल्प एवं दशांश हवन संपन्न कराएं।
+              {t({
+                hi: "बिना किसी मध्यस्थ के सीधे पंडित दीपक शर्मा जी से शास्त्रोक्त संकल्प एवं दशांश हवन संपन्न कराएं।",
+                en: "Perform authentic Shastrokta Sankalp and Dashansh Hawan directly with Pandit Deepak Sharma Ji without any middlemen.",
+              })}
             </p>
           </div>
 
@@ -466,7 +481,10 @@ export default function PujaCatalogInteractive() {
               type="text"
               value={searchQuery}
               onChange={(e) => handleSearchChange(e.target.value)}
-              placeholder="अनुष्ठान या समस्या खोजें (उदा. कोर्ट केस, शत्रु)..."
+              placeholder={t({
+                hi: "अनुष्ठान या समस्या खोजें (उदा. कोर्ट केस, शत्रु)...",
+                en: "Search puja or concern (e.g. Court Case, Shatru)...",
+              })}
               className="w-full pl-9 pr-4 py-2.5 text-xs sm:text-sm rounded-full bg-stone-50 border border-stone-200 focus:border-amber-400 focus:bg-white focus:outline-hidden transition-all placeholder:text-stone-400"
             />
             {searchQuery && (
@@ -496,7 +514,7 @@ export default function PujaCatalogInteractive() {
                     : "bg-stone-50 text-stone-700 hover:bg-stone-100 border border-stone-200/80"
                 }`}
               >
-                <span>{cat.label}</span>
+                <span>{t(cat.label)}</span>
                 <span
                   className={`text-[10px] font-extrabold px-1.5 py-0.5 rounded-full ${
                     isActive
@@ -516,10 +534,13 @@ export default function PujaCatalogInteractive() {
           <div className="rounded-3xl bg-stone-50 border-y-0 border-x-2 border-amber-400 p-10 text-center text-stone-600">
             <Info className="h-8 w-8 text-amber-500 mx-auto mb-2" />
             <p className="font-serif text-base font-bold text-[#3E0B02]">
-              कोई अनुष्ठान नहीं मिला
+              {t({ hi: "कोई अनुष्ठान नहीं मिला", en: "No Puja Found" })}
             </p>
             <p className="text-xs text-stone-500 mt-1">
-              कृपया भिन्न शब्द खोजें अथवा अन्य श्रेणी चुनें।
+              {t({
+                hi: "कृपया भिन्न शब्द खोजें अथवा अन्य श्रेणी चुनें।",
+                en: "Please try a different search or choose another category.",
+              })}
             </p>
             <button
               type="button"
@@ -530,7 +551,7 @@ export default function PujaCatalogInteractive() {
               }}
               className="mt-4 px-4 py-2 rounded-full bg-[#AF0807] text-white text-xs font-bold"
             >
-              समस्त 16 अनुष्ठान देखें
+              {t({ hi: "समस्त 16 अनुष्ठान देखें", en: "View All 16 Pujas" })}
             </button>
           </div>
         ) : (
@@ -556,7 +577,7 @@ export default function PujaCatalogInteractive() {
                     {/* Location Pin */}
                     <div className="flex items-center gap-1.5 text-[11px] font-medium text-stone-500 mb-2">
                       <MapPin className="h-3.5 w-3.5 text-amber-600 shrink-0" />
-                      <span>माँ बगलामुखी सिद्धपीठ, नलखेड़ा</span>
+                      <span>{t({ hi: "माँ बगलामुखी सिद्धपीठ, नलखेड़ा", en: "Maa Baglamukhi Siddhapeeth, Nalkheda" })}</span>
                     </div>
 
                     {/* Title */}
@@ -573,14 +594,14 @@ export default function PujaCatalogInteractive() {
                     <div className="space-y-1.5 p-3 rounded-2xl bg-[#FFFDF9] border border-amber-200/60 text-[11.5px] text-stone-700 mb-5">
                       <div className="flex items-center gap-2">
                         <Clock className="h-3.5 w-3.5 text-amber-600 shrink-0" />
-                        <span className="text-stone-500">अवधि:</span>
+                        <span className="text-stone-500">{t({ hi: "अवधि:", en: "Duration:" })}</span>
                         <span className="font-semibold text-stone-800 truncate">
                           {puja.duration}
                         </span>
                       </div>
                       <div className="flex items-center gap-2">
                         <Scroll className="h-3.5 w-3.5 text-amber-600 shrink-0" />
-                        <span className="text-stone-500">मंत्र संख्या:</span>
+                        <span className="text-stone-500">{t({ hi: "मंत्र संख्या:", en: "Mantra Count:" })}</span>
                         <span className="font-semibold text-stone-800 truncate">
                           {puja.mantraCount}
                         </span>
@@ -596,7 +617,7 @@ export default function PujaCatalogInteractive() {
                       className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-full bg-[#AF0807] hover:bg-[#8B0605] text-white font-bold text-xs shadow-xs hover:shadow-md transition-all active:scale-[0.98]"
                     >
                       <MessageCircle className="h-4 w-4 text-amber-300" />
-                      <span>अनुष्ठान बुक करें / संकल्प लें</span>
+                      <span>{t({ hi: "अनुष्ठान बुक करें / संकल्प लें", en: "Book Anushthan / Take Sankalp" })}</span>
                     </button>
 
                     <button
@@ -604,7 +625,7 @@ export default function PujaCatalogInteractive() {
                       onClick={() => setSelectedPuja(puja)}
                       className="w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-full bg-white hover:bg-amber-50 text-[#3E0B02] hover:text-[#AF0807] text-xs font-semibold border border-stone-200 hover:border-amber-300 transition-colors"
                     >
-                      <span>विधि व सामग्री विवरण देखें</span>
+                      <span>{t({ hi: "विधि व सामग्री विवरण देखें", en: "View Vidhi & Samagri Details" })}</span>
                       <ArrowRight className="h-3.5 w-3.5 text-[#AF0807]" />
                     </button>
                   </div>
@@ -619,12 +640,12 @@ export default function PujaCatalogInteractive() {
           <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-stone-200">
             {/* Devotional Count & Page Indicator */}
             <div className="text-xs sm:text-sm text-stone-600 font-medium">
-              प्रदर्शित:{" "}
+              {t({ hi: "प्रदर्शित:", en: "Showing:" })}{" "}
               <span className="font-bold text-[#3E0B02]">
                 {(currentPage - 1) * ITEMS_PER_PAGE + 1} -{" "}
                 {Math.min(currentPage * ITEMS_PER_PAGE, filteredPujas.length)}
               </span>{" "}
-              / कुल <span className="font-bold text-[#AF0807]">{filteredPujas.length}</span> अनुष्ठान (पृष्ठ {currentPage} / {totalPages})
+              / {t({ hi: "कुल", en: "of" })} <span className="font-bold text-[#AF0807]">{filteredPujas.length}</span> {t({ hi: "अनुष्ठान", en: "pujas" })} ({t({ hi: "पृष्ठ", en: "Page" })} {currentPage} / {totalPages})
             </div>
 
             {/* Pagination Controls */}
@@ -641,10 +662,10 @@ export default function PujaCatalogInteractive() {
                 }}
                 disabled={currentPage === 1}
                 className="flex items-center gap-1 px-3.5 py-2 rounded-full border border-stone-200 bg-white text-xs font-semibold text-stone-700 hover:bg-stone-50 disabled:opacity-40 disabled:cursor-not-allowed transition-all cursor-pointer"
-                aria-label="पिछला पृष्ठ"
+                aria-label={t({ hi: "पिछला पृष्ठ", en: "Previous Page" })}
               >
                 <ChevronLeft className="h-4 w-4" />
-                <span className="hidden sm:inline">पिछला</span>
+                <span className="hidden sm:inline">{t({ hi: "पिछला", en: "Prev" })}</span>
               </button>
 
               {/* Numbered Page Buttons */}
@@ -682,9 +703,9 @@ export default function PujaCatalogInteractive() {
                 }}
                 disabled={currentPage === totalPages}
                 className="flex items-center gap-1 px-3.5 py-2 rounded-full border border-stone-200 bg-white text-xs font-semibold text-stone-700 hover:bg-stone-50 disabled:opacity-40 disabled:cursor-not-allowed transition-all cursor-pointer"
-                aria-label="अगला पृष्ठ"
+                aria-label={t({ hi: "अगला पृष्ठ", en: "Next Page" })}
               >
-                <span className="hidden sm:inline">अगला</span>
+                <span className="hidden sm:inline">{t({ hi: "अगला", en: "Next" })}</span>
                 <ChevronRight className="h-4 w-4" />
               </button>
             </div>
@@ -706,7 +727,7 @@ export default function PujaCatalogInteractive() {
                 type="button"
                 onClick={() => setSelectedPuja(null)}
                 className="absolute top-5 right-5 flex h-8 w-8 items-center justify-center rounded-full bg-stone-100 hover:bg-stone-200 text-stone-600 transition-colors"
-                aria-label="बंद करें"
+                aria-label={t({ hi: "बंद करें", en: "Close" })}
               >
                 <X className="h-5 w-5" />
               </button>
@@ -740,7 +761,7 @@ export default function PujaCatalogInteractive() {
                 <div className="p-3.5 rounded-2xl bg-stone-50 border border-stone-200/70">
                   <div className="font-bold text-[#3E0B02] flex items-center gap-2 mb-1">
                     <Clock className="h-4 w-4 text-[#AF0807]" />
-                    <span>अवधि एवं मंत्र संख्या</span>
+                    <span>{t({ hi: "अवधि एवं मंत्र संख्या", en: "Duration & Mantra Count" })}</span>
                   </div>
                   <p className="text-stone-600 pl-6">
                     {selectedPuja.duration} • {selectedPuja.mantraCount}
@@ -750,7 +771,7 @@ export default function PujaCatalogInteractive() {
                 <div className="p-3.5 rounded-2xl bg-stone-50 border border-stone-200/70">
                   <div className="font-bold text-[#3E0B02] flex items-center gap-2 mb-1">
                     <Flame className="h-4 w-4 text-[#AF0807]" />
-                    <span>वैदिक एवं तांत्रिक सामग्री</span>
+                    <span>{t({ hi: "वैदिक एवं तांत्रिक सामग्री", en: "Vedic & Tantric Samagri" })}</span>
                   </div>
                   <p className="text-stone-600 pl-6">
                     {selectedPuja.samagri}
@@ -760,7 +781,7 @@ export default function PujaCatalogInteractive() {
                 <div className="p-3.5 rounded-2xl bg-stone-50 border border-stone-200/70">
                   <div className="font-bold text-[#3E0B02] flex items-center gap-2 mb-1">
                     <CheckCircle2 className="h-4 w-4 text-[#AF0807]" />
-                    <span>किन परिस्थितियों में विशेष फलदायी</span>
+                    <span>{t({ hi: "किन परिस्थितियों में विशेष फलदायी", en: "Recommended For" })}</span>
                   </div>
                   <p className="text-stone-600 pl-6">
                     {selectedPuja.idealFor}
@@ -770,7 +791,7 @@ export default function PujaCatalogInteractive() {
                 <div className="p-3.5 rounded-2xl bg-stone-50 border border-stone-200/70">
                   <div className="font-bold text-[#3E0B02] flex items-center gap-2 mb-1">
                     <Scroll className="h-4 w-4 text-[#AF0807]" />
-                    <span>प्रसाद एवं रक्षा सूत्र प्रेषण</span>
+                    <span>{t({ hi: "प्रसाद एवं रक्षा सूत्र प्रेषण", en: "Prasad & Raksha Sutra Dispatch" })}</span>
                   </div>
                   <p className="text-stone-600 pl-6">
                     {selectedPuja.prasad}
@@ -782,10 +803,13 @@ export default function PujaCatalogInteractive() {
               <div className="p-4 rounded-2xl bg-amber-50/70 border border-amber-300/80 mb-6 text-xs text-amber-950">
                 <div className="font-bold mb-1 flex items-center gap-1.5">
                   <Info className="h-4 w-4 text-[#AF0807]" />
-                  <span>संकल्प हेतु आवश्यक विवरण:</span>
+                  <span>{t({ hi: "संकल्प हेतु आवश्यक विवरण:", en: "Details Required for Sankalp:" })}</span>
                 </div>
                 <p>
-                  यजमान का पूरा नाम, गोत्र, निवास स्थान एवं समस्या का विवरण। पंडित जी द्वारा शुभ मुहूर्त सुनिश्चित कर आपको सूचित किया जाएगा।
+                  {t({
+                    hi: "यजमान का पूरा नाम, गोत्र, निवास स्थान एवं समस्या का विवरण। पंडित जी द्वारा शुभ मुहूर्त सुनिश्चित कर आपको सूचित किया जाएगा।",
+                    en: "Yajman's full name, Gotra, residence, and prayer details. Pandit Ji will determine the auspicious muhurta and coordinate with you.",
+                  })}
                 </p>
               </div>
 
@@ -797,7 +821,7 @@ export default function PujaCatalogInteractive() {
                   className="w-full sm:flex-1 flex items-center justify-center gap-2 py-3 px-5 rounded-full bg-[#AF0807] hover:bg-[#8B0605] text-white font-bold text-xs sm:text-sm shadow-md transition-all"
                 >
                   <MessageCircle className="h-4 w-4 text-amber-300" />
-                  <span>पंडित जी से संकल्प व बुकिंग हेतु बात करें</span>
+                  <span>{t({ hi: "पंडित जी से संकल्प व बुकिंग हेतु बात करें", en: "Connect with Pandit Ji for Sankalp & Booking" })}</span>
                 </button>
 
                 <a

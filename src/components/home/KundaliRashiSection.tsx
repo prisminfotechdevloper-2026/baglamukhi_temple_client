@@ -130,37 +130,30 @@ export default function KundaliRashiSection() {
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         {/* ================= SECTION HEADER ================= */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FAEDD2] border border-[#D89B18]/70 shadow-xs mb-3">
-            <Compass className="h-4 w-4 text-[#8B0000]" />
-            <span className="font-serif text-[#78350F] text-xs font-bold tracking-widest uppercase">
+        <div className="text-left max-w-3xl mb-8 sm:mb-10">
+          <div className="flex items-center gap-2.5 mb-2.5">
+            <span className="h-[2px] w-7 bg-gradient-to-r from-[#D4AF37] to-[#B45309] rounded-full" />
+            <span className="text-xs font-black uppercase tracking-[0.18em] text-[#B45309] font-serif">
               {t({
-                hi: "॥ वैदिक ज्योतिष एवं संपूर्ण जन्म पत्रिका विश्लेषण ॥",
-                en: "॥ Vedic Astrology & Comprehensive Horoscope Analysis ॥",
+                hi: "वैदिक ज्योतिष एवं संपूर्ण जन्म पत्रिका विश्लेषण",
+                en: "Vedic Astrology & Comprehensive Horoscope Analysis",
               })}
             </span>
           </div>
 
-          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#4A0C16] tracking-tight leading-tight mb-3">
+          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#4A0C16] tracking-tight leading-tight mb-2.5">
             {t({
               hi: "12 राशियां, जन्म कुंडली फलादेश एवं ग्रह दोष शांति",
               en: "12 Rashis, Janam Kundali Analysis & Planetary Shanti",
             })}
           </h2>
 
-          <p className="text-stone-700 text-xs sm:text-sm md:text-base leading-relaxed">
+          <p className="text-[#5C3A21] text-xs sm:text-sm md:text-base leading-relaxed">
             {t({
               hi: "माँ बगलामुखी सिद्धपीठ नलखेड़ा में मुख्य यज्ञाचार्य पंडित दीपक शर्मा जी द्वारा आपकी जन्म पत्रिका, ग्रह दशा एवं गोचर का सूक्ष्म परीक्षण कर शास्त्रोक्त समाधान प्रदान किया जाता है।",
               en: "Precise astrological analysis of your birth chart, planetary transits, and mahadasha by Chief Purohit Pandit Deepak Sharma Ji at Nalkheda Siddhapeeth.",
             })}
           </p>
-
-          {/* Golden Lotus Divider */}
-          <div className="w-48 mx-auto mt-4 flex items-center justify-center gap-3">
-            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#D89B18] to-transparent" />
-            <span className="text-[#D89B18] text-sm font-serif font-bold">॥ ॐ ॥</span>
-            <div className="h-px flex-1 bg-gradient-to-l from-transparent via-[#D89B18] to-transparent" />
-          </div>
         </div>
 
         {/* ================= 1. INTERACTIVE 12 RASHIS WHEEL / GRID ================= */}

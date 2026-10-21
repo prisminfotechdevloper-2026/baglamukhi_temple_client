@@ -79,8 +79,8 @@ export default function PanditProfileSection() {
         en: "Accurate Janam Kundali Guidance",
       },
       desc: {
-        hi: "ग्रह शांति, कालसर्प, पितृ दोष, मांगलिक विचार एवं व्यक्तिगत जीवन समस्याओं का अचूक समाधान।",
-        en: "Graha Shanti, Kaal Sarp, Pitra Dosh, Manglik Vichar & personal remedies.",
+        hi: "ग्रह शांति, कालसर्प, पितृ दोष, मांगलिक विचार एवं व्यक्तिगत जीवन समस्याओं का शास्त्रोक्त वैदिक समाधान।",
+        en: "Graha Shanti, Kaal Sarp, Pitra Dosh, Manglik Vichar & personal Vedic remedies.",
       },
       badge: {
         hi: "ज्योतिष मर्मज्ञ",
@@ -174,8 +174,8 @@ export default function PanditProfileSection() {
                   <Award className="h-3.5 w-3.5 text-amber-300" />
                   <span>
                     {t({
-                      hi: "15+ वर्ष साधना",
-                      en: "15+ Yrs Sadhana",
+                      hi: "उज्जैन वेद विद्यालय दीक्षा",
+                      en: "Vedic Diksha Ujjain",
                     })}
                   </span>
                 </div>
@@ -185,11 +185,11 @@ export default function PanditProfileSection() {
             {/* Stats Counter Ribbon Under Photo */}
             <div className="mt-4 w-full max-w-[420px] grid grid-cols-2 gap-2.5">
               <div className="flex flex-col items-center justify-center p-2.5 rounded-xl bg-[#FFFDF8] border border-[#EBD8B4] shadow-xs text-center">
-                <span className="font-serif text-lg font-black text-[#8B0000]">51,000+</span>
-                <span className="text-[11px] font-bold text-[#4A0C16]">{t({ hi: "सफल संकल्प अनुष्ठान", en: "Successful Sankalps" })}</span>
+                <span className="font-serif text-base sm:text-lg font-black text-[#8B0000]">{t({ hi: "शुद्ध संकल्प", en: "Pure Sankalp" })}</span>
+                <span className="text-[11px] font-bold text-[#4A0C16]">{t({ hi: "व्यक्तिगत नाम-गोत्र विधान", en: "Individual Name-Gotra" })}</span>
               </div>
               <div className="flex flex-col items-center justify-center p-2.5 rounded-xl bg-[#FFFDF8] border border-[#EBD8B4] shadow-xs text-center">
-                <span className="font-serif text-lg font-black text-[#D89B18]">100%</span>
+                <span className="font-serif text-base sm:text-lg font-black text-[#D89B18]">100%</span>
                 <span className="text-[11px] font-bold text-[#4A0C16]">{t({ hi: "शास्त्रोक्त वैदिक विधान", en: "Vedic Tradition" })}</span>
               </div>
             </div>
@@ -226,8 +226,8 @@ export default function PanditProfileSection() {
             {/* Short Engaging Bio */}
             <p className="text-[#3D1B10] text-sm sm:text-base leading-relaxed mb-6 font-normal">
               {t({
-                hi: "विश्व प्रसिद्ध माँ बगलामुखी सिद्धपीठ (नलखेड़ा) में वैदिक परंपरा अनुसार अनुष्ठान संपन्न कराने वाले पंडित दीपक शर्मा जी ने महामृत्युंजय वेद विद्यालय, उज्जैन से कर्मकाण्ड की शास्त्रीय दीक्षा प्राप्त की है। आप श्री वशिष्ठ ज्योतिष संस्थान केन्द्र से संबद्ध होकर 15+ वर्षों से भक्तों को जन्मपत्रिका, ग्रह शांति, कालसर्प-मांगलिक दोष एवं शत्रु-बाधा मुक्ति हेतु अचूक शास्त्रोक्त मार्गदर्शन प्रदान कर रहे हैं।",
-                en: "Conducting authentic Vedic & Tantrik Hawans at world-renowned Maa Baglamukhi Siddhapeeth (Nalkheda), Pandit Deepak Sharma Ji was formally initiated in Karmakand at Mahamrityunjaya Veda Vidyalaya, Ujjain. Associated with Shri Vashishtha Jyotish Sansthan, he has been guiding devotees for 15+ years in Janampatrika, Graha Shanti, and Shatru Badha Nivaran.",
+                hi: "विश्व प्रसिद्ध माँ बगलामुखी सिद्धपीठ (नलखेड़ा) में वैदिक परंपरा अनुसार अनुष्ठान संपन्न कराने वाले पंडित दीपक शर्मा जी ने महामृत्युंजय वेद विद्यालय, उज्जैन से कर्मकाण्ड की शास्त्रीय दीक्षा प्राप्त की है। आप श्री वशिष्ठ ज्योतिष संस्थान केन्द्र से निरंतर संबद्ध होकर भक्तों को जन्मपत्रिका, ग्रह शांति, कालसर्प-मांगलिक दोष एवं शत्रु-बाधा निवारण हेतु प्रामाणिक शास्त्रोक्त मार्गदर्शन प्रदान कर रहे हैं।",
+                en: "Conducting authentic Vedic & Tantrik Hawans at world-renowned Maa Baglamukhi Siddhapeeth (Nalkheda), Pandit Deepak Sharma Ji was formally initiated in Karmakand at Mahamrityunjaya Veda Vidyalaya, Ujjain. Associated with Shri Vashishtha Jyotish Sansthan, he guides devotees in Janampatrika, Graha Shanti, and authentic ritual guidance.",
               })}
             </p>
 

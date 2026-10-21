@@ -61,7 +61,7 @@ export default function PanditServicesSummary() {
         en: "Special Baglamukhi vidhi for triumph of truth and justice in prolonged court disputes, property conflicts, and false cases.",
       },
       badge: {
-        hi: "न्यायालयीय मामलों में अचूक",
+        hi: "न्यायालयीय मामलों में शास्त्रोक्त",
         en: "Effective for Legal Matters",
       },
     },

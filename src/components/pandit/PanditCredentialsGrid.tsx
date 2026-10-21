@@ -34,7 +34,7 @@ export default function PanditCredentialsGrid() {
       title: { hi: "श्री वशिष्ठ ज्योतिष संस्थान केन्द्र", en: "Shri Vashishtha Jyotish Sansthan Kendra" },
       subtitle: { hi: "वरिष्ठ ज्योतिषाचार्य व कुंडली मर्मज्ञ", en: "Senior Jyotishacharya & Kundali Expert" },
       description: {
-        hi: "श्री वशिष्ठ ज्योतिष संस्थान केन्द्र से निरंतर संबद्ध होकर 5+ वर्षों से जन्मपत्रिका शोध, दशा-अन्तर्दशा फलकथन, कालसर्प दोष, मांगलिक विचार व पितृ दोष का अचूक वैदिक समाधान एवं शांति अनुष्ठान करा रहे हैं।",
+        hi: "श्री वशिष्ठ ज्योतिष संस्थान केन्द्र से निरंतर संबद्ध होकर 5+ वर्षों से जन्मपत्रिका शोध, दशा-अन्तर्दशा फलकथन, कालसर्प दोष, मांगलिक विचार व पितृ दोष का शास्त्रोक्त वैदिक समाधान एवं शांति अनुष्ठान करा रहे हैं।",
         en: "Affiliated with Shri Vashishtha Jyotish Sansthan Kendra for 5+ years, providing accurate horoscope analysis, Dasha-Antardasha readings, and Vedic remedies for Kaalsarp, Manglik, and Pitra doshas.",
       },
       tags: [

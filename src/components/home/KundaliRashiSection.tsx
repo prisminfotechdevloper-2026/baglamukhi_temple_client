@@ -92,7 +92,7 @@ const kundaliDoshas: KundaliDoshItem[] = [
     id: "career-business-kundali",
     titleHi: "आजीविका, नौकरी व व्यापार कुंडली",
     titleEn: "Career, Job & Business Horoscope",
-    descHi: "दशम भाव, भाग्य भाव एवं धनेश का सूक्ष्म परीक्षण कर सरकारी नौकरी, पदोन्नति, विदेश गमन एवं व्यापारिक लाभ के अचूक वैदिक उपाय।",
+    descHi: "दशम भाव, भाग्य भाव एवं धनेश का सूक्ष्म परीक्षण कर सरकारी नौकरी, पदोन्नति, विदेश गमन एवं व्यापारिक लाभ के शास्त्रोक्त वैदिक उपाय।",
     descEn: "In-depth analysis of 10th and 9th houses for government job success, career promotions, and business profitability.",
     symptoms: ["नौकरी में प्रमोशन में रुकावट", "व्यापार में लगातार मंदी", "इंटरव्यू में बार-बार असफलता"],
   },

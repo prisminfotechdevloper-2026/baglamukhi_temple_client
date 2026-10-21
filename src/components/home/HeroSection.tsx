@@ -105,8 +105,8 @@ export default function HeroSection() {
               <span className="text-white/40">•</span>
               <span className="text-amber-100 font-normal">
                 {t({
-                  hi: "15+ वर्ष सिद्ध साधना • 51,000+ सफल संकल्प",
-                  en: "15+ Yrs Sadhana • 51,000+ Sankalps",
+                  hi: "उज्जैन वेद विद्यालय शास्त्रीय दीक्षा • व्यक्तिगत नाम-गोत्र संकल्प",
+                  en: "Vedic Classical Initiation • Personal Name-Gotra Sankalp",
                 })}
               </span>
             </div>

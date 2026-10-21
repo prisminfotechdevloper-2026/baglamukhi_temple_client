@@ -31,11 +31,11 @@ function TopRibbonItems() {
 
       {/* Direct Phone Helpline with Clickable Link */}
       <a
-        href="tel:+917726815642"
+        href="tel:+918239239249"
         className="inline-flex items-center gap-1.5 text-white hover:text-amber-200 transition-colors font-bold whitespace-nowrap bg-black/35 px-2.5 py-0.5 rounded-full border border-amber-400/35"
       >
         <Phone className="h-3 w-3 text-amber-300 shrink-0" />
-        <span>दर्शन एवं पूजा सहायता: +91 77268 15642 (पं. दीपक शर्मा)</span>
+        <span>दर्शन एवं पूजा सहायता: +91 82392 39249 (पं. दीपक शर्मा)</span>
       </a>
 
       <span className="text-amber-500/50">•</span>
@@ -64,11 +64,11 @@ export default function Navbar() {
 
           <div className="flex items-center gap-4 text-white/95 shrink-0 text-[11.5px]">
             <a
-              href="tel:+917726815642"
+              href="tel:+918239239249"
               className="flex items-center gap-1.5 hover:text-amber-200 transition-colors font-bold"
             >
               <Phone className="h-3 w-3 text-amber-300" />
-              <span>दर्शन एवं पूजा सहायता: +91 77268 15642</span>
+              <span>दर्शन एवं पूजा सहायता: +91 82392 39249</span>
             </a>
           </div>
         </div>

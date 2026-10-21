@@ -21,20 +21,20 @@ import ContactForm from "@/components/contact/ContactForm";
 export const metadata: Metadata = {
   title: "संपर्क करें | श्री माँ बगलामुखी मंदिर नलखेड़ा - पं. दीपक शर्मा",
   description:
-    "श्री माँ बगलामुखी सिद्धपीठ नलखेड़ा में विशेष महाहवन, तांत्रिक-वैदिक अनुष्ठान एवं जन्म कुंडली ज्योतिषीय मार्गदर्शन हेतु पंडित दीपक शर्मा जी से संपर्क करें। फोन: +91 7726815642।",
+    "श्री माँ बगलामुखी सिद्धपीठ नलखेड़ा में विशेष महाहवन, तांत्रिक-वैदिक अनुष्ठान एवं जन्म कुंडली ज्योतिषीय मार्गदर्शन हेतु पंडित दीपक शर्मा जी से संपर्क करें। फोन: +91 82392 39249।",
   keywords: [
     "बगलामुखी मंदिर नलखेड़ा संपर्क",
     "पंडित दीपक शर्मा फोन नंबर",
     "बगलामुखी हवन बुकिंग",
     "नलखेड़ा कैसे पहुंचे",
     "बगलामुखी मंदिर टाइमिंग",
-    "7726815642",
+    "8239239249",
     "माँ बगलामुखी अनुष्ठान संपर्क",
   ],
   openGraph: {
     title: "संपर्क करें | श्री माँ बगलामुखी मंदिर नलखेड़ा - पं. दीपक शर्मा",
     description:
-      "हवन-पूजा अनुष्ठान एवं कुंडली विश्लेषण हेतु पंडित दीपक शर्मा जी से संपर्क करें। फोन: 7726815642। लखुंदर नदी तट, नलखेड़ा।",
+      "हवन-पूजा अनुष्ठान एवं कुंडली विश्लेषण हेतु पंडित दीपक शर्मा जी से संपर्क करें। फोन: 8239239249। लखुंदर नदी तट, नलखेड़ा।",
     type: "website",
     locale: "hi_IN",
   },
@@ -78,10 +78,10 @@ export default function ContactPage() {
               पंडित दीपक शर्मा (सीधा संपर्क)
             </span>
             <a
-              href="tel:+917726815642"
+              href="tel:+918239239249"
               className="font-serif text-lg sm:text-2xl font-black text-[#AF0807] hover:text-[#7A0505] transition-colors"
             >
-              +91 77268 15642
+              +91 82392 39249
             </a>
             <p className="text-[11px] sm:text-xs text-stone-600 mt-1">
               कॉल व व्हाट्सएप: प्रातः 06:00 से रात्रि 09:30
@@ -306,10 +306,10 @@ export default function ContactPage() {
                   सीधा संपर्क नंबर (Calling & WhatsApp)
                 </span>
                 <a
-                  href="tel:+917726815642"
+                  href="tel:+918239239249"
                   className="font-serif text-2xl sm:text-3xl font-extrabold text-[#AF0807] hover:text-[#7A0505] transition-colors mt-1 inline-block"
                 >
-                  +91 7726815642
+                  +91 82392 39249
                 </a>
                 <p className="text-[11px] text-stone-500 mt-1">
                   समय: प्रातः 06:00 बजे से रात्रि 09:30 बजे तक
@@ -319,14 +319,14 @@ export default function ContactPage() {
               {/* Quick Action Buttons */}
               <div className="grid grid-cols-2 gap-3 mt-4">
                 <a
-                  href="tel:+917726815642"
+                  href="tel:+918239239249"
                   className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#AF0807] hover:bg-[#8B0605] text-white text-xs font-bold shadow-sm transition-all"
                 >
                   <PhoneCall className="h-3.5 w-3.5" />
                   <span>कॉल करें</span>
                 </a>
                 <a
-                  href="https://wa.me/917726815642?text=जय%20माँ%20बगलामुखी!%20पंडित%20दीपक%20शर्मा%20जी%2C%20मुझे%20पूजा%20व%20परामर्श%20के%20बारे%20में%20जानकारी%20चाहिए।"
+                  href="https://wa.me/918239239249?text=जय%20माँ%20बगलामुखी!%20पंडित%20दीपक%20शर्मा%20जी%2C%20मुझे%20पूजा%20व%20परामर्श%20के%20बारे%20में%20जानकारी%20चाहिए।"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#AF0807] via-[#940706] to-[#7A0505] hover:from-[#940706] hover:to-[#600303] text-white text-xs font-bold shadow-sm transition-all border border-amber-300/40"

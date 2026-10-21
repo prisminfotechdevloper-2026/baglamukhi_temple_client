@@ -202,16 +202,16 @@ export default function Footer() {
               <div className="flex items-center gap-2.5">
                 <Phone className="h-4 w-4 text-amber-400 shrink-0" />
                 <a
-                  href="tel:+917726815642"
+                  href="tel:+918239239249"
                   className="text-stone-300 hover:text-amber-300 transition-colors font-medium"
                 >
-                  +91 77268 15642 (Pt. Deepak Sharma)
+                  +91 82392 39249 (Pt. Deepak Sharma)
                 </a>
               </div>
 
               <div className="pt-1.5">
                 <a
-                  href="https://wa.me/917726815642"
+                  href="https://wa.me/918239239249"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#AF0807] via-[#940706] to-[#7A0505] hover:from-[#940706] hover:to-[#600303] border border-amber-400/50 px-3.5 py-2.5 text-xs font-bold text-white shadow-md transition-all w-full justify-center"

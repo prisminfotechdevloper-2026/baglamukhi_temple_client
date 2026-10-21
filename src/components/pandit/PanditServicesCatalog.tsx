@@ -316,10 +316,14 @@ export default function PanditServicesCatalog() {
   ];
 
   const handleWhatsAppBooking = (serviceTitle: string) => {
+    // Number 1 (+91 82392 39249) -> Hawan / Puja inquiries
+    // Number 2 (+91 90791 49299) -> Kundali / Jyotish / Rashi inquiries
+    const isKundaliOrJyotish = /kundali|jyotish|rashi|पत्रिका|कुंडली|ज्योतिष|horoscope|birth\s*chart/i.test(serviceTitle);
+    const targetPhone = isKundaliOrJyotish ? "919079149299" : "918239239249";
     const message = encodeURIComponent(
       `जय माँ बगलामुखी! पंडित दीपक शर्मा जी, मुझे आपसे "${serviceTitle}" के संदर्भ में विधि, शुभ मुहूर्त एवं संकल्प हेतु मार्गदर्शन प्राप्त करना है।`
     );
-    window.open(`https://wa.me/917726815642?text=${message}`, "_blank");
+    window.open(`https://wa.me/${targetPhone}?text=${message}`, "_blank");
   };
 
   return (
@@ -602,11 +606,11 @@ export default function PanditServicesCatalog() {
                 </button>
 
                 <a
-                  href="tel:+917726815642"
+                  href="tel:+918239239249"
                   className="w-full sm:w-auto flex items-center justify-center gap-2 py-3 px-5 rounded-full bg-stone-100 hover:bg-stone-200 text-[#3E0B02] font-bold text-xs sm:text-sm transition-colors"
                 >
                   <PhoneCall className="h-4 w-4 text-[#AF0807]" />
-                  <span>+91 77268 15642</span>
+                  <span>+91 82392 39249</span>
                 </a>
               </div>
             </div>

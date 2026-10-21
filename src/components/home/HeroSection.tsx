@@ -148,7 +148,7 @@ export default function HeroSection() {
 
               {/* Secondary CTA */}
               <a
-                href="https://wa.me/917726815642?text=जय%20माँ%20बगलामुखी!%20पंडित%20दीपक%20शर्मा%20जी%2C%20मुझे%20पूजा%20व%20परामर्श%20के%20बारे%20में%20जानकारी%20चाहिए।"
+                href="https://wa.me/918239239249?text=जय%20माँ%20बगलामुखी!%20पंडित%20दीपक%20शर्मा%20जी%2C%20मुझे%20पूजा%20व%20परामर्श%20के%20बारे%20में%20जानकारी%20चाहिए।"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center justify-center gap-3 rounded-2xl bg-black/60 hover:bg-black/80 px-5 py-3 text-sm sm:text-base font-bold text-white border border-amber-400/60 hover:border-amber-300 backdrop-blur-md shadow-xl transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0"

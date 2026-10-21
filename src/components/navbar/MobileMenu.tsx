@@ -148,14 +148,14 @@ export default function MobileMenu() {
               सहायता एवं संपर्क
             </p>
             <a
-              href="tel:+917726815642"
+              href="tel:+918239239249"
               className="flex items-center gap-3 rounded-xl px-4 py-2.5 bg-stone-50 hover:bg-amber-50 text-stone-700 hover:text-amber-900 border border-stone-200/60 text-xs font-semibold transition-colors"
             >
               <Phone className="h-4 w-4 text-[#AF0807]" />
               <span>कॉल करें (Pt. Deepak Sharma)</span>
             </a>
             <a
-              href="https://wa.me/917726815642"
+              href="https://wa.me/918239239249"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 rounded-xl px-4 py-2.5 bg-amber-50 hover:bg-amber-100/70 text-amber-950 border border-amber-200/80 text-xs font-semibold transition-colors"

@@ -14,7 +14,7 @@ export default function PujaDirectHelpline() {
   const { t } = useLanguage();
 
   const whatsappUrl =
-    "https://wa.me/917726815642?text=" +
+    "https://wa.me/918239239249?text=" +
     encodeURIComponent(
       "जय माँ बगलामुखी! पंडित दीपक शर्मा जी, मुझे माँ बगलामुखी सिद्धपीठ नलखेड़ा में विशेष अनुष्ठान / महाहवन के संदर्भ में शुभ मुहूर्त व दक्षिणा विवरण जानना है।"
     );
@@ -82,11 +82,11 @@ export default function PujaDirectHelpline() {
                 </a>
 
                 <a
-                  href="tel:+917726815642"
+                  href="tel:+918239239249"
                   className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-stone-100 hover:bg-stone-200 text-[#3E0B02] text-xs sm:text-sm font-bold transition-colors"
                 >
                   <PhoneCall className="h-4 w-4 text-[#AF0807]" />
-                  <span>{t({ hi: "सीधा कॉल करें: +91 77268 15642", en: "Direct Call: +91 77268 15642" })}</span>
+                  <span>{t({ hi: "सीधा कॉल करें: +91 82392 39249", en: "Direct Call: +91 82392 39249" })}</span>
                 </a>
               </div>
             </div>

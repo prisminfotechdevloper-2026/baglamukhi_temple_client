@@ -164,9 +164,12 @@ export default function ContactForm() {
     text += `--------------------------------\n`;
     text += `पंडित दीपक शर्मा जी, कृपया मार्गदर्शन प्रदान करें।`;
 
-    // WhatsApp URL to Pandit Ji's phone number 7726815642
+    // Routing Logic:
+    // Number 1 (+91 82392 39249) -> Hawan / Puja inquiries
+    // Number 2 (+91 90791 49299) -> Kundali / Jyotish inquiries
+    const targetPhone = isHawan ? "918239239249" : "919079149299";
     const encoded = encodeURIComponent(text);
-    const whatsappUrl = `https://wa.me/917726815642?text=${encoded}`;
+    const whatsappUrl = `https://wa.me/${targetPhone}?text=${encoded}`;
 
     // Open WhatsApp in new tab / app
     setTimeout(() => {
@@ -274,8 +277,8 @@ export default function ContactForm() {
             </span>
             <p className="text-amber-900 mt-0.5">
               {t({
-                hi: "व्हाट्सएप खुल रहा है... यदि नहीं खुला, तो नीचे दिए गए सीधे नंबर 7726815642 पर संदेश भेजें।",
-                en: "Opening WhatsApp... If it does not open, please message directly to 7726815642.",
+                hi: `व्हाट्सएप खुल रहा है... यदि नहीं खुला, तो सीधे नंबर ${queryType === "hawan_puja" ? "+91 82392 39249" : "+91 90791 49299"} पर संदेश भेजें।`,
+                en: `Opening WhatsApp... If it does not open, please message directly to ${queryType === "hawan_puja" ? "+91 82392 39249" : "+91 90791 49299"}.`,
               })}
             </p>
           </div>
@@ -510,9 +513,9 @@ export default function ContactForm() {
             </span>
           </button>
 
-          {/* Direct Call Button */}
+          {/* Direct Call Button (Priority 1) */}
           <a
-            href="tel:+917726815642"
+            href="tel:+918239239249"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#AF0807] hover:bg-[#8B0605] text-white text-sm font-bold shadow-md hover:shadow-lg transition-all cursor-pointer"
           >
             <PhoneCall className="h-4 w-4" />

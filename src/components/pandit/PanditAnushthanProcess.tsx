@@ -119,7 +119,7 @@ export default function PanditAnushthanProcess() {
             </span>
           </div>
           <a
-            href="tel:+917726815642"
+            href="tel:+918239239249"
             className="shrink-0 font-bold text-[#AF0807] hover:underline"
           >
             मार्गदर्शन हेतु कॉल करें →

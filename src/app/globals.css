@@ -93,28 +93,6 @@ html.lenis, html.lenis body {
   animation-play-state: paused;
 }
 
-/* Top Announcement Ribbon Ticker Animation (Continuous Right to Left on Mobile) */
-@keyframes ticker-rtl {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.animate-top-ticker {
-  display: flex;
-  width: max-content;
-  animation: ticker-rtl 22s linear infinite;
-  will-change: transform;
-}
-
-.animate-top-ticker:hover,
-.animate-top-ticker:active {
-  animation-play-state: paused;
-}
-
 /* Sacred Spinning Mantra Halo Animation */
 @keyframes spin-slow {
   from {
@@ -158,16 +136,3 @@ html.lenis, html.lenis body {
   animation: aura-pulse 4s ease-in-out infinite;
 }
 
-/* Button Sheen Sweep */
-@keyframes sheen-sweep {
-  0% {
-    transform: translateX(-100%) skewX(-15deg);
-  }
-  100% {
-    transform: translateX(250%) skewX(-15deg);
-  }
-}
-
-.button-sheen-sweep {
-  animation: sheen-sweep 3.5s ease-in-out infinite;
-}

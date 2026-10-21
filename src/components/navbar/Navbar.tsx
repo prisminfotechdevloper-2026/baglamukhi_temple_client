@@ -19,41 +19,23 @@ const navItems: NavItem[] = [
   { label: "Contact", sub: "Call, WhatsApp", href: "/contact" },
 ];
 
-function TopRibbonItems() {
-  return (
-    <div className="inline-flex items-center gap-8 px-4 shrink-0">
-      {/* Sacred Mantra */}
-      <span className="text-amber-200 font-serif whitespace-nowrap">
-        ॥ ॐ ह्लीं बगलामुखी देव्यै नमः • विश्व प्रसिद्ध सिद्ध तंत्र पीठ नलखेड़ा धाम ॥
-      </span>
-
-      <span className="text-amber-500/50">•</span>
-
-      {/* Direct Phone Helpline with Clickable Link */}
-      <a
-        href="tel:+918239239249"
-        className="inline-flex items-center gap-1.5 text-white hover:text-amber-200 transition-colors font-bold whitespace-nowrap bg-black/35 px-2.5 py-0.5 rounded-full border border-amber-400/35"
-      >
-        <Phone className="h-3 w-3 text-amber-300 shrink-0" />
-        <span>दर्शन एवं पूजा सहायता: +91 82392 39249 (पं. दीपक शर्मा)</span>
-      </a>
-
-      <span className="text-amber-500/50">•</span>
-    </div>
-  );
-}
-
 export default function Navbar() {
   return (
     <header className="sticky top-0 z-40 w-full transition-all">
-      {/* 1. Divine Top Announcement / Helpline Micro-Ribbon */}
-      <div className="bg-gradient-to-r from-[#3D0802] via-[#AF0807] to-[#3D0802] text-white text-[11px] font-medium tracking-wide border-b border-amber-500/20 overflow-hidden">
-        {/* Mobile View: Continuous Smooth Marquee Ticker from Right to Left */}
-        <div className="block sm:hidden w-full overflow-hidden py-1.5 select-none relative">
-          <div className="animate-top-ticker flex items-center">
-            <TopRibbonItems />
-            <TopRibbonItems />
-          </div>
+      {/* 1. Divine Top Announcement / Helpline Micro-Ribbon (Clean & Static) */}
+      <div className="bg-gradient-to-r from-[#3D0802] via-[#AF0807] to-[#3D0802] text-white text-[11px] font-medium tracking-wide border-b border-amber-500/20">
+        {/* Mobile View: Clean Fixed Bar with Sacred Mantra & Helpline */}
+        <div className="flex sm:hidden items-center justify-between px-3 py-1 text-[11px]">
+          <span className="text-amber-200 font-serif font-bold truncate">
+            ॥ ॐ ह्लीं बगलामुखी देव्यै नमः ॥
+          </span>
+          <a
+            href="tel:+918239239249"
+            className="flex items-center gap-1 text-white font-bold shrink-0 bg-black/40 px-2.5 py-0.5 rounded-full border border-amber-400/40 text-[10.5px]"
+          >
+            <Phone className="h-3 w-3 text-amber-300" />
+            <span>+91 82392 39249</span>
+          </a>
         </div>
 
         {/* Desktop View: Clean Fixed Split Bar with Sacred Mantra & Helpline */}

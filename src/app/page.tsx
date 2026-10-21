@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import HeroSection from "@/components/home/HeroSection";
 import SacredSiddhiBar from "@/components/home/SacredSiddhiBar";
-import ServicesMarquee from "@/components/home/ServicesMarquee";
 import KundaliRashiSection from "@/components/home/KundaliRashiSection";
 import TempleOverviewSection from "@/components/home/TempleOverviewSection";
 import PanditProfileSection from "@/components/home/PanditProfileSection";
@@ -134,10 +133,7 @@ export default function HomePage() {
         {/* 2. 8 Sacred Siddhi & Hawan Anushthan Medallions Bar */}
         <SacredSiddhiBar />
 
-        {/* 3. Full-Width Compact Services Slider / Marquee */}
-        <ServicesMarquee />
-
-        {/* 4. Janam Kundali, 12 Rashi & Dosha Nivaran Section (Interactive) */}
+        {/* 3. Janam Kundali, 12 Rashi & Dosha Nivaran Section (Interactive) */}
         <KundaliRashiSection />
 
         {/* 5. Temple Overview (Left) & Timings/Aarti Schedule (Right) */}

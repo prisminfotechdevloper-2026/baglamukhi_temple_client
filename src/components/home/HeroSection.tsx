@@ -149,7 +149,7 @@ export default function HeroSection() {
               {/* Primary CTA */}
               <Link
                 href="/contact"
-                className="group relative inline-flex items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-[#AF0807] via-[#940706] to-[#7A0505] px-6 py-3 text-sm sm:text-base font-bold text-white shadow-xl shadow-red-950/60 border border-amber-400/50 hover:border-amber-300 hover:shadow-2xl transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 overflow-hidden button-sheen-sweep"
+                className="group relative inline-flex items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-[#AF0807] via-[#940706] to-[#7A0505] px-6 py-3 text-sm sm:text-base font-bold text-white shadow-xl shadow-red-950/60 border border-amber-400/50 hover:border-amber-300 hover:shadow-2xl transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0"
               >
                 <CalendarCheck className="h-5 w-5 text-amber-300 shrink-0" />
                 <div className="flex flex-col text-left leading-tight">

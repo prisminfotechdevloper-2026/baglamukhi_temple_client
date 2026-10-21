@@ -459,7 +459,7 @@ export default function DarshanVideoInteractiveLeaf() {
               <Tv className="h-4 w-4" />
               वैदिक अनुष्ठान एवं दर्शन प्लेलिस्ट
             </h3>
-            <span className="rounded-full bg-[#8B0000]/10 px-2.5 py-0.5 text-xs font-bold text-[#8B0000]">
+            <span className="rounded-md bg-amber-500/15 border border-amber-500/30 px-2.5 py-0.5 text-xs font-bold text-[#78350F]">
               {list.length} Videos
             </span>
           </div>

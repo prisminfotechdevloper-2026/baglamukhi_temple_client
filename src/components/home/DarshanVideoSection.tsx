@@ -22,39 +22,30 @@ export default function DarshanVideoSection() {
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* ============ SECTION HEADER ============ */}
-        <header className="mb-8 sm:mb-10">
-          {/* REC strip */}
-          <div className="mb-5 flex flex-wrap items-center justify-between gap-2 text-xs font-bold text-[#8B0000]">
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#8B0000]/25 bg-[#8B0000]/10 px-3.5 py-1.5">
-               REC • नलखेड़ा धाम रील आर्काइव
+        <header className="mb-8 sm:mb-10 max-w-3xl">
+          <div className="flex items-center gap-2.5 mb-2.5">
+            <span className="h-[2px] w-7 bg-gradient-to-r from-[#D4AF37] to-[#B45309] rounded-full" />
+            <span className="text-xs font-black uppercase tracking-[0.18em] text-[#B45309] font-serif">
+              प्रत्यक्ष प्रमाण • दिव्य हवन एवं दर्शन आर्काइव
             </span>
-            <span className="text-[#5C3A21]/80">{CHANNEL_HANDLE}</span>
           </div>
+          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-black text-[#4A0C16] tracking-tight leading-tight">
+            दिव्य अनुष्ठान एवं हवन दर्शन इन मोशन
+          </h2>
+          <p className="mt-2.5 text-xs sm:text-sm md:text-base text-[#5C3A21] leading-relaxed">
+            माँ बगलामुखी सिद्धपीठ नलखेड़ा में आचार्य पं. दीपक शर्मा जी द्वारा विधि-विधान से संपन्न किए गए वैदिक हवन, विशेष तंत्र पूजा, एवं माता के प्रत्यक्ष दर्शन की वास्तविक वीडियो झलकियां।
+          </p>
 
-          <div className="max-w-3xl">
-            <p className="text-xs font-bold tracking-wider text-[#B45309]">
-              प्रत्यक्ष प्रमाण • CINEMATIC EXPERIENCE
-            </p>
-            <h2 className="mt-2 font-serif text-2xl font-black leading-tight tracking-tight text-[#4A0C16] sm:text-3xl md:text-4xl lg:text-[40px]">
-              दिव्य अनुष्ठान एवं हवन दर्शन इन मोशन
-            </h2>
-            <p className="mt-3 text-sm leading-relaxed text-[#5C3A21] sm:text-base">
-              माँ बगलामुखी सिद्धपीठ नलखेड़ा में आचार्य पं. दीपक शर्मा जी द्वारा विधि-विधान से संपन्न
-              किए गए वैदिक हवन, विशेष तंत्र पूजा, एवं माता के प्रत्यक्ष दर्शन की वास्तविक वीडियो
-              झलकियां।
-            </p>
-
-            <ul className="mt-5 flex flex-wrap gap-2 text-xs font-bold text-[#8B0000] sm:gap-3">
-              {TRUST_BADGES.map(({ icon: Icon, text, color }) => (
-                <li
-                  key={text}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-[#E8D8B8] bg-white/80 px-3 py-1.5 shadow-sm"
-                >
-                  <Icon className={`h-3.5 w-3.5 ${color}`} />
-                  {text}
-                </li>
-              ))}
-            </ul>
+          <div className="mt-4 flex flex-wrap items-center gap-2 sm:gap-3">
+            {TRUST_BADGES.map(({ icon: Icon, text, color }) => (
+              <div
+                key={text}
+                className="inline-flex items-center gap-1.5 rounded-xl border border-[#E8D8B8] bg-white/90 px-3.5 py-1.5 text-xs font-bold text-[#3B1E08] shadow-xs"
+              >
+                <Icon className={`h-3.5 w-3.5 ${color}`} />
+                <span>{text}</span>
+              </div>
+            ))}
           </div>
         </header>
 

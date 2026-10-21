@@ -100,9 +100,9 @@ export default function PanditProfileSection() {
         
         {/* ================= MOBILE HEADER ================= */}
         <div className="block lg:hidden text-left mb-6">
-          <div className="inline-flex items-center gap-2 rounded-full bg-[#8B0000]/10 border border-[#8B0000]/25 px-3 py-1 mb-2">
-            <span className="h-2 w-2 bg-[#8B0000] rounded-full animate-ping" />
-            <span className="text-xs font-extrabold uppercase tracking-widest text-[#8B0000]">
+          <div className="flex items-center gap-2.5 mb-2">
+            <span className="h-[2px] w-7 bg-gradient-to-r from-[#D4AF37] to-[#B45309] rounded-full" />
+            <span className="text-xs font-black uppercase tracking-[0.18em] text-[#B45309] font-serif">
               {t({
                 hi: "मुख्य उपासक परिचय • नलखेड़ा सिद्धपीठ",
                 en: "Chief Priest Introduction • Nalkheda Siddhapeeth",
@@ -200,9 +200,9 @@ export default function PanditProfileSection() {
             
             {/* Desktop Header */}
             <div className="hidden lg:block text-left mb-3">
-              <div className="inline-flex items-center gap-2 rounded-full bg-[#8B0000]/10 border border-[#8B0000]/25 px-3 py-1 mb-2">
-                <span className="h-2 w-2 bg-[#8B0000] rounded-full animate-ping" />
-                <span className="text-xs font-extrabold uppercase tracking-widest text-[#8B0000]">
+              <div className="flex items-center gap-2.5 mb-2">
+                <span className="h-[2px] w-7 bg-gradient-to-r from-[#D4AF37] to-[#B45309] rounded-full" />
+                <span className="text-xs font-black uppercase tracking-[0.18em] text-[#B45309] font-serif">
                   {t({
                     hi: "वैदिक आचार्य परिचय • नलखेड़ा सिद्धपीठ",
                     en: "Vedic Acharya Introduction • Nalkheda Siddhapeeth",
@@ -249,7 +249,7 @@ export default function PanditProfileSection() {
                           {t(item.title)}
                         </span>
                       </div>
-                      <span className="text-[10px] font-bold text-[#8B0000] bg-[#8B0000]/10 rounded-md px-1.5 py-0.5 border border-[#8B0000]/20">
+                      <span className="text-[10px] font-bold text-[#78350F] bg-amber-500/15 rounded-md px-2 py-0.5 border border-amber-500/30">
                         {t(item.badge)}
                       </span>
                     </div>

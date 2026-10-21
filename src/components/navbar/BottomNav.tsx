@@ -10,26 +10,23 @@ import {
   Image as ImageIcon,
   Phone,
 } from "lucide-react";
-import { useLanguage } from "@/context/LanguageContext";
-
 interface BottomNavItem {
-  label: { hi: string; en: string };
+  label: string;
   href: string;
   icon: typeof Home;
 }
 
 const navItems: BottomNavItem[] = [
-  { label: { hi: "होम", en: "Home" }, href: "/", icon: Home },
-  { label: { hi: "परिचय", en: "About" }, href: "/pandit-ji", icon: Users },
-  { label: { hi: "पूजा", en: "Pujas" }, href: "/pujas", icon: CalendarCheck },
-  { label: { hi: "मंदिर", en: "Mandir" }, href: "/mandir", icon: Landmark },
-  { label: { hi: "गैलरी", en: "Gallery" }, href: "/gallery", icon: ImageIcon },
-  { label: { hi: "संपर्क", en: "Contact" }, href: "/contact", icon: Phone },
+  { label: "Home", href: "/", icon: Home },
+  { label: "About", href: "/pandit-ji", icon: Users },
+  { label: "Pujas", href: "/pujas", icon: CalendarCheck },
+  { label: "Mandir", href: "/mandir", icon: Landmark },
+  { label: "Gallery", href: "/gallery", icon: ImageIcon },
+  { label: "Contact", href: "/contact", icon: Phone },
 ];
 
 export default function BottomNav() {
   const pathname = usePathname();
-  const { t } = useLanguage();
 
   return (
     <nav
@@ -70,7 +67,7 @@ export default function BottomNav() {
                     : "font-semibold text-[#6B5A52]"
                   }`}
               >
-                {t(item.label)}
+                {item.label}
               </span>
             </Link>
           );

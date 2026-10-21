@@ -4,7 +4,6 @@ import { useState } from "react";
 import {
   Flame,
   Compass,
-  Send,
   PhoneCall,
   User,
   Phone,
@@ -666,28 +665,35 @@ export default function ContactForm() {
         </div>
 
         {/* Submit Buttons */}
-        <div className="pt-3 flex flex-col sm:flex-row items-center gap-3">
-          {/* WhatsApp Direct Submit Button */}
+        <div className="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+          {/* WhatsApp Direct Submit Button (Authentic WhatsApp Branding) */}
           <button
             type="submit"
-            className="w-full sm:flex-1 inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-gradient-to-r from-[#AF0807] via-[#940706] to-[#7A0505] hover:from-[#940706] hover:to-[#600303] text-white text-sm font-bold shadow-lg shadow-red-950/20 hover:shadow-xl transition-transform duration-200 hover:scale-[1.01] active:scale-[0.99] cursor-pointer border border-amber-300/40"
+            className="w-full sm:flex-1 inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-gradient-to-r from-[#25D366] via-[#22C55E] to-[#16A34A] hover:from-[#20BD5A] hover:to-[#15803D] text-white text-sm font-bold shadow-[0_6px_20px_-2px_rgba(37,211,102,0.35)] hover:shadow-[0_10px_28px_-2px_rgba(37,211,102,0.45)] transition-transform duration-200 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer border border-emerald-300/40"
           >
-            <Send className="h-4 w-4 text-amber-300" />
+            <div className="flex h-5 w-5 items-center justify-center rounded-full bg-white/20">
+              <WhatsAppIcon className="h-3.5 w-3.5 text-white fill-current" />
+            </div>
             <span>
               {t({
-                hi: "व्हाट्सएप पर सीधी पूछताछ भेजें (WhatsApp Inquiry)",
-                en: "Send Direct WhatsApp Inquiry (Connect Now)",
+                hi: "व्हाट्सएप पर सीधी पूछताछ भेजें",
+                en: "Send WhatsApp Inquiry",
               })}
             </span>
           </button>
 
-          {/* Direct Call Button (Priority 1) */}
+          {/* Direct Call Button (Temple Maroon with Gold Border & Dynamic Phone Routing) */}
           <a
-            href="tel:+917223083313"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#AF0807] hover:bg-[#8B0605] text-white text-sm font-bold shadow-md hover:shadow-lg transition-colors cursor-pointer"
+            href={`tel:+${queryType === "hawan_puja" ? "917223083313" : "919575664204"}`}
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-[#7A0008] via-[#8B0000] to-[#600202] hover:from-[#600202] hover:to-[#450101] text-white text-sm font-bold shadow-md hover:shadow-lg transition-transform duration-200 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer border border-amber-400/50"
           >
-            <PhoneCall className="h-4 w-4" />
-            <span>{t({ hi: "सीधा कॉल करें (+91 72230 83313)", en: "Call Directly (+91 72230 83313)" })}</span>
+            <PhoneCall className="h-4 w-4 text-amber-300" />
+            <span>
+              {t({
+                hi: `सीधा कॉल करें (${queryType === "hawan_puja" ? "+91 72230 83313" : "+91 95756 64204"})`,
+                en: `Call Directly (${queryType === "hawan_puja" ? "+91 72230 83313" : "+91 95756 64204"})`,
+              })}
+            </span>
           </a>
         </div>
 

@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useLanguage } from "@/context/LanguageContext";
 
 interface NavItem {
   label: string;
@@ -14,24 +13,13 @@ interface DesktopNavLinksProps {
   items: NavItem[];
 }
 
-const navLabels: Record<string, { hi: string; en: string }> = {
-  "/": { hi: "होम", en: "Home" },
-  "/pandit-ji": { hi: "परिचय", en: "About" },
-  "/pujas": { hi: "पूजा विधान", en: "Pujas" },
-  "/mandir": { hi: "मंदिर इतिहास", en: "Mandir" },
-  "/gallery": { hi: "दर्शन गैलरी", en: "Gallery" },
-  "/contact": { hi: "संपर्क", en: "Contact" },
-};
-
 export default function DesktopNavLinks({ items }: DesktopNavLinksProps) {
   const pathname = usePathname();
-  const { t } = useLanguage();
 
   return (
     <ul className="flex items-center gap-1 xl:gap-2">
       {items.map((item) => {
         const isActive = pathname === item.href;
-        const displayLabel = navLabels[item.href] ? t(navLabels[item.href]) : item.label;
 
         return (
           <li key={item.href}>
@@ -41,16 +29,14 @@ export default function DesktopNavLinks({ items }: DesktopNavLinksProps) {
             >
               {/* Primary Label - Standard Website Navbar Size (15px-16px) */}
               <span
-                className={`text-[15px] xl:text-[16px] leading-tight transition-colors duration-200 tracking-normal ${isActive
+                className={`text-[15px] xl:text-[16px] leading-tight transition-colors duration-200 tracking-normal ${
+                  isActive
                     ? "font-bold text-[#AF0807]"
                     : "font-semibold text-stone-800 group-hover:text-[#AF0807]"
-                  }`}
+                }`}
               >
-                {displayLabel}
+                {item.label}
               </span>
-
-              {/* Sub-label - Clear and Readable (11.5px-12px) */}
-
 
               {/* Left-to-Right Animated Underline (only on hover) */}
               <span

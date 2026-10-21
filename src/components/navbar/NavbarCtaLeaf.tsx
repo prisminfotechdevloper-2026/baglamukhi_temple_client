@@ -2,11 +2,8 @@
 
 import Link from "next/link";
 import { CalendarCheck } from "lucide-react";
-import { useLanguage } from "@/context/LanguageContext";
 
 export default function NavbarCtaLeaf() {
-  const { t } = useLanguage();
-
   return (
     <Link
       href="/pujas"
@@ -15,10 +12,7 @@ export default function NavbarCtaLeaf() {
       <CalendarCheck className="h-4 w-4 xl:h-5 xl:w-5 text-amber-300" />
       <div className="flex flex-col text-left leading-none">
         <span className="tracking-wide text-sm xl:text-[15px]">
-          {t({
-            hi: "पूजा बुक करें",
-            en: "Book Puja",
-          })}
+          Book Puja
         </span>
       </div>
     </Link>

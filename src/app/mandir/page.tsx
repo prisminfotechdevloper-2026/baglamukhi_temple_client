@@ -81,7 +81,7 @@ export default function MandirPage() {
           longitude: "76.0125",
         },
         image: "https://baglamukhitemple.org/images/baglamukhi-mandir-real.png",
-        telephone: "+91-8239239249",
+        telephone: "+91-7223083313",
       },
       {
         "@type": "Article",

@@ -73,8 +73,8 @@ const pujaFaqs: FAQItem[] = [
       en: "Who should I contact for Dakshina, samagri details, and booking?",
     },
     a: {
-      hi: "मंदिर में किसी भी प्रकार का एजेंट या बिचौलिया नहीं है। आप सीधे पंडित दीपक शर्मा जी के आधिकारिक मोबाइल नंबर +91 82392 39249 पर कॉल अथवा व्हाट्सएप संदेश भेजकर संपूर्ण जानकारी प्राप्त कर सकते हैं।",
-      en: "There are no middlemen or agents. You can directly contact authorized purohit Pandit Deepak Sharma Ji on +91 82392 39249 via phone or WhatsApp for authentic details.",
+      hi: "मंदिर में किसी भी प्रकार का एजेंट या बिचौलिया नहीं है। आप सीधे पंडित दीपक शर्मा जी के आधिकारिक मोबाइल नंबर +91 72230 83313 पर कॉल अथवा व्हाट्सएप संदेश भेजकर संपूर्ण जानकारी प्राप्त कर सकते हैं।",
+      en: "There are no middlemen or agents. You can directly contact authorized purohit Pandit Deepak Sharma Ji on +91 72230 83313 via phone or WhatsApp for authentic details.",
     },
   },
 ];

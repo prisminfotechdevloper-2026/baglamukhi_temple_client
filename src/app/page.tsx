@@ -9,7 +9,7 @@ import PanditWelcomeDialog from "@/components/home/PanditWelcomeDialog";
 export const metadata: Metadata = {
   title: "Maa Baglamukhi Havan Booking in Nalkheda | Pt. Deepak Sharma",
   description:
-    "माँ बगलामुखी पूजा और हवन की जानकारी, उपलब्ध सेवाएँ और ऑनलाइन बुकिंग संबंधी सहायता प्राप्त करें। तारीख, प्रक्रिया और शुभ मुहूर्त की पुष्टि के लिए संपर्क करें। पं. दीपक शर्मा (+91 82392 39249)।",
+    "माँ बगलामुखी पूजा और हवन की जानकारी, उपलब्ध सेवाएँ और ऑनलाइन बुकिंग संबंधी सहायता प्राप्त करें। तारीख, प्रक्रिया और शुभ मुहूर्त की पुष्टि के लिए संपर्क करें। पं. दीपक शर्मा (+91 72230 83313)।",
   keywords: [
     "Maa Baglamukhi Havan Booking in Nalkheda",
     "Baglamukhi Puja Nalkheda",
@@ -18,8 +18,8 @@ export const metadata: Metadata = {
     "Shatru Badha Nivaran Hawan",
     "Court Case Victory Baglamukhi Puja",
     "Nalkheda Mandir Havan",
-    "8239239249",
-    "9079149299",
+    "7223083313",
+    "9575664204",
   ],
   alternates: {
     canonical: "https://baglamukhi-temple-hazel.vercel.app",
@@ -62,7 +62,7 @@ export default function HomePage() {
         description:
           "महाभारत कालीन स्वयंभू त्रिमुखी माँ बगलामुखी सिद्धपीठ नलखेड़ा। शत्रु बाधा निवारण, कोर्ट केस विजय, तंत्र दोष शांति एवं सवा लाख जप महाहवन का पावन तीर्थ।",
         url: "https://baglamukhi-temple-hazel.vercel.app",
-        telephone: "+91-8239239249",
+        telephone: "+91-7223083313",
         address: {
           "@type": "PostalAddress",
           streetAddress: "लखुंदर नदी तट, माँ बगलामुखी मार्ग",
@@ -102,7 +102,7 @@ export default function HomePage() {
           "@type": "PlaceOfWorship",
           name: "श्री माँ बगलामुखी मंदिर नलखेड़ा",
         },
-        telephone: "+91-8239239249",
+        telephone: "+91-7223083313",
         description:
           "महामृत्युंजय वेद विद्यालय (उज्जैन) से कर्मकाण्ड प्रशिक्षित एवं श्री वशिष्ठ ज्योतिष संस्थान संबद्ध, 15+ वर्षों का साधना अनुभव।",
       },

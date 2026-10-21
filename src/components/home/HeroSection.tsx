@@ -173,7 +173,7 @@ export default function HeroSection() {
 
               {/* Secondary CTA: Light Theme WhatsApp Consultation (Navbar-style) */}
               <a
-                href="https://wa.me/918239239249?text=जय%20माँ%20बगलामुखी!%20पंडित%20दीपक%20शर्मा%20जी%2C%20मुझे%20पूजा%20व%20हवन%20के%20बारे%20में%20जानकारी%20चाहिए।"
+                href="https://wa.me/917223083313?text=जय%20माँ%20बगलामुखी!%20पंडित%20दीपक%20शर्मा%20जी%2C%20मुझे%20पूजा%20व%20हवन%20के%20बारे%20में%20जानकारी%20चाहिए।"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center justify-center gap-3 rounded-2xl bg-white/95 hover:bg-white px-5 py-3 text-sm sm:text-base font-bold text-[#1F2937] border-2 border-stone-200/90 hover:border-[#25D366] backdrop-blur-xl shadow-xl shadow-stone-900/15 hover:shadow-2xl hover:shadow-[#25D366]/20 transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0"
@@ -191,8 +191,8 @@ export default function HeroSection() {
                   </span>
                   <span className="text-[11px] text-emerald-700 font-bold tracking-tight">
                     {t({
-                      hi: "+91 82392 39249 पर तुरंत जुड़ें",
-                      en: "+91 82392 39249 • Chat Online",
+                      hi: "+91 72230 83313 पर तुरंत जुड़ें",
+                      en: "+91 72230 83313 • Chat Online",
                     })}
                   </span>
                 </div>

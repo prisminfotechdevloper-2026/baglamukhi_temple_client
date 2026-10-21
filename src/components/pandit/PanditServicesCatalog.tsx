@@ -316,10 +316,10 @@ export default function PanditServicesCatalog() {
   ];
 
   const handleWhatsAppBooking = (serviceTitle: string) => {
-    // Number 1 (+91 82392 39249) -> Hawan / Puja inquiries
-    // Number 2 (+91 90791 49299) -> Kundali / Jyotish / Rashi inquiries
+    // Number 1 (+91 72230 83313) -> Hawan / Puja inquiries
+    // Number 2 (+91 95756 64204) -> Kundali / Jyotish / Rashi inquiries
     const isKundaliOrJyotish = /kundali|jyotish|rashi|पत्रिका|कुंडली|ज्योतिष|horoscope|birth\s*chart/i.test(serviceTitle);
-    const targetPhone = isKundaliOrJyotish ? "919079149299" : "918239239249";
+    const targetPhone = isKundaliOrJyotish ? "919575664204" : "917223083313";
     const message = encodeURIComponent(
       `जय माँ बगलामुखी! पंडित दीपक शर्मा जी, मुझे आपसे "${serviceTitle}" के संदर्भ में विधि, शुभ मुहूर्त एवं संकल्प हेतु मार्गदर्शन प्राप्त करना है।`
     );
@@ -606,11 +606,11 @@ export default function PanditServicesCatalog() {
                 </button>
 
                 <a
-                  href="tel:+918239239249"
+                  href="tel:+917223083313"
                   className="w-full sm:w-auto flex items-center justify-center gap-2 py-3 px-5 rounded-full bg-stone-100 hover:bg-stone-200 text-[#3E0B02] font-bold text-xs sm:text-sm transition-colors"
                 >
                   <PhoneCall className="h-4 w-4 text-[#AF0807]" />
-                  <span>+91 82392 39249</span>
+                  <span>+91 72230 83313</span>
                 </a>
               </div>
             </div>

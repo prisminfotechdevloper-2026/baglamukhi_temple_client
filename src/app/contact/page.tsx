@@ -8,6 +8,7 @@ import {
   ShieldCheck,
   Award,
   Flame,
+  Compass,
   Train,
   Car,
   Plane,
@@ -15,26 +16,29 @@ import {
   HelpCircle,
   ExternalLink,
 } from "lucide-react";
+import InstagramIcon from "@/components/common/InstagramIcon";
 import ContactHero from "@/components/contact/ContactHero";
 import ContactForm from "@/components/contact/ContactForm";
 
 export const metadata: Metadata = {
   title: "संपर्क करें | श्री माँ बगलामुखी मंदिर नलखेड़ा - पं. दीपक शर्मा",
   description:
-    "श्री माँ बगलामुखी सिद्धपीठ नलखेड़ा में विशेष महाहवन, तांत्रिक-वैदिक अनुष्ठान एवं जन्म कुंडली ज्योतिषीय मार्गदर्शन हेतु पंडित दीपक शर्मा जी से संपर्क करें। फोन: +91 82392 39249।",
+    "श्री माँ बगलामुखी सिद्धपीठ नलखेड़ा में विशेष महाहवन, तांत्रिक-वैदिक अनुष्ठान एवं जन्म कुंडली ज्योतिषीय मार्गदर्शन हेतु पंडित दीपक शर्मा जी से संपर्क करें। हवन/पूजा: +91 72230 83313, कुंडली: +91 95756 64204, ईमेल: AshthamMahavidhya@gmail.com।",
   keywords: [
     "बगलामुखी मंदिर नलखेड़ा संपर्क",
     "पंडित दीपक शर्मा फोन नंबर",
     "बगलामुखी हवन बुकिंग",
     "नलखेड़ा कैसे पहुंचे",
     "बगलामुखी मंदिर टाइमिंग",
-    "8239239249",
+    "7223083313",
+    "9575664204",
+    "AshthamMahavidhya@gmail.com",
     "माँ बगलामुखी अनुष्ठान संपर्क",
   ],
   openGraph: {
     title: "संपर्क करें | श्री माँ बगलामुखी मंदिर नलखेड़ा - पं. दीपक शर्मा",
     description:
-      "हवन-पूजा अनुष्ठान एवं कुंडली विश्लेषण हेतु पंडित दीपक शर्मा जी से संपर्क करें। फोन: 8239239249। लखुंदर नदी तट, नलखेड़ा।",
+      "हवन-पूजा अनुष्ठान एवं कुंडली विश्लेषण हेतु पंडित दीपक शर्मा जी से संपर्क करें। फोन: 7223083313 / 9575664204। लखुंदर नदी तट, नलखेड़ा।",
     type: "website",
     locale: "hi_IN",
   },
@@ -68,61 +72,85 @@ export default function ContactPage() {
       {/* ================= 1. DEDICATED CONTACT HERO SECTION COMPONENT ================= */}
       <ContactHero />
 
-      {/* ================= 2. QUICK CONTACT CARDS (INDIVIDUAL CARDS WITH VISIBLE GAPS) ================= */}
+      {/* ================= 2. QUICK CONTACT CARDS (4 CHANNELS: HAWAN PHONE, KUNDALI PHONE, EMAIL, INSTAGRAM) ================= */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 -mt-12 sm:-mt-16 lg:-mt-20 relative z-20">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           
-          {/* Card 1: Pandit Ji Hotline */}
-          <div className="rounded-2xl sm:rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] hover:shadow-[0_12px_32px_-4px_rgba(175,8,7,0.16)] p-5 sm:p-6 flex flex-col items-center text-center hover:-translate-y-1 transition-all duration-300">
-            <div className="flex h-13 w-13 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-amber-50 border-2 border-amber-400 text-[#AF0807] mb-2.5 shadow-sm">
-              <PhoneCall className="h-6 w-6 text-[#AF0807]" />
+          {/* Card 1: Hawan & Puja Booking Hotline */}
+          <div className="rounded-2xl sm:rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] hover:shadow-[0_12px_32px_-4px_rgba(175,8,7,0.16)] p-5 flex flex-col items-center text-center hover:-translate-y-1 transition-all duration-300">
+            <div className="flex h-12 w-12 sm:h-13 sm:w-13 items-center justify-center rounded-full bg-amber-50 border-2 border-amber-400 text-[#AF0807] mb-2.5 shadow-sm">
+              <Flame className="h-5 w-5 sm:h-6 sm:w-6 text-[#AF0807]" />
             </div>
-            <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-amber-950 mb-1">
-              पंडित दीपक शर्मा (सीधा संपर्क)
+            <span className="text-[11px] font-bold uppercase tracking-wider text-amber-950 mb-1">
+              हवन व पूजा बुकिंग
             </span>
             <a
-              href="tel:+918239239249"
-              className="font-serif text-lg sm:text-2xl font-black text-[#AF0807] hover:text-[#7A0505] transition-colors"
+              href="tel:+917223083313"
+              className="font-serif text-base sm:text-lg lg:text-xl font-black text-[#AF0807] hover:text-[#7A0505] transition-colors"
             >
-              +91 82392 39249
+              +91 72230 83313
             </a>
-            <p className="text-[11px] sm:text-xs text-stone-600 mt-1">
-              कॉल व व्हाट्सएप: प्रातः 06:00 से रात्रि 09:30
+            <p className="text-[11px] text-stone-600 mt-1">
+              हवन, अनुष्ठान व मुहूर्त आरक्षण
             </p>
           </div>
 
-          {/* Card 2: Sanctum Location */}
-          <div className="rounded-2xl sm:rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] hover:shadow-[0_12px_32px_-4px_rgba(175,8,7,0.16)] p-5 sm:p-6 flex flex-col items-center text-center hover:-translate-y-1 transition-all duration-300">
-            <div className="flex h-13 w-13 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-amber-50 border-2 border-amber-400 text-[#AF0807] mb-2.5 shadow-sm">
-              <MapPin className="h-6 w-6 text-[#AF0807]" />
+          {/* Card 2: Kundali & Jyotish Desk */}
+          <div className="rounded-2xl sm:rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] hover:shadow-[0_12px_32px_-4px_rgba(175,8,7,0.16)] p-5 flex flex-col items-center text-center hover:-translate-y-1 transition-all duration-300">
+            <div className="flex h-12 w-12 sm:h-13 sm:w-13 items-center justify-center rounded-full bg-amber-50 border-2 border-amber-400 text-[#AF0807] mb-2.5 shadow-sm">
+              <Compass className="h-5 w-5 sm:h-6 sm:w-6 text-[#AF0807]" />
             </div>
-            <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-amber-950 mb-1">
-              मंदिर का पावन स्थान
+            <span className="text-[11px] font-bold uppercase tracking-wider text-amber-950 mb-1">
+              कुंडली व ज्योतिष परामर्श
             </span>
-            <p className="font-serif text-sm sm:text-base font-bold text-[#3E0B02] leading-tight">
-              शासकीय माँ बगलामुखी प्रबंध समिति
-            </p>
-            <p className="text-[11px] sm:text-xs text-stone-600 mt-1 max-w-xs leading-normal">
-              लखुंदर नदी तट, नलखेड़ा जिला - आगर-मालवा (म.प्र.)
+            <a
+              href="tel:+919575664204"
+              className="font-serif text-base sm:text-lg lg:text-xl font-black text-[#AF0807] hover:text-[#7A0505] transition-colors"
+            >
+              +91 95756 64204
+            </a>
+            <p className="text-[11px] text-stone-600 mt-1">
+              जन्मपत्रिका, ग्रह दोष व उपाय
             </p>
           </div>
 
           {/* Card 3: Email / Official Inquiry */}
-          <div className="rounded-2xl sm:rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] hover:shadow-[0_12px_32px_-4px_rgba(175,8,7,0.16)] p-5 sm:p-6 flex flex-col items-center text-center hover:-translate-y-1 transition-all duration-300">
-            <div className="flex h-13 w-13 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-amber-50 border-2 border-amber-400 text-[#AF0807] mb-2.5 shadow-sm">
-              <Mail className="h-6 w-6 text-[#AF0807]" />
+          <div className="rounded-2xl sm:rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] hover:shadow-[0_12px_32px_-4px_rgba(175,8,7,0.16)] p-5 flex flex-col items-center text-center hover:-translate-y-1 transition-all duration-300">
+            <div className="flex h-12 w-12 sm:h-13 sm:w-13 items-center justify-center rounded-full bg-amber-50 border-2 border-amber-400 text-[#AF0807] mb-2.5 shadow-sm">
+              <Mail className="h-5 w-5 sm:h-6 sm:w-6 text-[#AF0807]" />
             </div>
-            <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-amber-950 mb-1">
-              ईमेल एवं ऑनलाइन सहयोग
+            <span className="text-[11px] font-bold uppercase tracking-wider text-amber-950 mb-1">
+              आधिकारिक ईमेल
             </span>
             <a
-              href="mailto:info@mabaglamukhi.com"
-              className="font-serif text-sm sm:text-base font-bold text-[#3E0B02] hover:text-[#AF0807] transition-colors leading-tight"
+              href="mailto:AshthamMahavidhya@gmail.com"
+              className="font-serif text-xs sm:text-sm font-bold text-[#3E0B02] hover:text-[#AF0807] transition-colors leading-tight break-all"
             >
-              info@mabaglamukhi.com
+              AshthamMahavidhya@gmail.com
             </a>
-            <p className="text-[11px] sm:text-xs text-stone-600 mt-1">
-              ई-संकल्प एवं पूजन रसीद सत्यापन
+            <p className="text-[11px] text-stone-600 mt-1">
+              ई-संकल्प एवं आधिकारिक पत्राचार
+            </p>
+          </div>
+
+          {/* Card 4: Official Instagram */}
+          <div className="rounded-2xl sm:rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] hover:shadow-[0_12px_32px_-4px_rgba(175,8,7,0.16)] p-5 flex flex-col items-center text-center hover:-translate-y-1 transition-all duration-300">
+            <div className="flex h-12 w-12 sm:h-13 sm:w-13 items-center justify-center rounded-full bg-pink-50 border-2 border-pink-400 text-pink-600 mb-2.5 shadow-sm">
+              <InstagramIcon className="h-5 w-5 sm:h-6 sm:w-6 text-pink-600" />
+            </div>
+            <span className="text-[11px] font-bold uppercase tracking-wider text-pink-950 mb-1">
+              आधिकारिक इंस्टाग्राम
+            </span>
+            <a
+              href="https://www.instagram.com/ashtham_mahavidhya?dlrf=c2kxa2h4dGl6ZG1x"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-serif text-xs sm:text-sm font-bold text-[#3E0B02] hover:text-pink-600 transition-colors leading-tight truncate max-w-full"
+            >
+              @ashtham_mahavidhya
+            </a>
+            <p className="text-[11px] text-stone-600 mt-1">
+              दैनिक दिव्य दर्शन व मंदिर अपडेट्स
             </p>
           </div>
 
@@ -309,10 +337,10 @@ export default function ContactPage() {
                   सीधा संपर्क नंबर (Calling & WhatsApp)
                 </span>
                 <a
-                  href="tel:+918239239249"
+                  href="tel:+917223083313"
                   className="font-serif text-2xl sm:text-3xl font-extrabold text-[#AF0807] hover:text-[#7A0505] transition-colors mt-1 inline-block"
                 >
-                  +91 82392 39249
+                  +91 72230 83313
                 </a>
                 <p className="text-[11px] text-stone-500 mt-1">
                   समय: प्रातः 06:00 बजे से रात्रि 09:30 बजे तक
@@ -322,14 +350,14 @@ export default function ContactPage() {
               {/* Quick Action Buttons */}
               <div className="grid grid-cols-2 gap-3 mt-4">
                 <a
-                  href="tel:+918239239249"
+                  href="tel:+917223083313"
                   className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#AF0807] hover:bg-[#8B0605] text-white text-xs font-bold shadow-sm transition-all"
                 >
                   <PhoneCall className="h-3.5 w-3.5" />
                   <span>कॉल करें</span>
                 </a>
                 <a
-                  href="https://wa.me/918239239249?text=जय%20माँ%20बगलामुखी!%20पंडित%20दीपक%20शर्मा%20जी%2C%20मुझे%20पूजा%20व%20परामर्श%20के%20बारे%20में%20जानकारी%20चाहिए।"
+                  href="https://wa.me/917223083313?text=जय%20माँ%20बगलामुखी!%20पंडित%20दीपक%20शर्मा%20जी%2C%20मुझे%20पूजा%20व%20परामर्श%20के%20बारे%20में%20जानकारी%20चाहिए।"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#AF0807] via-[#940706] to-[#7A0505] hover:from-[#940706] hover:to-[#600303] text-white text-xs font-bold shadow-sm transition-all border border-amber-300/40"

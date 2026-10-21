@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   Phone,
+  Mail,
   MapPin,
   Clock,
   Flame,
@@ -15,6 +16,7 @@ import {
   Info,
 } from "lucide-react";
 import WhatsAppIcon from "@/components/common/WhatsAppIcon";
+import InstagramIcon from "@/components/common/InstagramIcon";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Footer() {
@@ -107,8 +109,8 @@ export default function Footer() {
                 <Compass className="h-4 w-4 text-amber-400 shrink-0" />
                 <span>
                   {t({
-                    hi: "कुंडली व राशि परामर्श: +91 90791 49299",
-                    en: "Kundali & Rashi Desk: +91 90791 49299",
+                    hi: "कुंडली व राशि परामर्श: +91 95756 64204",
+                    en: "Kundali & Rashi Desk: +91 95756 64204",
                   })}
                 </span>
               </div>
@@ -243,21 +245,45 @@ export default function Footer() {
                 </div>
               </div>
 
-              {/* Main Phone Call */}
+              {/* Main Phone Call (Hawan & Puja) */}
               <div className="flex items-center gap-2 pt-1">
                 <Phone className="h-4 w-4 text-amber-400 shrink-0" />
                 <a
-                  href="tel:+918239239249"
+                  href="tel:+917223083313"
                   className="text-amber-200 hover:text-white transition-colors font-bold text-xs"
                 >
-                  +91 82392 39249 (मुख्य हेल्पलाइन)
+                  +91 72230 83313 (हवन व पूजा बुकिंग)
+                </a>
+              </div>
+
+              {/* Official Email */}
+              <div className="flex items-center gap-2">
+                <Mail className="h-4 w-4 text-amber-400 shrink-0" />
+                <a
+                  href="mailto:AshthamMahavidhya@gmail.com"
+                  className="text-amber-200 hover:text-white transition-colors font-medium text-xs break-all"
+                >
+                  AshthamMahavidhya@gmail.com
+                </a>
+              </div>
+
+              {/* Official Instagram */}
+              <div className="flex items-center gap-2">
+                <InstagramIcon className="h-4 w-4 text-pink-400 shrink-0" />
+                <a
+                  href="https://www.instagram.com/ashtham_mahavidhya?dlrf=c2kxa2h4dGl6ZG1x"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-amber-200 hover:text-pink-300 transition-colors font-medium text-xs truncate"
+                >
+                  @ashtham_mahavidhya
                 </a>
               </div>
 
               {/* Instant WhatsApp */}
               <div className="pt-1">
                 <a
-                  href="https://wa.me/918239239249?text=जय%20माँ%20बगलामुखी!%20पंडित%20जी%2C%20मुझे%20हवन%20व%20पूजा%20अनुष्ठान%20की%20जानकारी%20चाहिए।"
+                  href="https://wa.me/917223083313?text=जय%20माँ%20बगलामुखी!%20पंडित%20जी%2C%20मुझे%20हवन%20व%20पूजा%20अनुष्ठान%20की%20जानकारी%20चाहिए।"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#8B0000] via-[#AF0807] to-[#7A0505] hover:brightness-110 border border-amber-400/50 px-3.5 py-2.5 text-xs font-bold text-white shadow-md transition-all w-full justify-center group"

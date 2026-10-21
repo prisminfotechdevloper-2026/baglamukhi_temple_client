@@ -165,9 +165,9 @@ export default function ContactForm() {
     text += `पंडित दीपक शर्मा जी, कृपया मार्गदर्शन प्रदान करें।`;
 
     // Routing Logic:
-    // Number 1 (+91 82392 39249) -> Hawan / Puja inquiries
-    // Number 2 (+91 90791 49299) -> Kundali / Jyotish inquiries
-    const targetPhone = isHawan ? "918239239249" : "919079149299";
+    // Number 1 (+91 72230 83313) -> Hawan / Puja inquiries
+    // Number 2 (+91 95756 64204) -> Kundali / Jyotish inquiries
+    const targetPhone = isHawan ? "917223083313" : "919575664204";
     const encoded = encodeURIComponent(text);
     const whatsappUrl = `https://wa.me/${targetPhone}?text=${encoded}`;
 
@@ -277,8 +277,8 @@ export default function ContactForm() {
             </span>
             <p className="text-amber-900 mt-0.5">
               {t({
-                hi: `व्हाट्सएप खुल रहा है... यदि नहीं खुला, तो सीधे नंबर ${queryType === "hawan_puja" ? "+91 82392 39249" : "+91 90791 49299"} पर संदेश भेजें।`,
-                en: `Opening WhatsApp... If it does not open, please message directly to ${queryType === "hawan_puja" ? "+91 82392 39249" : "+91 90791 49299"}.`,
+                hi: `व्हाट्सएप खुल रहा है... यदि नहीं खुला, तो सीधे नंबर ${queryType === "hawan_puja" ? "+91 72230 83313" : "+91 95756 64204"} पर संदेश भेजें।`,
+                en: `Opening WhatsApp... If it does not open, please message directly to ${queryType === "hawan_puja" ? "+91 72230 83313" : "+91 95756 64204"}.`,
               })}
             </p>
           </div>
@@ -515,11 +515,11 @@ export default function ContactForm() {
 
           {/* Direct Call Button (Priority 1) */}
           <a
-            href="tel:+918239239249"
+            href="tel:+917223083313"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#AF0807] hover:bg-[#8B0605] text-white text-sm font-bold shadow-md hover:shadow-lg transition-all cursor-pointer"
           >
             <PhoneCall className="h-4 w-4" />
-            <span>{t({ hi: "सीधा कॉल करें", en: "Call Directly" })}</span>
+            <span>{t({ hi: "सीधा कॉल करें (+91 72230 83313)", en: "Call Directly (+91 72230 83313)" })}</span>
           </a>
         </div>
 

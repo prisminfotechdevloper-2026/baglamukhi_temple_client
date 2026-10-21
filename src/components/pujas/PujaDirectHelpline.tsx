@@ -3,18 +3,18 @@
 import Image from "next/image";
 import {
   PhoneCall,
-  MessageCircle,
   ShieldCheck,
   CheckCircle2,
   CalendarCheck,
 } from "lucide-react";
+import WhatsAppIcon from "@/components/common/WhatsAppIcon";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function PujaDirectHelpline() {
   const { t } = useLanguage();
 
   const whatsappUrl =
-    "https://wa.me/918239239249?text=" +
+    "https://wa.me/917223083313?text=" +
     encodeURIComponent(
       "जय माँ बगलामुखी! पंडित दीपक शर्मा जी, मुझे माँ बगलामुखी सिद्धपीठ नलखेड़ा में विशेष अनुष्ठान / महाहवन के संदर्भ में शुभ मुहूर्त व दक्षिणा विवरण जानना है।"
     );
@@ -75,18 +75,20 @@ export default function PujaDirectHelpline() {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#AF0807] hover:bg-[#8B0605] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg transition-all transform hover:scale-[1.02] active:scale-[0.98]"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#AF0807] hover:bg-[#8B0605] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg transition-all transform hover:scale-[1.02] active:scale-[0.98] group"
                 >
-                  <MessageCircle className="h-4 w-4 text-amber-300" />
+                  <div className="flex h-5 w-5 items-center justify-center rounded-md bg-[#25D366] text-white shrink-0 group-hover:scale-110 transition-transform">
+                    <WhatsAppIcon className="h-3.5 w-3.5 text-white" />
+                  </div>
                   <span>{t({ hi: "व्हाट्सएप पर मुहूर्त जानें", en: "Find Muhurta on WhatsApp" })}</span>
                 </a>
 
                 <a
-                  href="tel:+918239239249"
+                  href="tel:+917223083313"
                   className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-stone-100 hover:bg-stone-200 text-[#3E0B02] text-xs sm:text-sm font-bold transition-colors"
                 >
                   <PhoneCall className="h-4 w-4 text-[#AF0807]" />
-                  <span>{t({ hi: "सीधा कॉल करें: +91 82392 39249", en: "Direct Call: +91 82392 39249" })}</span>
+                  <span>{t({ hi: "सीधा कॉल करें: +91 72230 83313", en: "Direct Call: +91 72230 83313" })}</span>
                 </a>
               </div>
             </div>

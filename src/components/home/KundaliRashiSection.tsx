@@ -103,8 +103,8 @@ export default function KundaliRashiSection() {
   const { t } = useLanguage();
   const [selectedRashi, setSelectedRashi] = useState<RashiItem>(rashis[0]);
 
-  // Number 2 (+91 90791 49299) -> Dedicated WhatsApp routing for Kundali / Jyotish inquiries
-  const targetPhone = "919079149299";
+  // Number 2 (+91 95756 64204) -> Dedicated WhatsApp routing for Kundali / Jyotish inquiries
+  const targetPhone = "919575664204";
 
   const handleRashiWhatsApp = (rashi: RashiItem) => {
     const text = encodeURIComponent(
@@ -364,7 +364,7 @@ export default function KundaliRashiSection() {
           </div>
 
           <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto shrink-0">
-            {/* WhatsApp Booking (Routes to Number 2: 9079149299 for Kundali/Rashi) */}
+            {/* WhatsApp Booking (Routes to Number 2: 9575664204 for Kundali/Rashi) */}
             <a
               href={`https://wa.me/${targetPhone}?text=${encodeURIComponent(
                 "जय माँ बगलामुखी! पंडित दीपक शर्मा जी, मुझे अपनी जन्म कुंडली एवं राशि का संपूर्ण विश्लेषण व मार्गदर्शन प्राप्त करना है। कृपया शुभ समय बताएं।"
@@ -376,22 +376,22 @@ export default function KundaliRashiSection() {
               <WhatsAppIcon className="h-4 w-4" />
               <span>
                 {t({
-                  hi: "कुंडली व्हाट्सएप करें (+91 90791 49299)",
-                  en: "Send Kundali on WhatsApp",
+                  hi: "कुंडली व्हाट्सएप करें (+91 95756 64204)",
+                  en: "Send Kundali on WhatsApp (+91 95756 64204)",
                 })}
               </span>
             </a>
 
-            {/* Direct Calling (Primary number: 82392 39249) */}
+            {/* Direct Calling (Primary number: 72230 83313) */}
             <a
-              href="tel:+918239239249"
+              href="tel:+917223083313"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-amber-200 border border-amber-300/40 text-xs sm:text-sm font-bold backdrop-blur-md transition-all cursor-pointer"
             >
               <PhoneCall className="h-4 w-4 text-amber-300" />
               <span>
                 {t({
-                  hi: "कॉल करें: +91 82392 39249",
-                  en: "Call Helpline",
+                  hi: "कॉल करें: +91 72230 83313",
+                  en: "Call Helpline: +91 72230 83313",
                 })}
               </span>
             </a>

@@ -30,11 +30,11 @@ export default function Navbar() {
             ॥ ॐ ह्लीं बगलामुखी देव्यै नमः ॥
           </span>
           <a
-            href="tel:+918239239249"
+            href="tel:+917223083313"
             className="flex items-center gap-1 text-white font-bold shrink-0 bg-black/40 px-2.5 py-0.5 rounded-full border border-amber-400/40 text-[10.5px]"
           >
             <Phone className="h-3 w-3 text-amber-300" />
-            <span>+91 82392 39249</span>
+            <span>+91 72230 83313</span>
           </a>
         </div>
 
@@ -46,11 +46,11 @@ export default function Navbar() {
 
           <div className="flex items-center gap-4 text-white/95 shrink-0 text-[11.5px]">
             <a
-              href="tel:+918239239249"
+              href="tel:+917223083313"
               className="flex items-center gap-1.5 hover:text-amber-200 transition-colors font-bold"
             >
               <Phone className="h-3 w-3 text-amber-300" />
-              <span>दर्शन एवं पूजा सहायता: +91 82392 39249</span>
+              <span>दर्शन एवं पूजा सहायता: +91 72230 83313</span>
             </a>
           </div>
         </div>

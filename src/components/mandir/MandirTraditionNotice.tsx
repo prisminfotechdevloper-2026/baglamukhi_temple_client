@@ -1,4 +1,5 @@
-import { Info, PhoneCall, MessageCircle } from "lucide-react";
+import { Info, PhoneCall } from "lucide-react";
+import WhatsAppIcon from "@/components/common/WhatsAppIcon";
 
 interface MandirTraditionNoticeProps {
   traditionNote: string;
@@ -35,20 +36,22 @@ export default function MandirTraditionNotice({
 
         <div className="flex flex-col sm:flex-row items-center gap-3 shrink-0 w-full sm:w-auto">
           <a
-            href="tel:+918239239249"
+            href="tel:+917223083313"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#AF0807] via-[#940706] to-[#7A0505] hover:from-[#940706] hover:to-[#600303] text-white text-xs sm:text-sm font-bold shadow-xl border border-amber-400/80 hover:border-amber-300 transition-all cursor-pointer"
           >
             <PhoneCall className="h-4 w-4 text-amber-300" />
-            <span>+91 82392 39249</span>
+            <span>+91 72230 83313</span>
           </a>
 
           <a
-            href="https://wa.me/918239239249?text=जय%20माँ%20बगलामुखी!%20मंदिर%20दर्शन%20व%20पूजा%20के%20लिए%20जानकारी%20चाहिए।"
+            href="https://wa.me/917223083313?text=जय%20माँ%20बगलामुखी!%20मंदिर%20दर्शन%20व%20पूजा%20के%20लिए%20जानकारी%20चाहिए।"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-black/40 hover:bg-black/60 text-white hover:text-amber-200 text-xs sm:text-sm font-bold border-2 border-amber-400 backdrop-blur-md shadow-xl transition-all cursor-pointer"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-black/40 hover:bg-black/60 text-white hover:text-amber-200 text-xs sm:text-sm font-bold border-2 border-amber-400 backdrop-blur-md shadow-xl transition-all cursor-pointer group"
           >
-            <MessageCircle className="h-4 w-4 text-amber-300" />
+            <div className="flex h-4 w-4 items-center justify-center rounded-xs bg-[#25D366] text-white shrink-0 group-hover:scale-110 transition-transform">
+              <WhatsAppIcon className="h-3 w-3 text-white" />
+            </div>
             <span>व्हाट्सएप पर संपर्क करें</span>
           </a>
         </div>

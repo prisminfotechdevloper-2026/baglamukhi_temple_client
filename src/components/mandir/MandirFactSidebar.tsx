@@ -1,4 +1,5 @@
-import { Landmark, PhoneCall, MessageCircle, MapPin, Sparkles as _no, ShieldCheck } from "lucide-react";
+import { Landmark, PhoneCall, MapPin, Sparkles as _no, ShieldCheck } from "lucide-react";
+import WhatsAppIcon from "@/components/common/WhatsAppIcon";
 
 interface FactItem {
   label: string;
@@ -74,7 +75,7 @@ export default function MandirFactSidebar({
 
             <div className="grid grid-cols-2 gap-2">
               <a
-                href="tel:+918239239249"
+                href="tel:+917223083313"
                 className="inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-gradient-to-r from-[#AF0807] to-[#7A0505] hover:from-[#940706] hover:to-[#600303] text-white text-[11px] font-bold shadow-md border border-amber-400/80 transition-all cursor-pointer"
               >
                 <PhoneCall className="h-3 w-3 text-amber-300" />
@@ -82,12 +83,14 @@ export default function MandirFactSidebar({
               </a>
 
               <a
-                href="https://wa.me/918239239249?text=जय%20माँ%20बगलामुखी!%20मंदिर%20दर्शन%20व%20हवन%20संबंधी%20मार्गदर्शन%20चाहिए।"
+                href="https://wa.me/917223083313?text=जय%20माँ%20बगलामुखी!%20मंदिर%20दर्शन%20व%20हवन%20संबंधी%20मार्गदर्शन%20चाहिए।"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-black/40 hover:bg-black/60 text-amber-200 hover:text-white text-[11px] font-bold border border-amber-400/70 transition-all cursor-pointer"
+                className="inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-black/40 hover:bg-black/60 text-amber-200 hover:text-white text-[11px] font-bold border border-amber-400/70 transition-all cursor-pointer group"
               >
-                <MessageCircle className="h-3 w-3 text-amber-300" />
+                <div className="flex h-3.5 w-3.5 items-center justify-center rounded-xs bg-[#25D366] text-white shrink-0 group-hover:scale-110 transition-transform">
+                  <WhatsAppIcon className="h-2.5 w-2.5 text-white" />
+                </div>
                 <span>व्हाट्सएप</span>
               </a>
             </div>

@@ -188,26 +188,26 @@ export default function HeroSection() {
           </div>
 
           {/* ================= RIGHT COLUMN: Mata Rani Image ================= */}
-          <div className="lg:col-span-5 order-2 lg:order-2 flex flex-col items-center justify-center">
+          <div className="lg:col-span-5 order-2 lg:order-2 flex flex-col items-center justify-center my-4 sm:my-5 lg:my-0">
             <div className="relative group flex flex-col items-center">
               {/* Divine Golden Ambient Halo Glow */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 sm:w-64 sm:h-64 lg:w-[340px] lg:h-[340px] rounded-full bg-gradient-to-tr from-amber-400/35 via-yellow-300/35 to-orange-500/20 blur-3xl pointer-events-none animate-pulse" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[270px] h-[270px] xs:w-[310px] xs:h-[310px] sm:w-[370px] sm:h-[370px] lg:w-[440px] lg:h-[440px] rounded-full bg-gradient-to-tr from-amber-400/40 via-yellow-300/35 to-orange-500/25 blur-2xl sm:blur-3xl pointer-events-none animate-pulse" />
 
               {/* Mata Rani Divine Transparent Idol */}
-              <div className="relative h-48 w-48 sm:h-64 sm:w-64 lg:h-[360px] lg:w-[360px] transition-transform duration-500 group-hover:scale-105">
+              <div className="relative w-[285px] h-[285px] xs:w-[320px] xs:h-[320px] sm:w-[380px] sm:h-[380px] md:w-[420px] md:h-[420px] lg:w-[450px] lg:h-[450px] xl:w-[480px] xl:h-[480px] max-w-[92vw] aspect-square transition-transform duration-500 group-hover:scale-105">
                 <Image
                   src="/images/baglamukhi-logo.png"
                   alt="माँ बगलामुखी दिव्य स्वरूप"
                   fill
                   priority
-                  sizes="(max-width: 640px) 192px, (max-width: 1024px) 256px, 360px"
-                  className="object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,0.5)]"
+                  sizes="(max-width: 640px) 320px, (max-width: 1024px) 450px, 480px"
+                  className="w-full h-full object-contain filter drop-shadow-[0_16px_36px_rgba(0,0,0,0.8)] drop-shadow-[0_0_35px_rgba(216,155,24,0.45)] select-none"
                 />
               </div>
 
               {/* Sacred Darshan Banner Under Deity */}
-              <div className="mt-1 sm:mt-1.5 text-center">
-                <span className="inline-block rounded-full bg-black/60 backdrop-blur-md px-4 py-1 text-[11px] sm:text-xs font-semibold text-amber-200 border border-amber-400/50 shadow-md">
+              <div className="mt-2 sm:mt-2.5 text-center">
+                <span className="inline-block rounded-full bg-black/65 backdrop-blur-md px-4 sm:px-5 py-1 text-xs sm:text-sm font-semibold text-amber-200 border border-amber-400/60 shadow-lg">
                   {t({
                     hi: "॥ साक्षात् सिद्ध माँ पीताम्बरा दर्शन ॥",
                     en: "॥ Sakshat Siddha Maa Pitambara Darshan ॥",

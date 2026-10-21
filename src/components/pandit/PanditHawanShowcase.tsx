@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Flame, MapPin, ShieldCheck } from "lucide-react";
+import { MapPin } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function PanditHawanShowcase() {
@@ -92,13 +92,13 @@ export default function PanditHawanShowcase() {
 
         {/* 2 Real Hawan Photos Grid with 100% Width Fit and ZERO Left-Right Extra Space */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-start">
-          {photos.map((item, idx) => (
+          {photos.map((item) => (
             <div
-              key={idx}
-              className="group rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_8px_32px_-4px_rgba(217,119,6,0.14)] hover:shadow-[0_16px_40px_-4px_rgba(175,8,7,0.18)] p-5 sm:p-6 flex flex-col justify-between hover:-translate-y-1 transition-all duration-300"
+              key={item.src}
+              className="group rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_8px_32px_-4px_rgba(217,119,6,0.14)] hover:shadow-[0_16px_40px_-4px_rgba(175,8,7,0.18)] p-5 sm:p-6 flex flex-col justify-between hover:-translate-y-1 transition-colors duration-300"
             >
               <div>
-                {/* Photo Container: Width Fit 100% Edge-to-Edge with NO Left/Right Black Bars */}
+                {/* Photo Container: Width Fit 100% Edge-to-Edge with clean photo */}
                 <div className={`relative w-full ${item.aspectRatio} rounded-2xl overflow-hidden bg-stone-900 mb-5 shadow-inner`}>
                   <Image
                     src={item.src}
@@ -109,34 +109,19 @@ export default function PanditHawanShowcase() {
                     sizes="(max-width: 768px) 100vw, 650px"
                     className={`w-full h-full object-cover ${item.objectPosition} group-hover:scale-105 transition-transform duration-700`}
                   />
-
-                  {/* Gradient Scrim for Bottom Location Legibility */}
-                  <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/85 via-black/35 to-transparent z-10 pointer-events-none" />
-
-                  {/* Top Left Floating Badge */}
-                  <div className="absolute top-3 left-3 z-20 inline-flex items-center gap-1.5 rounded-full bg-black/75 backdrop-blur-md border border-amber-400/80 px-3 py-1 text-xs font-bold text-amber-300 shadow-md">
-                    <Flame className="h-3.5 w-3.5 text-amber-400 animate-pulse" />
-                    <span>{t(item.badge)}</span>
-                  </div>
-
-                  {/* Top Right Certified Badge */}
-                  <div className="absolute top-3 right-3 z-20 inline-flex items-center gap-1 rounded-xl bg-[#AF0807] px-2.5 py-1 text-[11px] font-bold text-white shadow-md border border-red-300/40">
-                    <ShieldCheck className="h-3 w-3" />
-                    <span>{t({ hi: "सिद्धपीठ नलखेड़ा", en: "Siddhapeeth Nalkheda" })}</span>
-                  </div>
-
-                  {/* Bottom Location Marker */}
-                  <div className="absolute bottom-3 left-3 right-3 z-20 flex items-center gap-1.5 text-xs text-amber-200 font-semibold drop-shadow-md">
-                    <MapPin className="h-3.5 w-3.5 text-amber-400 shrink-0" />
-                    <span className="truncate">{t(item.location)}</span>
-                  </div>
                 </div>
 
                 {/* Text Content */}
                 <div className="mb-2">
-                  <span className="text-[11px] font-bold text-amber-700 uppercase tracking-wider block mb-1">
-                    {t(item.highlight)}
-                  </span>
+                  <div className="flex flex-wrap items-center justify-between gap-2 mb-1.5">
+                    <span className="text-[11px] font-bold text-amber-700 uppercase tracking-wider block">
+                      {t(item.highlight)}
+                    </span>
+                    <span className="inline-flex items-center gap-1 text-xs text-stone-500 font-medium">
+                      <MapPin className="h-3.5 w-3.5 text-[#AF0807] shrink-0" />
+                      <span>{t(item.location)}</span>
+                    </span>
+                  </div>
                   <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#3E0B02] leading-snug group-hover:text-[#AF0807] transition-colors">
                     {t(item.title)}
                   </h3>

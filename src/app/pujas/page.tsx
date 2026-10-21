@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: "/pujas",
+    canonical: "https://baglamukhi-temple-hazel.vercel.app/pujas",
   },
 };
 
@@ -122,7 +122,9 @@ export default function PujasPage() {
       {/* Search Engine Rich Snippet Structured Data */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
       />
 
       {/* 1. Hero Section with Devotional Temple Image, Badges & Fast CTAs */}

@@ -19,10 +19,20 @@ const cinzel = Cinzel({
   weight: ["500", "600", "700", "800"],
 });
 
+const siteUrl = (() => {
+  const envUrl = process.env.NEXT_PUBLIC_SITE_URL;
+  if (envUrl) {
+    try {
+      return new URL(envUrl);
+    } catch {
+      // Fallback if envUrl is invalid
+    }
+  }
+  return new URL("https://baglamukhi-temple-hazel.vercel.app");
+})();
+
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://baglamukhi-temple-hazel.vercel.app"
-  ),
+  metadataBase: siteUrl,
   title: {
     default: "Maa Baglamukhi Havan Booking in Nalkheda | Pt. Deepak Sharma",
     template: "%s | Maa Baglamukhi Mandir Nalkheda",
@@ -54,7 +64,7 @@ export const metadata: Metadata = {
     shortcut: "/favicon.ico",
   },
   alternates: {
-    canonical: "/",
+    canonical: "https://baglamukhi-temple-hazel.vercel.app",
   },
   openGraph: {
     title: "Maa Baglamukhi Havan Booking in Nalkheda | Pt. Deepak Sharma",
@@ -89,11 +99,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="hi" className={`${geistSans.variable} ${cinzel.variable}`}>
-      <body className="min-h-screen bg-[#FFF8E7] text-[#3D1B10] antialiased flex flex-col selection:bg-[#D89B18]/30 selection:text-[#8B0000]">
+      <body className="min-h-screen max-w-full overflow-x-hidden bg-[#FFF8E7] text-[#3D1B10] antialiased flex flex-col selection:bg-[#D89B18]/30 selection:text-[#8B0000]">
         <LanguageProvider>
           <SmoothScroll />
           <Navbar />
-          <div className="flex-1 flex flex-col pb-20 lg:pb-0">
+          <div className="flex-1 flex flex-col pb-20 lg:pb-0 max-w-full overflow-x-hidden">
             {children}
             <Footer />
           </div>

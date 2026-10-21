@@ -350,17 +350,23 @@ export default function PanditServicesCatalog() {
           {/* Quick Search Bar */}
           <div className="relative w-full md:w-72 shrink-0">
             <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-stone-400" />
+            <label htmlFor="pandit-service-search" className="sr-only">
+              सेवा या समस्या खोजें
+            </label>
             <input
+              id="pandit-service-search"
               type="text"
+              aria-label="सेवा या समस्या खोजें"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="सेवा या समस्या खोजें (उदा. शत्रु, मुकदमा)..."
-              className="w-full pl-9 pr-4 py-2.5 text-xs sm:text-sm rounded-full bg-stone-50 border border-stone-200 focus:border-amber-400 focus:bg-white focus:outline-hidden transition-all placeholder:text-stone-400"
+              className="w-full pl-9 pr-4 py-2.5 text-xs sm:text-sm rounded-full bg-stone-50 border border-stone-200 focus:border-amber-400 focus:bg-white focus:outline-hidden transition-colors placeholder:text-stone-400"
             />
             {searchQuery && (
               <button
                 type="button"
                 onClick={() => setSearchQuery("")}
+                aria-label="खोज साफ़ करें"
                 className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-stone-400 hover:text-stone-700"
               >
                 ✕
@@ -380,7 +386,7 @@ export default function PanditServicesCatalog() {
                 onClick={() => {
                   setActiveCategory(cat.key);
                 }}
-                className={`flex items-center gap-2 px-4 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold whitespace-nowrap transition-all duration-200 cursor-pointer ${
+                className={`flex items-center gap-2 px-4 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold whitespace-nowrap transition-colors duration-200 cursor-pointer ${
                   isActive
                     ? "bg-[#AF0807] text-white shadow-md shadow-red-900/10 scale-[1.02]"
                     : "bg-stone-50 text-stone-700 hover:bg-stone-100 border border-stone-200/80"
@@ -429,7 +435,7 @@ export default function PanditServicesCatalog() {
               return (
                 <div
                   key={service.id}
-                  className="group rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] hover:shadow-[0_12px_32px_-4px_rgba(175,8,7,0.16)] p-6 flex flex-col justify-between hover:-translate-y-1 transition-all duration-300"
+                  className="group rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] hover:shadow-[0_12px_32px_-4px_rgba(175,8,7,0.16)] p-6 flex flex-col justify-between hover:-translate-y-1 transition-colors duration-300"
                 >
                   {/* Top Header: Category & Badge */}
                   <div>
@@ -481,7 +487,7 @@ export default function PanditServicesCatalog() {
                     <button
                       type="button"
                       onClick={() => handleWhatsAppBooking(service.title)}
-                      className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-full bg-[#AF0807] hover:bg-[#8B0605] text-white font-bold text-xs shadow-xs hover:shadow-md transition-all active:scale-[0.98]"
+                      className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-full bg-[#AF0807] hover:bg-[#8B0605] text-white font-bold text-xs shadow-xs hover:shadow-md transition-colors active:scale-[0.98]"
                     >
                       <MessageCircle className="h-4 w-4 text-amber-300" />
                       <span>पंडित जी से संकल्प लें</span>
@@ -599,7 +605,7 @@ export default function PanditServicesCatalog() {
                 <button
                   type="button"
                   onClick={() => handleWhatsAppBooking(selectedService.title)}
-                  className="w-full sm:flex-1 flex items-center justify-center gap-2 py-3 px-5 rounded-full bg-[#AF0807] hover:bg-[#8B0605] text-white font-bold text-xs sm:text-sm shadow-md transition-all"
+                  className="w-full sm:flex-1 flex items-center justify-center gap-2 py-3 px-5 rounded-full bg-[#AF0807] hover:bg-[#8B0605] text-white font-bold text-xs sm:text-sm shadow-md transition-colors"
                 >
                   <MessageCircle className="h-4 w-4 text-amber-300" />
                   <span>पंडित जी से इस सेवा हेतु बात करें</span>

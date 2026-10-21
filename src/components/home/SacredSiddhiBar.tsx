@@ -105,7 +105,7 @@ export default function SacredSiddhiBar() {
                 className="flex flex-col items-center group cursor-pointer w-[31%] xs:w-[31%] sm:w-[22%] lg:w-[11.2%] max-w-[125px] transition-transform duration-300"
               >
                 {/* Round Medallion */}
-                <div className="w-14 h-14 xs:w-15 xs:h-15 sm:w-16 sm:h-16 lg:w-[68px] lg:h-[68px] rounded-full aspect-square flex items-center justify-center bg-[radial-gradient(circle_at_center,#FFFFFF_25%,#FCF3DC_70%,#F0DDB8_100%)] border-[1.5px] border-[#DEB881]/90 shadow-[0_3px_12px_rgba(216,155,24,0.22),inset_0_1px_2px_rgba(255,255,255,0.9)] group-hover:scale-110 group-hover:shadow-[0_6px_22px_rgba(216,155,24,0.4)] group-hover:border-[#C99542] active:scale-95 transition-all duration-300 select-none shrink-0">
+                <div className="w-14 h-14 xs:w-15 xs:h-15 sm:w-16 sm:h-16 lg:w-[68px] lg:h-[68px] rounded-full aspect-square flex items-center justify-center bg-[radial-gradient(circle_at_center,#FFFFFF_25%,#FCF3DC_70%,#F0DDB8_100%)] border-[1.5px] border-[#DEB881]/90 shadow-[0_3px_12px_rgba(216,155,24,0.22),inset_0_1px_2px_rgba(255,255,255,0.9)] group-hover:scale-110 group-hover:shadow-[0_6px_22px_rgba(216,155,24,0.4)] group-hover:border-[#C99542] active:scale-95 transition-transform duration-300 select-none shrink-0">
                   {item.glyph ? (
                     <span className="font-serif font-bold text-xl sm:text-2xl text-[#4A0D16] select-none leading-none">
                       {item.glyph}

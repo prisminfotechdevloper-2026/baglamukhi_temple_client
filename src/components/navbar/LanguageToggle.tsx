@@ -10,14 +10,14 @@ export default function LanguageToggle() {
     <button
       type="button"
       onClick={toggleLanguage}
-      className="group relative inline-flex items-center gap-1 sm:gap-1.5 rounded-full bg-stone-50 hover:bg-amber-50/80 px-2 sm:px-3 py-1 sm:py-1.5 text-xs font-medium text-stone-700 transition-all duration-200 border border-stone-200/70 hover:border-amber-300 shadow-2xs hover:shadow-xs cursor-pointer focus:outline-hidden shrink-0"
+      className="group relative inline-flex items-center gap-1 sm:gap-1.5 rounded-full bg-stone-50 hover:bg-amber-50/80 px-2 sm:px-3 py-1 sm:py-1.5 text-xs font-medium text-stone-700 transition-colors duration-200 border border-stone-200/70 hover:border-amber-300 shadow-2xs hover:shadow-xs cursor-pointer focus:outline-hidden shrink-0"
       title="भाषा बदलें / Switch Language (Hindi / English)"
       aria-label="Switch Language"
     >
       <Globe className="h-4 w-4 text-amber-600 transition-transform duration-300 group-hover:rotate-45" />
       <div className="flex items-center text-[12px] sm:text-[13px] font-semibold tracking-wider">
         <span
-          className={`px-1 py-0.5 rounded transition-all ${
+          className={`px-1 py-0.5 rounded transition-colors ${
             language === "hi"
               ? "text-[#AF0807] font-bold"
               : "text-stone-400 font-normal"
@@ -27,7 +27,7 @@ export default function LanguageToggle() {
         </span>
         <span className="text-stone-300 mx-0.5 font-light">|</span>
         <span
-          className={`px-1 py-0.5 rounded transition-all ${
+          className={`px-1 py-0.5 rounded transition-colors ${
             language === "en"
               ? "text-[#AF0807] font-bold"
               : "text-stone-400 font-normal"

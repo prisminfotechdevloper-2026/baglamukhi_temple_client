@@ -10,25 +10,26 @@ import {
   Image as ImageIcon,
   Phone,
 } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface BottomNavItem {
-  label: string;
-  sub: string;
+  label: { hi: string; en: string };
   href: string;
   icon: typeof Home;
 }
 
 const navItems: BottomNavItem[] = [
-  { label: "Home", sub: "होम", href: "/", icon: Home },
-  { label: "About", sub: "परिचय", href: "/pandit-ji", icon: Users },
-  { label: "Pujas", sub: "पूजा", href: "/pujas", icon: CalendarCheck },
-  { label: "Mandir", sub: "मंदिर", href: "/mandir", icon: Landmark },
-  { label: "Gallery", sub: "गैलरी", href: "/gallery", icon: ImageIcon },
-  { label: "Contact", sub: "संपर्क", href: "/contact", icon: Phone },
+  { label: { hi: "होम", en: "Home" }, href: "/", icon: Home },
+  { label: { hi: "परिचय", en: "About" }, href: "/pandit-ji", icon: Users },
+  { label: { hi: "पूजा", en: "Pujas" }, href: "/pujas", icon: CalendarCheck },
+  { label: { hi: "मंदिर", en: "Mandir" }, href: "/mandir", icon: Landmark },
+  { label: { hi: "गैलरी", en: "Gallery" }, href: "/gallery", icon: ImageIcon },
+  { label: { hi: "संपर्क", en: "Contact" }, href: "/contact", icon: Phone },
 ];
 
 export default function BottomNav() {
   const pathname = usePathname();
+  const { t } = useLanguage();
 
   return (
     <nav
@@ -69,7 +70,7 @@ export default function BottomNav() {
                     : "font-semibold text-[#6B5A52]"
                   }`}
               >
-                {item.label}
+                {t(item.label)}
               </span>
             </Link>
           );

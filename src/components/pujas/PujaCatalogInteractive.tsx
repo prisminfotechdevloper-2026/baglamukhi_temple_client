@@ -367,13 +367,14 @@ const pujasDatabase: PujaItem[] = [
 
 type CategoryFilter = "all" | "tantra" | "jaap" | "dosh" | "samriddhi" | "online";
 
-const ITEMS_PER_PAGE = 3;
+const ITEMS_PER_PAGE = 6;
 
 export default function PujaCatalogInteractive() {
   const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState<CategoryFilter>("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
+  const [showAll, setShowAll] = useState(false);
   const [selectedPuja, setSelectedPuja] = useState<PujaItem | null>(null);
 
   const categories = [
@@ -420,12 +421,14 @@ export default function PujaCatalogInteractive() {
     return matchesCategory && matchesSearch;
   });
 
-  // Pagination calculation: 3 pujas at a time
-  const totalPages = Math.ceil(filteredPujas.length / ITEMS_PER_PAGE);
-  const paginatedPujas = filteredPujas.slice(
-    (currentPage - 1) * ITEMS_PER_PAGE,
-    currentPage * ITEMS_PER_PAGE
-  );
+  // Pagination calculation: 6 pujas at a time or full view
+  const totalPages = showAll ? 1 : Math.ceil(filteredPujas.length / ITEMS_PER_PAGE);
+  const paginatedPujas = showAll
+    ? filteredPujas
+    : filteredPujas.slice(
+        (currentPage - 1) * ITEMS_PER_PAGE,
+        currentPage * ITEMS_PER_PAGE
+      );
 
   const handleCategorySelect = (catKey: CategoryFilter) => {
     setActiveCategory(catKey);
@@ -481,20 +484,32 @@ export default function PujaCatalogInteractive() {
           {/* Quick Search */}
           <div className="relative w-full md:w-80 shrink-0">
             <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-stone-400" />
+            <label htmlFor="puja-catalog-search" className="sr-only">
+              {t({
+                hi: "अनुष्ठान या समस्या खोजें",
+                en: "Search puja or concern",
+              })}
+            </label>
             <input
+              id="puja-catalog-search"
               type="text"
+              aria-label={t({
+                hi: "अनुष्ठान या समस्या खोजें",
+                en: "Search puja or concern",
+              })}
               value={searchQuery}
               onChange={(e) => handleSearchChange(e.target.value)}
               placeholder={t({
                 hi: "अनुष्ठान या समस्या खोजें (उदा. कोर्ट केस, शत्रु)...",
                 en: "Search puja or concern (e.g. Court Case, Shatru)...",
               })}
-              className="w-full pl-9 pr-4 py-2.5 text-xs sm:text-sm rounded-full bg-stone-50 border border-stone-200 focus:border-amber-400 focus:bg-white focus:outline-hidden transition-all placeholder:text-stone-400"
+              className="w-full pl-9 pr-4 py-2.5 text-xs sm:text-sm rounded-full bg-stone-50 border border-stone-200 focus:border-amber-400 focus:bg-white focus:outline-hidden transition-colors placeholder:text-stone-400"
             />
             {searchQuery && (
               <button
                 type="button"
                 onClick={() => handleSearchChange("")}
+                aria-label={t({ hi: "खोज साफ़ करें", en: "Clear search" })}
                 className="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs text-stone-400 hover:text-stone-700"
               >
                 ✕
@@ -512,7 +527,7 @@ export default function PujaCatalogInteractive() {
                 key={cat.key}
                 type="button"
                 onClick={() => handleCategorySelect(cat.key)}
-                className={`flex items-center gap-2 px-4 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold whitespace-nowrap transition-all duration-200 cursor-pointer ${
+                className={`flex items-center gap-2 px-4 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold whitespace-nowrap transition-colors duration-200 cursor-pointer ${
                   isActive
                     ? "bg-[#AF0807] text-white shadow-md shadow-red-900/10 scale-[1.02]"
                     : "bg-stone-50 text-stone-700 hover:bg-stone-100 border border-stone-200/80"
@@ -565,7 +580,7 @@ export default function PujaCatalogInteractive() {
               return (
                 <div
                   key={puja.id}
-                  className="group rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] hover:shadow-[0_12px_32px_-4px_rgba(175,8,7,0.16)] p-6 flex flex-col justify-between hover:-translate-y-1 transition-all duration-300"
+                  className="group rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] hover:shadow-[0_12px_32px_-4px_rgba(175,8,7,0.16)] p-6 flex flex-col justify-between hover:-translate-y-1 transition-colors duration-300"
                 >
                   {/* Top Header: Category & Badge */}
                   <div>
@@ -618,7 +633,7 @@ export default function PujaCatalogInteractive() {
                     <button
                       type="button"
                       onClick={() => handleWhatsAppBooking(puja.title)}
-                      className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-full bg-[#AF0807] hover:bg-[#8B0605] text-white font-bold text-xs shadow-xs hover:shadow-md transition-all active:scale-[0.98]"
+                      className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-full bg-[#AF0807] hover:bg-[#8B0605] text-white font-bold text-xs shadow-xs hover:shadow-md transition-colors active:scale-[0.98]"
                     >
                       <MessageCircle className="h-4 w-4 text-amber-300" />
                       <span>{t({ hi: "अनुष्ठान बुक करें / संकल्प लें", en: "Book Anushthan / Take Sankalp" })}</span>
@@ -639,80 +654,117 @@ export default function PujaCatalogInteractive() {
           </div>
         )}
 
-        {/* ================= PAGINATION CONTROLS (3 PUJAS AT A TIME) ================= */}
-        {filteredPujas.length > 0 && totalPages > 1 && (
-          <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-stone-200">
+        {/* ================= PAGINATION & VIEW ALL CONTROLS ================= */}
+        {filteredPujas.length > 0 && (
+          <div className="mt-10 sm:mt-12 flex flex-col md:flex-row items-center justify-between gap-4 pt-6 border-t border-stone-200">
             {/* Devotional Count & Page Indicator */}
-            <div className="text-xs sm:text-sm text-stone-600 font-medium">
-              {t({ hi: "प्रदर्शित:", en: "Showing:" })}{" "}
-              <span className="font-bold text-[#3E0B02]">
-                {(currentPage - 1) * ITEMS_PER_PAGE + 1} -{" "}
-                {Math.min(currentPage * ITEMS_PER_PAGE, filteredPujas.length)}
-              </span>{" "}
-              / {t({ hi: "कुल", en: "of" })} <span className="font-bold text-[#AF0807]">{filteredPujas.length}</span> {t({ hi: "अनुष्ठान", en: "pujas" })} ({t({ hi: "पृष्ठ", en: "Page" })} {currentPage} / {totalPages})
+            <div className="flex flex-wrap items-center gap-3 text-xs sm:text-sm text-stone-600 font-medium">
+              {showAll ? (
+                <span>
+                  {t({ hi: "समस्त", en: "All" })}{" "}
+                  <span className="font-bold text-[#AF0807]">{filteredPujas.length}</span>{" "}
+                  {t({ hi: "अनुष्ठान प्रदर्शित", en: "pujas displayed" })}
+                </span>
+              ) : (
+                <span>
+                  {t({ hi: "प्रदर्शित:", en: "Showing:" })}{" "}
+                  <span className="font-bold text-[#3E0B02]">
+                    {(currentPage - 1) * ITEMS_PER_PAGE + 1} -{" "}
+                    {Math.min(currentPage * ITEMS_PER_PAGE, filteredPujas.length)}
+                  </span>{" "}
+                  / {t({ hi: "कुल", en: "of" })}{" "}
+                  <span className="font-bold text-[#AF0807]">{filteredPujas.length}</span>{" "}
+                  {t({ hi: "अनुष्ठान", en: "pujas" })} (
+                  {t({ hi: "पृष्ठ", en: "Page" })} {currentPage} / {totalPages})
+                </span>
+              )}
+
+              {/* View All / Paginated Toggle Button */}
+              {filteredPujas.length > ITEMS_PER_PAGE && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setShowAll((prev) => !prev);
+                    setCurrentPage(1);
+                  }}
+                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 hover:bg-amber-100 border border-amber-300 text-[#AF0807] font-bold text-xs transition-colors cursor-pointer shadow-2xs"
+                >
+                  <Layers className="h-3.5 w-3.5 text-amber-700" />
+                  <span>
+                    {showAll
+                      ? t({ hi: "पृष्ठवार देखें (6 प्रति पृष्ठ)", en: "Show Paginated (6 per page)" })
+                      : t({
+                          hi: `सभी ${filteredPujas.length} अनुष्ठान देखें`,
+                          en: `View All ${filteredPujas.length} Pujas`,
+                        })}
+                  </span>
+                </button>
+              )}
             </div>
 
-            {/* Pagination Controls */}
-            <div className="flex items-center gap-1.5 sm:gap-2">
-              {/* Prev Button */}
-              <button
-                type="button"
-                onClick={() => {
-                  if (currentPage > 1) {
-                    setCurrentPage((prev) => prev - 1);
-                    const el = document.getElementById("puja-catalog");
-                    if (el) el.scrollIntoView({ behavior: "smooth" });
-                  }
-                }}
-                disabled={currentPage === 1}
-                className="flex items-center gap-1 px-3.5 py-2 rounded-full border border-stone-200 bg-white text-xs font-semibold text-stone-700 hover:bg-stone-50 disabled:opacity-40 disabled:cursor-not-allowed transition-all cursor-pointer"
-                aria-label={t({ hi: "पिछला पृष्ठ", en: "Previous Page" })}
-              >
-                <ChevronLeft className="h-4 w-4" />
-                <span className="hidden sm:inline">{t({ hi: "पिछला", en: "Prev" })}</span>
-              </button>
-
-              {/* Numbered Page Buttons */}
-              {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => {
-                const isActive = currentPage === pageNum;
-                return (
-                  <button
-                    key={pageNum}
-                    type="button"
-                    onClick={() => {
-                      setCurrentPage(pageNum);
+            {/* Pagination Controls (Only when not in showAll mode and multiple pages exist) */}
+            {!showAll && totalPages > 1 && (
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                {/* Prev Button */}
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (currentPage > 1) {
+                      setCurrentPage((prev) => prev - 1);
                       const el = document.getElementById("puja-catalog");
                       if (el) el.scrollIntoView({ behavior: "smooth" });
-                    }}
-                    className={`h-9 w-9 sm:h-10 sm:w-10 rounded-full flex items-center justify-center text-xs sm:text-sm font-bold transition-all cursor-pointer ${
-                      isActive
-                        ? "bg-[#AF0807] text-white shadow-md shadow-red-900/20 scale-105"
-                        : "bg-white text-stone-700 hover:bg-amber-50 border border-stone-200"
-                    }`}
-                  >
-                    {pageNum}
-                  </button>
-                );
-              })}
+                    }
+                  }}
+                  disabled={currentPage === 1}
+                  className="flex items-center gap-1 px-3.5 py-2 rounded-full border border-stone-200 bg-white text-xs font-semibold text-stone-700 hover:bg-stone-50 disabled:opacity-40 disabled:cursor-not-allowed transition-colors cursor-pointer"
+                  aria-label={t({ hi: "पिछला पृष्ठ", en: "Previous Page" })}
+                >
+                  <ChevronLeft className="h-4 w-4" />
+                  <span className="hidden sm:inline">{t({ hi: "पिछला", en: "Prev" })}</span>
+                </button>
 
-              {/* Next Button */}
-              <button
-                type="button"
-                onClick={() => {
-                  if (currentPage < totalPages) {
-                    setCurrentPage((prev) => prev + 1);
-                    const el = document.getElementById("puja-catalog");
-                    if (el) el.scrollIntoView({ behavior: "smooth" });
-                  }
-                }}
-                disabled={currentPage === totalPages}
-                className="flex items-center gap-1 px-3.5 py-2 rounded-full border border-stone-200 bg-white text-xs font-semibold text-stone-700 hover:bg-stone-50 disabled:opacity-40 disabled:cursor-not-allowed transition-all cursor-pointer"
-                aria-label={t({ hi: "अगला पृष्ठ", en: "Next Page" })}
-              >
-                <span className="hidden sm:inline">{t({ hi: "अगला", en: "Next" })}</span>
-                <ChevronRight className="h-4 w-4" />
-              </button>
-            </div>
+                {/* Numbered Page Buttons */}
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => {
+                  const isActive = currentPage === pageNum;
+                  return (
+                    <button
+                      key={pageNum}
+                      type="button"
+                      onClick={() => {
+                        setCurrentPage(pageNum);
+                        const el = document.getElementById("puja-catalog");
+                        if (el) el.scrollIntoView({ behavior: "smooth" });
+                      }}
+                      className={`h-9 w-9 sm:h-10 sm:w-10 rounded-full flex items-center justify-center text-xs sm:text-sm font-bold transition-colors cursor-pointer ${
+                        isActive
+                          ? "bg-[#AF0807] text-white shadow-md shadow-red-900/20 scale-105"
+                          : "bg-white text-stone-700 hover:bg-amber-50 border border-stone-200"
+                      }`}
+                    >
+                      {pageNum}
+                    </button>
+                  );
+                })}
+
+                {/* Next Button */}
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (currentPage < totalPages) {
+                      setCurrentPage((prev) => prev + 1);
+                      const el = document.getElementById("puja-catalog");
+                      if (el) el.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
+                  disabled={currentPage === totalPages}
+                  className="flex items-center gap-1 px-3.5 py-2 rounded-full border border-stone-200 bg-white text-xs font-semibold text-stone-700 hover:bg-stone-50 disabled:opacity-40 disabled:cursor-not-allowed transition-colors cursor-pointer"
+                  aria-label={t({ hi: "अगला पृष्ठ", en: "Next Page" })}
+                >
+                  <span className="hidden sm:inline">{t({ hi: "अगला", en: "Next" })}</span>
+                  <ChevronRight className="h-4 w-4" />
+                </button>
+              </div>
+            )}
           </div>
         )}
 
@@ -822,7 +874,7 @@ export default function PujaCatalogInteractive() {
                 <button
                   type="button"
                   onClick={() => handleWhatsAppBooking(selectedPuja.title)}
-                  className="w-full sm:flex-1 flex items-center justify-center gap-2 py-3 px-5 rounded-full bg-[#AF0807] hover:bg-[#8B0605] text-white font-bold text-xs sm:text-sm shadow-md transition-all"
+                  className="w-full sm:flex-1 flex items-center justify-center gap-2 py-3 px-5 rounded-full bg-[#AF0807] hover:bg-[#8B0605] text-white font-bold text-xs sm:text-sm shadow-md transition-colors"
                 >
                   <MessageCircle className="h-4 w-4 text-amber-300" />
                   <span>{t({ hi: "पंडित जी से संकल्प व बुकिंग हेतु बात करें", en: "Connect with Pandit Ji for Sankalp & Booking" })}</span>

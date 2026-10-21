@@ -29,7 +29,7 @@ export default function MandirArticles({ sections, pullQuote }: MandirArticlesPr
   return (
     <div className="w-full">
       {/* ================= UNIFIED GRAND READING CANVAS (NO MULTI-CARD FRAGMENTATION) ================= */}
-      <article className="rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_8px_36px_-4px_rgba(217,119,6,0.14)] p-6 sm:p-10 md:p-12 transition-all duration-300">
+      <article id="mandir-article-top" className="rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_8px_36px_-4px_rgba(217,119,6,0.14)] p-6 sm:p-10 md:p-12 transition-colors duration-300">
         
         {/* Top Editorial Eyebrow & Chapter Meta */}
         <div className="pb-5 border-b border-amber-100/80 mb-6">
@@ -52,7 +52,7 @@ export default function MandirArticles({ sections, pullQuote }: MandirArticlesPr
               <a
                 key={pill.id}
                 href={`#${pill.id}`}
-                className="text-xs font-semibold px-3 py-1.5 rounded-full bg-stone-50 hover:bg-amber-100/70 text-[#3E0B02] hover:text-[#AF0807] border border-stone-200/80 hover:border-amber-400 transition-all cursor-pointer"
+                className="text-xs font-semibold px-3 py-1.5 rounded-full bg-stone-50 hover:bg-amber-100/70 text-[#3E0B02] hover:text-[#AF0807] border border-stone-200/80 hover:border-amber-400 transition-colors cursor-pointer"
               >
                 {pill.short}
               </a>
@@ -154,7 +154,7 @@ export default function MandirArticles({ sections, pullQuote }: MandirArticlesPr
             <span>इति श्री माँ बगलामुखी नलखेड़ा तीर्थ महात्म्य आलेख</span>
           </div>
           <a
-            href="#who-is-goddess"
+            href="#mandir-article-top"
             className="text-[#AF0807] font-bold hover:underline"
           >
             ↑ शीर्ष पर वापस जाएँ

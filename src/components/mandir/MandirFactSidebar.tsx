@@ -26,7 +26,7 @@ export default function MandirFactSidebar({
   return (
     <aside className="w-full">
       {/* ================= SINGLE UNIFIED HIGH-END CARD (NO INNER SCROLLBAR) ================= */}
-      <div className="rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_8px_32px_-4px_rgba(217,119,6,0.14)] p-5 sm:p-6 transition-all duration-300">
+      <div className="rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_8px_32px_-4px_rgba(217,119,6,0.14)] p-5 sm:p-6 transition-colors duration-300">
         
         {/* Card Header */}
         <div className="flex items-center justify-between pb-3.5 border-b border-amber-100/90 mb-3.5">
@@ -50,8 +50,8 @@ export default function MandirFactSidebar({
 
         {/* Fact Rows - Clean & Ultra-Compact Key-Value Pairs */}
         <div className="divide-y divide-amber-100/70 text-xs sm:text-sm">
-          {confirmedFacts.map((fact, idx) => (
-            <div key={idx} className="py-2.5 flex justify-between items-baseline gap-3">
+          {confirmedFacts.map((fact) => (
+            <div key={fact.label} className="py-2.5 flex justify-between items-baseline gap-3">
               <span className="font-bold text-stone-500 shrink-0 text-xs">
                 {fact.label}
               </span>
@@ -76,7 +76,7 @@ export default function MandirFactSidebar({
             <div className="grid grid-cols-2 gap-2">
               <a
                 href="tel:+917223083313"
-                className="inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-gradient-to-r from-[#AF0807] to-[#7A0505] hover:from-[#940706] hover:to-[#600303] text-white text-[11px] font-bold shadow-md border border-amber-400/80 transition-all cursor-pointer"
+                className="inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-gradient-to-r from-[#AF0807] to-[#7A0505] hover:from-[#940706] hover:to-[#600303] text-white text-[11px] font-bold shadow-md border border-amber-400/80 transition-colors cursor-pointer"
               >
                 <PhoneCall className="h-3 w-3 text-amber-300" />
                 <span>सीधा कॉल</span>
@@ -86,7 +86,7 @@ export default function MandirFactSidebar({
                 href="https://wa.me/917223083313?text=जय%20माँ%20बगलामुखी!%20मंदिर%20दर्शन%20व%20हवन%20संबंधी%20मार्गदर्शन%20चाहिए।"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-black/40 hover:bg-black/60 text-amber-200 hover:text-white text-[11px] font-bold border border-amber-400/70 transition-all cursor-pointer group"
+                className="inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-black/40 hover:bg-black/60 text-amber-200 hover:text-white text-[11px] font-bold border border-amber-400/70 transition-colors cursor-pointer group"
               >
                 <div className="flex h-3.5 w-3.5 items-center justify-center rounded-xs bg-[#25D366] text-white shrink-0 group-hover:scale-110 transition-transform">
                   <WhatsAppIcon className="h-2.5 w-2.5 text-white" />

@@ -169,7 +169,7 @@ export default function TempleRightInteractiveCard() {
       
       {/* ================= PANE 1: TIMINGS & AARTI (DEFAULT VIEW) ================= */}
       <div
-        className={`flex flex-col justify-between h-full transition-all duration-500 ${
+        className={`flex flex-col justify-between h-full transition-colors duration-500 ${
           showGallery
             ? "-translate-x-full opacity-0 pointer-events-none absolute inset-6 sm:inset-8 md:inset-9"
             : "translate-x-0 opacity-100 relative"
@@ -209,11 +209,11 @@ export default function TempleRightInteractiveCard() {
 
           {/* Aarti 2-Column Split */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-6">
-            {AARTI_SCHEDULE.map((aarti, idx) => {
+            {AARTI_SCHEDULE.map((aarti) => {
               const Icon = aarti.icon;
               return (
                 <div
-                  key={idx}
+                  key={aarti.title.hi}
                   className={`relative flex gap-3 p-3.5 rounded-2xl ${aarti.bgColor} border ${aarti.borderColor}`}
                 >
                   <div className="flex gap-1 shrink-0 pt-0.5">
@@ -239,9 +239,9 @@ export default function TempleRightInteractiveCard() {
 
           {/* Darshan & Havan Timings List */}
           <div className="space-y-3">
-            {TIMING_POINTS.map((item, idx) => (
+            {TIMING_POINTS.map((item) => (
               <div
-                key={idx}
+                key={item.label.hi}
                 className="flex items-start gap-3 p-3 rounded-xl bg-stone-50 border border-stone-200/70 hover:border-amber-300 transition-colors"
               >
                 <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-red-100/80 text-[#AF0807] text-xs font-bold shrink-0 mt-0.5 font-serif">
@@ -285,7 +285,7 @@ export default function TempleRightInteractiveCard() {
           <button
             type="button"
             onClick={() => setShowGallery(true)}
-            className="group inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#AF0807] hover:bg-[#8B0605] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg transition-all transform hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+            className="group inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#AF0807] hover:bg-[#8B0605] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
             aria-label="माँ बगलामुखी के 3 दिव्य दर्शन देखें"
           >
             <span>
@@ -303,7 +303,7 @@ export default function TempleRightInteractiveCard() {
 
       {/* ================= PANE 2: 3 DARSHAN IMAGES GALLERY (SLIDES IN FROM RIGHT) ================= */}
       <div
-        className={`absolute inset-0 bg-white p-4 sm:p-6 flex flex-col justify-between transition-all duration-500 ease-out z-10 ${
+        className={`absolute inset-0 bg-white p-4 sm:p-6 flex flex-col justify-between transition-colors duration-500 ease-out z-10 ${
           showGallery
             ? "translate-x-0 opacity-100"
             : "translate-x-full opacity-0 pointer-events-none"
@@ -317,11 +317,16 @@ export default function TempleRightInteractiveCard() {
             className="group inline-flex items-center gap-1.5 text-xs font-bold text-[#AF0807] hover:text-[#7A0505] bg-red-50 hover:bg-red-100 border border-red-200/80 rounded-full px-3 py-1.5 transition-colors cursor-pointer"
           >
             <ArrowLeft className="h-3.5 w-3.5 group-hover:-translate-x-0.5 transition-transform" />
-            <span>समय सारिणी पर वापस</span>
+            <span>
+              {t({
+                hi: "समय सारिणी पर वापस",
+                en: "Back to Schedule",
+              })}
+            </span>
           </button>
 
           <span className="text-xs font-bold text-amber-900 bg-amber-100/80 rounded-full px-2.5 py-0.5 border border-amber-300/60 font-serif">
-            माँ के दर्शन {currentIdx + 1} / {DARSHAN_IMAGES.length}
+            {t({ hi: "माँ के दर्शन", en: "Maa Darshan" })} {currentIdx + 1} / {DARSHAN_IMAGES.length}
           </span>
         </div>
 
@@ -332,6 +337,7 @@ export default function TempleRightInteractiveCard() {
             src={DARSHAN_IMAGES[currentIdx].src}
             alt=""
             fill
+            sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover blur-xl opacity-35 scale-110"
             aria-hidden
           />
@@ -342,7 +348,7 @@ export default function TempleRightInteractiveCard() {
             alt={DARSHAN_IMAGES[currentIdx].title}
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-contain relative z-10 p-1.5 transition-all duration-300"
+            className="object-contain relative z-10 p-1.5 transition-colors duration-300"
             priority
           />
 
@@ -350,8 +356,8 @@ export default function TempleRightInteractiveCard() {
           <button
             type="button"
             onClick={handlePrev}
-            className="absolute left-3 top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full bg-black/65 hover:bg-[#AF0807] text-white shadow-xl backdrop-blur-xs transition-all transform hover:scale-110 active:scale-95 cursor-pointer border border-white/20"
-            aria-label="पिछला दर्शन"
+            className="absolute left-3 top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full bg-black/65 hover:bg-[#AF0807] text-white shadow-xl backdrop-blur-xs transition-transform duration-200 hover:scale-110 active:scale-95 cursor-pointer border border-white/20"
+            aria-label={t({ hi: "पिछला दर्शन", en: "Previous Darshan" })}
           >
             <ChevronLeft className="h-6 w-6" />
           </button>
@@ -360,8 +366,8 @@ export default function TempleRightInteractiveCard() {
           <button
             type="button"
             onClick={handleNext}
-            className="absolute right-3 top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full bg-black/65 hover:bg-[#AF0807] text-white shadow-xl backdrop-blur-xs transition-all transform hover:scale-110 active:scale-95 cursor-pointer border border-white/20"
-            aria-label="अगला दर्शन"
+            className="absolute right-3 top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full bg-black/65 hover:bg-[#AF0807] text-white shadow-xl backdrop-blur-xs transition-transform duration-200 hover:scale-110 active:scale-95 cursor-pointer border border-white/20"
+            aria-label={t({ hi: "अगला दर्शन", en: "Next Darshan" })}
           >
             <ChevronRight className="h-6 w-6" />
           </button>
@@ -371,7 +377,7 @@ export default function TempleRightInteractiveCard() {
             type="button"
             onClick={() => setFullscreenImage(DARSHAN_IMAGES[currentIdx].src)}
             className="absolute top-3 right-3 z-20 p-2 rounded-full bg-black/60 hover:bg-[#AF0807] text-white backdrop-blur-xs transition-colors cursor-pointer border border-white/20"
-            title="बड़ा करके देखें"
+            title={t({ hi: "बड़ा करके देखें", en: "View Fullscreen" })}
           >
             <Maximize2 className="h-4 w-4" />
           </button>
@@ -389,12 +395,12 @@ export default function TempleRightInteractiveCard() {
 
             {/* 3 Quick Dot Indicators */}
             <div className="flex items-center gap-1.5 pb-0.5 shrink-0">
-              {DARSHAN_IMAGES.map((_, idx) => (
+              {DARSHAN_IMAGES.map((img, idx) => (
                 <button
-                  key={idx}
+                  key={img.src}
                   type="button"
                   onClick={() => setCurrentIdx(idx)}
-                  className={`h-1.5 rounded-full transition-all cursor-pointer ${
+                  className={`h-1.5 rounded-full transition-colors cursor-pointer ${
                     currentIdx === idx
                       ? "w-5 bg-amber-400"
                       : "w-1.5 bg-white/50 hover:bg-white/80"
@@ -409,30 +415,38 @@ export default function TempleRightInteractiveCard() {
 
       {/* ================= LIGHTBOX / FULLSCREEN MODAL ================= */}
       {fullscreenImage && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
-          onClick={() => setFullscreenImage(null)}
+        <dialog
+          open
+          aria-label={t({ hi: "माँ बगलामुखी दर्शन ज़ूम", en: "Maa Baglamukhi Darshan Zoom" })}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 border-0 w-full h-full max-w-none max-h-none m-0"
         >
+          {/* Backdrop Button to Close */}
+          <button
+            type="button"
+            className="absolute inset-0 cursor-pointer bg-transparent border-0 w-full h-full"
+            onClick={() => setFullscreenImage(null)}
+            aria-label={t({ hi: "बंद करें", en: "Close" })}
+          />
           <button
             type="button"
             onClick={() => setFullscreenImage(null)}
-            className="absolute top-5 right-5 p-2 rounded-full bg-white/20 hover:bg-white/40 text-white cursor-pointer"
-            aria-label="बंद करें"
+            className="absolute top-5 right-5 z-10 p-2 rounded-full bg-white/20 hover:bg-white/40 text-white cursor-pointer"
+            aria-label={t({ hi: "बंद करें", en: "Close" })}
           >
             <X className="h-6 w-6" />
           </button>
           <div
-            className="relative max-w-2xl max-h-[85vh] w-full h-[70vh] rounded-2xl overflow-hidden border-2 border-amber-400 shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
+            className="relative z-10 max-w-2xl max-h-[85vh] w-full h-[70vh] rounded-2xl overflow-hidden border-2 border-amber-400 shadow-2xl"
           >
             <Image
               src={fullscreenImage}
-              alt="माँ बगलामुखी दर्शन"
+              alt={t({ hi: "माँ बगलामुखी दर्शन", en: "Maa Baglamukhi Darshan" })}
               fill
+              sizes="(max-width: 768px) 100vw, 800px"
               className="object-contain"
             />
           </div>
-        </div>
+        </dialog>
       )}
 
     </div>

@@ -51,7 +51,7 @@ export default function PanditWelcomeDialog() {
       }, 500);
     };
 
-    // Scroll Observer: Trigger when user scrolls to Temple Darshan Section
+    // Scroll Observer: Trigger when user scrolls to Temple Darshan Section with genuine intent
     const targetElement = document.getElementById("temple-darshan-section");
 
     if (targetElement && "IntersectionObserver" in window) {
@@ -63,7 +63,7 @@ export default function PanditWelcomeDialog() {
             observer.disconnect();
           }
         },
-        { threshold: 0.15 }
+        { threshold: 0.3 }
       );
 
       observer.observe(targetElement);
@@ -74,9 +74,9 @@ export default function PanditWelcomeDialog() {
         if (intervalRef.current) clearInterval(intervalRef.current);
       };
     } else {
-      // Fallback: Trigger on scroll past 450px
+      // Fallback: Trigger after scrolling at least 950px to ensure genuine interest
       const handleScroll = () => {
-        if (window.scrollY > 450) {
+        if (window.scrollY > 950) {
           triggerPopup();
           window.removeEventListener("scroll", handleScroll);
         }
@@ -112,51 +112,63 @@ export default function PanditWelcomeDialog() {
 
   return (
     <>
-      {/* ================= MOBILE VIEW (Full Height / Screen Bottom Sheet) ================= */}
-      <div
-        className={`fixed inset-0 z-50 sm:hidden flex flex-col justify-end bg-black/60 backdrop-blur-xs transition-opacity duration-500 ${
+      {/* ================= MOBILE VIEW (Refined Compact Bottom Sheet) ================= */}
+      <dialog
+        open={isOpen}
+        aria-label="पंडित जी स्वागत संवाद"
+        className={`fixed inset-0 z-50 sm:hidden flex flex-col justify-end bg-black/60 backdrop-blur-xs transition-opacity duration-500 border-0 w-full h-full max-w-none max-h-none m-0 p-0 ${
           isOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
         }`}
-        onClick={handleClose}
+        onKeyDown={(e) => {
+          if (e.key === "Escape") handleClose();
+        }}
       >
+        {/* Backdrop Button to Close */}
+        <button
+          type="button"
+          className="absolute inset-0 cursor-pointer bg-transparent border-0 w-full h-full"
+          onClick={handleClose}
+          aria-label="बंद करें"
+        />
         <div
-          className={`w-full h-[92vh] rounded-t-3xl bg-gradient-to-b from-white via-[#FFFDF9] to-[#FFF9F2] border-t-2 border-amber-400 p-5 flex flex-col justify-between shadow-2xl transition-transform duration-500 ease-out overflow-y-auto ${
+          className={`relative z-10 w-full max-h-[82vh] rounded-t-3xl bg-gradient-to-b from-white via-[#FFFDF9] to-[#FFF9F2] border-t-2 border-amber-400 p-4 pb-6 flex flex-col shadow-2xl transition-transform duration-500 ease-out overflow-y-auto ${
             isOpen ? "translate-y-0" : "translate-y-full"
           }`}
-          onClick={(e) => e.stopPropagation()}
         >
-          {/* Mobile Top Header & Close Button */}
+          {/* Mobile Top Drag Indicator & Header */}
           <div>
-            <div className="flex items-center justify-between pb-3 border-b border-amber-200/60 mb-4">
+            <div className="w-10 h-1 bg-stone-300 rounded-full mx-auto mb-2.5" />
+            <div className="flex items-center justify-between pb-2.5 border-b border-amber-200/60 mb-3">
               <div className="flex items-center gap-2">
-                 <span className="font-serif text-xs font-bold text-amber-900">
+                <span className="font-serif text-xs font-bold text-amber-900">
                   ॥ ॐ ह्लीं बगलामुख्यै नमः ॥
                 </span>
               </div>
               <button
                 type="button"
                 onClick={handleClose}
-                className="flex h-8 w-8 items-center justify-center rounded-full bg-stone-100 hover:bg-stone-200 text-stone-600 transition-colors"
+                className="flex h-7 w-7 items-center justify-center rounded-full bg-stone-100 hover:bg-stone-200 text-stone-600 transition-colors"
                 aria-label="बंद करें"
               >
-                <X className="h-5 w-5" />
+                <X className="h-4 w-4" />
               </button>
             </div>
 
             {/* Pandit Ji Profile Card on Mobile */}
-            <div className="flex items-center gap-3.5 p-3 rounded-2xl bg-amber-50/70 border border-amber-200/80 mb-4">
-              <div className="relative h-16 w-16 rounded-full overflow-hidden border-2 border-amber-400 shadow-md shrink-0">
+            <div className="flex items-center gap-3 p-2.5 rounded-2xl bg-amber-50/70 border border-amber-200/80 mb-3">
+              <div className="relative h-14 w-14 rounded-full overflow-hidden border-2 border-amber-400 shadow-md shrink-0">
                 <Image
                   src="/images/pandit-deepak-sharma.jpg"
                   alt="पंडित दीपक शर्मा"
                   fill
+                  sizes="56px"
                   className="object-cover object-top"
                 />
               </div>
               <div>
-                <h4 className="font-serif text-base font-extrabold text-[#3E0B02] leading-tight">
+                <h4 className="font-serif text-sm font-extrabold text-[#3E0B02] leading-tight">
                   {t({
                     hi: "पंडित दीपक शर्मा",
                     en: "Pandit Deepak Sharma",
@@ -178,46 +190,38 @@ export default function PanditWelcomeDialog() {
             </div>
 
             {/* Sacred Welcoming Message */}
-            <div className="p-4 rounded-2xl bg-white border border-amber-200/70 shadow-xs mb-4">
-              <h3 className="font-serif text-lg font-extrabold text-[#AF0807] mb-2 leading-tight">
+            <div className="p-3.5 rounded-2xl bg-white border border-amber-200/70 shadow-xs mb-3">
+              <h3 className="font-serif text-base font-extrabold text-[#AF0807] mb-1.5 leading-tight">
                 {t({
                   hi: "जय माँ बगलामुखी!",
                   en: "Jai Maa Baglamukhi!",
                 })}
               </h3>
-              <p className="text-stone-700 text-sm leading-relaxed">
+              <p className="text-stone-700 text-xs sm:text-sm leading-relaxed">
                 {t({
-                  hi: "मैं पंडित दीपक शर्मा आपका स्वागत करता हूँ। जीवन में कोई परेशानी हो या मन किसी चिंता से घिरा हो, निःसंकोच अपनी बात साझा करें। मैं आपकी समस्या को समझकर उचित आध्यात्मिक मार्गदर्शन देने का प्रयास करूँगा।",
-                  en: "I, Pandit Deepak Sharma, warmly welcome you. If you are facing any troubles in life or have spiritual queries regarding Hawan, Anushthan or Kundali, feel free to connect directly. I will guide you with authentic Vedic guidance.",
+                  hi: "जीवन में कोई परेशानी हो या मन किसी चिंता से घिरा हो, निःसंकोच अपनी बात साझा करें। मैं आपकी समस्या को समझकर उचित आध्यात्मिक मार्गदर्शन देने का प्रयास करूँगा।",
+                  en: "If you are facing any troubles in life or have spiritual queries regarding Hawan, Anushthan or Kundali, feel free to connect directly for authentic Vedic guidance.",
                 })}
               </p>
-              <div className="mt-3 pt-2.5 border-t border-amber-100 flex items-center gap-1.5 text-xs font-bold text-amber-950">
-                <span>
-                  {t({
-                    hi: "माँ पीताम्बरा आप पर अपनी कृपा बनाए रखें।",
-                    en: "May Maa Pitambara bestow her divine blessings upon you.",
-                  })}
-                </span>
-              </div>
             </div>
 
             {/* Reassurance Badges */}
-            <div className="space-y-1.5 text-xs text-stone-600 px-1 mb-4">
-              <div className="flex items-center gap-2">
+            <div className="flex items-center justify-between text-[11px] text-stone-600 px-1 mb-3">
+              <div className="flex items-center gap-1.5">
                 <CheckCircle2 className="h-3.5 w-3.5 text-amber-600 shrink-0" />
                 <span>
                   {t({
-                    hi: "100% गोपनीय व व्यक्तिगत परामर्श",
-                    en: "100% Confidential & Personal Guidance",
+                    hi: "100% गोपनीय परामर्श",
+                    en: "100% Confidential",
                   })}
                 </span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1.5">
                 <CheckCircle2 className="h-3.5 w-3.5 text-amber-600 shrink-0" />
                 <span>
                   {t({
-                    hi: "हवन, अनुष्ठान व जन्म कुंडली विचार",
-                    en: "Hawan, Anushthan & Kundali Analysis",
+                    hi: "हवन व कुंडली विचार",
+                    en: "Hawan & Kundali",
                   })}
                 </span>
               </div>
@@ -225,11 +229,11 @@ export default function PanditWelcomeDialog() {
           </div>
 
           {/* Action Buttons on Mobile */}
-          <div className="space-y-2.5 pt-3 border-t border-stone-200">
+          <div className="space-y-2 pt-2 border-t border-stone-200">
             <button
               type="button"
               onClick={handleWhatsApp}
-              className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-full bg-gradient-to-r from-[#AF0807] via-[#940706] to-[#7A0505] hover:from-[#940706] hover:to-[#600303] text-white font-bold text-sm shadow-md border border-amber-300/40 group"
+              className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-full bg-gradient-to-r from-[#AF0807] via-[#940706] to-[#7A0505] hover:from-[#940706] hover:to-[#600303] text-white font-bold text-sm shadow-md border border-amber-300/40 group cursor-pointer"
             >
               <div className="flex h-5 w-5 items-center justify-center rounded-md bg-[#25D366] text-white shrink-0 group-hover:scale-110 transition-transform">
                 <WhatsAppIcon className="h-3.5 w-3.5 text-white" />
@@ -242,36 +246,39 @@ export default function PanditWelcomeDialog() {
               </span>
             </button>
 
-            <a
-              href="tel:+917223083313"
-              className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-full bg-[#AF0807] hover:bg-[#8B0605] text-white font-bold text-xs shadow-xs"
-            >
-              <PhoneCall className="h-3.5 w-3.5" />
-              <span>
-                {t({
-                  hi: "सीधा कॉल करें (+91 72230 83313)",
-                  en: "Call Directly (+91 72230 83313)",
-                })}
-              </span>
-            </a>
+            <div className="flex items-center gap-2">
+              <a
+                href="tel:+917223083313"
+                className="flex-1 flex items-center justify-center gap-1.5 py-2 px-3 rounded-full bg-[#AF0807] hover:bg-[#8B0605] text-white font-bold text-xs shadow-xs"
+              >
+                <PhoneCall className="h-3.5 w-3.5" />
+                <span>
+                  {t({
+                    hi: "सीधा कॉल करें",
+                    en: "Call Directly",
+                  })}
+                </span>
+              </a>
 
-            <button
-              type="button"
-              onClick={handleClose}
-              className="w-full py-2 text-center text-xs text-stone-500 font-semibold"
-            >
-              {t({
-                hi: "दर्शन जारी रखें (बाद में बात करें)",
-                en: "Continue Darshan (Talk Later)",
-              })}
-            </button>
+              <button
+                type="button"
+                onClick={handleClose}
+                className="py-2 px-3 text-center text-xs text-stone-500 hover:text-stone-700 font-semibold cursor-pointer"
+              >
+                {t({
+                  hi: "दर्शन जारी रखें",
+                  en: "Dismiss",
+                })}
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      </dialog>
 
       {/* ================= DESKTOP VIEW (Floating Left-Center Dialog with Spring Slide Animation) ================= */}
-      <div
-        className={`hidden sm:block fixed left-6 top-1/2 -translate-y-1/2 z-50 w-[390px] max-w-[90vw] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+      <aside
+        aria-label="पंडित जी परामर्श संवाद"
+        className={`hidden sm:block fixed left-6 top-1/2 -translate-y-1/2 z-50 w-[390px] max-w-[90vw] transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
           isOpen
             ? "translate-x-0 opacity-100 pointer-events-auto"
             : "-translate-x-[125%] opacity-0 pointer-events-none"
@@ -306,6 +313,7 @@ export default function PanditWelcomeDialog() {
                 src="/images/pandit-deepak-sharma.jpg"
                 alt="पंडित दीपक शर्मा"
                 fill
+                sizes="56px"
                 className="object-cover object-top"
               />
             </div>
@@ -360,7 +368,7 @@ export default function PanditWelcomeDialog() {
             <button
               type="button"
               onClick={handleWhatsApp}
-              className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-full bg-gradient-to-r from-[#AF0807] via-[#940706] to-[#7A0505] hover:from-[#940706] hover:to-[#600303] text-white font-bold text-xs shadow-md hover:shadow-lg transition-all cursor-pointer transform hover:scale-[1.01] border border-amber-300/40 group"
+              className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-full bg-gradient-to-r from-[#AF0807] via-[#940706] to-[#7A0505] hover:from-[#940706] hover:to-[#600303] text-white font-bold text-xs shadow-md hover:shadow-lg transition-colors cursor-pointer transform hover:scale-[1.01] border border-amber-300/40 group"
             >
               <div className="flex h-4 w-4 items-center justify-center rounded-md bg-[#25D366] text-white shrink-0 group-hover:scale-110 transition-transform">
                 <WhatsAppIcon className="h-3 w-3 text-white" />
@@ -403,13 +411,13 @@ export default function PanditWelcomeDialog() {
           {/* Auto-Dismiss Timer Progress Line */}
           <div className="absolute inset-x-0 bottom-0 h-1 bg-stone-100">
             <div
-              className="h-full bg-gradient-to-r from-amber-400 to-[#AF0807] transition-all duration-100 ease-linear"
+              className="h-full bg-gradient-to-r from-amber-400 to-[#AF0807] transition-colors duration-100 ease-linear"
               style={{ width: `${progress}%` }}
             />
           </div>
 
         </div>
-      </div>
+      </aside>
     </>
   );
 }

@@ -14,7 +14,9 @@ import {
   FileText,
   CheckCircle2,
   AlertCircle,
+  RotateCcw,
 } from "lucide-react";
+import WhatsAppIcon from "@/components/common/WhatsAppIcon";
 import { useLanguage } from "@/context/LanguageContext";
 
 type QueryType = "hawan_puja" | "kundali_jyotish";
@@ -94,6 +96,7 @@ export default function ContactForm() {
   const [birthPlace, setBirthPlace] = useState("");
 
   const [submitted, setSubmitted] = useState(false);
+  const [generatedWhatsAppUrl, setGeneratedWhatsAppUrl] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
   const currentOptions = queryType === "hawan_puja" ? HAWAN_PUJA_OPTIONS : KUNDALI_OPTIONS;
@@ -105,6 +108,21 @@ export default function ContactForm() {
     const newOptions = type === "hawan_puja" ? HAWAN_PUJA_OPTIONS : KUNDALI_OPTIONS;
     setServiceSubject(t(newOptions[0]));
     setErrorMessage("");
+  };
+
+  const handleReset = () => {
+    setName("");
+    setPhone("");
+    setCity("");
+    setMessage("");
+    setGotra("");
+    setPreferredDate("");
+    setDob("");
+    setBirthTime("");
+    setBirthPlace("");
+    setSubmitted(false);
+    setErrorMessage("");
+    setGeneratedWhatsAppUrl("");
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -131,7 +149,6 @@ export default function ContactForm() {
     }
 
     setErrorMessage("");
-    setSubmitted(true);
 
     const isHawan = queryType === "hawan_puja";
     const typeLabel = isHawan
@@ -171,30 +188,163 @@ export default function ContactForm() {
     const encoded = encodeURIComponent(text);
     const whatsappUrl = `https://wa.me/${targetPhone}?text=${encoded}`;
 
-    // Open WhatsApp in new tab / app
-    setTimeout(() => {
+    setGeneratedWhatsAppUrl(whatsappUrl);
+    setSubmitted(true);
+
+    // Direct synchronous trigger (Not blocked by browser popup blocker)
+    try {
       window.open(whatsappUrl, "_blank");
-    }, 400);
+    } catch {
+      // Fallback is rendered immediately on screen for user to click
+    }
   };
 
+  // Render Confirmation / Fallback Screen when Submitted
+  if (submitted) {
+    const isHawan = queryType === "hawan_puja";
+    const targetPhoneDisplay = isHawan ? "+91 72230 83313" : "+91 95756 64204";
+    const targetPhoneRaw = isHawan ? "917223083313" : "919575664204";
+
+    return (
+      <div className="w-full bg-white rounded-3xl border-y-0 border-x-2 border-amber-400 p-6 sm:p-8 md:p-10 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] text-center transition-colors duration-300 animate-fadeIn">
+        {/* Sacred Header Badge */}
+        <div className="inline-flex items-center gap-2 rounded-full bg-amber-50 border border-amber-300 px-4 py-1.5 text-xs font-serif font-bold text-amber-900 mb-4">
+          <span>॥ श्री माँ बगलामुखी कृपा ॥</span>
+        </div>
+
+        {/* Success Icon */}
+        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 mb-4 ring-8 ring-emerald-50">
+          <CheckCircle2 className="h-9 w-9 text-emerald-600" />
+        </div>
+
+        <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#3E0B02]">
+          {t({
+            hi: "आपकी पूछताछ सफलतापूर्वक तैयार है!",
+            en: "Your Inquiry is Ready!",
+          })}
+        </h3>
+
+        <p className="mt-2 text-xs sm:text-sm text-stone-600 max-w-lg mx-auto leading-relaxed">
+          {t({
+            hi: "पंडित दीपक शर्मा जी को आपका विवरण प्रेषित करने के लिए नीचे दिए गए हरे बटन पर क्लिक करें। यदि व्हाट्सएप स्वतः नहीं खुला है, तो कृपया नीचे दिए गए बटन को दबाएं।",
+            en: "Tap the green button below to send your details directly to Pandit Deepak Sharma Ji on WhatsApp. If WhatsApp did not open automatically, please tap below.",
+          })}
+        </p>
+
+        {/* Inquiry Summary Box */}
+        <div className="mt-6 rounded-2xl bg-stone-50 border border-stone-200/90 p-4 sm:p-5 text-left text-xs max-w-lg mx-auto space-y-2.5">
+          <div className="flex justify-between border-b border-stone-200/80 pb-2">
+            <span className="text-stone-500 font-medium">
+              {t({ hi: "यजमान का नाम:", en: "Devotee Name:" })}
+            </span>
+            <span className="font-bold text-stone-900">{name}</span>
+          </div>
+          <div className="flex justify-between border-b border-stone-200/80 pb-2">
+            <span className="text-stone-500 font-medium">
+              {t({ hi: "मोबाइल नंबर:", en: "Phone Number:" })}
+            </span>
+            <span className="font-bold text-stone-900">{phone}</span>
+          </div>
+          <div className="flex justify-between border-b border-stone-200/80 pb-2">
+            <span className="text-stone-500 font-medium">
+              {t({ hi: "चयनित सेवा:", en: "Selected Service:" })}
+            </span>
+            <span className="font-bold text-[#AF0807]">{activeSubject}</span>
+          </div>
+          {isHawan && gotra && (
+            <div className="flex justify-between border-b border-stone-200/80 pb-2">
+              <span className="text-stone-500 font-medium">
+                {t({ hi: "गोत्र:", en: "Gotra:" })}
+              </span>
+              <span className="font-bold text-stone-900">{gotra}</span>
+            </div>
+          )}
+          {isHawan && preferredDate && (
+            <div className="flex justify-between border-b border-stone-200/80 pb-2">
+              <span className="text-stone-500 font-medium">
+                {t({ hi: "वांछित तिथि:", en: "Preferred Date:" })}
+              </span>
+              <span className="font-bold text-stone-900">{preferredDate}</span>
+            </div>
+          )}
+          {city && (
+            <div className="flex justify-between border-b border-stone-200/80 pb-2">
+              <span className="text-stone-500 font-medium">
+                {t({ hi: "स्थान / शहर:", en: "City / State:" })}
+              </span>
+              <span className="font-bold text-stone-900">{city}</span>
+            </div>
+          )}
+        </div>
+
+        {/* Action Buttons: 100% Unblockable Native Anchor */}
+        <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3 max-w-lg mx-auto">
+          {/* Guaranteed WhatsApp Opener */}
+          <a
+            href={generatedWhatsAppUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full sm:flex-1 inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white text-sm font-bold shadow-lg shadow-emerald-900/15 transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+          >
+            <WhatsAppIcon className="h-5 w-5 text-white" />
+            <span>
+              {t({
+                hi: "व्हाट्सएप पर चैट शुरू करें",
+                en: "Open WhatsApp Chat Now",
+              })}
+            </span>
+          </a>
+
+          {/* Direct Phone Call Button */}
+          <a
+            href={`tel:+${targetPhoneRaw}`}
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-[#AF0807] hover:bg-[#8B0605] text-white text-sm font-bold shadow-md transition-colors cursor-pointer"
+          >
+            <PhoneCall className="h-4 w-4" />
+            <span>
+              {t({ hi: "सीधा कॉल करें", en: "Direct Call" })} ({targetPhoneDisplay})
+            </span>
+          </a>
+        </div>
+
+        {/* Reset / Send Another Inquiry Button */}
+        <div className="mt-6 pt-5 border-t border-stone-200/80">
+          <button
+            type="button"
+            onClick={handleReset}
+            className="text-xs font-semibold text-[#8B0000] hover:text-[#AF0807] inline-flex items-center gap-1.5 cursor-pointer hover:underline transition-colors"
+          >
+            <RotateCcw className="h-3.5 w-3.5" />
+            <span>
+              {t({
+                hi: "अन्य पूजा या नई पूछताछ हेतु पुनः फॉर्म भरें",
+                en: "Submit Another Inquiry / Fill Form Again",
+              })}
+            </span>
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="w-full bg-white rounded-3xl border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] p-6 sm:p-8 md:p-10 transition-all duration-300">
+    <div className="w-full bg-white rounded-3xl border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] p-6 sm:p-8 md:p-10 transition-colors duration-300">
       
       {/* Step 1: Query Type Selector (Two Tabs) */}
       <div className="mb-8">
-        <label className="block text-xs font-bold uppercase tracking-wider text-stone-500 mb-3">
+        <p className="block text-xs font-bold uppercase tracking-wider text-stone-500 mb-3">
           {t({
             hi: "1. आप किस सेवा के लिए संपर्क करना चाहते हैं?",
             en: "1. Select Inquiry Type / Service Requirement",
           })}
-        </label>
+        </p>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
           {/* Tab 1: Hawan & Puja */}
           <button
             type="button"
             onClick={() => handleTypeChange("hawan_puja")}
-            className={`flex items-start gap-3.5 p-4 rounded-2xl border-2 transition-all cursor-pointer text-left ${
+            className={`flex items-start gap-3.5 p-4 rounded-2xl border-2 transition-colors cursor-pointer text-left ${
               queryType === "hawan_puja"
                 ? "border-[#AF0807] bg-red-50/60 shadow-md ring-2 ring-red-200"
                 : "border-stone-200 bg-stone-50/60 hover:border-amber-300 hover:bg-amber-50/30"
@@ -226,7 +376,7 @@ export default function ContactForm() {
           <button
             type="button"
             onClick={() => handleTypeChange("kundali_jyotish")}
-            className={`flex items-start gap-3.5 p-4 rounded-2xl border-2 transition-all cursor-pointer text-left ${
+            className={`flex items-start gap-3.5 p-4 rounded-2xl border-2 transition-colors cursor-pointer text-left ${
               queryType === "kundali_jyotish"
                 ? "border-[#AF0807] bg-red-50/60 shadow-md ring-2 ring-red-200"
                 : "border-stone-200 bg-stone-50/60 hover:border-amber-300 hover:bg-amber-50/30"
@@ -290,17 +440,17 @@ export default function ContactForm() {
         
         {/* Section Heading: Personal Details */}
         <div className="border-t border-stone-100 pt-5">
-          <label className="block text-xs font-bold uppercase tracking-wider text-stone-500 mb-3">
+          <p className="block text-xs font-bold uppercase tracking-wider text-stone-500 mb-3">
             {t({
               hi: "2. आपका व्यक्तिगत विवरण",
               en: "2. Personal Details (Devotee / Yajman)",
             })}
-          </label>
+          </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {/* Full Name */}
             <div>
-              <label className="block text-xs font-semibold text-stone-700 mb-1.5">
+              <label htmlFor="contact-name" className="block text-xs font-semibold text-stone-700 mb-1.5">
                 {t({ hi: "पूरा नाम (Full Name)", en: "Full Name (Yajman)" })}{" "}
                 <span className="text-red-500">*</span>
               </label>
@@ -309,6 +459,7 @@ export default function ContactForm() {
                   <User className="h-4 w-4" />
                 </div>
                 <input
+                  id="contact-name"
                   type="text"
                   required
                   placeholder={t({ hi: "उदा. राहुल शर्मा", en: "e.g. Rahul Sharma" })}
@@ -321,7 +472,7 @@ export default function ContactForm() {
 
             {/* Mobile / WhatsApp Number */}
             <div>
-              <label className="block text-xs font-semibold text-stone-700 mb-1.5">
+              <label htmlFor="contact-phone" className="block text-xs font-semibold text-stone-700 mb-1.5">
                 {t({ hi: "मोबाइल / व्हाट्सएप नंबर", en: "Mobile / WhatsApp Number" })}{" "}
                 <span className="text-red-500">*</span>
               </label>
@@ -330,6 +481,7 @@ export default function ContactForm() {
                   <Phone className="h-4 w-4" />
                 </div>
                 <input
+                  id="contact-phone"
                   type="tel"
                   required
                   placeholder={t({ hi: "10 अंकों का मोबाइल नंबर", en: "10-digit Mobile Number" })}
@@ -343,7 +495,7 @@ export default function ContactForm() {
 
           {/* City / State */}
           <div className="mt-4">
-            <label className="block text-xs font-semibold text-stone-700 mb-1.5">
+            <label htmlFor="contact-city" className="block text-xs font-semibold text-stone-700 mb-1.5">
               {t({ hi: "आपका शहर एवं राज्य (City, State)", en: "City & State (Location)" })}
             </label>
             <div className="relative">
@@ -351,6 +503,7 @@ export default function ContactForm() {
                 <MapPin className="h-4 w-4" />
               </div>
               <input
+                id="contact-city"
                 type="text"
                 placeholder={t({ hi: "उदा. इंदौर, मध्य प्रदेश", en: "e.g. Indore, Madhya Pradesh" })}
                 value={city}
@@ -363,7 +516,7 @@ export default function ContactForm() {
 
         {/* Section Heading: Specific Service Selection */}
         <div className="border-t border-stone-100 pt-5">
-          <label className="block text-xs font-bold uppercase tracking-wider text-stone-500 mb-2">
+          <label htmlFor="contact-service-subject" className="block text-xs font-bold uppercase tracking-wider text-stone-500 mb-2">
             {queryType === "hawan_puja"
               ? t({
                   hi: "3. हवन व पूजा का चयन करें",
@@ -376,12 +529,18 @@ export default function ContactForm() {
           </label>
 
           <select
+            id="contact-service-subject"
+            aria-label={
+              queryType === "hawan_puja"
+                ? "हवन व पूजा का चयन करें"
+                : "ज्योतिष परामर्श विषय चुनें"
+            }
             value={activeSubject}
             onChange={(e) => setServiceSubject(e.target.value)}
             className="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 bg-stone-50/50 text-sm text-stone-900 font-medium focus:outline-none focus:border-[#AF0807] focus:bg-white transition-colors"
           >
-            {currentOptions.map((item, idx) => (
-              <option key={idx} value={t(item)}>
+            {currentOptions.map((item) => (
+              <option key={t(item)} value={t(item)}>
                 {t(item)}
               </option>
             ))}
@@ -393,10 +552,11 @@ export default function ContactForm() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
             {/* Gotra */}
             <div>
-              <label className="block text-xs font-semibold text-stone-700 mb-1.5">
+              <label htmlFor="contact-gotra" className="block text-xs font-semibold text-stone-700 mb-1.5">
                 {t({ hi: "गोत्र (यदि ज्ञात हो)", en: "Gotra (If known / Optional)" })}
               </label>
               <input
+                id="contact-gotra"
                 type="text"
                 placeholder={t({ hi: "उदा. भारद्वाज, कश्यप", en: "e.g. Bharadwaj, Kashyap" })}
                 value={gotra}
@@ -407,7 +567,7 @@ export default function ContactForm() {
 
             {/* Preferred Date */}
             <div>
-              <label className="block text-xs font-semibold text-stone-700 mb-1.5">
+              <label htmlFor="contact-preferred-date" className="block text-xs font-semibold text-stone-700 mb-1.5">
                 {t({ hi: "वांछित पूजा / दर्शन तिथि", en: "Preferred Puja / Sankalp Date" })}
               </label>
               <div className="relative">
@@ -415,7 +575,9 @@ export default function ContactForm() {
                   <Calendar className="h-4 w-4" />
                 </div>
                 <input
+                  id="contact-preferred-date"
                   type="date"
+                  aria-label="वांछित पूजा तिथि"
                   value={preferredDate}
                   onChange={(e) => setPreferredDate(e.target.value)}
                   className="w-full pl-10 pr-3.5 py-2.5 rounded-xl border border-stone-200 bg-stone-50/50 text-sm text-stone-900 focus:outline-none focus:border-[#AF0807] focus:bg-white transition-colors"
@@ -427,11 +589,13 @@ export default function ContactForm() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-1">
             {/* Date of Birth */}
             <div>
-              <label className="block text-xs font-semibold text-stone-700 mb-1.5">
+              <label htmlFor="contact-dob" className="block text-xs font-semibold text-stone-700 mb-1.5">
                 {t({ hi: "जन्म तिथि (DOB)", en: "Date of Birth (DOB)" })}
               </label>
               <input
+                id="contact-dob"
                 type="date"
+                aria-label="जन्म तिथि"
                 value={dob}
                 onChange={(e) => setDob(e.target.value)}
                 className="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 bg-stone-50/50 text-sm text-stone-900 focus:outline-none focus:border-[#AF0807] focus:bg-white transition-colors"
@@ -440,7 +604,7 @@ export default function ContactForm() {
 
             {/* Birth Time */}
             <div>
-              <label className="block text-xs font-semibold text-stone-700 mb-1.5">
+              <label htmlFor="contact-birth-time" className="block text-xs font-semibold text-stone-700 mb-1.5">
                 {t({ hi: "जन्म समय (Birth Time)", en: "Birth Time (Approx / Exact)" })}
               </label>
               <div className="relative">
@@ -448,7 +612,9 @@ export default function ContactForm() {
                   <Clock className="h-4 w-4" />
                 </div>
                 <input
+                  id="contact-birth-time"
                   type="time"
+                  aria-label="जन्म समय"
                   value={birthTime}
                   onChange={(e) => setBirthTime(e.target.value)}
                   className="w-full pl-10 pr-3.5 py-2.5 rounded-xl border border-stone-200 bg-stone-50/50 text-sm text-stone-900 focus:outline-none focus:border-[#AF0807] focus:bg-white transition-colors"
@@ -458,10 +624,11 @@ export default function ContactForm() {
 
             {/* Birth Place */}
             <div>
-              <label className="block text-xs font-semibold text-stone-700 mb-1.5">
+              <label htmlFor="contact-birth-place" className="block text-xs font-semibold text-stone-700 mb-1.5">
                 {t({ hi: "जन्म स्थान (City)", en: "Birth Place (City / District)" })}
               </label>
               <input
+                id="contact-birth-place"
                 type="text"
                 placeholder={t({ hi: "उदा. उज्जैन", en: "e.g. Ujjain" })}
                 value={birthPlace}
@@ -474,7 +641,7 @@ export default function ContactForm() {
 
         {/* Message / Problem Description */}
         <div className="border-t border-stone-100 pt-5">
-          <label className="block text-xs font-semibold text-stone-700 mb-1.5">
+          <label htmlFor="contact-message" className="block text-xs font-semibold text-stone-700 mb-1.5">
             {t({
               hi: "समस्या या विशेष संकल्प का संक्षिप्त विवरण (संदेश)",
               en: "Brief Problem Description or Special Sankalp Details",
@@ -485,6 +652,7 @@ export default function ContactForm() {
               <FileText className="h-4 w-4" />
             </div>
             <textarea
+              id="contact-message"
               rows={3}
               placeholder={t({
                 hi: "अपनी समस्या, कोर्ट केस, शत्रु बाधा, स्वास्थ्य, व्यापार रुकावट या विशेष संकल्प के बारे में लिखें...",
@@ -502,7 +670,7 @@ export default function ContactForm() {
           {/* WhatsApp Direct Submit Button */}
           <button
             type="submit"
-            className="w-full sm:flex-1 inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-gradient-to-r from-[#AF0807] via-[#940706] to-[#7A0505] hover:from-[#940706] hover:to-[#600303] text-white text-sm font-bold shadow-lg shadow-red-950/20 hover:shadow-xl transition-all transform hover:scale-[1.01] active:scale-[0.99] cursor-pointer border border-amber-300/40"
+            className="w-full sm:flex-1 inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-gradient-to-r from-[#AF0807] via-[#940706] to-[#7A0505] hover:from-[#940706] hover:to-[#600303] text-white text-sm font-bold shadow-lg shadow-red-950/20 hover:shadow-xl transition-transform duration-200 hover:scale-[1.01] active:scale-[0.99] cursor-pointer border border-amber-300/40"
           >
             <Send className="h-4 w-4 text-amber-300" />
             <span>
@@ -516,7 +684,7 @@ export default function ContactForm() {
           {/* Direct Call Button (Priority 1) */}
           <a
             href="tel:+917223083313"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#AF0807] hover:bg-[#8B0605] text-white text-sm font-bold shadow-md hover:shadow-lg transition-all cursor-pointer"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#AF0807] hover:bg-[#8B0605] text-white text-sm font-bold shadow-md hover:shadow-lg transition-colors cursor-pointer"
           >
             <PhoneCall className="h-4 w-4" />
             <span>{t({ hi: "सीधा कॉल करें (+91 72230 83313)", en: "Call Directly (+91 72230 83313)" })}</span>

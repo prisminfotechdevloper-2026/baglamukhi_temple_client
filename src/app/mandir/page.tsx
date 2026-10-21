@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     type: "article",
   },
   alternates: {
-    canonical: "/mandir",
+    canonical: "https://baglamukhi-temple-hazel.vercel.app/mandir",
   },
 };
 
@@ -64,7 +64,7 @@ export default function MandirPage() {
     "@graph": [
       {
         "@type": "PlaceOfWorship",
-        "@id": "https://baglamukhitemple.org/#mandir",
+        "@id": "https://baglamukhi-temple-hazel.vercel.app/#mandir",
         name: header.title,
         description: header.standfirst,
         address: {
@@ -80,19 +80,19 @@ export default function MandirPage() {
           latitude: "23.8329",
           longitude: "76.0125",
         },
-        image: "https://baglamukhitemple.org/images/baglamukhi-mandir-real.png",
+        image: "https://baglamukhi-temple-hazel.vercel.app/images/baglamukhi-mandir-real.png",
         telephone: "+91-7223083313",
       },
       {
         "@type": "Article",
         headline: header.title,
         description: header.standfirst,
-        image: "https://baglamukhitemple.org/images/baglamukhi-mandir-real.png",
+        image: "https://baglamukhi-temple-hazel.vercel.app/images/baglamukhi-mandir-real.png",
         inLanguage: "hi",
         publisher: {
           "@type": "Organization",
-          name: "श्री माँ बगलामुखी मंदिर ट्रस्ट",
-          url: "https://baglamukhitemple.org",
+          name: "श्री माँ बगलामुखी मंदिर सिद्धपीठ",
+          url: "https://baglamukhi-temple-hazel.vercel.app",
         },
       },
     ],
@@ -102,7 +102,9 @@ export default function MandirPage() {
     <main className="min-h-screen bg-[#FAF8F5]">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
       />
 
       {/* 1. Hero Section matching site aesthetic */}

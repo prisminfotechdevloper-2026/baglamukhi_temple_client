@@ -51,12 +51,12 @@ export default function PujaTrustRibbon() {
     <section className="w-full bg-[#FAF8F5] py-10 sm:py-12 border-b border-stone-200/80">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          {trustPoints.map((pt, idx) => {
+          {trustPoints.map((pt) => {
             const Icon = pt.icon;
             return (
               <div
-                key={idx}
-                className="rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] hover:shadow-[0_12px_32px_-4px_rgba(175,8,7,0.16)] p-5 sm:p-6 flex flex-col justify-between hover:-translate-y-1 transition-all duration-300"
+                key={pt.title.en}
+                className="rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] hover:shadow-[0_12px_32px_-4px_rgba(175,8,7,0.16)] p-5 sm:p-6 flex flex-col justify-between hover:-translate-y-1 transition-colors duration-300"
               >
                 <div>
                   <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-amber-50 border border-amber-300 text-[#AF0807] mb-3 shadow-2xs">

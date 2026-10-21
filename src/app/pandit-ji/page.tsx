@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: "/pandit-ji",
+    canonical: "https://baglamukhi-temple-hazel.vercel.app/pandit-ji",
   },
 };
 
@@ -83,7 +83,9 @@ export default function PanditJiPage() {
       {/* Structured Data (JSON-LD) for Search Engine Rich Snippets */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
       />
 
       {/* 1. Dignified Profile Hero: Pandit Deepak Sharma Bio, Lineage, Credentials & Trust Metrics */}

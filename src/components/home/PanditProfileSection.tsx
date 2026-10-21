@@ -47,12 +47,12 @@ export default function PanditProfileSection() {
         en: "Shri Vashishtha Jyotish Sansthan",
       },
       desc: {
-        hi: "श्री वशिष्ठ ज्योतिष संस्थान केन्द्र से संबद्ध, 15+ वर्षों का गहन ज्योतिषीय व तांत्रिक अनुभव।",
-        en: "Associated with Shri Vashishtha Jyotish Sansthan, 15+ years deep astrological & tantrik experience.",
+        hi: "श्री वशिष्ठ ज्योतिष संस्थान केन्द्र से संबद्ध, 5+ वर्षों का गहन ज्योतिषीय व तांत्रिक अनुभव।",
+        en: "Associated with Shri Vashishtha Jyotish Sansthan, 5+ years deep astrological & tantrik experience.",
       },
       badge: {
-        hi: "15+ वर्ष अनुभव",
-        en: "15+ Yrs Experience",
+        hi: "5+ वर्ष अनुभव",
+        en: "5+ Yrs Experience",
       },
       iconColor: "text-red-700",
     },
@@ -147,11 +147,7 @@ export default function PanditProfileSection() {
                 {/* Subtle Gradient for contrast */}
                 <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#1A0306] via-[#1A0306]/70 to-transparent z-10" />
 
-                {/* Verified Trust Seal Badge */}
-                <div className="absolute top-3.5 left-3.5 z-20 inline-flex items-center gap-1.5 rounded-full bg-black/70 backdrop-blur-md px-3 py-1 border border-amber-400/50 text-[11px] font-bold text-amber-200">
-                  <span className="h-1.5 w-1.5 rounded-full bg-green-400 animate-pulse" />
-                  <span>{t({ hi: "नलखेड़ा सिद्धपीठ मुख्य पुजारी", en: "Nalkheda Siddhapeeth Priest" })}</span>
-                </div>
+
 
                 {/* Bottom Title on Image */}
                 <div className="absolute bottom-4 left-4 right-4 z-20 text-white">
@@ -233,12 +229,12 @@ export default function PanditProfileSection() {
 
             {/* 4 Clean Credential Tiles (2x2 Grid) */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5 mb-7">
-              {credentials.map((item, idx) => {
+              {credentials.map((item) => {
                 const Icon = item.icon;
                 return (
                   <div
-                    key={idx}
-                    className="relative p-3.5 sm:p-4 rounded-2xl bg-[#FFFDF8] border border-[#EBD8B4] hover:border-[#D89B18] hover:shadow-md transition-all group"
+                    key={item.title.en}
+                    className="relative p-3.5 sm:p-4 rounded-2xl bg-[#FFFDF8] border border-[#EBD8B4] hover:border-[#D89B18] hover:shadow-md transition-colors group"
                   >
                     <div className="flex items-center justify-between mb-1.5">
                       <div className="flex items-center gap-2">
@@ -266,7 +262,7 @@ export default function PanditProfileSection() {
               {/* Call Pandit Ji */}
               <a
                 href="tel:+917223083313"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-gradient-to-r from-[#8B0000] via-[#A00B1A] to-[#68060F] hover:from-[#68060F] hover:to-[#4A0C16] text-white text-xs sm:text-sm font-extrabold shadow-lg shadow-red-950/25 border border-amber-400/50 transition-all transform hover:-translate-y-0.5 active:translate-y-0"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-gradient-to-r from-[#8B0000] via-[#A00B1A] to-[#68060F] hover:from-[#68060F] hover:to-[#4A0C16] text-white text-xs sm:text-sm font-extrabold shadow-lg shadow-red-950/25 border border-amber-400/50 transition-transform duration-200 hover:-translate-y-0.5 active:translate-y-0"
               >
                 <PhoneCall className="h-4 w-4 text-amber-300" />
                 <span>

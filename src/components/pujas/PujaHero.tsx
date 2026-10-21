@@ -113,7 +113,7 @@ export default function PujaHero() {
             <div className="flex flex-wrap items-center gap-3.5 pt-4 border-t border-stone-200">
               <a
                 href="#puja-catalog"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#AF0807] hover:bg-[#8B0605] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg transition-all transform hover:scale-[1.02] active:scale-[0.98]"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#AF0807] hover:bg-[#8B0605] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98]"
               >
                 <CalendarCheck className="h-4 w-4 text-amber-300" />
                 <span>{t({ hi: "समस्त 16+ पूजा सूची देखें", en: "Explore All 16+ Pujas" })}</span>
@@ -123,7 +123,7 @@ export default function PujaHero() {
                 href="https://wa.me/917223083313?text=%E0%A4%9C%E0%A4%AF%20%E0%A4%AE%E0%A4%BE%E0%A4%81%20%E0%A4%AC%E0%A4%97%E0%A4%B2%E0%A4%BE%E0%A4%AE%E0%A4%81%E0%A4%96%E0%A4%B0!%20%E0%A4%AA%E0%A4%82%E0%A4%A1%E0%A4%BF%E0%A4%A4%20%E0%A4%A6%E0%A4%80%E0%A4%AA%E0%A4%95%20%E0%A4%B6%E0%A4%B0%E0%A5%8D%E0%A4%AE%E0%A4%BE%20%E0%A4%9C%E0%A4%80%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20%E0%A4%AC%E0%A4%97%E0%A4%B2%E0%A4%BE%E0%A4%AE%E0%A4%81%E0%A4%96%E0%A4%B0%20%E0%A4%AE%E0%A4%82%E0%A4%A6%E0%A4%BF%E0%A4%B0%20%E0%A4%AE%E0%A5%87%E0%A4%82%20%E0%A4%B5%E0%A4%BF%E0%A4%B6%E0%A5%87%E0%A4%B7%20%E0%A4%AA%E0%A5%82%E0%A4%9C%E0%A4%BE%20/%20%E0%A4%AE%E0%A4%B9%E0%A4%B9%E0%A4%B5%E0%A4%A8%20%E0%A4%AC%E0%A5%81%E0%A4%95%20%E0%A4%95%E0%A4%B0%E0%A4%BE%E0%A4%A8%E0%A4%BE%20%E0%A4%B9%E0%A5%88%E0%A5%A4"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white hover:bg-amber-50 text-[#3E0B02] hover:text-[#AF0807] text-xs sm:text-sm font-bold border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-sm transition-all group"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white hover:bg-amber-50 text-[#3E0B02] hover:text-[#AF0807] text-xs sm:text-sm font-bold border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-sm transition-colors group"
               >
                 <div className="flex h-5 w-5 items-center justify-center rounded-md bg-[#25D366] text-white shrink-0 group-hover:scale-110 transition-transform">
                   <WhatsAppIcon className="h-3.5 w-3.5 text-white" />
@@ -135,7 +135,7 @@ export default function PujaHero() {
 
           {/* ================= RIGHT COLUMN: Visual Feature Card ================= */}
           <div className="lg:col-span-5 flex justify-center">
-            <div className="relative w-full max-w-[420px] aspect-[4/4.5] rounded-3xl overflow-hidden border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_12px_40px_-6px_rgba(217,119,6,0.18)] bg-gradient-to-b from-amber-100 to-stone-100 transition-all duration-300 group">
+            <div className="relative w-full max-w-[420px] aspect-[4/4.5] rounded-3xl overflow-hidden border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_12px_40px_-6px_rgba(217,119,6,0.18)] bg-gradient-to-b from-amber-100 to-stone-100 transition-colors duration-300 group">
               <Image
                 src="/images/baglamukhi-mandir-real.png"
                 alt="माँ बगलामुखी मंदिर नलखेड़ा - पावन हवन वेदी"

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect, useCallback } from "react";
+import React, { createContext, useContext, useState, useEffect, useCallback, useMemo } from "react";
 
 export type Language = "hi" | "en";
 
@@ -62,25 +62,21 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     }
   }, []);
 
-  const setLanguage = useCallback((lang: Language) => {
-    setLanguageState(lang);
+  // Sync language changes to localStorage
+  useEffect(() => {
     try {
-      localStorage.setItem(STORAGE_KEY, lang);
+      localStorage.setItem(STORAGE_KEY, language);
     } catch {
       // localStorage may be disabled
     }
+  }, [language]);
+
+  const setLanguage = useCallback((lang: Language) => {
+    setLanguageState(lang);
   }, []);
 
   const toggleLanguage = useCallback(() => {
-    setLanguageState((prev) => {
-      const nextLang = prev === "hi" ? "en" : "hi";
-      try {
-        localStorage.setItem(STORAGE_KEY, nextLang);
-      } catch {
-        // localStorage may be disabled
-      }
-      return nextLang;
-    });
+    setLanguageState((prev) => (prev === "hi" ? "en" : "hi"));
   }, []);
 
   const t = useCallback(
@@ -104,17 +100,20 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     [language]
   );
 
+  const value = useMemo(
+    () => ({
+      language,
+      setLanguage,
+      toggleLanguage,
+      isHindi: language === "hi",
+      isEnglish: language === "en",
+      t,
+    }),
+    [language, setLanguage, toggleLanguage, t]
+  );
+
   return (
-    <LanguageContext.Provider
-      value={{
-        language,
-        setLanguage,
-        toggleLanguage,
-        isHindi: language === "hi",
-        isEnglish: language === "en",
-        t,
-      }}
-    >
+    <LanguageContext.Provider value={value}>
       {children}
     </LanguageContext.Provider>
   );

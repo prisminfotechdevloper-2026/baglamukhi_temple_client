@@ -24,7 +24,7 @@ export default function PanditDirectBookingCard() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Container with signature border */}
-        <div className="rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_10px_36px_-4px_rgba(217,119,6,0.16)] p-6 sm:p-10 lg:p-12 transition-all duration-300">
+        <div className="rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_10px_36px_-4px_rgba(217,119,6,0.16)] p-6 sm:p-10 lg:p-12 transition-colors duration-300">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             {/* Left Column: Pandit Ji Quick Profile Photo + Text */}
@@ -75,7 +75,7 @@ export default function PanditDirectBookingCard() {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#AF0807] hover:bg-[#8B0605] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg transition-all transform hover:scale-[1.02] active:scale-[0.98] group"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#AF0807] hover:bg-[#8B0605] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98] group"
                 >
                   <div className="flex h-5 w-5 items-center justify-center rounded-md bg-[#25D366] text-white shrink-0 group-hover:scale-110 transition-transform">
                     <WhatsAppIcon className="h-3.5 w-3.5 text-white" />
@@ -101,6 +101,7 @@ export default function PanditDirectBookingCard() {
                     src="/images/pandit-deepak-sharma.jpg"
                     alt="पंडित दीपक शर्मा"
                     fill
+                    sizes="112px"
                     className="object-cover object-top"
                   />
                 </div>

@@ -213,7 +213,7 @@ export default function GalleryInteractive() {
                   setActiveTab(tab.key);
                   setLightboxIndex(null);
                 }}
-                className={`inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+                className={`inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-colors cursor-pointer ${
                   isActive
                     ? "bg-[#AF0807] text-white shadow-md border border-amber-400"
                     : "bg-white text-stone-700 hover:text-[#AF0807] hover:bg-amber-50 border border-stone-200 shadow-2xs"
@@ -240,10 +240,16 @@ export default function GalleryInteractive() {
             <div
               key={item.id}
               onClick={() => setLightboxIndex(idx)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  setLightboxIndex(idx);
+                }
+              }}
               tabIndex={0}
               role="button"
               aria-label={t(item.title)}
-              className="group relative rounded-2xl overflow-hidden bg-stone-900 border border-stone-200 hover:border-amber-500 shadow-sm hover:shadow-xl aspect-[4/3] cursor-pointer transition-all duration-300"
+              className="group relative rounded-2xl overflow-hidden bg-stone-900 border border-stone-200 hover:border-amber-500 shadow-sm hover:shadow-xl aspect-[4/3] cursor-pointer transition-colors duration-300"
             >
               {/* Image */}
               <Image
@@ -259,7 +265,7 @@ export default function GalleryInteractive() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-0 group-hover:opacity-100 group-active:opacity-100 group-focus:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
               {/* Image Name in Bottom Left on Hover / Active */}
-              <div className="absolute bottom-4 left-4 right-4 z-20 text-left opacity-0 group-hover:opacity-100 group-active:opacity-100 group-focus:opacity-100 transform translate-y-1 group-hover:translate-y-0 group-active:translate-y-0 transition-all duration-300 pointer-events-none">
+              <div className="absolute bottom-4 left-4 right-4 z-20 text-left opacity-0 group-hover:opacity-100 group-active:opacity-100 group-focus:opacity-100 transform translate-y-1 group-hover:translate-y-0 group-active:translate-y-0 transition-colors duration-300 pointer-events-none">
                 <p className="font-serif text-base sm:text-lg font-bold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] leading-snug">
                   {t(item.title)}
                 </p>
@@ -282,12 +288,21 @@ export default function GalleryInteractive() {
 
       {/* ================= LIGHTBOX POPUP MODAL ================= */}
       {lightboxIndex !== null && filteredItems[lightboxIndex] && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md p-4 sm:p-6"
-          onClick={() => setLightboxIndex(null)}
+        <dialog
+          open
+          aria-label={t(filteredItems[lightboxIndex].title)}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md p-4 sm:p-6 border-0 w-full h-full max-w-none max-h-none m-0"
+          onKeyDown={(e) => {
+            if (e.key === "Escape") setLightboxIndex(null);
+          }}
         >
+          {/* Backdrop Button to Close */}
+          <button
+            type="button"
+            className="absolute inset-0 cursor-pointer bg-transparent border-0 w-full h-full"
+            onClick={() => setLightboxIndex(null)}
+            aria-label="Close"
+          />
           {/* Close Button */}
           <button
             onClick={(e) => {
@@ -352,7 +367,7 @@ export default function GalleryInteractive() {
               </h4>
             </div>
           </div>
-        </div>
+        </dialog>
       )}
     </section>
   );

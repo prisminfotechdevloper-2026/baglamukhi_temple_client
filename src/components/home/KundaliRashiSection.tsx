@@ -185,7 +185,7 @@ export default function KundaliRashiSection() {
                   key={rashi.id}
                   type="button"
                   onClick={() => setSelectedRashi(rashi)}
-                  className={`flex flex-col items-center justify-center p-2.5 rounded-2xl border transition-all duration-200 cursor-pointer text-center ${isSelected
+                  className={`flex flex-col items-center justify-center p-2.5 rounded-2xl border transition-colors duration-200 cursor-pointer text-center ${isSelected
                       ? "bg-gradient-to-b from-[#8B0000] to-[#5C0D15] text-white border-[#D89B18] shadow-md scale-105"
                       : "bg-[#FFFDF9] hover:bg-[#FAEDD2]/50 text-[#3E0B02] border-[#EBD9B8]/90 hover:border-[#D89B18]"
                     }`}
@@ -236,7 +236,7 @@ export default function KundaliRashiSection() {
             <button
               type="button"
               onClick={() => handleRashiWhatsApp(selectedRashi)}
-              className="w-full md:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#25D366] via-[#1EBE5D] to-[#159E4A] hover:brightness-110 text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all transform hover:scale-[1.02] active:scale-[0.98] cursor-pointer shrink-0"
+              className="w-full md:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#25D366] via-[#1EBE5D] to-[#159E4A] hover:brightness-110 text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98] cursor-pointer shrink-0"
             >
               <WhatsAppIcon className="h-4 w-4" />
               <span>
@@ -269,7 +269,7 @@ export default function KundaliRashiSection() {
             {kundaliDoshas.map((dosh) => (
               <div
                 key={dosh.id}
-                className="group relative rounded-2xl sm:rounded-3xl bg-white border border-[#EBD9B8] border-l-[5px] border-l-[#C2841F] hover:border-l-[#8B0000] p-5 sm:p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+                className="group relative rounded-2xl sm:rounded-3xl bg-white border border-[#EBD9B8] border-l-[5px] border-l-[#C2841F] hover:border-l-[#8B0000] p-5 sm:p-6 shadow-sm hover:shadow-xl transition-colors duration-300 flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-start justify-between gap-2 mb-3">
@@ -294,8 +294,8 @@ export default function KundaliRashiSection() {
                     <span className="text-[11px] font-bold text-[#78350F] block">
                       {t({ hi: "प्रमुख लक्षण व संकेत:", en: "Key Signs & Symptoms:" })}
                     </span>
-                    {dosh.symptoms.map((symp, idx) => (
-                      <div key={idx} className="flex items-center gap-1.5 text-xs text-stone-700">
+                    {dosh.symptoms.map((symp) => (
+                      <div key={symp} className="flex items-center gap-1.5 text-xs text-stone-700">
                         <CheckCircle2 className="h-3.5 w-3.5 text-[#8B0000] shrink-0" />
                         <span>{symp}</span>
                       </div>
@@ -307,7 +307,7 @@ export default function KundaliRashiSection() {
                 <button
                   type="button"
                   onClick={() => handleDoshWhatsApp(dosh.titleHi)}
-                  className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#FFF8E7] hover:bg-[#8B0000] text-[#78350F] hover:text-white font-serif font-bold text-xs border border-[#D89B18]/60 hover:border-transparent transition-all duration-200 cursor-pointer shadow-xs"
+                  className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#FFF8E7] hover:bg-[#8B0000] text-[#78350F] hover:text-white font-serif font-bold text-xs border border-[#D89B18]/60 hover:border-transparent transition-colors duration-200 cursor-pointer shadow-xs"
                 >
                   <WhatsAppIcon className="h-3.5 w-3.5 text-[#25D366] group-hover:text-amber-200" />
                   <span>
@@ -355,7 +355,7 @@ export default function KundaliRashiSection() {
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-gradient-to-r from-[#25D366] via-[#1EBE5D] to-[#159E4A] hover:brightness-110 text-white text-xs sm:text-sm font-bold shadow-xl transition-all cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-gradient-to-r from-[#25D366] via-[#1EBE5D] to-[#159E4A] hover:brightness-110 text-white text-xs sm:text-sm font-bold shadow-xl transition-colors cursor-pointer"
             >
               <WhatsAppIcon className="h-4 w-4" />
               <span>
@@ -369,7 +369,7 @@ export default function KundaliRashiSection() {
             {/* Direct Calling (Primary number: 72230 83313) */}
             <a
               href="tel:+917223083313"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-amber-200 border border-amber-300/40 text-xs sm:text-sm font-bold backdrop-blur-md transition-all cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-amber-200 border border-amber-300/40 text-xs sm:text-sm font-bold backdrop-blur-md transition-colors cursor-pointer"
             >
               <PhoneCall className="h-4 w-4 text-amber-300" />
               <span>

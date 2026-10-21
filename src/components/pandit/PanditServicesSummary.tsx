@@ -122,8 +122,8 @@ export default function PanditServicesSummary() {
             const Icon = service.icon;
             return (
               <div
-                key={idx}
-                className="rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] hover:shadow-[0_12px_32px_-4px_rgba(175,8,7,0.16)] p-6 flex flex-col justify-between hover:-translate-y-1 transition-all duration-300 group"
+                key={service.title.en}
+                className="rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] hover:shadow-[0_12px_32px_-4px_rgba(175,8,7,0.16)] p-6 flex flex-col justify-between hover:-translate-y-1 transition-colors duration-300 group"
               >
                 <div>
                   <div className="flex items-center justify-between pb-3.5 border-b border-stone-100 mb-4">
@@ -179,7 +179,7 @@ export default function PanditServicesSummary() {
 
           <Link
             href="/pujas"
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-[#AF0807] via-[#940706] to-[#7A0505] hover:from-[#940706] hover:to-[#600303] text-white text-xs sm:text-sm font-bold shadow-xl border border-amber-400/80 hover:border-amber-300 transition-all shrink-0 hover:scale-[1.02] active:scale-[0.98]"
+            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-[#AF0807] via-[#940706] to-[#7A0505] hover:from-[#940706] hover:to-[#600303] text-white text-xs sm:text-sm font-bold shadow-xl border border-amber-400/80 hover:border-amber-300 transition-colors shrink-0 hover:scale-[1.02] active:scale-[0.98]"
           >
             <span>{t({ hi: "सभी 16+ अनुष्ठानों का विवरण देखें", en: "Explore Full 16+ Puja Catalog" })}</span>
             <ArrowRight className="h-4 w-4 text-amber-300" />

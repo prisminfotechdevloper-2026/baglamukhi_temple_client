@@ -23,12 +23,12 @@ export default function Footer() {
   const { t } = useLanguage();
 
   const quickLinks = [
-    { label: { hi: "मुख्य पृष्ठ (Home)", en: "Home" }, href: "/" },
+    { label: { hi: "मुख्य पृष्ठ", en: "Home" }, href: "/" },
     { label: { hi: "आचार्य पं. दीपक शर्मा", en: "About Pandit Ji" }, href: "/pandit-ji" },
-    { label: { hi: "पूजा एवं अनुष्ठान (Pujas)", en: "Pujas & Hawan" }, href: "/pujas" },
-    { label: { hi: "मंदिर का इतिहास (Mandir)", en: "Mandir History" }, href: "/mandir" },
-    { label: { hi: "फोटो दीर्घा (Gallery)", en: "Photo Gallery" }, href: "/gallery" },
-    { label: { hi: "संपर्क सूत्र (Contact Us)", en: "Contact Us" }, href: "/contact" },
+    { label: { hi: "पूजा एवं अनुष्ठान", en: "Pujas & Hawan" }, href: "/pujas" },
+    { label: { hi: "मंदिर का इतिहास", en: "Mandir History" }, href: "/mandir" },
+    { label: { hi: "फोटो दीर्घा", en: "Photo Gallery" }, href: "/gallery" },
+    { label: { hi: "संपर्क सूत्र", en: "Contact Us" }, href: "/contact" },
   ];
 
   return (
@@ -100,8 +100,8 @@ export default function Footer() {
                 <ShieldCheck className="h-4 w-4 text-amber-400 shrink-0" />
                 <span>
                   {t({
-                    hi: "100% प्रामाणिक वैदिक परंपरा • 15+ वर्ष अनुभव",
-                    en: "100% Authentic Tradition • 15+ Yrs Experience",
+                    hi: "100% प्रामाणिक वैदिक परंपरा • 5+ वर्ष अनुभव",
+                    en: "100% Authentic Tradition • 5+ Yrs Experience",
                   })}
                 </span>
               </div>
@@ -252,7 +252,7 @@ export default function Footer() {
                   href="tel:+917223083313"
                   className="text-amber-200 hover:text-white transition-colors font-bold text-xs"
                 >
-                  +91 72230 83313 (हवन व पूजा बुकिंग)
+                  +91 72230 83313 {t({ hi: "(हवन व पूजा बुकिंग)", en: "(Hawan & Puja Booking)" })}
                 </a>
               </div>
 
@@ -286,7 +286,7 @@ export default function Footer() {
                   href="https://wa.me/917223083313?text=जय%20माँ%20बगलामुखी!%20पंडित%20जी%2C%20मुझे%20हवन%20व%20पूजा%20अनुष्ठान%20की%20जानकारी%20चाहिए।"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#8B0000] via-[#AF0807] to-[#7A0505] hover:brightness-110 border border-amber-400/50 px-3.5 py-2.5 text-xs font-bold text-white shadow-md transition-all w-full justify-center group"
+                  className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#8B0000] via-[#AF0807] to-[#7A0505] hover:brightness-110 border border-amber-400/50 px-3.5 py-2.5 text-xs font-bold text-white shadow-md transition-colors w-full justify-center group"
                 >
                   <div className="flex h-5 w-5 items-center justify-center rounded-md bg-[#25D366] text-white shrink-0 group-hover:scale-110 transition-transform">
                     <WhatsAppIcon className="h-3.5 w-3.5 text-white" />
@@ -310,7 +310,7 @@ export default function Footer() {
             <Info className="h-4 w-4 text-amber-400 shrink-0" />
             <span>
               {t({
-                hi: "पारदर्शिता, शुल्क एवं धार्मिक सूचना (Trust & Devotee Notice)",
+                hi: "पारदर्शिता, शुल्क एवं धार्मिक सूचना",
                 en: "Transparency, Fee & Religious Notice",
               })}
             </span>

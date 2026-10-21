@@ -34,7 +34,7 @@ export interface DarshanVideoItem {
   views: string;
 }
 
-export const DARSHAN_VIDEOS: DarshanVideoItem[] = [
+const DARSHAN_VIDEOS: DarshanVideoItem[] = [
   {
     id: "uq7Jn39CM5U",
     title: "हवन के लिए संपर्क करें 📞7223083313 Maa Baglamukhi Mandir Nalkheda",
@@ -258,9 +258,12 @@ export default function DarshanVideoInteractiveLeaf() {
     [group]
   );
 
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => {
-    setMounted(true);
+  const step = useCallback((dir: 1 | -1) => {
+    const n = DARSHAN_VIDEOS.length;
+    setActive((prev) => {
+      const i = DARSHAN_VIDEOS.findIndex((v) => v.id === prev.id);
+      return DARSHAN_VIDEOS[(i + dir + n) % n];
+    });
   }, []);
 
   // Theatre: ESC close, Arrow key navigation + body scroll lock
@@ -278,7 +281,7 @@ export default function DarshanVideoInteractiveLeaf() {
       document.body.style.overflow = prevOverflow;
       window.removeEventListener("keydown", onKey);
     };
-  }, [theatre, active]);
+  }, [theatre, step]);
 
   const playerRef = useRef<HTMLDivElement>(null);
 
@@ -299,20 +302,14 @@ export default function DarshanVideoInteractiveLeaf() {
     setTheatre(true);
   };
 
-  const step = (dir: 1 | -1) => {
-    const n = DARSHAN_VIDEOS.length;
-    const i = DARSHAN_VIDEOS.findIndex((v) => v.id === active.id);
-    setActive(DARSHAN_VIDEOS[(i + dir + n) % n]);
-  };
-
   /* Active Video Info Card (Rendered under Player on desktop, and after Playlist on mobile) */
   const renderInfoCard = () => (
-    <div className="rounded-[24px] border border-[#E8D8B8] bg-white p-4 sm:p-5 shadow-[0_10px_30px_rgba(139,0,0,0.06)]">
+    <div className="rounded-[24px] border border-[#E8D8B8] bg-white p-4 sm:p-5 shadow-[0_10px_30px_rgba(139,0,0,0.06)] max-w-full overflow-hidden">
       {/* title row */}
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div className="min-w-0">
           <p className="text-xs font-bold tracking-wide text-[#8B0000]">
-            {active.category} • {active.views} VIEWS
+            {active.category} • {active.views} {t({ hi: "व्यूज", en: "VIEWS" })}
           </p>
           <h3 className="mt-1 font-serif text-base sm:text-lg font-bold leading-snug text-[#3B1E08]">
             {active.title}
@@ -322,7 +319,7 @@ export default function DarshanVideoInteractiveLeaf() {
           <button
             type="button"
             onClick={openTheatre}
-            className="inline-flex items-center gap-1.5 rounded-full border border-[#D4AF37]/60 bg-gradient-to-r from-amber-50 to-[#FFFDF8] hover:from-amber-100 hover:to-[#FFF9EE] px-3.5 py-1.5 text-xs font-bold text-[#8B0000] shadow-xs hover:border-[#D4AF37] transition-all cursor-pointer"
+            className="inline-flex items-center gap-1.5 rounded-full border border-[#D4AF37]/60 bg-gradient-to-r from-amber-50 to-[#FFFDF8] hover:from-amber-100 hover:to-[#FFF9EE] px-3.5 py-1.5 text-xs font-bold text-[#8B0000] shadow-xs hover:border-[#D4AF37] transition-colors cursor-pointer"
           >
             <Maximize2 className="h-3.5 w-3.5 text-amber-600" />
             <span>{t({ hi: "थिएटर", en: "Theatre" })}</span>
@@ -368,7 +365,7 @@ export default function DarshanVideoInteractiveLeaf() {
         </p>
         <a
           href={`tel:+91${PHONE}`}
-          className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#8B0000] via-[#A51D1D] to-[#8B0000] px-5 py-2.5 text-xs sm:text-sm font-bold text-white shadow-md transition-all hover:brightness-110 active:scale-95"
+          className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#8B0000] via-[#A51D1D] to-[#8B0000] px-5 py-2.5 text-xs sm:text-sm font-bold text-white shadow-md transition-colors hover:brightness-110 active:scale-95"
         >
           <PhoneCall className="h-3.5 w-3.5" />
           {t({
@@ -412,6 +409,7 @@ export default function DarshanVideoInteractiveLeaf() {
                     title={active.title}
                     allow={IFRAME_ALLOW}
                     allowFullScreen
+                    sandbox="allow-scripts allow-presentation"
                     className="h-full w-full border-0"
                   />
                 </div>
@@ -493,7 +491,7 @@ export default function DarshanVideoInteractiveLeaf() {
               })}
             </h3>
             <span className="rounded-md bg-amber-500/15 border border-amber-500/30 px-2.5 py-0.5 text-xs font-bold text-[#78350F]">
-              {list.length} Videos
+              {list.length} {t({ hi: "वीडियो", en: "Videos" })}
             </span>
           </div>
 
@@ -518,12 +516,11 @@ export default function DarshanVideoInteractiveLeaf() {
       </div>
 
       {/* ============ THEATRE MODAL (CINEMA GRADE PORTAL) ============ */}
-      {mounted && theatre && createPortal(
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-label="नलखेड़ा धाम दिव्य दर्शन थिएटर मोड"
-          className="fixed inset-0 z-[99999] flex flex-col items-center justify-between bg-black/95 backdrop-blur-2xl p-3 sm:p-5 select-none overflow-hidden"
+      {theatre && typeof document !== "undefined" && createPortal(
+        <dialog
+          open
+          aria-label={t({ hi: "नलखेड़ा धाम दिव्य दर्शन थिएटर मोड", en: "Nalkheda Dham Divine Darshan Theatre Mode" })}
+          className="fixed inset-0 z-[99999] flex flex-col items-center justify-between bg-black/95 backdrop-blur-2xl p-3 sm:p-5 select-none overflow-hidden border-0 w-full h-full max-w-none max-h-none m-0"
         >
           {/* Ambient Video Background Glow */}
           <img
@@ -534,8 +531,9 @@ export default function DarshanVideoInteractiveLeaf() {
           />
 
           {/* Backdrop Click to Close */}
-          <div
-            className="absolute inset-0 cursor-pointer"
+          <button
+            type="button"
+            className="absolute inset-0 cursor-pointer bg-transparent border-0 w-full h-full"
             onClick={() => setTheatre(false)}
             aria-label={t({ hi: "पृष्ठभूमि पर क्लिक करके बंद करें", en: "Click background to close" })}
           />
@@ -563,7 +561,7 @@ export default function DarshanVideoInteractiveLeaf() {
                 type="button"
                 onClick={() => setTheatre(false)}
                 aria-label={t({ hi: "थिएटर मोड बंद करें", en: "Close theatre mode" })}
-                className="group inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-bold text-white transition-all hover:bg-red-600 hover:border-red-500 cursor-pointer shadow-md"
+                className="group inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-bold text-white transition-colors hover:bg-red-600 hover:border-red-500 cursor-pointer shadow-md"
               >
                 <span className="hidden sm:inline text-white/80 group-hover:text-white">
                   {t({ hi: "बंद करें [ESC]", en: "Close [ESC]" })}
@@ -582,7 +580,7 @@ export default function DarshanVideoInteractiveLeaf() {
               onClick={() => step(-1)}
               aria-label={t({ hi: "पिछला वीडियो (Arrow Left)", en: "Previous Video (Arrow Left)" })}
               title={t({ hi: "पिछला वीडियो (←)", en: "Previous Video (←)" })}
-              className="hidden sm:grid h-12 w-12 place-items-center rounded-full border border-amber-500/40 bg-black/70 text-amber-300 shadow-2xl backdrop-blur-md transition-all hover:scale-110 hover:bg-[#D97706] hover:text-[#3B1E08] hover:border-amber-300 active:scale-95 cursor-pointer mr-4 lg:mr-8 shrink-0"
+              className="hidden sm:grid h-12 w-12 place-items-center rounded-full border border-amber-500/40 bg-black/70 text-amber-300 shadow-2xl backdrop-blur-md transition-transform duration-200 hover:scale-110 hover:bg-[#D97706] hover:text-[#3B1E08] hover:border-amber-300 active:scale-95 cursor-pointer mr-4 lg:mr-8 shrink-0"
             >
               <ChevronLeft className="h-6 w-6" />
             </button>
@@ -595,6 +593,7 @@ export default function DarshanVideoInteractiveLeaf() {
                 title={active.title}
                 allow={IFRAME_ALLOW}
                 allowFullScreen
+                sandbox="allow-scripts allow-presentation"
                 className="h-full w-full border-0"
               />
 
@@ -625,7 +624,7 @@ export default function DarshanVideoInteractiveLeaf() {
               onClick={() => step(1)}
               aria-label={t({ hi: "अगला वीडियो (Arrow Right)", en: "Next Video (Arrow Right)" })}
               title={t({ hi: "अगला वीडियो (→)", en: "Next Video (→)" })}
-              className="hidden sm:grid h-12 w-12 place-items-center rounded-full border border-amber-500/40 bg-black/70 text-amber-300 shadow-2xl backdrop-blur-md transition-all hover:scale-110 hover:bg-[#D97706] hover:text-[#3B1E08] hover:border-amber-300 active:scale-95 cursor-pointer ml-4 lg:mr-8 shrink-0"
+              className="hidden sm:grid h-12 w-12 place-items-center rounded-full border border-amber-500/40 bg-black/70 text-amber-300 shadow-2xl backdrop-blur-md transition-transform duration-200 hover:scale-110 hover:bg-[#D97706] hover:text-[#3B1E08] hover:border-amber-300 active:scale-95 cursor-pointer ml-4 lg:mr-8 shrink-0"
             >
               <ChevronRight className="h-6 w-6" />
             </button>
@@ -639,7 +638,7 @@ export default function DarshanVideoInteractiveLeaf() {
               </p>
               <p className="mt-0.5 flex items-center justify-center sm:justify-start gap-2 text-[11px] text-amber-300/80">
                 <Flame className="h-3 w-3 text-amber-400 fill-amber-400" />
-                <span>{active.views} Views</span>
+                <span>{active.views} {t({ hi: "व्यूज", en: "Views" })}</span>
                 <span>•</span>
                 <span>{t({ hi: `पं. दीपक शर्मा (${PHONE})`, en: `Pt. Deepak Sharma (${PHONE})` })}</span>
               </p>
@@ -666,7 +665,7 @@ export default function DarshanVideoInteractiveLeaf() {
               </a>
             </div>
           </div>
-        </div>,
+        </dialog>,
         document.body
       )}
     </div>

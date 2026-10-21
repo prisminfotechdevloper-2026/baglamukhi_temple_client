@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { ChevronDown } from "lucide-react";
 
 interface FAQItem {
@@ -53,6 +53,7 @@ export default function PanditFAQ() {
 
   const leftFaqs = faqs.slice(0, 3);
   const rightFaqs = faqs.slice(3, 6);
+  const openSet = useMemo(() => new Set(openIds), [openIds]);
 
   return (
     <section className="w-full bg-white py-12 sm:py-16 md:py-20 border-t border-stone-100">
@@ -80,11 +81,11 @@ export default function PanditFAQ() {
           {/* ================= LEFT COLUMN: First 3 Questions ================= */}
           <div className="space-y-4">
             {leftFaqs.map((faq) => {
-              const isOpen = openIds.includes(faq.id);
+              const isOpen = openSet.has(faq.id);
               return (
                 <div
                   key={faq.id}
-                  className="rounded-2xl sm:rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_4px_16px_-4px_rgba(217,119,6,0.1)] transition-all duration-200 overflow-hidden"
+                  className="rounded-2xl sm:rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_4px_16px_-4px_rgba(217,119,6,0.1)] transition-colors duration-200 overflow-hidden"
                 >
                   <button
                     type="button"
@@ -116,11 +117,11 @@ export default function PanditFAQ() {
           {/* ================= RIGHT COLUMN: Next 3 Questions ================= */}
           <div className="space-y-4">
             {rightFaqs.map((faq) => {
-              const isOpen = openIds.includes(faq.id);
+              const isOpen = openSet.has(faq.id);
               return (
                 <div
                   key={faq.id}
-                  className="rounded-2xl sm:rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_4px_16px_-4px_rgba(217,119,6,0.1)] transition-all duration-200 overflow-hidden"
+                  className="rounded-2xl sm:rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_4px_16px_-4px_rgba(217,119,6,0.1)] transition-colors duration-200 overflow-hidden"
                 >
                   <button
                     type="button"

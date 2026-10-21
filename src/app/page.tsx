@@ -105,7 +105,7 @@ export default function HomePage() {
         },
         telephone: "+91-7223083313",
         description:
-          "महामृत्युंजय वेद विद्यालय (उज्जैन) से कर्मकाण्ड प्रशिक्षित एवं श्री वशिष्ठ ज्योतिष संस्थान संबद्ध, 15+ वर्षों का साधना अनुभव।",
+          "महामृत्युंजय वेद विद्यालय (उज्जैन) से कर्मकाण्ड प्रशिक्षित एवं श्री वशिष्ठ ज्योतिष संस्थान संबद्ध, 5+ वर्षों का साधना अनुभव।",
       },
       {
         "@type": "BreadcrumbList",
@@ -125,9 +125,11 @@ export default function HomePage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
       />
-      <main className="w-full min-h-screen flex flex-col bg-[#FFF8E7]">
+      <main className="w-full max-w-full overflow-x-hidden min-h-screen flex flex-col bg-[#FFF8E7]">
         {/* 1. Hero Section with Responsive Divine Backgrounds & Sacred Mantra Box */}
         <HeroSection />
 

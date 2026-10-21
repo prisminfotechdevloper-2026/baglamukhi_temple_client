@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: "/gallery",
+    canonical: "https://baglamukhi-temple-hazel.vercel.app/gallery",
   },
 };
 
@@ -65,7 +65,9 @@ export default function GalleryPage() {
       {/* Search Engine Rich Snippet JSON-LD */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
       />
 
       {/* 1. Header with Breadcrumb and Title */}

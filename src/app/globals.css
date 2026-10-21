@@ -29,7 +29,14 @@
   --color-foreground: var(--foreground);
 }
 
+html {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
 body {
+  overflow-x: hidden;
+  max-width: 100vw;
   background-color: #FFF8E7;
   color: var(--foreground);
   font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;

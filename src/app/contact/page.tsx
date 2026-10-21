@@ -77,7 +77,7 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           
           {/* Card 1: Hawan & Puja Booking Hotline */}
-          <div className="rounded-2xl sm:rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] hover:shadow-[0_12px_32px_-4px_rgba(175,8,7,0.16)] p-5 flex flex-col items-center text-center hover:-translate-y-1 transition-all duration-300">
+          <div className="rounded-2xl sm:rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] hover:shadow-[0_12px_32px_-4px_rgba(175,8,7,0.16)] p-5 flex flex-col items-center text-center hover:-translate-y-1 transition-colors duration-300">
             <div className="flex h-12 w-12 sm:h-13 sm:w-13 items-center justify-center rounded-full bg-amber-50 border-2 border-amber-400 text-[#AF0807] mb-2.5 shadow-sm">
               <Flame className="h-5 w-5 sm:h-6 sm:w-6 text-[#AF0807]" />
             </div>
@@ -96,7 +96,7 @@ export default function ContactPage() {
           </div>
 
           {/* Card 2: Kundali & Jyotish Desk */}
-          <div className="rounded-2xl sm:rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] hover:shadow-[0_12px_32px_-4px_rgba(175,8,7,0.16)] p-5 flex flex-col items-center text-center hover:-translate-y-1 transition-all duration-300">
+          <div className="rounded-2xl sm:rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] hover:shadow-[0_12px_32px_-4px_rgba(175,8,7,0.16)] p-5 flex flex-col items-center text-center hover:-translate-y-1 transition-colors duration-300">
             <div className="flex h-12 w-12 sm:h-13 sm:w-13 items-center justify-center rounded-full bg-amber-50 border-2 border-amber-400 text-[#AF0807] mb-2.5 shadow-sm">
               <Compass className="h-5 w-5 sm:h-6 sm:w-6 text-[#AF0807]" />
             </div>
@@ -115,7 +115,7 @@ export default function ContactPage() {
           </div>
 
           {/* Card 3: Email / Official Inquiry */}
-          <div className="rounded-2xl sm:rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] hover:shadow-[0_12px_32px_-4px_rgba(175,8,7,0.16)] p-5 flex flex-col items-center text-center hover:-translate-y-1 transition-all duration-300">
+          <div className="rounded-2xl sm:rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] hover:shadow-[0_12px_32px_-4px_rgba(175,8,7,0.16)] p-5 flex flex-col items-center text-center hover:-translate-y-1 transition-colors duration-300">
             <div className="flex h-12 w-12 sm:h-13 sm:w-13 items-center justify-center rounded-full bg-amber-50 border-2 border-amber-400 text-[#AF0807] mb-2.5 shadow-sm">
               <Mail className="h-5 w-5 sm:h-6 sm:w-6 text-[#AF0807]" />
             </div>
@@ -134,7 +134,7 @@ export default function ContactPage() {
           </div>
 
           {/* Card 4: Official Instagram */}
-          <div className="rounded-2xl sm:rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] hover:shadow-[0_12px_32px_-4px_rgba(175,8,7,0.16)] p-5 flex flex-col items-center text-center hover:-translate-y-1 transition-all duration-300">
+          <div className="rounded-2xl sm:rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] hover:shadow-[0_12px_32px_-4px_rgba(175,8,7,0.16)] p-5 flex flex-col items-center text-center hover:-translate-y-1 transition-colors duration-300">
             <div className="flex h-12 w-12 sm:h-13 sm:w-13 items-center justify-center rounded-full bg-pink-50 border-2 border-pink-400 text-pink-600 mb-2.5 shadow-sm">
               <InstagramIcon className="h-5 w-5 sm:h-6 sm:w-6 text-pink-600" />
             </div>
@@ -183,7 +183,7 @@ export default function ContactPage() {
             href="https://www.google.com/maps/dir//23.8413611,76.2356389/@23.8392856,76.2303308,16z"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#AF0807] via-[#940706] to-[#7A0505] hover:from-[#940706] hover:to-[#600303] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg transition-all border border-amber-300/40 shrink-0 self-start md:self-auto cursor-pointer"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#AF0807] via-[#940706] to-[#7A0505] hover:from-[#940706] hover:to-[#600303] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg transition-colors border border-amber-300/40 shrink-0 self-start md:self-auto cursor-pointer"
           >
             <MapPin className="h-4 w-4 text-amber-300" />
             <span>गूगल मैप्स नेविगेशन (दिशा-निर्देश)</span>
@@ -195,7 +195,7 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
           
           {/* 1. By Train */}
-          <div className="rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 p-6 sm:p-7 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] hover:shadow-[0_12px_32px_-4px_rgba(175,8,7,0.16)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
+          <div className="rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 p-6 sm:p-7 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] hover:shadow-[0_12px_32px_-4px_rgba(175,8,7,0.16)] hover:-translate-y-1 transition-colors duration-300 flex flex-col justify-between group">
             <div>
               <div className="flex items-center justify-between mb-4">
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-50 border border-amber-300 text-[#AF0807] group-hover:scale-105 transition-transform shadow-xs">
@@ -220,7 +220,7 @@ export default function ContactPage() {
           </div>
 
           {/* 2. By Road */}
-          <div className="rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 p-6 sm:p-7 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] hover:shadow-[0_12px_32px_-4px_rgba(175,8,7,0.16)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
+          <div className="rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 p-6 sm:p-7 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] hover:shadow-[0_12px_32px_-4px_rgba(175,8,7,0.16)] hover:-translate-y-1 transition-colors duration-300 flex flex-col justify-between group">
             <div>
               <div className="flex items-center justify-between mb-4">
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-50 border border-amber-300 text-[#AF0807] group-hover:scale-105 transition-transform shadow-xs">
@@ -245,7 +245,7 @@ export default function ContactPage() {
           </div>
 
           {/* 3. By Air */}
-          <div className="rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 p-6 sm:p-7 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] hover:shadow-[0_12px_32px_-4px_rgba(175,8,7,0.16)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
+          <div className="rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 p-6 sm:p-7 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] hover:shadow-[0_12px_32px_-4px_rgba(175,8,7,0.16)] hover:-translate-y-1 transition-colors duration-300 flex flex-col justify-between group">
             <div>
               <div className="flex items-center justify-between mb-4">
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-50 border border-amber-300 text-[#AF0807] group-hover:scale-105 transition-transform shadow-xs">
@@ -294,13 +294,14 @@ export default function ContactPage() {
           <div className="lg:col-span-5 space-y-6">
             
             {/* Card 1: Pandit Deepak Sharma Profile Card */}
-            <div className="rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] hover:shadow-[0_12px_32px_-4px_rgba(175,8,7,0.16)] p-6 sm:p-7 relative overflow-hidden transition-all duration-300">
+            <div className="rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] hover:shadow-[0_12px_32px_-4px_rgba(175,8,7,0.16)] p-6 sm:p-7 relative overflow-hidden transition-colors duration-300">
               <div className="flex items-center gap-4 pb-5 border-b border-stone-100">
                 <div className="relative h-16 w-16 rounded-2xl overflow-hidden border-2 border-amber-400 shrink-0 shadow-sm">
                   <Image
                     src="/images/pandit-deepak-sharma.jpg"
                     alt="पंडित दीपक शर्मा"
                     fill
+                    sizes="64px"
                     className="object-cover object-top"
                   />
                 </div>
@@ -351,7 +352,7 @@ export default function ContactPage() {
               <div className="grid grid-cols-2 gap-3 mt-4">
                 <a
                   href="tel:+917223083313"
-                  className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#AF0807] hover:bg-[#8B0605] text-white text-xs font-bold shadow-sm transition-all"
+                  className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#AF0807] hover:bg-[#8B0605] text-white text-xs font-bold shadow-sm transition-colors"
                 >
                   <PhoneCall className="h-3.5 w-3.5" />
                   <span>कॉल करें</span>
@@ -360,7 +361,7 @@ export default function ContactPage() {
                   href="https://wa.me/917223083313?text=जय%20माँ%20बगलामुखी!%20पंडित%20दीपक%20शर्मा%20जी%2C%20मुझे%20पूजा%20व%20परामर्श%20के%20बारे%20में%20जानकारी%20चाहिए।"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#AF0807] via-[#940706] to-[#7A0505] hover:from-[#940706] hover:to-[#600303] text-white text-xs font-bold shadow-sm transition-all border border-amber-300/40"
+                  className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#AF0807] via-[#940706] to-[#7A0505] hover:from-[#940706] hover:to-[#600303] text-white text-xs font-bold shadow-sm transition-colors border border-amber-300/40"
                 >
                   <MessageCircle className="h-3.5 w-3.5 text-amber-300" />
                   <span>व्हाट्सएप करें</span>
@@ -369,7 +370,7 @@ export default function ContactPage() {
             </div>
 
             {/* Card 2: Temple Darshan Timings */}
-            <div className="rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] hover:shadow-[0_12px_32px_-4px_rgba(175,8,7,0.16)] p-6 sm:p-7 transition-all duration-300">
+            <div className="rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] hover:shadow-[0_12px_32px_-4px_rgba(175,8,7,0.16)] p-6 sm:p-7 transition-colors duration-300">
               <div className="flex items-center gap-2.5 mb-3 text-[#AF0807]">
                 <Clock className="h-5 w-5" />
                 <h3 className="font-serif text-base font-bold text-[#3E0B02]">
@@ -397,7 +398,7 @@ export default function ContactPage() {
             </div>
 
             {/* Card 3: Vedic Credential Badges */}
-            <div className="rounded-3xl bg-amber-50/60 border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] p-5 sm:p-6 space-y-3.5 transition-all duration-300">
+            <div className="rounded-3xl bg-amber-50/60 border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] p-5 sm:p-6 space-y-3.5 transition-colors duration-300">
               <div className="flex items-start gap-2.5 text-xs text-[#3E0B02]">
                 <ShieldCheck className="h-4 w-4 text-[#AF0807] shrink-0 mt-0.5" />
                 <div>
@@ -436,7 +437,7 @@ export default function ContactPage() {
 
       {/* ================= 5. INTERACTIVE GOOGLE MAP EMBED ================= */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-12 sm:mt-16">
-        <div className="rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] hover:shadow-[0_12px_32px_-4px_rgba(175,8,7,0.16)] p-4 sm:p-6 overflow-hidden transition-all duration-300">
+        <div className="rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] hover:shadow-[0_12px_32px_-4px_rgba(175,8,7,0.16)] p-4 sm:p-6 overflow-hidden transition-colors duration-300">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-4 border-b border-stone-100 mb-4">
             <div>
               <h3 className="font-serif text-base sm:text-lg font-bold text-[#3E0B02]">
@@ -468,6 +469,7 @@ export default function ContactPage() {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               title="Maa Baglamukhi Mandir Nalkheda Location Map"
+              sandbox="allow-scripts allow-popups"
             />
           </div>
         </div>
@@ -489,10 +491,10 @@ export default function ContactPage() {
           </div>
 
           <div className="space-y-3.5">
-            {faqList.map((faq, idx) => (
+            {faqList.map((faq) => (
               <div
-                key={idx}
-                className="rounded-2xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 p-5 shadow-[0_4px_16px_-4px_rgba(217,119,6,0.10)] transition-all duration-300"
+                key={faq.q}
+                className="rounded-2xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 p-5 shadow-[0_4px_16px_-4px_rgba(217,119,6,0.10)] transition-colors duration-300"
               >
                 <h3 className="font-serif text-sm sm:text-base font-bold text-[#3E0B02] mb-1.5 flex items-start gap-2">
                   <span className="text-[#AF0807] font-bold">Q:</span>

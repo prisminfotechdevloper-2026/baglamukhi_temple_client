@@ -50,12 +50,12 @@ export default function MandirHowToReach({ title, mapsUrl }: MandirHowToReachPro
 
       {/* 3 Transport Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-6">
-        {routes.map((rt, idx) => {
+        {routes.map((rt) => {
           const Icon = rt.icon;
           return (
             <div
-              key={idx}
-              className="rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] hover:shadow-[0_12px_32px_-4px_rgba(175,8,7,0.16)] p-6 flex flex-col justify-between hover:-translate-y-1 transition-all duration-300"
+              key={rt.mode}
+              className="rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] hover:shadow-[0_12px_32px_-4px_rgba(175,8,7,0.16)] p-6 flex flex-col justify-between hover:-translate-y-1 transition-colors duration-300"
             >
               <div>
                 <div className="flex items-center gap-3 mb-3.5 pb-3 border-b border-stone-100">
@@ -82,7 +82,7 @@ export default function MandirHowToReach({ title, mapsUrl }: MandirHowToReachPro
       </div>
 
       {/* Google Maps Direction Card */}
-      <div className="rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] p-6 sm:p-7 flex flex-col sm:flex-row items-center justify-between gap-4 transition-all duration-300">
+      <div className="rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] p-6 sm:p-7 flex flex-col sm:flex-row items-center justify-between gap-4 transition-colors duration-300">
         <div className="flex items-center gap-3 text-left">
           <div className="h-11 w-11 rounded-2xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center shrink-0">
             <MapPin className="h-6 w-6 text-[#AF0807]" />
@@ -101,7 +101,7 @@ export default function MandirHowToReach({ title, mapsUrl }: MandirHowToReachPro
           href={mapsUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#AF0807] via-[#940706] to-[#7A0505] hover:from-[#940706] hover:to-[#600303] text-white text-xs sm:text-sm font-bold shadow-lg border border-amber-400/80 hover:border-amber-300 transition-all shrink-0 cursor-pointer"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#AF0807] via-[#940706] to-[#7A0505] hover:from-[#940706] hover:to-[#600303] text-white text-xs sm:text-sm font-bold shadow-lg border border-amber-400/80 hover:border-amber-300 transition-colors shrink-0 cursor-pointer"
         >
           <Navigation className="h-4 w-4 text-amber-300" />
           <span>Google Maps पर देखें →</span>

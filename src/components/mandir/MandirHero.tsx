@@ -87,7 +87,7 @@ export default function MandirHero({
         <div className="mt-5 sm:mt-6 flex flex-wrap items-center gap-3">
           <a
             href="tel:+917223083313"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#AF0807] via-[#940706] to-[#7A0505] hover:from-[#940706] hover:to-[#600303] text-white text-xs sm:text-sm font-bold shadow-2xl border border-amber-400/70 hover:border-amber-300 transition-all transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#AF0807] via-[#940706] to-[#7A0505] hover:from-[#940706] hover:to-[#600303] text-white text-xs sm:text-sm font-bold shadow-2xl border border-amber-400/70 hover:border-amber-300 transition-transform duration-200 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
           >
             <PhoneCall className="h-4 w-4 text-amber-300" />
             <span>
@@ -102,7 +102,7 @@ export default function MandirHero({
             href={mapsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-black/45 hover:bg-black/65 text-white hover:text-amber-200 text-xs sm:text-sm font-bold border-2 border-amber-400 backdrop-blur-md shadow-2xl transition-all transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-black/45 hover:bg-black/65 text-white hover:text-amber-200 text-xs sm:text-sm font-bold border-2 border-amber-400 backdrop-blur-md shadow-2xl transition-transform duration-200 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
           >
             <Navigation className="h-4 w-4 text-amber-300" />
             <span>

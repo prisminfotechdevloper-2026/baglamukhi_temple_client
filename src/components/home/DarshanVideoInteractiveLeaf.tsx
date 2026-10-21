@@ -17,6 +17,7 @@ import {
   Tv,
   ArrowRight,
 } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 /* ------------------------------------------------------------------ */
 /* DATA                                                                */
@@ -177,11 +178,13 @@ const PlaylistItem = memo(function PlaylistItem({
   item,
   number,
   active,
+  activeLabel,
   onSelect,
 }: {
   item: DarshanVideoItem;
   number: number;
   active: boolean;
+  activeLabel?: string;
   onSelect: (v: DarshanVideoItem) => void;
 }) {
   return (
@@ -221,7 +224,7 @@ const PlaylistItem = memo(function PlaylistItem({
           </span>
           {active && (
             <span className="shrink-0 rounded-full bg-[#8B0000] px-2 py-0.5 text-[10px] font-extrabold text-white">
-              ▶ सक्रिय
+              {activeLabel || "▶ सक्रिय"}
             </span>
           )}
         </span>
@@ -244,6 +247,7 @@ const PlaylistItem = memo(function PlaylistItem({
 /* ------------------------------------------------------------------ */
 
 export default function DarshanVideoInteractiveLeaf() {
+  const { t } = useLanguage();
   const [active, setActive] = useState<DarshanVideoItem>(DARSHAN_VIDEOS[0]);
   const [playing, setPlaying] = useState(false);
   const [theatre, setTheatre] = useState(false);
@@ -292,6 +296,82 @@ export default function DarshanVideoInteractiveLeaf() {
     setActive(DARSHAN_VIDEOS[(i + dir + n) % n]);
   };
 
+  /* Active Video Info Card (Rendered under Player on desktop, and after Playlist on mobile) */
+  const renderInfoCard = () => (
+    <div className="rounded-[24px] border border-[#E8D8B8] bg-white p-4 sm:p-5 shadow-[0_10px_30px_rgba(139,0,0,0.06)]">
+      {/* title row */}
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+        <div className="min-w-0">
+          <p className="text-xs font-bold tracking-wide text-[#8B0000]">
+            {active.category} • {active.views} VIEWS
+          </p>
+          <h3 className="mt-1 font-serif text-base sm:text-lg font-bold leading-snug text-[#3B1E08]">
+            {active.title}
+          </h3>
+        </div>
+        <div className="flex shrink-0 gap-2">
+          <button
+            type="button"
+            onClick={openTheatre}
+            className="inline-flex items-center gap-1.5 rounded-full border border-[#D4AF37]/60 bg-gradient-to-r from-amber-50 to-[#FFFDF8] hover:from-amber-100 hover:to-[#FFF9EE] px-3.5 py-1.5 text-xs font-bold text-[#8B0000] shadow-xs hover:border-[#D4AF37] transition-all cursor-pointer"
+          >
+            <Maximize2 className="h-3.5 w-3.5 text-amber-600" />
+            <span>{t({ hi: "थिएटर", en: "Theatre" })}</span>
+          </button>
+          <a
+            href={`https://www.youtube.com/shorts/${active.id}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 rounded-xl border border-[#E8D8B8] bg-white px-3 py-1.5 text-xs font-medium text-[#3B1E08] transition-colors hover:bg-[#FFF7E6]"
+          >
+            <ExternalLink className="h-3.5 w-3.5" />
+            YouTube
+          </a>
+        </div>
+      </div>
+
+      <hr className="my-3 border-[#EBDCC2]" />
+
+      <p className="text-xs sm:text-sm leading-relaxed text-[#5C3A21]">{active.desc}</p>
+
+      {/* chips */}
+      <div className="mt-3 flex flex-wrap gap-1.5">
+        {active.tags.map((tag) => (
+          <span
+            key={tag}
+            className="inline-flex items-center gap-1 rounded-full border border-[#E8D8B8] bg-[#FFFDF8] px-2.5 py-1 text-[11px] font-medium text-[#3B1E08]"
+          >
+            <CheckCircle2 className="h-3 w-3 text-[#B45309]" />
+            {tag}
+          </span>
+        ))}
+      </div>
+
+      <hr className="my-3 border-[#EBDCC2]" />
+
+      {/* CTA row */}
+      <div className="flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between">
+        <p className="text-xs text-[#5C3A21]/80">
+          {t({
+            hi: "हवन या पूजा हेतु पं. दीपक शर्मा जी से संपर्क करें:",
+            en: "For Hawan or Puja, contact Pt. Deepak Sharma Ji:",
+          })}
+        </p>
+        <a
+          href={`tel:+91${PHONE}`}
+          className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#8B0000] via-[#A51D1D] to-[#8B0000] px-5 py-2.5 text-xs sm:text-sm font-bold text-white shadow-md transition-all hover:brightness-110 active:scale-95"
+        >
+          <PhoneCall className="h-3.5 w-3.5" />
+          {t({
+            hi: `हवन बुक करें ${PHONE}`,
+            en: `Book Hawan ${PHONE}`,
+          })}
+          <ArrowRight className="h-3.5 w-3.5" />
+        </a>
+      </div>
+    </div>
+  );
+
   return (
     <div className="w-full">
       {/* ============ FILTER TABS + COUNTER ============ */}
@@ -328,7 +408,7 @@ export default function DarshanVideoInteractiveLeaf() {
                   className="absolute bottom-3 right-3 z-10 inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-black/70 px-3 py-1.5 text-xs font-medium text-white backdrop-blur-md hover:bg-black cursor-pointer"
                 >
                   <RotateCcw className="h-3.5 w-3.5 text-amber-400" />
-                  कवर देखें
+                  {t({ hi: "कवर देखें", en: "Show Cover" })}
                 </button>
               </>
             ) : (
@@ -383,72 +463,9 @@ export default function DarshanVideoInteractiveLeaf() {
             )}
           </div>
 
-          {/* Info card */}
-          <div className="rounded-[24px] border border-[#E8D8B8] bg-white p-4 sm:p-5 shadow-[0_10px_30px_rgba(139,0,0,0.06)]">
-            {/* title row */}
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-              <div className="min-w-0">
-                <p className="text-xs font-bold tracking-wide text-[#8B0000]">
-                  {active.category} • {active.views} VIEWS
-                </p>
-                <h3 className="mt-1 font-serif text-base sm:text-lg font-bold leading-snug text-[#3B1E08]">
-                  {active.title}
-                </h3>
-              </div>
-              <div className="flex shrink-0 gap-2">
-                <button
-                  type="button"
-                  onClick={openTheatre}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-[#D4AF37]/60 bg-gradient-to-r from-amber-50 to-[#FFFDF8] hover:from-amber-100 hover:to-[#FFF9EE] px-3.5 py-1.5 text-xs font-bold text-[#8B0000] shadow-xs hover:border-[#D4AF37] transition-all cursor-pointer"
-                >
-                  <Maximize2 className="h-3.5 w-3.5 text-amber-600" />
-                  <span>थिएटर</span>
-                </button>
-                <a
-                  href={`https://www.youtube.com/shorts/${active.id}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 rounded-xl border border-[#E8D8B8] bg-white px-3 py-1.5 text-xs font-medium text-[#3B1E08] transition-colors hover:bg-[#FFF7E6]"
-                >
-                  <ExternalLink className="h-3.5 w-3.5" />
-                  YouTube
-                </a>
-              </div>
-            </div>
-
-            <hr className="my-3 border-[#EBDCC2]" />
-
-            <p className="text-xs sm:text-sm leading-relaxed text-[#5C3A21]">{active.desc}</p>
-
-            {/* chips */}
-            <div className="mt-3 flex flex-wrap gap-1.5">
-              {active.tags.map((t) => (
-                <span
-                  key={t}
-                  className="inline-flex items-center gap-1 rounded-full border border-[#E8D8B8] bg-[#FFFDF8] px-2.5 py-1 text-[11px] font-medium text-[#3B1E08]"
-                >
-                  <CheckCircle2 className="h-3 w-3 text-[#B45309]" />
-                  {t}
-                </span>
-              ))}
-            </div>
-
-            <hr className="my-3 border-[#EBDCC2]" />
-
-            {/* CTA row */}
-            <div className="flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between">
-              <p className="text-xs text-[#5C3A21]/80">
-                हवन या पूजा हेतु पं. दीपक शर्मा जी से संपर्क करें:
-              </p>
-              <a
-                href={`tel:+91${PHONE}`}
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#8B0000] via-[#A51D1D] to-[#8B0000] px-5 py-2.5 text-xs sm:text-sm font-bold text-white shadow-md transition-all hover:brightness-110 active:scale-95"
-              >
-                <PhoneCall className="h-3.5 w-3.5" />
-                हवन बुक करें {PHONE}
-                <ArrowRight className="h-3.5 w-3.5" />
-              </a>
-            </div>
+          {/* Info card (Desktop only: sticky alongside player) */}
+          <div className="hidden lg:block">
+            {renderInfoCard()}
           </div>
         </div>
 
@@ -457,7 +474,10 @@ export default function DarshanVideoInteractiveLeaf() {
           <div className="mb-4 flex items-center justify-between px-1">
             <h3 className="flex items-center gap-2 text-sm font-bold tracking-wide text-[#8B0000]">
               <Tv className="h-4 w-4" />
-              वैदिक अनुष्ठान एवं दर्शन प्लेलिस्ट
+              {t({
+                hi: "वैदिक अनुष्ठान एवं दर्शन प्लेलिस्ट",
+                en: "Vedic Rituals & Darshan Playlist",
+              })}
             </h3>
             <span className="rounded-md bg-amber-500/15 border border-amber-500/30 px-2.5 py-0.5 text-xs font-bold text-[#78350F]">
               {list.length} Videos
@@ -471,9 +491,15 @@ export default function DarshanVideoInteractiveLeaf() {
                 item={item}
                 number={DARSHAN_VIDEOS.indexOf(item) + 1}
                 active={item.id === active.id}
+                activeLabel={t({ hi: "▶ सक्रिय", en: "▶ Active" })}
                 onSelect={select}
               />
             ))}
+          </div>
+
+          {/* Info card (Small screens only: appears after the playlist) */}
+          <div className="block lg:hidden mt-6">
+            {renderInfoCard()}
           </div>
         </aside>
       </div>
@@ -498,7 +524,7 @@ export default function DarshanVideoInteractiveLeaf() {
           <div
             className="absolute inset-0 cursor-pointer"
             onClick={() => setTheatre(false)}
-            aria-label="पृष्ठभूमि पर क्लिक करके बंद करें"
+            aria-label={t({ hi: "पृष्ठभूमि पर क्लिक करके बंद करें", en: "Click background to close" })}
           />
 
           {/* ============ TOP BAR ============ */}
@@ -506,7 +532,7 @@ export default function DarshanVideoInteractiveLeaf() {
             <div className="flex items-center gap-2 sm:gap-3 min-w-0">
               <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-red-600 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white shadow-sm">
                 <span className="h-2 w-2 rounded-full bg-white animate-pulse" />
-                <span>नलखेड़ा LIVE</span>
+                <span>{t({ hi: "नलखेड़ा LIVE", en: "Nalkheda LIVE" })}</span>
               </span>
               <span className="hidden sm:inline-flex shrink-0 items-center gap-1 rounded-full bg-amber-500/20 border border-amber-400/30 px-2.5 py-0.5 text-xs font-semibold text-amber-300">
                 {active.category}
@@ -523,10 +549,12 @@ export default function DarshanVideoInteractiveLeaf() {
               <button
                 type="button"
                 onClick={() => setTheatre(false)}
-                aria-label="थिएटर मोड बंद करें"
+                aria-label={t({ hi: "थिएटर मोड बंद करें", en: "Close theatre mode" })}
                 className="group inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-bold text-white transition-all hover:bg-red-600 hover:border-red-500 cursor-pointer shadow-md"
               >
-                <span className="hidden sm:inline text-white/80 group-hover:text-white">बंद करें [ESC]</span>
+                <span className="hidden sm:inline text-white/80 group-hover:text-white">
+                  {t({ hi: "बंद करें [ESC]", en: "Close [ESC]" })}
+                </span>
                 <X className="h-4 w-4" />
               </button>
             </div>
@@ -539,8 +567,8 @@ export default function DarshanVideoInteractiveLeaf() {
             <button
               type="button"
               onClick={() => step(-1)}
-              aria-label="पिछला वीडियो (Arrow Left)"
-              title="पिछला वीडियो (←)"
+              aria-label={t({ hi: "पिछला वीडियो (Arrow Left)", en: "Previous Video (Arrow Left)" })}
+              title={t({ hi: "पिछला वीडियो (←)", en: "Previous Video (←)" })}
               className="hidden sm:grid h-12 w-12 place-items-center rounded-full border border-amber-500/40 bg-black/70 text-amber-300 shadow-2xl backdrop-blur-md transition-all hover:scale-110 hover:bg-[#D97706] hover:text-[#3B1E08] hover:border-amber-300 active:scale-95 cursor-pointer mr-4 lg:mr-8 shrink-0"
             >
               <ChevronLeft className="h-6 w-6" />
@@ -562,7 +590,7 @@ export default function DarshanVideoInteractiveLeaf() {
                 <button
                   type="button"
                   onClick={() => step(-1)}
-                  aria-label="पिछला वीडियो"
+                  aria-label={t({ hi: "पिछला वीडियो", en: "Previous Video" })}
                   className="pointer-events-auto grid h-9 w-9 place-items-center rounded-full border border-amber-500/50 bg-black/80 text-amber-300 shadow-lg cursor-pointer"
                 >
                   <ChevronLeft className="h-5 w-5" />
@@ -570,7 +598,7 @@ export default function DarshanVideoInteractiveLeaf() {
                 <button
                   type="button"
                   onClick={() => step(1)}
-                  aria-label="अगला वीडियो"
+                  aria-label={t({ hi: "अगला वीडियो", en: "Next Video" })}
                   className="pointer-events-auto grid h-9 w-9 place-items-center rounded-full border border-amber-500/50 bg-black/80 text-amber-300 shadow-lg cursor-pointer"
                 >
                   <ChevronRight className="h-5 w-5" />
@@ -582,8 +610,8 @@ export default function DarshanVideoInteractiveLeaf() {
             <button
               type="button"
               onClick={() => step(1)}
-              aria-label="अगला वीडियो (Arrow Right)"
-              title="अगला वीडियो (→)"
+              aria-label={t({ hi: "अगला वीडियो (Arrow Right)", en: "Next Video (Arrow Right)" })}
+              title={t({ hi: "अगला वीडियो (→)", en: "Next Video (→)" })}
               className="hidden sm:grid h-12 w-12 place-items-center rounded-full border border-amber-500/40 bg-black/70 text-amber-300 shadow-2xl backdrop-blur-md transition-all hover:scale-110 hover:bg-[#D97706] hover:text-[#3B1E08] hover:border-amber-300 active:scale-95 cursor-pointer ml-4 lg:mr-8 shrink-0"
             >
               <ChevronRight className="h-6 w-6" />
@@ -600,7 +628,7 @@ export default function DarshanVideoInteractiveLeaf() {
                 <Flame className="h-3 w-3 text-amber-400 fill-amber-400" />
                 <span>{active.views} Views</span>
                 <span>•</span>
-                <span>पं. दीपक शर्मा ({PHONE})</span>
+                <span>{t({ hi: `पं. दीपक शर्मा (${PHONE})`, en: `Pt. Deepak Sharma (${PHONE})` })}</span>
               </p>
             </div>
 
@@ -610,7 +638,7 @@ export default function DarshanVideoInteractiveLeaf() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 rounded-xl border border-white/20 bg-white/10 px-3 py-2 text-xs font-semibold text-white hover:bg-white/20 transition-colors"
-                title="YouTube पर खोलें"
+                title="YouTube"
               >
                 <ExternalLink className="h-3.5 w-3.5" />
                 <span className="hidden sm:inline">YouTube</span>
@@ -621,7 +649,7 @@ export default function DarshanVideoInteractiveLeaf() {
                 className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-red-700 via-amber-600 to-red-700 px-4 py-2 text-xs sm:text-sm font-bold text-white shadow-md hover:brightness-110 transition-transform active:scale-95"
               >
                 <PhoneCall className="h-3.5 w-3.5" />
-                <span>हवन बुक करें</span>
+                <span>{t({ hi: "हवन बुक करें", en: "Book Hawan" })}</span>
               </a>
             </div>
           </div>

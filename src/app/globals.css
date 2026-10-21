@@ -72,3 +72,25 @@ body {
   animation-play-state: paused;
 }
 
+/* Top Announcement Ribbon Ticker Animation (Continuous Right to Left on Mobile) */
+@keyframes ticker-rtl {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-top-ticker {
+  display: flex;
+  width: max-content;
+  animation: ticker-rtl 22s linear infinite;
+  will-change: transform;
+}
+
+.animate-top-ticker:hover,
+.animate-top-ticker:active {
+  animation-play-state: paused;
+}
+

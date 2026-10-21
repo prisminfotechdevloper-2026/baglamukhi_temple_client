@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   Phone,
-  MessageCircle,
   MapPin,
   Clock,
   Flame,
@@ -15,6 +14,7 @@ import {
   Plane,
   Info,
 } from "lucide-react";
+import WhatsAppIcon from "@/components/common/WhatsAppIcon";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Footer() {
@@ -260,9 +260,11 @@ export default function Footer() {
                   href="https://wa.me/918239239249?text=जय%20माँ%20बगलामुखी!%20पंडित%20जी%2C%20मुझे%20हवन%20व%20पूजा%20अनुष्ठान%20की%20जानकारी%20चाहिए।"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#8B0000] via-[#AF0807] to-[#7A0505] hover:brightness-110 border border-amber-400/50 px-3.5 py-2.5 text-xs font-bold text-white shadow-md transition-all w-full justify-center"
+                  className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#8B0000] via-[#AF0807] to-[#7A0505] hover:brightness-110 border border-amber-400/50 px-3.5 py-2.5 text-xs font-bold text-white shadow-md transition-all w-full justify-center group"
                 >
-                  <MessageCircle className="h-4 w-4 text-amber-300" />
+                  <div className="flex h-5 w-5 items-center justify-center rounded-md bg-[#25D366] text-white shrink-0 group-hover:scale-110 transition-transform">
+                    <WhatsAppIcon className="h-3.5 w-3.5 text-white" />
+                  </div>
                   <span>
                     {t({
                       hi: "व्हाट्सएप पर तुरंत संपर्क करें",

@@ -4,7 +4,6 @@ import { useState } from "react";
 import {
   Compass,
   Sparkles,
-  MessageCircle,
   PhoneCall,
   CheckCircle2,
   AlertCircle,
@@ -12,6 +11,7 @@ import {
   Sun,
   ShieldAlert,
 } from "lucide-react";
+import WhatsAppIcon from "@/components/common/WhatsAppIcon";
 import { useLanguage } from "@/context/LanguageContext";
 
 interface RashiItem {
@@ -254,7 +254,7 @@ export default function KundaliRashiSection() {
               onClick={() => handleRashiWhatsApp(selectedRashi)}
               className="w-full md:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#25D366] via-[#1EBE5D] to-[#159E4A] hover:brightness-110 text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all transform hover:scale-[1.02] active:scale-[0.98] cursor-pointer shrink-0"
             >
-              <MessageCircle className="h-4 w-4" />
+              <WhatsAppIcon className="h-4 w-4" />
               <span>
                 {t({
                   hi: `${selectedRashi.nameHi} राशि का फलादेश व उपाय व्हाट्सएप पर पूछें`,
@@ -325,7 +325,7 @@ export default function KundaliRashiSection() {
                   onClick={() => handleDoshWhatsApp(dosh.titleHi)}
                   className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#FFF8E7] hover:bg-[#8B0000] text-[#78350F] hover:text-white font-serif font-bold text-xs border border-[#D89B18]/60 hover:border-transparent transition-all duration-200 cursor-pointer shadow-xs"
                 >
-                  <MessageCircle className="h-3.5 w-3.5 text-[#25D366] group-hover:text-amber-200" />
+                  <WhatsAppIcon className="h-3.5 w-3.5 text-[#25D366] group-hover:text-amber-200" />
                   <span>
                     {t({
                       hi: "इस दोष के निवारण हेतु बात करें",
@@ -373,7 +373,7 @@ export default function KundaliRashiSection() {
               rel="noopener noreferrer"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-gradient-to-r from-[#25D366] via-[#1EBE5D] to-[#159E4A] hover:brightness-110 text-white text-xs sm:text-sm font-bold shadow-xl transition-all cursor-pointer"
             >
-              <MessageCircle className="h-4 w-4" />
+              <WhatsAppIcon className="h-4 w-4" />
               <span>
                 {t({
                   hi: "कुंडली व्हाट्सएप करें (+91 90791 49299)",

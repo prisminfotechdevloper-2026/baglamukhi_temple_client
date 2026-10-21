@@ -1,6 +1,7 @@
 "use client";
 
-import { Phone, MessageCircle } from "lucide-react";
+import { Phone } from "lucide-react";
+import WhatsAppIcon from "@/components/common/WhatsAppIcon";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function FloatingQuickContact() {
@@ -42,7 +43,7 @@ export default function FloatingQuickContact() {
         })}
       >
         <span className="absolute -inset-1 rounded-full bg-emerald-400/30 animate-ping opacity-50 pointer-events-none" />
-        <MessageCircle className="w-5 h-5 fill-white text-white group-hover:scale-110 transition-transform duration-300 shrink-0" />
+        <WhatsAppIcon className="w-5 h-5 fill-white text-white group-hover:scale-110 transition-transform duration-300 shrink-0" />
         <span className="hidden md:group-hover:inline-block absolute right-14 top-1/2 -translate-y-1/2 px-3 py-1 rounded-xl bg-[#073D1A]/95 text-emerald-200 border border-[#25D366] text-xs font-serif font-bold whitespace-nowrap shadow-2xl pointer-events-none transition-opacity">
           {t({
             hi: "व्हाट्सएप परामर्श",

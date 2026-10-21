@@ -3,12 +3,12 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import {
-  MessageCircle,
   PhoneCall,
   X,
   Flame,
   CheckCircle2,
 } from "lucide-react";
+import WhatsAppIcon from "@/components/common/WhatsAppIcon";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function PanditWelcomeDialog() {
@@ -229,9 +229,11 @@ export default function PanditWelcomeDialog() {
             <button
               type="button"
               onClick={handleWhatsApp}
-              className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-full bg-gradient-to-r from-[#AF0807] via-[#940706] to-[#7A0505] hover:from-[#940706] hover:to-[#600303] text-white font-bold text-sm shadow-md border border-amber-300/40"
+              className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-full bg-gradient-to-r from-[#AF0807] via-[#940706] to-[#7A0505] hover:from-[#940706] hover:to-[#600303] text-white font-bold text-sm shadow-md border border-amber-300/40 group"
             >
-              <MessageCircle className="h-4 w-4 text-amber-300" />
+              <div className="flex h-5 w-5 items-center justify-center rounded-md bg-[#25D366] text-white shrink-0 group-hover:scale-110 transition-transform">
+                <WhatsAppIcon className="h-3.5 w-3.5 text-white" />
+              </div>
               <span>
                 {t({
                   hi: "पंडित जी से व्हाट्सएप पर बात करें",
@@ -358,9 +360,11 @@ export default function PanditWelcomeDialog() {
             <button
               type="button"
               onClick={handleWhatsApp}
-              className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-full bg-gradient-to-r from-[#AF0807] via-[#940706] to-[#7A0505] hover:from-[#940706] hover:to-[#600303] text-white font-bold text-xs shadow-md hover:shadow-lg transition-all cursor-pointer transform hover:scale-[1.01] border border-amber-300/40"
+              className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-full bg-gradient-to-r from-[#AF0807] via-[#940706] to-[#7A0505] hover:from-[#940706] hover:to-[#600303] text-white font-bold text-xs shadow-md hover:shadow-lg transition-all cursor-pointer transform hover:scale-[1.01] border border-amber-300/40 group"
             >
-              <MessageCircle className="h-4 w-4 text-amber-300" />
+              <div className="flex h-4 w-4 items-center justify-center rounded-md bg-[#25D366] text-white shrink-0 group-hover:scale-110 transition-transform">
+                <WhatsAppIcon className="h-3 w-3 text-white" />
+              </div>
               <span>
                 {t({
                   hi: "पंडित जी से व्हाट्सएप पर बात करें",

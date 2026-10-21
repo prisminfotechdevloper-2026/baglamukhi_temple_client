@@ -8,8 +8,8 @@ import {
   Clock,
   Flame,
   MapPin,
-  MessageCircle,
 } from "lucide-react";
+import WhatsAppIcon from "@/components/common/WhatsAppIcon";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function HeroSection() {
@@ -171,27 +171,28 @@ export default function HeroSection() {
                 </span>
               </Link>
 
-              {/* Secondary CTA */}
+              {/* Secondary CTA: Light Theme WhatsApp Consultation (Navbar-style) */}
               <a
                 href="https://wa.me/918239239249?text=जय%20माँ%20बगलामुखी!%20पंडित%20दीपक%20शर्मा%20जी%2C%20मुझे%20पूजा%20व%20हवन%20के%20बारे%20में%20जानकारी%20चाहिए।"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center justify-center gap-3 rounded-2xl bg-black/70 hover:bg-black/90 px-5 py-3 text-sm sm:text-base font-bold text-white border border-amber-400/60 hover:border-amber-300 backdrop-blur-md shadow-xl transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0"
+                className="group inline-flex items-center justify-center gap-3 rounded-2xl bg-white/95 hover:bg-white px-5 py-3 text-sm sm:text-base font-bold text-[#1F2937] border-2 border-stone-200/90 hover:border-[#25D366] backdrop-blur-xl shadow-xl shadow-stone-900/15 hover:shadow-2xl hover:shadow-[#25D366]/20 transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0"
               >
-                <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-amber-500/20 border border-amber-400/40 text-amber-300 shrink-0">
-                  <MessageCircle className="h-4 w-4 text-amber-300" />
+                {/* Authentic WhatsApp Green Badge Icon */}
+                <div className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-xl bg-[#25D366] text-white shadow-md shadow-[#25D366]/35 group-hover:scale-105 group-hover:bg-[#20bd5a] transition-all duration-200 shrink-0">
+                  <WhatsAppIcon className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
                 </div>
                 <div className="flex flex-col text-left leading-tight">
-                  <span className="font-bold text-amber-100">
+                  <span className="font-serif font-bold text-[#3E0B02] text-sm sm:text-[15px] group-hover:text-[#AF0807] transition-colors">
                     {t({
                       hi: "व्हाट्सएप परामर्श",
                       en: "WhatsApp Consultation",
                     })}
                   </span>
-                  <span className="text-[10px] text-amber-300/90 font-normal">
+                  <span className="text-[11px] text-emerald-700 font-bold tracking-tight">
                     {t({
                       hi: "+91 82392 39249 पर तुरंत जुड़ें",
-                      en: "Connect instantly on +91 82392 39249",
+                      en: "+91 82392 39249 • Chat Online",
                     })}
                   </span>
                 </div>

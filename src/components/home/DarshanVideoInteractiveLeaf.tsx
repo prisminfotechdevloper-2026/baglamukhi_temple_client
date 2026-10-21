@@ -288,8 +288,8 @@ export default function DarshanVideoInteractiveLeaf() {
   const select = useCallback((v: DarshanVideoItem) => {
     setActive(v);
     setPlaying(true);
-    // Smoothly scroll to the video player with header offset
-    if (typeof window !== "undefined" && playerRef.current) {
+    // Smoothly scroll to the video player on mobile/tablet where player is above viewport
+    if (typeof window !== "undefined" && window.innerWidth < 1024 && playerRef.current) {
       const el = playerRef.current;
       const yOffset = -90; // offset so sticky navbar does not cover top of video player
       const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
@@ -336,16 +336,16 @@ export default function DarshanVideoInteractiveLeaf() {
         </div>
       </div>
 
-      <hr className="my-3 border-[#EBDCC2]" />
+      <hr className="my-2.5 border-[#EBDCC2]" />
 
-      <p className="text-xs sm:text-sm leading-relaxed text-[#5C3A21]">{active.desc}</p>
+      <p className="text-xs sm:text-sm leading-relaxed text-[#5C3A21] line-clamp-2">{active.desc}</p>
 
       {/* chips */}
-      <div className="mt-3 flex flex-wrap gap-1.5">
+      <div className="mt-2.5 flex flex-wrap gap-1.5">
         {active.tags.map((tag) => (
           <span
             key={tag}
-            className="inline-flex items-center gap-1 rounded-full border border-[#E8D8B8] bg-[#FFFDF8] px-2.5 py-1 text-[11px] font-medium text-[#3B1E08]"
+            className="inline-flex items-center gap-1 rounded-full border border-[#E8D8B8] bg-[#FFFDF8] px-2.5 py-0.5 text-[11px] font-medium text-[#3B1E08]"
           >
             <CheckCircle2 className="h-3 w-3 text-[#B45309]" />
             {tag}
@@ -353,7 +353,7 @@ export default function DarshanVideoInteractiveLeaf() {
         ))}
       </div>
 
-      <hr className="my-3 border-[#EBDCC2]" />
+      <hr className="my-2.5 border-[#EBDCC2]" />
 
       {/* CTA row */}
       <div className="flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between">
@@ -495,7 +495,7 @@ export default function DarshanVideoInteractiveLeaf() {
             </span>
           </div>
 
-          <div className="space-y-3">
+          <div className="space-y-3 lg:max-h-[620px] xl:max-h-[650px] lg:overflow-y-auto lg:pr-2.5 lg:overscroll-contain [scrollbar-width:thin] [scrollbar-color:#D89B18_transparent] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-amber-100/30 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-amber-400/60 hover:[&::-webkit-scrollbar-thumb]:bg-amber-500">
             {list.map((item) => (
               <PlaylistItem
                 key={item.id}

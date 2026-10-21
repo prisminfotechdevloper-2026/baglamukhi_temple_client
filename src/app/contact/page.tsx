@@ -73,7 +73,7 @@ export default function ContactPage() {
       <ContactHero />
 
       {/* ================= 2. QUICK CONTACT CARDS (4 CHANNELS: HAWAN PHONE, KUNDALI PHONE, EMAIL, INSTAGRAM) ================= */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 -mt-12 sm:-mt-16 lg:-mt-20 relative z-20">
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 -mt-12 sm:-mt-14 lg:-mt-16 relative z-20">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           
           {/* Card 1: Hawan & Puja Booking Hotline */}

@@ -129,7 +129,7 @@ export default function HomePage() {
           __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
         }}
       />
-      <main className="w-full max-w-full overflow-x-hidden min-h-screen flex flex-col bg-[#FFF8E7]">
+      <main className="w-full max-w-full overflow-x-clip min-h-screen flex flex-col bg-[#FFF8E7]">
         {/* 1. Hero Section with Responsive Divine Backgrounds & Sacred Mantra Box */}
         <HeroSection />
 

@@ -10,7 +10,7 @@ export default function ContactHero() {
   const { t } = useLanguage();
 
   return (
-    <section className="relative w-full h-[52vh] min-h-[420px] sm:min-h-[460px] max-h-[560px] pb-5 sm:pb-6 flex items-center overflow-hidden bg-stone-900">
+    <section className="relative w-full min-h-[480px] sm:min-h-[520px] lg:min-h-[560px] pt-10 sm:pt-14 pb-24 sm:pb-28 lg:pb-32 flex items-center overflow-hidden bg-stone-900">
       {/* ================= BACKGROUND: USER-PROVIDED TEMPLE IMAGE WITH SOFT MILD DARK OVERLAY ================= */}
       <div className="absolute inset-0 z-0">
         <Image

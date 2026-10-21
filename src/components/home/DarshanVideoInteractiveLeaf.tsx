@@ -2,6 +2,7 @@
 
 /* eslint-disable @next/next/no-img-element */
 import { memo, useCallback, useEffect, useMemo, useState } from "react";
+import { createPortal } from "react-dom";
 import {
   Play,
   RotateCcw,
@@ -253,10 +254,19 @@ export default function DarshanVideoInteractiveLeaf() {
     [group]
   );
 
-  // Theatre: ESC close + body scroll lock
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Theatre: ESC close, Arrow key navigation + body scroll lock
   useEffect(() => {
     if (!theatre) return;
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setTheatre(false);
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setTheatre(false);
+      if (e.key === "ArrowLeft") step(-1);
+      if (e.key === "ArrowRight") step(1);
+    };
     const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     window.addEventListener("keydown", onKey);
@@ -264,7 +274,7 @@ export default function DarshanVideoInteractiveLeaf() {
       document.body.style.overflow = prevOverflow;
       window.removeEventListener("keydown", onKey);
     };
-  }, [theatre]);
+  }, [theatre, active]);
 
   const select = useCallback((v: DarshanVideoItem) => {
     setActive(v);
@@ -389,10 +399,10 @@ export default function DarshanVideoInteractiveLeaf() {
                 <button
                   type="button"
                   onClick={openTheatre}
-                  className="inline-flex items-center gap-1.5 rounded-xl border border-[#E8D8B8] bg-white px-3 py-1.5 text-xs font-medium text-[#3B1E08] transition-colors hover:bg-[#FFF7E6] cursor-pointer"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-[#D4AF37]/60 bg-gradient-to-r from-amber-50 to-[#FFFDF8] hover:from-amber-100 hover:to-[#FFF9EE] px-3.5 py-1.5 text-xs font-bold text-[#8B0000] shadow-xs hover:border-[#D4AF37] transition-all cursor-pointer"
                 >
-                  <Maximize2 className="h-3.5 w-3.5" />
-                  थिएटर
+                  <Maximize2 className="h-3.5 w-3.5 text-amber-600" />
+                  <span>थिएटर</span>
                 </button>
                 <a
                   href={`https://www.youtube.com/shorts/${active.id}`}
@@ -468,81 +478,155 @@ export default function DarshanVideoInteractiveLeaf() {
         </aside>
       </div>
 
-      {/* ============ THEATRE MODAL ============ */}
-      {theatre && (
+      {/* ============ THEATRE MODAL (CINEMA GRADE PORTAL) ============ */}
+      {mounted && theatre && createPortal(
         <div
           role="dialog"
           aria-modal="true"
-          aria-label="थिएटर मोड"
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-3 backdrop-blur-xl sm:p-6"
+          aria-label="नलखेड़ा धाम दिव्य दर्शन थिएटर मोड"
+          className="fixed inset-0 z-[99999] flex flex-col items-center justify-between bg-black/95 backdrop-blur-2xl p-3 sm:p-5 select-none overflow-hidden"
         >
-          <div className="absolute inset-0" onClick={() => setTheatre(false)} />
+          {/* Ambient Video Background Glow */}
+          <img
+            src={thumb(active.id)}
+            alt=""
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 h-full w-full scale-150 object-cover opacity-15 blur-3xl"
+          />
 
-          <div className="relative z-10 flex max-h-[95vh] w-full max-w-xl flex-col overflow-hidden rounded-[28px] border border-amber-500/40 bg-[#140D07] shadow-2xl">
-            {/* header */}
-            <div className="flex items-center justify-between border-b border-amber-500/30 px-4 py-3">
-              <span className="flex min-w-0 items-center gap-2 text-xs font-bold text-amber-300">
-                <span className="h-2 w-2 shrink-0 rounded-full bg-red-500 animate-pulse" />
-                <span className="truncate">नलखेड़ा धाम दिव्य दर्शन • {active.category}</span>
+          {/* Backdrop Click to Close */}
+          <div
+            className="absolute inset-0 cursor-pointer"
+            onClick={() => setTheatre(false)}
+            aria-label="पृष्ठभूमि पर क्लिक करके बंद करें"
+          />
+
+          {/* ============ TOP BAR ============ */}
+          <div className="relative z-20 flex w-full max-w-5xl items-center justify-between gap-3 rounded-2xl border border-white/10 bg-white/[0.06] px-4 py-2.5 backdrop-blur-md shadow-lg">
+            <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+              <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-red-600 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white shadow-sm">
+                <span className="h-2 w-2 rounded-full bg-white animate-pulse" />
+                <span>नलखेड़ा LIVE</span>
+              </span>
+              <span className="hidden sm:inline-flex shrink-0 items-center gap-1 rounded-full bg-amber-500/20 border border-amber-400/30 px-2.5 py-0.5 text-xs font-semibold text-amber-300">
+                {active.category}
+              </span>
+              <span className="truncate text-xs sm:text-sm font-medium text-white/90">
+                {active.title}
+              </span>
+            </div>
+
+            <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+              <span className="hidden sm:inline font-mono text-xs text-white/60">
+                {DARSHAN_VIDEOS.indexOf(active) + 1} / {DARSHAN_VIDEOS.length}
               </span>
               <button
                 type="button"
                 onClick={() => setTheatre(false)}
-                aria-label="बंद करें"
-                className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-white/10 text-white hover:bg-white/20"
+                aria-label="थिएटर मोड बंद करें"
+                className="group inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-bold text-white transition-all hover:bg-red-600 hover:border-red-500 cursor-pointer shadow-md"
               >
+                <span className="hidden sm:inline text-white/80 group-hover:text-white">बंद करें [ESC]</span>
                 <X className="h-4 w-4" />
               </button>
             </div>
+          </div>
 
-            {/* video + arrows */}
-            <div className="relative flex justify-center bg-black">
-              <div className="aspect-[9/16] h-[66vh] max-w-full">
-                <iframe
-                  key={active.id}
-                  src={embed(active.id)}
-                  title={active.title}
-                  allow={IFRAME_ALLOW}
-                  allowFullScreen
-                  className="h-full w-full border-0"
-                />
-              </div>
-              {(
-                [
-                  ["left-2", -1, ChevronLeft, "पिछला वीडियो"],
-                  ["right-2", 1, ChevronRight, "अगला वीडियो"],
-                ] as const
-              ).map(([pos, dir, Icon, label]) => (
+          {/* ============ MAIN STAGE (Center Video Frame + Left/Right Arrows) ============ */}
+          <div className="relative z-20 flex flex-1 w-full max-w-5xl items-center justify-center my-auto py-2">
+            
+            {/* Prev Video Arrow Button (Desktop floating outside) */}
+            <button
+              type="button"
+              onClick={() => step(-1)}
+              aria-label="पिछला वीडियो (Arrow Left)"
+              title="पिछला वीडियो (←)"
+              className="hidden sm:grid h-12 w-12 place-items-center rounded-full border border-amber-500/40 bg-black/70 text-amber-300 shadow-2xl backdrop-blur-md transition-all hover:scale-110 hover:bg-[#D97706] hover:text-[#3B1E08] hover:border-amber-300 active:scale-95 cursor-pointer mr-4 lg:mr-8 shrink-0"
+            >
+              <ChevronLeft className="h-6 w-6" />
+            </button>
+
+            {/* Vertical 9:16 Video Bezel (Pure 9:16 Reel frame, no empty voids) */}
+            <div className="relative h-[65vh] sm:h-[70vh] lg:h-[72vh] max-h-[660px] aspect-[9/16] rounded-[24px] sm:rounded-[32px] overflow-hidden border-2 border-[#D4AF37] shadow-[0_0_60px_rgba(217,119,6,0.35)] bg-black shrink-0">
+              <iframe
+                key={active.id}
+                src={embed(active.id)}
+                title={active.title}
+                allow={IFRAME_ALLOW}
+                allowFullScreen
+                className="h-full w-full border-0"
+              />
+
+              {/* Mobile Arrows overlay (visible on small mobile screens only) */}
+              <div className="sm:hidden absolute inset-x-2 top-1/2 -translate-y-1/2 flex items-center justify-between pointer-events-none">
                 <button
-                  key={label}
                   type="button"
-                  onClick={() => step(dir)}
-                  aria-label={label}
-                  className={`absolute ${pos} top-1/2 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-amber-500/40 bg-black/70 text-amber-300 hover:bg-black`}
+                  onClick={() => step(-1)}
+                  aria-label="पिछला वीडियो"
+                  className="pointer-events-auto grid h-9 w-9 place-items-center rounded-full border border-amber-500/50 bg-black/80 text-amber-300 shadow-lg cursor-pointer"
                 >
-                  <Icon className="h-5 w-5" />
+                  <ChevronLeft className="h-5 w-5" />
                 </button>
-              ))}
+                <button
+                  type="button"
+                  onClick={() => step(1)}
+                  aria-label="अगला वीडियो"
+                  className="pointer-events-auto grid h-9 w-9 place-items-center rounded-full border border-amber-500/50 bg-black/80 text-amber-300 shadow-lg cursor-pointer"
+                >
+                  <ChevronRight className="h-5 w-5" />
+                </button>
+              </div>
             </div>
 
-            {/* footer */}
-            <div className="flex items-center justify-between gap-3 border-t border-amber-500/30 bg-[#1C120A] p-4">
-              <div className="min-w-0">
-                <p className="truncate text-xs font-bold text-white">{active.title}</p>
-                <p className="text-[11px] text-amber-300/80">
-                  {active.views} views • पं. दीपक शर्मा ({PHONE})
-                </p>
-              </div>
+            {/* Next Video Arrow Button (Desktop floating outside) */}
+            <button
+              type="button"
+              onClick={() => step(1)}
+              aria-label="अगला वीडियो (Arrow Right)"
+              title="अगला वीडियो (→)"
+              className="hidden sm:grid h-12 w-12 place-items-center rounded-full border border-amber-500/40 bg-black/70 text-amber-300 shadow-2xl backdrop-blur-md transition-all hover:scale-110 hover:bg-[#D97706] hover:text-[#3B1E08] hover:border-amber-300 active:scale-95 cursor-pointer ml-4 lg:mr-8 shrink-0"
+            >
+              <ChevronRight className="h-6 w-6" />
+            </button>
+          </div>
+
+          {/* ============ BOTTOM BAR ============ */}
+          <div className="relative z-20 flex w-full max-w-2xl flex-col sm:flex-row items-center justify-between gap-3 rounded-2xl border border-amber-500/40 bg-[#1C120A]/95 px-4 py-2.5 sm:px-6 backdrop-blur-md shadow-2xl">
+            <div className="min-w-0 text-center sm:text-left">
+              <p className="truncate text-xs sm:text-sm font-bold text-white">
+                {active.title}
+              </p>
+              <p className="mt-0.5 flex items-center justify-center sm:justify-start gap-2 text-[11px] text-amber-300/80">
+                <Flame className="h-3 w-3 text-amber-400 fill-amber-400" />
+                <span>{active.views} Views</span>
+                <span>•</span>
+                <span>पं. दीपक शर्मा ({PHONE})</span>
+              </p>
+            </div>
+
+            <div className="flex items-center gap-2 shrink-0">
+              <a
+                href={`https://www.youtube.com/shorts/${active.id}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-xl border border-white/20 bg-white/10 px-3 py-2 text-xs font-semibold text-white hover:bg-white/20 transition-colors"
+                title="YouTube पर खोलें"
+              >
+                <ExternalLink className="h-3.5 w-3.5" />
+                <span className="hidden sm:inline">YouTube</span>
+              </a>
+
               <a
                 href={`tel:+91${PHONE}`}
-                className="inline-flex shrink-0 items-center gap-1.5 rounded-xl bg-gradient-to-r from-red-700 to-amber-600 px-3.5 py-2 text-xs font-bold text-white shadow-md hover:brightness-110"
+                className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-red-700 via-amber-600 to-red-700 px-4 py-2 text-xs sm:text-sm font-bold text-white shadow-md hover:brightness-110 transition-transform active:scale-95"
               >
                 <PhoneCall className="h-3.5 w-3.5" />
-                हवन बुक करें
+                <span>हवन बुक करें</span>
               </a>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </div>
   );

@@ -47,30 +47,27 @@ export default function BottomNav() {
             <Link
               key={item.href}
               href={item.href}
-              className={`flex flex-1 flex-col items-center justify-center py-1 px-0.5 text-center transition-colors focus:outline-hidden group ${
-                isActive
+              className={`flex flex-1 flex-col items-center justify-center py-1 px-0.5 text-center transition-colors focus:outline-hidden group ${isActive
                   ? "text-[#8B0000] font-bold"
                   : "text-[#6B5A52] hover:text-[#4A0C16]"
-              }`}
+                }`}
             >
               <div className="relative">
                 <Icon
-                  className={`h-5 w-5 transition-transform duration-200 group-active:scale-90 ${
-                    isActive
+                  className={`h-5 w-5 transition-transform duration-200 group-active:scale-90 ${isActive
                       ? "text-[#8B0000] scale-110"
                       : "text-[#6B5A52] group-hover:text-[#8B0000]"
-                  }`}
+                    }`}
                 />
                 {isActive && (
                   <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 h-1 w-1 rounded-full bg-[#8B0000]" />
                 )}
               </div>
               <span
-                className={`text-[10px] mt-1 leading-tight tracking-tight truncate w-full ${
-                  isActive
+                className={`text-[10px] mt-1 leading-tight tracking-tight truncate w-full ${isActive
                     ? "font-extrabold text-[#8B0000]"
                     : "font-semibold text-[#6B5A52]"
-                }`}
+                  }`}
               >
                 {item.label}
               </span>

@@ -185,11 +185,10 @@ export default function KundaliRashiSection() {
                   key={rashi.id}
                   type="button"
                   onClick={() => setSelectedRashi(rashi)}
-                  className={`flex flex-col items-center justify-center p-2.5 rounded-2xl border transition-all duration-200 cursor-pointer text-center ${
-                    isSelected
+                  className={`flex flex-col items-center justify-center p-2.5 rounded-2xl border transition-all duration-200 cursor-pointer text-center ${isSelected
                       ? "bg-gradient-to-b from-[#8B0000] to-[#5C0D15] text-white border-[#D89B18] shadow-md scale-105"
                       : "bg-[#FFFDF9] hover:bg-[#FAEDD2]/50 text-[#3E0B02] border-[#EBD9B8]/90 hover:border-[#D89B18]"
-                  }`}
+                    }`}
                 >
                   <span className="text-xl sm:text-2xl leading-none mb-1 select-none">
                     {rashi.symbol}

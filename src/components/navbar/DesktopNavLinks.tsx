@@ -29,17 +29,16 @@ export default function DesktopNavLinks({ items }: DesktopNavLinksProps) {
             >
               {/* Primary Label - Standard Website Navbar Size (15px-16px) */}
               <span
-                className={`text-[15px] xl:text-[16px] leading-tight transition-colors duration-200 tracking-normal ${
-                  isActive
+                className={`text-[15px] xl:text-[16px] leading-tight transition-colors duration-200 tracking-normal ${isActive
                     ? "font-bold text-[#AF0807]"
                     : "font-semibold text-stone-800 group-hover:text-[#AF0807]"
-                }`}
+                  }`}
               >
                 {item.label}
               </span>
 
               {/* Sub-label - Clear and Readable (11.5px-12px) */}
-              
+
 
               {/* Left-to-Right Animated Underline (only on hover) */}
               <span

@@ -45,7 +45,7 @@ export default function GalleryPage() {
     name: "श्री माँ बगलामुखी मंदिर नलखेड़ा फोटो दीर्घा",
     description:
       "माँ बगलामुखी सिद्धपीठ नलखेड़ा के पावन मंदिर दर्शन, तांत्रिक महाहवन एवं पंडित दीपक शर्मा जी की प्रामाणिक फोटो गैलरी।",
-    url: "https://www.baglamukhimandir.in/gallery",
+    url: "https://baglamukhi-temple-hazel.vercel.app/gallery",
     publisher: {
       "@type": "PlaceOfWorship",
       name: "श्री माँ बगलामुखी मंदिर सिद्धपीठ नलखेड़ा",

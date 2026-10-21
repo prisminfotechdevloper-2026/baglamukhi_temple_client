@@ -12,6 +12,20 @@ const nextConfig: NextConfig = {
       },
     },
   },
+  async redirects() {
+    return [
+      {
+        source: "/pandit-deepak-sharma",
+        destination: "/pandit-ji",
+        permanent: true,
+      },
+      {
+        source: "/about",
+        destination: "/pandit-ji",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

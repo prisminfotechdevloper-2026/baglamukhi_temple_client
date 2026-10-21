@@ -279,7 +279,7 @@ export default function PanditProfileSection() {
 
               {/* View Full Profile */}
               <Link
-                href="/pandit-deepak-sharma"
+                href="/pandit-ji"
                 className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-[#FFFDF8] hover:bg-amber-100/60 text-[#4A0C16] text-xs sm:text-sm font-bold border border-[#D89B18]/70 shadow-xs transition-colors group"
               >
                 <span>

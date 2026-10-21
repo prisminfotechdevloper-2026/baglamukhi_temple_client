@@ -3,6 +3,7 @@ import HeroSection from "@/components/home/HeroSection";
 import SacredSiddhiBar from "@/components/home/SacredSiddhiBar";
 import KundaliRashiSection from "@/components/home/KundaliRashiSection";
 import TempleOverviewSection from "@/components/home/TempleOverviewSection";
+import DarshanVideoSection from "@/components/home/DarshanVideoSection";
 import PanditProfileSection from "@/components/home/PanditProfileSection";
 import PanditWelcomeDialog from "@/components/home/PanditWelcomeDialog";
 
@@ -139,7 +140,10 @@ export default function HomePage() {
         {/* 5. Temple Overview (Left) & Timings/Aarti Schedule (Right) */}
         <TempleOverviewSection />
 
-        {/* 6. Chief Priest Acharya Pt. Deepak Sharma Profile & Credentials */}
+        {/* 6. Sacred Hawan & Darshan Video Reels (In Motion - Nikhar Style) */}
+        <DarshanVideoSection />
+
+        {/* 7. Chief Priest Acharya Pt. Deepak Sharma Profile & Credentials */}
         <PanditProfileSection />
 
         {/* 7. Pandit Ji Welcome Dialog (Triggered on Scroll) */}

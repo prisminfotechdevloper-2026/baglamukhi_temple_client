@@ -1,0 +1,78 @@
+import type { Metadata } from "next";
+import GalleryHeader from "@/components/gallery/GalleryHeader";
+import GalleryInteractive from "@/components/gallery/GalleryInteractive";
+
+export const metadata: Metadata = {
+  title:
+    "फोटो दीर्घा (Gallery) | श्री माँ बगलामुखी मंदिर नलखेड़ा - मंदिर, हवन एवं दर्शन छवियां",
+  description:
+    "विश्वविख्यात माँ बगलामुखी सिद्धपीठ नलखेड़ा के दिव्य दर्शन, मंदिर शिखर, सिंहद्वार, पावन लखुन्दर नदी तट, महाहवन यज्ञ एवं पंडित दीपक शर्मा जी की वास्तविक पावन फोटो गैलरी।",
+  keywords: [
+    "माँ बगलामुखी मंदिर फोटो",
+    "बगलामुखी नलखेड़ा गैलरी",
+    "Baglamukhi Mandir Photos",
+    "बगलामुखी महाहवन फोटो",
+    "पंडित दीपक शर्मा फोटो",
+    "नलखेड़ा मंदिर दर्शन",
+    "पीताम्बरा देवी विग्रह फोटो",
+  ],
+  openGraph: {
+    title:
+      "फोटो दीर्घा | श्री माँ बगलामुखी मंदिर नलखेड़ा - मंदिर, महाहवन एवं पंडित जी",
+    description:
+      "नलखेड़ा सिद्धपीठ, पावन लखुन्दर नदी, दिव्य महाहवन एवं मुख्य यज्ञाचार्य पंडित दीपक शर्मा जी की वास्तविक पावन फोटो दीर्घा।",
+    url: "https://www.baglamukhimandir.in/gallery",
+    type: "website",
+    locale: "hi_IN",
+    images: [
+      {
+        url: "/images/baglamukhi-mandir-real.png",
+        width: 1200,
+        height: 675,
+        alt: "माँ बगलामुखी मंदिर नलखेड़ा फोटो गैलरी",
+      },
+    ],
+  },
+  alternates: {
+    canonical: "https://www.baglamukhimandir.in/gallery",
+  },
+};
+
+export default function GalleryPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ImageGallery",
+    name: "श्री माँ बगलामुखी मंदिर नलखेड़ा फोटो दीर्घा",
+    description:
+      "माँ बगलामुखी सिद्धपीठ नलखेड़ा के पावन मंदिर दर्शन, तांत्रिक महाहवन एवं पंडित दीपक शर्मा जी की प्रामाणिक फोटो गैलरी।",
+    url: "https://www.baglamukhimandir.in/gallery",
+    publisher: {
+      "@type": "PlaceOfWorship",
+      name: "श्री माँ बगलामुखी मंदिर सिद्धपीठ नलखेड़ा",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "लखुन्दर नदी तट",
+        addressLocality: "नलखेड़ा",
+        addressRegion: "मध्य प्रदेश",
+        postalCode: "465445",
+        addressCountry: "IN",
+      },
+    },
+  };
+
+  return (
+    <main className="w-full min-h-screen bg-[#FAF8F5]">
+      {/* Search Engine Rich Snippet JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
+      {/* 1. Header with Breadcrumb and Title */}
+      <GalleryHeader />
+
+      {/* 2. Interactive Category Tabs, Grid with Bottom-Left Hover Title, and Lightbox */}
+      <GalleryInteractive />
+    </main>
+  );
+}

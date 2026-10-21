@@ -1,0 +1,309 @@
+"use client";
+
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
+
+interface GalleryItem {
+  id: number;
+  title: string;
+  category: string;
+  categories: string[];
+  src: string;
+}
+
+const getCategoryLabel = (category: string) => {
+  if (category === "mandir") return "मंदिर दर्शन";
+  if (category === "hawan") return "हवन-अनुष्ठान";
+  if (category === "pandit-ji") return "पंडित जी";
+  return "दर्शन";
+};
+
+const galleryData: GalleryItem[] = [
+  {
+    id: 1,
+    title: "माँ पीताम्बरा बगलामुखी माता रानी दिव्य दर्शन",
+    category: "mandir",
+    categories: ["mandir"],
+    src: "/images/mata_rani.png",
+  },
+  {
+    id: 2,
+    title: "माँ बगलामुखी मंदिर प्रांगण एवं परिक्रमा मार्ग",
+    category: "mandir",
+    categories: ["mandir"],
+    src: "/images/mandir_parisar.png",
+  },
+  {
+    id: 3,
+    title: "माँ बगलामुखी मंदिर नलखेड़ा शिखर एवं सिंहद्वार",
+    category: "mandir",
+    categories: ["mandir"],
+    src: "/images/baglamukhi-mandir-real.png",
+  },
+  {
+    id: 4,
+    title: "दिव्य महाहवन एवं घृत आहुति धारा",
+    category: "hawan",
+    categories: ["hawan", "pandit-ji"],
+    src: "/images/hawan-anushthan-1.jpg",
+  },
+  {
+    id: 5,
+    title: "शास्त्रोक्त यज्ञ वेदी एवं समिधा अर्पण",
+    category: "hawan",
+    categories: ["hawan", "pandit-ji"],
+    src: "/images/hawan-anushthan-2.jpg",
+  },
+  {
+    id: 6,
+    title: "पंडित दीपक शर्मा जी (मुख्य यज्ञाचार्य)",
+    category: "pandit-ji",
+    categories: ["pandit-ji"],
+    src: "/images/pandit-deepak-sharma.jpg",
+  },
+  {
+    id: 7,
+    title: "मंदिर मुख्य प्रवेश द्वार एवं लखुन्दर तट",
+    category: "mandir",
+    categories: ["mandir"],
+    src: "/images/baglamukhi-entry-gate.jpg",
+  },
+  {
+    id: 8,
+    title: "माँ पीताम्बरा त्रिमुखी दिव्य विग्रह स्वरूप",
+    category: "mandir",
+    categories: ["mandir"],
+    src: "/images/baglamukhi-mata.jpg",
+  },
+  {
+    id: 9,
+    title: "नलखेड़ा मंदिर परिसर एवं दीप स्तम्भ",
+    category: "mandir",
+    categories: ["mandir"],
+    src: "/images/mandir-darshan-1.jpg",
+  },
+  {
+    id: 10,
+    title: "पावन गर्भगृह एवं शिखर दर्शन",
+    category: "mandir",
+    categories: ["mandir"],
+    src: "/images/mandir-darshan-2.jpg",
+  },
+  {
+    id: 11,
+    title: "लखुन्दर नदी तट एवं सिद्धपीठ परिसर",
+    category: "mandir",
+    categories: ["mandir"],
+    src: "/images/mandir-darshan-3.jpg",
+  },
+  {
+    id: 12,
+    title: "श्री माँ बगलामुखी सिद्धपीठ बोर्ड नलखेड़ा",
+    category: "mandir",
+    categories: ["mandir"],
+    src: "/images/temple-board-header.png",
+  },
+  {
+    id: 13,
+    title: "अखंड बगलामुखी महायज्ञ एवं पावन ज्वाला",
+    category: "hawan",
+    categories: ["hawan"],
+    src: "/images/hero-desktop.png",
+  },
+];
+
+const categoryTabs = [
+  { key: "all", label: "सभी (All)" },
+  { key: "mandir", label: "मंदिर (Mandir)" },
+  { key: "hawan", label: "हवन (Hawan)" },
+  { key: "pandit-ji", label: "पंडित जी (Pandit Ji)" },
+];
+
+export default function GalleryInteractive() {
+  const [activeTab, setActiveTab] = useState<string>("all");
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  // Filter items based on active category
+  const filteredItems = galleryData.filter((item) => {
+    if (activeTab === "all") return true;
+    return item.categories.includes(activeTab);
+  });
+
+  // Lightbox keyboard controls
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (lightboxIndex === null) return;
+      if (e.key === "Escape") setLightboxIndex(null);
+      if (e.key === "ArrowRight") {
+        setLightboxIndex((prev) =>
+          prev !== null ? (prev + 1) % filteredItems.length : null
+        );
+      }
+      if (e.key === "ArrowLeft") {
+        setLightboxIndex((prev) =>
+          prev !== null ? (prev - 1 + filteredItems.length) % filteredItems.length : null
+        );
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [lightboxIndex, filteredItems.length]);
+
+  return (
+    <section className="w-full bg-[#FAF8F5] py-8 sm:py-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        
+        {/* ================= CATEGORY FILTER TABS ================= */}
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-8 sm:mb-10">
+          {categoryTabs.map((tab) => {
+            const isActive = activeTab === tab.key;
+            return (
+              <button
+                key={tab.key}
+                onClick={() => {
+                  setActiveTab(tab.key);
+                  setLightboxIndex(null);
+                }}
+                className={`inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+                  isActive
+                    ? "bg-[#AF0807] text-white shadow-md border border-amber-400"
+                    : "bg-white text-stone-700 hover:text-[#AF0807] hover:bg-amber-50 border border-stone-200 shadow-2xs"
+                }`}
+              >
+                <span>{tab.label}</span>
+                <span
+                  className={`text-[10px] px-2 py-0.5 rounded-full font-semibold ${
+                    isActive ? "bg-black/25 text-amber-200" : "bg-stone-100 text-stone-500"
+                  }`}
+                >
+                  {tab.key === "all"
+                    ? galleryData.length
+                    : galleryData.filter((i) => i.categories.includes(tab.key)).length}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* ================= GALLERY GRID ================= */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+          {filteredItems.map((item, idx) => (
+            <div
+              key={item.id}
+              onClick={() => setLightboxIndex(idx)}
+              tabIndex={0}
+              role="button"
+              aria-label={item.title}
+              className="group relative rounded-2xl overflow-hidden bg-stone-900 border border-stone-200 hover:border-amber-500 shadow-sm hover:shadow-xl aspect-[4/3] cursor-pointer transition-all duration-300"
+            >
+              {/* Image */}
+              <Image
+                src={item.src}
+                alt={item.title}
+                fill
+                unoptimized
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+              />
+
+              {/* Bottom Gradient Overlay on Hover / Active */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-0 group-hover:opacity-100 group-active:opacity-100 group-focus:opacity-100 transition-opacity duration-300 pointer-events-none" />
+
+              {/* Image Name in Bottom Left on Hover / Active */}
+              <div className="absolute bottom-4 left-4 right-4 z-20 text-left opacity-0 group-hover:opacity-100 group-active:opacity-100 group-focus:opacity-100 transform translate-y-1 group-hover:translate-y-0 group-active:translate-y-0 transition-all duration-300 pointer-events-none">
+                <p className="font-serif text-base sm:text-lg font-bold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] leading-snug">
+                  {item.title}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Empty State */}
+        {filteredItems.length === 0 && (
+          <div className="text-center py-16 text-stone-500">
+            इस श्रेणी में कोई छवि उपलब्ध नहीं है।
+          </div>
+        )}
+
+      </div>
+
+      {/* ================= LIGHTBOX POPUP MODAL ================= */}
+      {lightboxIndex !== null && filteredItems[lightboxIndex] && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md p-4 sm:p-6"
+          onClick={() => setLightboxIndex(null)}
+        >
+          {/* Close Button */}
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setLightboxIndex(null);
+            }}
+            aria-label="Close"
+            className="absolute top-4 right-4 z-50 h-10 w-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer"
+          >
+            <X className="h-6 w-6" />
+          </button>
+
+          {/* Previous Arrow */}
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setLightboxIndex(
+                (lightboxIndex - 1 + filteredItems.length) % filteredItems.length
+              );
+            }}
+            aria-label="Previous image"
+            className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-50 h-12 w-12 rounded-full bg-white/10 hover:bg-white/25 text-white flex items-center justify-center transition-colors cursor-pointer"
+          >
+            <ChevronLeft className="h-6 w-6" />
+          </button>
+
+          {/* Next Arrow */}
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setLightboxIndex((lightboxIndex + 1) % filteredItems.length);
+            }}
+            aria-label="Next image"
+            className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-50 h-12 w-12 rounded-full bg-white/10 hover:bg-white/25 text-white flex items-center justify-center transition-colors cursor-pointer"
+          >
+            <ChevronRight className="h-6 w-6" />
+          </button>
+
+          {/* Modal Content Box */}
+          <div
+            className="relative max-w-4xl max-h-[85vh] w-full flex flex-col items-center justify-center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] max-h-[75vh] rounded-2xl overflow-hidden border-2 border-amber-400/80 shadow-2xl bg-black">
+              <Image
+                src={filteredItems[lightboxIndex].src}
+                alt={filteredItems[lightboxIndex].title}
+                fill
+                unoptimized
+                sizes="100vw"
+                className="object-contain object-center"
+              />
+            </div>
+
+            {/* Bottom Caption in Modal */}
+            <div className="mt-4 text-center max-w-2xl px-4">
+              <span className="inline-block text-[11px] font-bold text-amber-300 uppercase tracking-wider mb-1">
+                {getCategoryLabel(filteredItems[lightboxIndex].category)} • {lightboxIndex + 1} / {filteredItems.length}
+              </span>
+              <h4 className="font-serif text-lg sm:text-xl font-bold text-white">
+                {filteredItems[lightboxIndex].title}
+              </h4>
+            </div>
+          </div>
+        </div>
+      )}
+    </section>
+  );
+}

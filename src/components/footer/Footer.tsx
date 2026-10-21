@@ -10,7 +10,9 @@ import {
   Flame,
   CalendarCheck,
   ShieldCheck,
-  HeartHandshake,
+  Compass,
+  Train,
+  Plane,
 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -19,7 +21,7 @@ export default function Footer() {
 
   const quickLinks = [
     { label: { hi: "मुख्य पृष्ठ (Home)", en: "Home" }, href: "/" },
-    { label: { hi: "हमारे बारे में (About)", en: "About Pandit Ji" }, href: "/pandit-ji" },
+    { label: { hi: "आचार्य पं. दीपक शर्मा", en: "About Pandit Ji" }, href: "/pandit-ji" },
     { label: { hi: "पूजा एवं अनुष्ठान (Pujas)", en: "Pujas & Hawan" }, href: "/pujas" },
     { label: { hi: "मंदिर का इतिहास (Mandir)", en: "Mandir History" }, href: "/mandir" },
     { label: { hi: "फोटो दीर्घा (Gallery)", en: "Photo Gallery" }, href: "/gallery" },
@@ -27,79 +29,98 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="w-full bg-[#1F0A05] text-stone-300 border-t-2 border-[#E6840D]/30 pt-10 pb-24 lg:pt-10 lg:pb-8">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Top Mantra Ribbon */}
-        <div className="text-center pb-6 border-b border-amber-900/40">
-          <p className="font-serif text-sm sm:text-base font-semibold text-amber-300 tracking-wider">
+    <footer className="w-full bg-gradient-to-b from-[#180306] via-[#200408] to-[#0F0204] text-stone-300 border-t-2 border-[#D89B18]/50 pt-10 pb-24 lg:pt-12 lg:pb-8 relative overflow-hidden">
+      {/* Decorative Golden Accent Top Line */}
+      <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-amber-400 to-transparent opacity-80" />
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        {/* Top Sacred Mantra Ribbon */}
+        <div className="text-center pb-8 border-b border-amber-900/40">
+          <div className="inline-flex items-center gap-2 rounded-full bg-black/60 border border-amber-400/40 px-4 py-1 text-xs text-amber-300 mb-2.5 backdrop-blur-md">
+            <span className="font-serif">॥ अमोघ रक्षा महामंत्र ॥</span>
+          </div>
+          <p className="font-serif text-sm sm:text-base md:text-lg font-bold text-amber-200 tracking-wide leading-relaxed max-w-4xl mx-auto drop-shadow-sm">
             {t({
               hi: "॥ ॐ ह्लीं बगलामुखी सर्वदुष्टानां वाचं मुखं पदं स्तम्भय जिह्वां कीलय बुद्धिं विनाशय ह्लीं ॐ स्वाहा ॥",
               en: "॥ Om Hleem Baglamukhi Sarvadushtanam Vacham Mukham Padam Stambhaya Jihvam Keelaya Buddhim Vinashaya Hleem Om Swaha ॥",
             })}
           </p>
-          <p className="text-xs text-stone-400 mt-1">
+          <p className="text-xs text-amber-300/80 mt-1.5 font-medium">
             {t({
-              hi: "विश्व प्रसिद्ध सिद्ध शक्तिपीठ • समस्त संकटों से मुक्ति एवं रक्षा का पावन धाम",
-              en: "World-Renowned Siddha Shakti Peeth • Holy Sanctuary for Obstacle Relief & Divine Grace",
+              hi: "विश्व प्रसिद्ध महाभारत कालीन सिद्ध शक्तिपीठ • नलखेड़ा धाम, आगर-मालवा (म.प्र.)",
+              en: "World-Renowned Mahabharata-Era Siddha Shakti Peeth • Nalkheda Dham, Agar-Malwa (M.P.)",
             })}
           </p>
         </div>
 
         {/* 4-Column Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 py-8">
-          {/* Column 1: Brand & Priest Info */}
-          <div className="flex flex-col items-start space-y-3.5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 py-8">
+          
+          {/* Column 1: Brand & Priest Info (lg:col-span-4) */}
+          <div className="lg:col-span-4 flex flex-col items-start space-y-3.5">
             <div className="flex items-center gap-3">
-              <div className="relative h-12 w-12 sm:h-14 sm:w-14 shrink-0 flex items-center justify-center">
+              <div className="relative h-14 w-14 shrink-0 flex items-center justify-center rounded-2xl bg-black/40 border border-amber-400/30 p-1">
                 <Image
                   src="/images/baglamukhi-logo.png"
                   alt="माँ बगलामुखी मंदिर लोगो"
                   width={56}
                   height={56}
-                  className="h-full w-full object-contain drop-shadow-sm"
+                  className="h-full w-full object-contain filter drop-shadow-md"
                 />
               </div>
               <div>
-                <h3 className="font-serif font-bold text-base sm:text-lg text-white leading-tight">
+                <h3 className="font-serif font-black text-lg sm:text-xl text-white leading-tight">
                   {t({
-                    hi: "श्री माँ बगलामुखी मंदिर",
-                    en: "Shri Maa Baglamukhi Temple",
+                    hi: "श्री माँ बगलामुखी धाम",
+                    en: "Shri Maa Baglamukhi Dham",
                   })}
                 </h3>
-                <p className="text-xs text-amber-400 font-medium">
+                <p className="text-xs text-amber-400 font-bold">
                   {t({
-                    hi: "सिद्ध तंत्र पीठ • नलखेड़ा धाम",
-                    en: "Siddha Tantra Peeth • Nalkheda Dham",
+                    hi: "सिद्ध तंत्र पीठ • नलखेड़ा",
+                    en: "Siddha Tantra Peeth • Nalkheda",
                   })}
                 </p>
               </div>
             </div>
 
-            <p className="text-xs text-stone-400 leading-relaxed">
+            <p className="text-xs text-stone-300 leading-relaxed font-normal">
               {t({
-                hi: "माँ पीताम्बरा बगलामुखी जी के पावन सानिध्य में मुख्य पुजारी पं. दीपक शर्मा जी द्वारा शास्त्रोक्त वैदिक एवं तांत्रिक पद्धतियों से विधिवत अनुष्ठान संपन्न कराए जाते हैं।",
-                en: "Under the divine shelter of Maa Pitambara Baglamukhi, Chief Purohit Pt. Deepak Sharma conducts authentic Vedic and Tantrik Anushthans.",
+                hi: "विश्व विख्यात शक्तिपीठ नलखेड़ा में मुख्य उपासक पं. दीपक शर्मा जी द्वारा शास्त्रोक्त वैदिक पद्धति एवं तांत्रिक विधान से शत्रु संहारक, कोर्ट केस विजय व ग्रह शांति अनुष्ठान संपन्न कराए जाते हैं।",
+                en: "Under the guidance of Chief Priest Pt. Deepak Sharma, authentic Vedic & Tantrik Hawan rituals are conducted at Nalkheda for enemy suppression, court cases, and horoscope relief.",
               })}
             </p>
 
-            <div className="inline-flex items-center gap-2 rounded-full bg-amber-950/60 border border-amber-500/30 px-3 py-1 text-xs text-amber-200">
-              <ShieldCheck className="h-4 w-4 text-amber-400" />
-              <span>
-                {t({
-                  hi: "100% प्रामाणिक वैदिक परंपरा",
-                  en: "100% Authentic Vedic Tradition",
-                })}
-              </span>
+            <div className="flex flex-col gap-1.5 w-full pt-1">
+              <div className="inline-flex items-center gap-2 rounded-xl bg-amber-950/50 border border-amber-500/30 px-3 py-1.5 text-xs text-amber-200">
+                <ShieldCheck className="h-4 w-4 text-amber-400 shrink-0" />
+                <span>
+                  {t({
+                    hi: "100% प्रामाणिक वैदिक परंपरा • 15+ वर्ष अनुभव",
+                    en: "100% Authentic Tradition • 15+ Yrs Experience",
+                  })}
+                </span>
+              </div>
+              <div className="inline-flex items-center gap-2 rounded-xl bg-red-950/50 border border-red-500/30 px-3 py-1.5 text-xs text-amber-100">
+                <Compass className="h-4 w-4 text-amber-400 shrink-0" />
+                <span>
+                  {t({
+                    hi: "कुंडली व राशि परामर्श: +91 90791 49299",
+                    en: "Kundali & Rashi Desk: +91 90791 49299",
+                  })}
+                </span>
+              </div>
             </div>
           </div>
 
-          {/* Column 2: Quick Links */}
-          <div>
-            <h4 className="font-serif font-semibold text-sm sm:text-base text-white mb-3 flex items-center gap-2">
-              <Flame className="h-4 w-4 text-[#AF0807]" />
+          {/* Column 2: Quick Links (lg:col-span-2) */}
+          <div className="lg:col-span-2">
+            <h4 className="font-serif font-bold text-sm sm:text-base text-amber-300 mb-3.5 flex items-center gap-2">
+              <Flame className="h-4 w-4 text-amber-400" />
               <span>
                 {t({
-                  hi: "त्वरित लिंक (Quick Links)",
+                  hi: "त्वरित लिंक",
                   en: "Quick Links",
                 })}
               </span>
@@ -109,9 +130,9 @@ export default function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="hover:text-amber-300 transition-colors flex items-center gap-1.5"
+                    className="text-stone-300 hover:text-amber-300 transition-colors flex items-center gap-1.5"
                   >
-                    <span className="text-[#AF0807]">›</span>
+                    <span className="text-amber-400 font-bold">›</span>
                     <span>{t(item.label)}</span>
                   </Link>
                 </li>
@@ -119,9 +140,9 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 3: Daily Timings & Pujas */}
-          <div>
-            <h4 className="font-serif font-semibold text-sm sm:text-base text-white mb-3 flex items-center gap-2">
+          {/* Column 3: Daily Timings & Pujas (lg:col-span-3) */}
+          <div className="lg:col-span-3">
+            <h4 className="font-serif font-bold text-sm sm:text-base text-amber-300 mb-3.5 flex items-center gap-2">
               <Clock className="h-4 w-4 text-amber-400" />
               <span>
                 {t({
@@ -131,8 +152,8 @@ export default function Footer() {
               </span>
             </h4>
             <div className="space-y-2.5 text-xs text-stone-300">
-              <div className="bg-black/40 border border-white/5 rounded-xl p-2.5">
-                <span className="text-amber-300 font-semibold block">
+              <div className="bg-black/50 border border-amber-900/40 rounded-xl p-2.5">
+                <span className="text-amber-300 font-bold block">
                   {t({
                     hi: "दैनिक दर्शन:",
                     en: "Daily Darshan:",
@@ -140,16 +161,16 @@ export default function Footer() {
                 </span>
                 <span>
                   {t({
-                    hi: "प्रातः 06:00 से रात्रि 09:30",
-                    en: "06:00 AM to 09:30 PM",
+                    hi: "प्रातः 06:00 से रात्रि 09:30 (पट खुले हैं)",
+                    en: "06:00 AM to 09:30 PM (Sanctum Open)",
                   })}
                 </span>
               </div>
-              <div className="bg-black/40 border border-white/5 rounded-xl p-2.5">
-                <span className="text-amber-300 font-semibold block">
+              <div className="bg-black/50 border border-amber-900/40 rounded-xl p-2.5">
+                <span className="text-amber-300 font-bold block">
                   {t({
-                    hi: "आरती समय:",
-                    en: "Aarti Timings:",
+                    hi: "दैनिक महाआरती समय:",
+                    en: "Daily Maha Aarti:",
                   })}
                 </span>
                 <span>
@@ -164,12 +185,12 @@ export default function Footer() {
             <div className="mt-3">
               <Link
                 href="/pujas"
-                className="inline-flex items-center gap-2 text-xs font-bold text-amber-300 hover:text-white transition-colors"
+                className="inline-flex items-center gap-2 text-xs font-bold text-amber-300 hover:text-amber-100 transition-colors"
               >
                 <CalendarCheck className="h-3.5 w-3.5" />
                 <span>
                   {t({
-                    hi: "विशेष पूजा सूची देखें →",
+                    hi: "विशेष पूजा एवं हवन सूची देखें →",
                     en: "View Special Puja Catalog →",
                   })}
                 </span>
@@ -177,44 +198,68 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 4: Contact & Help */}
-          <div>
-            <h4 className="font-serif font-semibold text-sm sm:text-base text-white mb-3 flex items-center gap-2">
-              <HeartHandshake className="h-4 w-4 text-amber-400" />
+          {/* Column 4: Contact & Travel Guide (lg:col-span-3) */}
+          <div className="lg:col-span-3">
+            <h4 className="font-serif font-bold text-sm sm:text-base text-amber-300 mb-3.5 flex items-center gap-2">
+              <MapPin className="h-4 w-4 text-amber-400" />
               <span>
                 {t({
-                  hi: "संपर्क एवं परामर्श",
-                  en: "Contact & Guidance",
+                  hi: "स्थान एवं आवागमन",
+                  en: "Location & Transit",
                 })}
               </span>
             </h4>
             <div className="space-y-2.5 text-xs">
-              <div className="flex items-start gap-2.5">
+              <div className="flex items-start gap-2 text-stone-300">
                 <MapPin className="h-4 w-4 text-red-400 shrink-0 mt-0.5" />
-                <span className="text-stone-300 leading-snug">
+                <span className="leading-snug">
                   {t({
-                    hi: "श्री माँ बगलामुखी सिद्ध शक्तिपीठ, नलखेड़ा, जिला आगर मालवा, मध्य प्रदेश",
-                    en: "Shri Maa Baglamukhi Siddha Shakti Peeth, Nalkheda, Dist. Agar Malwa, Madhya Pradesh",
+                    hi: "लखुंदर नदी तट, नलखेड़ा, जिला आगर मालवा, मध्य प्रदेश",
+                    en: "Lakhundar River Bank, Nalkheda, Dist. Agar Malwa, M.P.",
                   })}
                 </span>
               </div>
 
-              <div className="flex items-center gap-2.5">
+              {/* Transit Details */}
+              <div className="bg-black/40 border border-amber-900/30 rounded-xl p-2.5 space-y-1.5 text-[11px] text-stone-300">
+                <div className="flex items-center gap-2">
+                  <Train className="h-3.5 w-3.5 text-amber-400 shrink-0" />
+                  <span>
+                    {t({
+                      hi: "निकटतम स्टेशन: नागदा (85 किमी) / उज्जैन (98 किमी)",
+                      en: "Nearest Station: Nagda (85 km) / Ujjain (98 km)",
+                    })}
+                  </span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Plane className="h-3.5 w-3.5 text-amber-400 shrink-0" />
+                  <span>
+                    {t({
+                      hi: "निकटतम हवाई अड्डा: इंदौर (155 किमी)",
+                      en: "Nearest Airport: Indore (155 km)",
+                    })}
+                  </span>
+                </div>
+              </div>
+
+              {/* Main Phone Call */}
+              <div className="flex items-center gap-2 pt-1">
                 <Phone className="h-4 w-4 text-amber-400 shrink-0" />
                 <a
                   href="tel:+918239239249"
-                  className="text-stone-300 hover:text-amber-300 transition-colors font-medium"
+                  className="text-amber-200 hover:text-white transition-colors font-bold text-xs"
                 >
-                  +91 82392 39249 (Pt. Deepak Sharma)
+                  +91 82392 39249 (मुख्य हेल्पलाइन)
                 </a>
               </div>
 
-              <div className="pt-1.5">
+              {/* Instant WhatsApp */}
+              <div className="pt-1">
                 <a
-                  href="https://wa.me/918239239249"
+                  href="https://wa.me/918239239249?text=जय%20माँ%20बगलामुखी!%20पंडित%20जी%2C%20मुझे%20हवन%20व%20पूजा%20अनुष्ठान%20की%20जानकारी%20चाहिए।"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#AF0807] via-[#940706] to-[#7A0505] hover:from-[#940706] hover:to-[#600303] border border-amber-400/50 px-3.5 py-2.5 text-xs font-bold text-white shadow-md transition-all w-full justify-center"
+                  className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#8B0000] via-[#AF0807] to-[#7A0505] hover:brightness-110 border border-amber-400/50 px-3.5 py-2.5 text-xs font-bold text-white shadow-md transition-all w-full justify-center"
                 >
                   <MessageCircle className="h-4 w-4 text-amber-300" />
                   <span>
@@ -227,26 +272,27 @@ export default function Footer() {
               </div>
             </div>
           </div>
+
         </div>
 
         {/* Bottom Bar with Prism Infotech Solution credit */}
-        <div className="pt-6 mt-4 border-t border-amber-900/30 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-stone-400 text-center md:text-left">
+        <div className="pt-6 mt-4 border-t border-amber-900/40 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-stone-400 text-center md:text-left">
           <p>
             {t({
-              hi: "© 2026 श्री माँ बगलामुखी मंदिर ट्रस्ट। सर्वाधिकार सुरक्षित।",
-              en: "© 2026 Shri Maa Baglamukhi Temple Trust. All Rights Reserved.",
+              hi: "© 2026 श्री माँ बगलामुखी धाम नलखेड़ा। सर्वाधिकार सुरक्षित।",
+              en: "© 2026 Shri Maa Baglamukhi Dham Nalkheda. All Rights Reserved.",
             })}
           </p>
 
-          <p className="text-stone-400">
+          <p className="text-amber-200/90 font-medium">
             {t({
-              hi: "मुख्य पुजारी: पं. दीपक शर्मा",
-              en: "Chief Purohit: Pt. Deepak Sharma",
+              hi: "मुख्य उपासक: आचार्य पं. दीपक शर्मा",
+              en: "Chief Purohit: Acharya Pt. Deepak Sharma",
             })}
           </p>
 
           {/* Designed by Prism Infotech Solution */}
-          <div className="flex items-center gap-1.5 text-stone-400">
+          <div className="flex items-center gap-1.5 text-stone-300">
             <span>
               {t({
                 hi: "डिज़ाइन एवं विकसित:",
@@ -257,13 +303,14 @@ export default function Footer() {
               href="https://prisminfotechsolution.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-semibold text-amber-400 hover:text-amber-300 transition-colors underline decoration-amber-500/40 hover:decoration-amber-300 underline-offset-4 inline-flex items-center gap-1"
+              className="font-bold text-amber-300 hover:text-white transition-colors underline decoration-amber-400/60 hover:decoration-white underline-offset-4 inline-flex items-center gap-1"
             >
               <span>Prism Infotech Solution</span>
-              <span className="text-[10px] text-amber-400/70">↗</span>
+              <span className="text-[10px] text-amber-300">↗</span>
             </a>
           </div>
         </div>
+
       </div>
     </footer>
   );

@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
 import BottomNav from "@/components/navbar/BottomNav";
 import Footer from "@/components/footer/Footer";
+import FloatingQuickContact from "@/components/common/FloatingQuickContact";
 import { LanguageProvider } from "@/context/LanguageContext";
 
 const geistSans = Geist({
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "श्री माँ बगलामुखी मंदिर | Shri Maa Baglamukhi Temple",
     description:
-      "श्री माँ बगlaमुखी जी का पावन दिव्य धाम। दर्शन, पूजा-अर्चना, अनुष्ठान, एवं आध्यात्मिक शांति का पावन केंद्र।",
+      "श्री माँ बगलामुखी जी का पावन दिव्य धाम। दर्शन, पूजा-अर्चना, अनुष्ठान, एवं आध्यात्मिक शांति का पावन केंद्र।",
     url: "https://baglamukhitemple.org",
     siteName: "Shri Maa Baglamukhi Temple",
     images: [
@@ -68,7 +69,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="hi" className={`${geistSans.variable} ${cinzel.variable}`}>
-      <body className="min-h-screen bg-white text-[#221510] antialiased flex flex-col selection:bg-[#FDB514]/30 selection:text-[#AF0807]">
+      <body className="min-h-screen bg-[#FFF8E7] text-[#3D1B10] antialiased flex flex-col selection:bg-[#D89B18]/30 selection:text-[#8B0000]">
         <LanguageProvider>
           <Navbar />
           <div className="flex-1 flex flex-col pb-20 lg:pb-0">
@@ -76,6 +77,7 @@ export default function RootLayout({
             <Footer />
           </div>
           <BottomNav />
+          <FloatingQuickContact />
         </LanguageProvider>
       </body>
     </html>

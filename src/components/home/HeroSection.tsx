@@ -87,57 +87,82 @@ export default function HeroSection() {
               </span>
               <span className="block mt-1 sm:mt-1.5 text-lg sm:text-2xl md:text-3xl lg:text-[32px] font-bold bg-gradient-to-r from-amber-200 via-yellow-400 to-amber-100 bg-clip-text text-transparent drop-shadow-[0_3px_8px_rgba(0,0,0,0.9)]">
                 {t({
-                  hi: "विश्व प्रसिद्ध सिद्ध शक्तिपीठ",
-                  en: "World-Renowned Siddha Shakti Peeth",
+                  hi: "विश्व प्रसिद्ध सिद्ध शक्तिपीठ • नलखेड़ा",
+                  en: "World-Renowned Siddha Shakti Peeth • Nalkheda",
                 })}
               </span>
             </h1>
 
             {/* Head Priest Subtitle */}
-            <div className="mt-2 sm:mt-2.5 inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-black/45 border border-amber-400/40 px-3 py-0.5 sm:py-1 text-[11px] sm:text-xs font-semibold text-amber-200 backdrop-blur-md shadow-sm">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#AF0807]" />
+            <div className="mt-2 sm:mt-2.5 inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-black/55 border border-amber-400/50 px-3.5 py-1 text-[11px] sm:text-xs font-semibold text-amber-200 backdrop-blur-md shadow-sm">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#AF0807] animate-pulse" />
               <span>
                 {t({
-                  hi: "मुख्य पुजारी: पं. दीपक शर्मा",
+                  hi: "मुख्य उपासक: पं. दीपक शर्मा",
                   en: "Chief Purohit: Pt. Deepak Sharma",
                 })}
               </span>
               <span className="text-white/40">•</span>
               <span className="text-amber-100 font-normal">
                 {t({
-                  hi: "पीताम्बरा तंत्र पीठ",
-                  en: "Pitambara Tantra Peeth",
+                  hi: "15+ वर्ष सिद्ध साधना • 51,000+ सफल संकल्प",
+                  en: "15+ Yrs Sadhana • 51,000+ Sankalps",
                 })}
               </span>
             </div>
 
-            {/* Description */}
-            <p className="mt-2.5 sm:mt-3 text-white/95 text-xs sm:text-sm md:text-base leading-relaxed font-normal drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] max-w-xl">
-              {t({
-                hi: "माँ पीताम्बरा बगलामुखी जी के पावन सानिध्य में विशेष शत्रु बाधा निवारण, मुकदमा एवं कोर्ट विजय, व्यापार उन्नति तथा समस्त संकटों से मुक्ति हेतु शास्त्रोक्त वैदिक एवं तांत्रिक अनुष्ठान संपन्न कराएं।",
-                en: "Book authentic Vedic & Tantrik Hawan Anushthan under the divine grace of Maa Pitambara Baglamukhi for Shatru Badha Nivaran, Court Case Victory, Vyapar Vriddhi, and life obstacle relief.",
-              })}
-            </p>
+            {/* Sacred Maha Mantra Highlight Box */}
+            <div className="mt-3.5 w-full max-w-xl rounded-2xl bg-gradient-to-r from-black/75 via-black/85 to-black/75 border border-amber-400/50 p-3 sm:p-3.5 backdrop-blur-md shadow-2xl relative overflow-hidden text-left">
+              <div className="absolute top-0 right-0 transform translate-x-2 -translate-y-2 text-amber-400/10 font-serif text-5xl font-black select-none pointer-events-none">
+                ॐ
+              </div>
+              <div className="flex items-center gap-2 mb-1">
+                <span className="text-[10px] uppercase font-bold tracking-widest text-amber-300 bg-amber-400/20 border border-amber-400/30 px-2 py-0.5 rounded-full">
+                  {t({ hi: "सिद्ध तांत्रिक महामंत्र", en: "Siddha Tantrik Maha Mantra" })}
+                </span>
+                <span className="text-[11px] text-amber-200/80 font-serif">॥ अमोघ रक्षा कवच ॥</span>
+              </div>
+              <p className="font-serif text-xs sm:text-[13px] md:text-sm font-bold text-amber-100 leading-snug drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
+                ॥ ॐ ह्लीं बगलामुखि सर्वदुष्टानां वाचं मुखं पदं स्तम्भय जिह्वां कीलय बुद्धिं विनाशय ह्लीं ॐ स्वाहा ॥
+              </p>
+              {/* Crisis Resolution Tags */}
+              <div className="mt-2 pt-2 border-t border-amber-400/20 flex flex-wrap gap-1.5">
+                {[
+                  { hi: "शत्रु स्तम्भन", en: "Enemy Suppression" },
+                  { hi: "कोर्ट केस विजय", en: "Court Case Victory" },
+                  { hi: "व्यापार वृद्धि", en: "Business Growth" },
+                  { hi: "गृह क्लेश शांति", en: "Family Peace" },
+                  { hi: "रोग-दोष निवारण", en: "Health & Relief" },
+                ].map((tag, i) => (
+                  <span
+                    key={i}
+                    className="text-[10px] font-semibold text-amber-200 bg-amber-500/15 border border-amber-400/30 rounded-md px-1.5 py-0.5"
+                  >
+                    • {t(tag)}
+                  </span>
+                ))}
+              </div>
+            </div>
 
             {/* Action Buttons (CTAs) */}
             <div className="mt-4 sm:mt-5 flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3 w-full sm:w-auto">
               {/* Primary CTA */}
               <Link
                 href="/contact"
-                className="group relative inline-flex items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-[#AF0807] via-[#940706] to-[#7A0505] px-6 py-3 text-sm sm:text-base font-bold text-white shadow-xl shadow-red-950/60 border border-amber-400/50 hover:border-amber-300 hover:shadow-2xl transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0"
+                className="group relative inline-flex items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-[#AF0807] via-[#940706] to-[#7A0505] px-6 py-3 text-sm sm:text-base font-bold text-white shadow-xl shadow-red-950/60 border border-amber-400/50 hover:border-amber-300 hover:shadow-2xl transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 overflow-hidden button-sheen-sweep"
               >
                 <CalendarCheck className="h-5 w-5 text-amber-300 shrink-0" />
                 <div className="flex flex-col text-left leading-tight">
                   <span className="font-extrabold tracking-wide">
                     {t({
-                      hi: "विशेष अनुष्ठान बुक करें",
+                      hi: "विशेष अनुष्ठान व संकल्प बुक करें",
                       en: "Book Special Anushthan",
                     })}
                   </span>
                   <span className="text-[10px] text-amber-200/90 font-normal">
                     {t({
-                      hi: "संकल्प व मुहूर्त आरक्षित करें",
-                      en: "Reserve Sankalp & Shubh Muhurat",
+                      hi: "पंडित जी से शुभ मुहूर्त आरक्षित करें",
+                      en: "Reserve Shubh Muhurat with Pandit Ji",
                     })}
                   </span>
                 </div>
@@ -148,10 +173,10 @@ export default function HeroSection() {
 
               {/* Secondary CTA */}
               <a
-                href="https://wa.me/918239239249?text=जय%20माँ%20बगलामुखी!%20पंडित%20दीपक%20शर्मा%20जी%2C%20मुझे%20पूजा%20व%20परामर्श%20के%20बारे%20में%20जानकारी%20चाहिए।"
+                href="https://wa.me/918239239249?text=जय%20माँ%20बगलामुखी!%20पंडित%20दीपक%20शर्मा%20जी%2C%20मुझे%20पूजा%20व%20हवन%20के%20बारे%20में%20जानकारी%20चाहिए।"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center justify-center gap-3 rounded-2xl bg-black/60 hover:bg-black/80 px-5 py-3 text-sm sm:text-base font-bold text-white border border-amber-400/60 hover:border-amber-300 backdrop-blur-md shadow-xl transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0"
+                className="group inline-flex items-center justify-center gap-3 rounded-2xl bg-black/70 hover:bg-black/90 px-5 py-3 text-sm sm:text-base font-bold text-white border border-amber-400/60 hover:border-amber-300 backdrop-blur-md shadow-xl transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0"
               >
                 <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-amber-500/20 border border-amber-400/40 text-amber-300 shrink-0">
                   <MessageCircle className="h-4 w-4 text-amber-300" />
@@ -159,14 +184,14 @@ export default function HeroSection() {
                 <div className="flex flex-col text-left leading-tight">
                   <span className="font-bold text-amber-100">
                     {t({
-                      hi: "पंडित जी से परामर्श",
-                      en: "Pandit Ji Consultation",
+                      hi: "व्हाट्सएप परामर्श",
+                      en: "WhatsApp Consultation",
                     })}
                   </span>
                   <span className="text-[10px] text-amber-300/90 font-normal">
                     {t({
-                      hi: "सीधे व्हाट्सएप पर मार्गदर्शन लें",
-                      en: "Direct Guidance on WhatsApp",
+                      hi: "+91 82392 39249 पर तुरंत जुड़ें",
+                      en: "Connect instantly on +91 82392 39249",
                     })}
                   </span>
                 </div>

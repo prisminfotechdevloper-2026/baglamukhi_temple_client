@@ -2,35 +2,35 @@
 
 :root {
   /* Maa Baglamukhi Temple Devotional Color Palette */
-  --color-temple-gold: #E6840D;   /* Primary gold, temple structure and outlines */
-  --color-saffron: #FDB514;       /* Garments, lotus petals and highlights */
-  --color-soft-gold: #F9D66F;     /* Jewellery, borders and metallic shine */
-  --color-vermilion: #AF0807;     /* Inner temple arch, lotus and sacred accents */
-  --color-maroon: #540902;        /* Shadows, contrast and premium details */
-  --color-ivory: #FFFDF9;         /* Warm subtle white tone */
+  --color-temple-gold: #D89B18;   /* Radiant temple gold */
+  --color-saffron: #E6840D;       /* Auspicious saffron */
+  --color-soft-gold: #F4D58D;     /* Golden aura shimmer */
+  --color-vermilion: #8B0000;     /* Sacred vermilion crimson */
+  --color-maroon: #4A0C16;        /* Deep sanctum maroon */
+  --color-ivory: #FFF8E7;         /* Warm sacred temple cream ivory */
 
-  /* Modern Crisp Clean Background & High-Contrast Typography */
-  --background: #FFFFFF;
-  --foreground: #221510;
-  --primary: #E6840D;
-  --secondary: #AF0807;
-  --accent: #FDB514;
+  /* Devotional Warm Sacred Temple Theme */
+  --background: #FFF8E7;
+  --foreground: #3D1B10;
+  --primary: #8B0000;
+  --secondary: #D89B18;
+  --accent: #F4D58D;
 }
 
 @theme {
-  --color-temple-gold: #E6840D;
-  --color-saffron: #FDB514;
-  --color-soft-gold: #F9D66F;
-  --color-vermilion: #AF0807;
-  --color-maroon: #540902;
-  --color-ivory: #FFFDF9;
+  --color-temple-gold: #D89B18;
+  --color-saffron: #E6840D;
+  --color-soft-gold: #F4D58D;
+  --color-vermilion: #8B0000;
+  --color-maroon: #4A0C16;
+  --color-ivory: #FFF8E7;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 }
 
 body {
-  background-color: #FFFFFF;
+  background-color: #FFF8E7;
   color: var(--foreground);
   font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
   margin: 0;
@@ -42,13 +42,13 @@ body {
 
 /* Glassmorphism & Gold Glow utilities */
 .glass-header {
-  background: rgba(255, 255, 255, 0.88);
+  background: rgba(255, 253, 248, 0.96);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 }
 
 .gold-shimmer-border {
-  border-image: linear-gradient(to right, #E6840D, #FDB514, #AF0807) 1;
+  border-image: linear-gradient(to right, #D89B18, #F4D58D, #8B0000) 1;
 }
 
 /* Smooth Infinite Marquee Slider (Right-to-Left, Calm & Slow Pace) */
@@ -94,3 +94,59 @@ body {
   animation-play-state: paused;
 }
 
+/* Sacred Spinning Mantra Halo Animation */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-reverse-slow {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 35s linear infinite;
+}
+
+.animate-spin-reverse-slow {
+  animation: spin-reverse-slow 40s linear infinite;
+}
+
+/* Divine Golden Aura Pulse */
+@keyframes aura-pulse {
+  0%, 100% {
+    opacity: 0.65;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.05);
+  }
+}
+
+.animate-aura-pulse {
+  animation: aura-pulse 4s ease-in-out infinite;
+}
+
+/* Button Sheen Sweep */
+@keyframes sheen-sweep {
+  0% {
+    transform: translateX(-100%) skewX(-15deg);
+  }
+  100% {
+    transform: translateX(250%) skewX(-15deg);
+  }
+}
+
+.button-sheen-sweep {
+  animation: sheen-sweep 3.5s ease-in-out infinite;
+}

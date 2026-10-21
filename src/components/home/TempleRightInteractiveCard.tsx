@@ -165,7 +165,7 @@ export default function TempleRightInteractiveCard() {
   };
 
   return (
-    <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-white border border-amber-200/80 shadow-xs hover:shadow-md transition-shadow min-h-[520px] flex flex-col justify-between p-6 sm:p-8 md:p-9">
+    <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-[#FFFDF8] border border-[#EBD8B4] shadow-sm hover:shadow-md transition-shadow min-h-[520px] flex flex-col justify-between p-6 sm:p-8 md:p-9">
       
       {/* ================= PANE 1: TIMINGS & AARTI (DEFAULT VIEW) ================= */}
       <div

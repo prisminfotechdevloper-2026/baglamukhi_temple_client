@@ -27,10 +27,10 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="w-full bg-[#1F0A05] text-stone-300 border-t-2 border-[#E6840D]/30 pt-14 pb-10">
+    <footer className="w-full bg-[#1F0A05] text-stone-300 border-t-2 border-[#E6840D]/30 pt-10 pb-24 lg:pt-10 lg:pb-8">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Top Mantra Ribbon */}
-        <div className="text-center pb-10 border-b border-amber-900/40">
+        <div className="text-center pb-6 border-b border-amber-900/40">
           <p className="font-serif text-sm sm:text-base font-semibold text-amber-300 tracking-wider">
             {t({
               hi: "॥ ॐ ह्लीं बगलामुखी सर्वदुष्टानां वाचं मुखं पदं स्तम्भय जिह्वां कीलय बुद्धिं विनाशय ह्लीं ॐ स्वाहा ॥",
@@ -46,21 +46,21 @@ export default function Footer() {
         </div>
 
         {/* 4-Column Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 py-8">
           {/* Column 1: Brand & Priest Info */}
-          <div className="flex flex-col items-start space-y-4">
+          <div className="flex flex-col items-start space-y-3.5">
             <div className="flex items-center gap-3">
-              <div className="relative h-14 w-14 sm:h-16 sm:w-16 shrink-0 flex items-center justify-center">
+              <div className="relative h-12 w-12 sm:h-14 sm:w-14 shrink-0 flex items-center justify-center">
                 <Image
                   src="/images/baglamukhi-logo.png"
                   alt="माँ बगलामुखी मंदिर लोगो"
-                  width={60}
-                  height={60}
+                  width={56}
+                  height={56}
                   className="h-full w-full object-contain drop-shadow-sm"
                 />
               </div>
               <div>
-                <h3 className="font-serif font-bold text-lg text-white leading-tight">
+                <h3 className="font-serif font-bold text-base sm:text-lg text-white leading-tight">
                   {t({
                     hi: "श्री माँ बगलामुखी मंदिर",
                     en: "Shri Maa Baglamukhi Temple",
@@ -95,7 +95,7 @@ export default function Footer() {
 
           {/* Column 2: Quick Links */}
           <div>
-            <h4 className="font-serif font-semibold text-base text-white mb-4 flex items-center gap-2">
+            <h4 className="font-serif font-semibold text-sm sm:text-base text-white mb-3 flex items-center gap-2">
               <Flame className="h-4 w-4 text-[#AF0807]" />
               <span>
                 {t({
@@ -121,7 +121,7 @@ export default function Footer() {
 
           {/* Column 3: Daily Timings & Pujas */}
           <div>
-            <h4 className="font-serif font-semibold text-base text-white mb-4 flex items-center gap-2">
+            <h4 className="font-serif font-semibold text-sm sm:text-base text-white mb-3 flex items-center gap-2">
               <Clock className="h-4 w-4 text-amber-400" />
               <span>
                 {t({
@@ -130,7 +130,7 @@ export default function Footer() {
                 })}
               </span>
             </h4>
-            <div className="space-y-3 text-xs text-stone-300">
+            <div className="space-y-2.5 text-xs text-stone-300">
               <div className="bg-black/40 border border-white/5 rounded-xl p-2.5">
                 <span className="text-amber-300 font-semibold block">
                   {t({
@@ -161,7 +161,7 @@ export default function Footer() {
               </div>
             </div>
 
-            <div className="mt-4">
+            <div className="mt-3">
               <Link
                 href="/pujas"
                 className="inline-flex items-center gap-2 text-xs font-bold text-amber-300 hover:text-white transition-colors"
@@ -179,7 +179,7 @@ export default function Footer() {
 
           {/* Column 4: Contact & Help */}
           <div>
-            <h4 className="font-serif font-semibold text-base text-white mb-4 flex items-center gap-2">
+            <h4 className="font-serif font-semibold text-sm sm:text-base text-white mb-3 flex items-center gap-2">
               <HeartHandshake className="h-4 w-4 text-amber-400" />
               <span>
                 {t({
@@ -188,7 +188,7 @@ export default function Footer() {
                 })}
               </span>
             </h4>
-            <div className="space-y-3 text-xs">
+            <div className="space-y-2.5 text-xs">
               <div className="flex items-start gap-2.5">
                 <MapPin className="h-4 w-4 text-red-400 shrink-0 mt-0.5" />
                 <span className="text-stone-300 leading-snug">
@@ -209,7 +209,7 @@ export default function Footer() {
                 </a>
               </div>
 
-              <div className="pt-2">
+              <div className="pt-1.5">
                 <a
                   href="https://wa.me/917726815642"
                   target="_blank"
@@ -229,20 +229,40 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 mt-6 border-t border-amber-900/30 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-500 text-center sm:text-left">
+        {/* Bottom Bar with Prism Infotech Solution credit */}
+        <div className="pt-6 mt-4 border-t border-amber-900/30 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-stone-400 text-center md:text-left">
           <p>
             {t({
               hi: "© 2026 श्री माँ बगलामुखी मंदिर ट्रस्ट। सर्वाधिकार सुरक्षित।",
               en: "© 2026 Shri Maa Baglamukhi Temple Trust. All Rights Reserved.",
             })}
           </p>
+
           <p className="text-stone-400">
             {t({
               hi: "मुख्य पुजारी: पं. दीपक शर्मा",
               en: "Chief Purohit: Pt. Deepak Sharma",
             })}
           </p>
+
+          {/* Designed by Prism Infotech Solution */}
+          <div className="flex items-center gap-1.5 text-stone-400">
+            <span>
+              {t({
+                hi: "डिज़ाइन एवं विकसित:",
+                en: "Designed & Developed by:",
+              })}
+            </span>
+            <a
+              href="https://prisminfotechsolution.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-amber-400 hover:text-amber-300 transition-colors underline decoration-amber-500/40 hover:decoration-amber-300 underline-offset-4 inline-flex items-center gap-1"
+            >
+              <span>Prism Infotech Solution</span>
+              <span className="text-[10px] text-amber-400/70">↗</span>
+            </a>
+          </div>
         </div>
       </div>
     </footer>

@@ -40,6 +40,27 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* ================= Lenis Smooth Scroll Recommended Styles ================= */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
 /* Glassmorphism & Gold Glow utilities */
 .glass-header {
   background: rgba(255, 253, 248, 0.96);

@@ -5,6 +5,7 @@ import Navbar from "@/components/navbar/Navbar";
 import BottomNav from "@/components/navbar/BottomNav";
 import Footer from "@/components/footer/Footer";
 import FloatingQuickContact from "@/components/common/FloatingQuickContact";
+import SmoothScroll from "@/components/common/SmoothScroll";
 import { LanguageProvider } from "@/context/LanguageContext";
 
 const geistSans = Geist({
@@ -83,6 +84,7 @@ export default function RootLayout({
     <html lang="hi" className={`${geistSans.variable} ${cinzel.variable}`}>
       <body className="min-h-screen bg-[#FFF8E7] text-[#3D1B10] antialiased flex flex-col selection:bg-[#D89B18]/30 selection:text-[#8B0000]">
         <LanguageProvider>
+          <SmoothScroll />
           <Navbar />
           <div className="flex-1 flex flex-col pb-20 lg:pb-0">
             {children}

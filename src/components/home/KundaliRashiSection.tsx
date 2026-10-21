@@ -24,18 +24,18 @@ interface RashiItem {
 }
 
 const rashis: RashiItem[] = [
-  { id: "aries", nameHi: "मेष", nameEn: "Aries", symbol: "♈", lord: "मंगल (Mars)", element: "अग्नि (Fire)", gem: "मूंगा (Coral)" },
-  { id: "taurus", nameHi: "वृषभ", nameEn: "Taurus", symbol: "♉", lord: "शुक्र (Venus)", element: "पृथ्वी (Earth)", gem: "ओपल / हीरा (Diamond)" },
-  { id: "gemini", nameHi: "मिथुन", nameEn: "Gemini", symbol: "♊", lord: "बुध (Mercury)", element: "वायु (Air)", gem: "पन्ना (Emerald)" },
-  { id: "cancer", nameHi: "कर्क", nameEn: "Cancer", symbol: "♋", lord: "चंद्रमा (Moon)", element: "जल (Water)", gem: "मोती (Pearl)" },
-  { id: "leo", nameHi: "सिंह", nameEn: "Leo", symbol: "♌", lord: "सूर्य (Sun)", element: "अग्नि (Fire)", gem: "माणिक्य (Ruby)" },
-  { id: "virgo", nameHi: "कन्या", nameEn: "Virgo", symbol: "♍", lord: "बुध (Mercury)", element: "पृथ्वी (Earth)", gem: "पन्ना (Emerald)" },
-  { id: "libra", nameHi: "तुला", nameEn: "Libra", symbol: "♎", lord: "शुक्र (Venus)", element: "वायु (Air)", gem: "हीरा / जरकन (Diamond)" },
-  { id: "scorpio", nameHi: "वृश्चिक", nameEn: "Scorpio", symbol: "♏", lord: "मंगल (Mars)", element: "जल (Water)", gem: "मूंगा (Coral)" },
-  { id: "sagittarius", nameHi: "धनु", nameEn: "Sagittarius", symbol: "♐", lord: "गुरु (Jupiter)", element: "अग्नि (Fire)", gem: "पुखराज (Yellow Sapphire)" },
-  { id: "capricorn", nameHi: "मकर", nameEn: "Capricorn", symbol: "♑", lord: "शनि (Saturn)", element: "पृथ्वी (Earth)", gem: "नीलम (Blue Sapphire)" },
-  { id: "aquarius", nameHi: "कुम्भ", nameEn: "Aquarius", symbol: "♒", lord: "शनि (Saturn)", element: "वायु (Air)", gem: "नीलम (Blue Sapphire)" },
-  { id: "pisces", nameHi: "मीन", nameEn: "Pisces", symbol: "♓", lord: "गुरु (Jupiter)", element: "जल (Water)", gem: "पुखराज (Yellow Sapphire)" },
+  { id: "aries", nameHi: "मेष", nameEn: "Aries", symbol: "♈", lord: "मंगल", element: "अग्नि", gem: "मूंगा (रक्तमणि)" },
+  { id: "taurus", nameHi: "वृषभ", nameEn: "Taurus", symbol: "♉", lord: "शुक्र", element: "पृथ्वी", gem: "ओपल / हीरा" },
+  { id: "gemini", nameHi: "मिथुन", nameEn: "Gemini", symbol: "♊", lord: "बुध", element: "वायु", gem: "पन्ना" },
+  { id: "cancer", nameHi: "कर्क", nameEn: "Cancer", symbol: "♋", lord: "चंद्रमा", element: "जल", gem: "सच्चा मोती" },
+  { id: "leo", nameHi: "सिंह", nameEn: "Leo", symbol: "♌", lord: "सूर्य", element: "अग्नि", gem: "माणिक्य" },
+  { id: "virgo", nameHi: "कन्या", nameEn: "Virgo", symbol: "♍", lord: "बुध", element: "पृथ्वी", gem: "पन्ना" },
+  { id: "libra", nameHi: "तुला", nameEn: "Libra", symbol: "♎", lord: "शुक्र", element: "वायु", gem: "हीरा / जरकन" },
+  { id: "scorpio", nameHi: "वृश्चिक", nameEn: "Scorpio", symbol: "♏", lord: "मंगल", element: "जल", gem: "मूंगा" },
+  { id: "sagittarius", nameHi: "धनु", nameEn: "Sagittarius", symbol: "♐", lord: "गुरु", element: "अग्नि", gem: "पुखराज" },
+  { id: "capricorn", nameHi: "मकर", nameEn: "Capricorn", symbol: "♑", lord: "शनि", element: "पृथ्वी", gem: "नीलम" },
+  { id: "aquarius", nameHi: "कुम्भ", nameEn: "Aquarius", symbol: "♒", lord: "शनि", element: "वायु", gem: "नीलम / जामुनिया" },
+  { id: "pisces", nameHi: "मीन", nameEn: "Pisces", symbol: "♓", lord: "गुरु", element: "जल", gem: "पुखराज" },
 ];
 
 interface KundaliDoshItem {
@@ -204,13 +204,6 @@ export default function KundaliRashiSection() {
                   <span className="font-serif font-bold text-xs sm:text-[13px] leading-tight">
                     {rashi.nameHi}
                   </span>
-                  <span
-                    className={`text-[9px] uppercase tracking-wider ${
-                      isSelected ? "text-amber-200" : "text-stone-500"
-                    }`}
-                  >
-                    {rashi.nameEn}
-                  </span>
                 </button>
               );
             })}
@@ -225,7 +218,7 @@ export default function KundaliRashiSection() {
               <div className="min-w-0">
                 <div className="flex items-center gap-2">
                   <h4 className="font-serif text-xl sm:text-2xl font-black text-[#4A0C16]">
-                    {selectedRashi.nameHi} राशि ({selectedRashi.nameEn})
+                    {selectedRashi.nameHi} राशि
                   </h4>
                   <span className="px-2 py-0.5 rounded-full bg-[#FAEDD2] border border-[#D89B18]/50 text-[11px] font-bold text-[#8B0000]">
                     सक्रिय

@@ -43,8 +43,15 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Acharya Pt. Deepak Sharma - Chief Purohit Nalkheda" }],
   icons: {
-    icon: "/images/baglamukhi-logo.png",
-    apple: "/images/baglamukhi-logo.png",
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
   },
   alternates: {
     canonical: "/",

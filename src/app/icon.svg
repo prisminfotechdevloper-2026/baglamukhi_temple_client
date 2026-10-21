@@ -1,0 +1,164 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Sacred Crimson Background Gradient -->
+    <radialGradient id="bgGrad" cx="50%" cy="38%" r="62%">
+      <stop offset="0%" stop-color="#C2120C" />
+      <stop offset="45%" stop-color="#8B0000" />
+      <stop offset="85%" stop-color="#550303" />
+      <stop offset="100%" stop-color="#300101" />
+    </radialGradient>
+
+    <!-- Master 3D Gold Gradient for Trident -->
+    <linearGradient id="goldLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF8D6" />
+      <stop offset="25%" stop-color="#FDE047" />
+      <stop offset="50%" stop-color="#EAB308" />
+      <stop offset="75%" stop-color="#CA8A04" />
+      <stop offset="100%" stop-color="#854D0E" />
+    </linearGradient>
+
+    <!-- Shaded Gold for 3D Depth / Bevel -->
+    <linearGradient id="goldDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EAB308" />
+      <stop offset="40%" stop-color="#CA8A04" />
+      <stop offset="70%" stop-color="#A16207" />
+      <stop offset="100%" stop-color="#713F12" />
+    </linearGradient>
+
+    <!-- Golden Rim Gradient -->
+    <linearGradient id="goldRim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FEF08A" />
+      <stop offset="30%" stop-color="#EAB308" />
+      <stop offset="70%" stop-color="#FACC15" />
+      <stop offset="100%" stop-color="#854D0E" />
+    </linearGradient>
+
+    <!-- Shaft Cylinder Gradient -->
+    <linearGradient id="shaftGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#854D0E" />
+      <stop offset="25%" stop-color="#CA8A04" />
+      <stop offset="55%" stop-color="#FEF08A" />
+      <stop offset="80%" stop-color="#EAB308" />
+      <stop offset="100%" stop-color="#713F12" />
+    </linearGradient>
+
+    <!-- Divine Halo Drop Shadow -->
+    <filter id="divineGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000000" flood-opacity="0.5" />
+      <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#FBBF24" flood-opacity="0.35" />
+    </filter>
+
+    <!-- Center Tilak Gradient -->
+    <radialGradient id="tilakGrad" cx="40%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#FF4D4D" />
+      <stop offset="70%" stop-color="#DC2626" />
+      <stop offset="100%" stop-color="#991B1B" />
+    </radialGradient>
+  </defs>
+
+  <!-- 1. Circular Sacred Base -->
+  <circle cx="256" cy="256" r="244" fill="url(#bgGrad)" />
+
+  <!-- 2. Dual Golden Rim (Sanctified Outer Ring) -->
+  <circle cx="256" cy="256" r="240" fill="none" stroke="url(#goldRim)" stroke-width="9" />
+  <circle cx="256" cy="256" r="228" fill="none" stroke="#FDE047" stroke-width="2" stroke-dasharray="5 5" opacity="0.6" />
+
+  <!-- 3. Trishul Vector Assembly with Shadow & Glow -->
+  <g filter="url(#divineGlow)">
+    
+    <!-- Shaft (दण्ड) -->
+    <rect x="248" y="278" width="16" height="150" rx="3" fill="url(#shaftGrad)" />
+    <!-- Shaft Mid Ring Collar -->
+    <ellipse cx="256" cy="350" rx="12" ry="5" fill="url(#goldLight)" stroke="#854D0E" stroke-width="1.5" />
+    <!-- Shaft Bottom Base (Ferrule) -->
+    <path d="M 245 428 L 267 428 L 256 462 Z" fill="url(#goldLight)" stroke="#713F12" stroke-width="1.5" />
+    <ellipse cx="256" cy="428" rx="12" ry="4" fill="#FEF08A" />
+    <circle cx="256" cy="462" r="4" fill="#FEF08A" />
+
+    <!-- Damru (डमरू) Structure -->
+    <!-- Damru Top Cone -->
+    <path d="M 232 254 L 280 254 L 262 278 L 250 278 Z" fill="url(#goldDark)" />
+    <!-- Damru Bottom Cone -->
+    <path d="M 250 278 L 262 278 L 280 302 L 232 302 Z" fill="url(#goldDark)" />
+    <!-- Damru Outer Caps -->
+    <ellipse cx="256" cy="254" rx="24" ry="5" fill="url(#goldLight)" stroke="#713F12" stroke-width="1.5" />
+    <ellipse cx="256" cy="302" rx="24" ry="5" fill="url(#goldLight)" stroke="#713F12" stroke-width="1.5" />
+    <!-- Sacred Red String / Knot at Damru Waist -->
+    <rect x="248" y="274" width="16" height="8" rx="2" fill="url(#tilakGrad)" stroke="#FEF08A" stroke-width="1" />
+    <!-- Damru Hanging Beads -->
+    <path d="M 250 282 Q 240 294 236 304" fill="none" stroke="#FDE047" stroke-width="2" />
+    <circle cx="236" cy="304" r="3.5" fill="#DC2626" stroke="#FEF08A" stroke-width="1" />
+    <path d="M 262 282 Q 272 294 276 304" fill="none" stroke="#FDE047" stroke-width="2" />
+    <circle cx="276" cy="304" r="3.5" fill="#DC2626" stroke="#FEF08A" stroke-width="1" />
+
+    <!-- Trishul Base Collar (Arch Connector) -->
+    <path d="M 218 248 C 218 238, 236 230, 256 230 C 276 230, 294 238, 294 248 C 294 256, 276 260, 256 260 C 236 260, 218 256, 218 248 Z" 
+          fill="url(#goldLight)" stroke="#854D0E" stroke-width="2" />
+
+    <!-- Left Flanking Prong (वाम शूल) -->
+    <!-- Left Blade Body -->
+    <path d="M 232 236 
+             C 188 234, 136 218, 120 170 
+             C 106 128, 118 84, 138 52 
+             C 134 78, 142 110, 156 128 
+             C 174 152, 206 178, 238 188 
+             Z" 
+          fill="url(#goldLight)" stroke="#854D0E" stroke-width="2.5" stroke-linejoin="round" />
+    <!-- Left Blade Inner Shadow/Bevel -->
+    <path d="M 232 236 
+             C 188 234, 136 218, 120 170 
+             C 114 152, 118 128, 128 102 
+             C 126 126, 136 150, 154 170 
+             C 176 194, 206 218, 236 232 
+             Z" 
+          fill="url(#goldDark)" opacity="0.6" />
+
+    <!-- Right Flanking Prong (दक्षिण शूल - Symmetrical) -->
+    <!-- Right Blade Body -->
+    <path d="M 280 236 
+             C 324 234, 376 218, 392 170 
+             C 406 128, 394 84, 374 52 
+             C 378 78, 370 110, 356 128 
+             C 338 152, 306 178, 274 188 
+             Z" 
+          fill="url(#goldLight)" stroke="#854D0E" stroke-width="2.5" stroke-linejoin="round" />
+    <!-- Right Blade Inner Shadow/Bevel -->
+    <path d="M 280 236 
+             C 324 234, 376 218, 392 170 
+             C 398 152, 394 128, 384 102 
+             C 386 126, 376 150, 358 170 
+             C 336 194, 306 218, 276 232 
+             Z" 
+          fill="url(#goldDark)" opacity="0.6" />
+
+    <!-- Center Spearhead (मध्यम फलक - The Supreme Spear) -->
+    <!-- Center Spearhead Left Facet (Light) -->
+    <path d="M 256 36 
+             C 250 85, 232 145, 240 185 
+             L 256 238 
+             L 256 36 Z" 
+          fill="url(#goldLight)" stroke="#854D0E" stroke-width="2" stroke-linejoin="round" />
+    
+    <!-- Center Spearhead Right Facet (Dark/Shadowed 3D) -->
+    <path d="M 256 36 
+             C 262 85, 280 145, 272 185 
+             L 256 238 
+             L 256 36 Z" 
+          fill="url(#goldDark)" stroke="#854D0E" stroke-width="2" stroke-linejoin="round" />
+
+    <!-- Center Blade Ridge Highlight Line -->
+    <line x1="256" y1="38" x2="256" y2="236" stroke="#FFFBEB" stroke-width="2" />
+
+    <!-- Sacred Tripundra (त्रिपुण्ड्र - 3 White Lines of Shiva-Shakti) -->
+    <path d="M 244 148 Q 256 151 268 148" fill="none" stroke="#FFFBEB" stroke-width="2.2" stroke-linecap="round" opacity="0.9" />
+    <path d="M 243 154 Q 256 157 269 154" fill="none" stroke="#FFFBEB" stroke-width="2.2" stroke-linecap="round" opacity="0.9" />
+    <path d="M 244 160 Q 256 163 268 160" fill="none" stroke="#FFFBEB" stroke-width="2.2" stroke-linecap="round" opacity="0.9" />
+
+    <!-- Sacred Sindoor / Kumkum Tilak Bindu (दिव्य कुमकुम तिलक) -->
+    <ellipse cx="256" cy="154" rx="4" ry="5.5" fill="url(#tilakGrad)" stroke="#FEF08A" stroke-width="1.2" />
+
+    <!-- Base Center Jewel / Sacred Ruby -->
+    <circle cx="256" cy="245" r="7" fill="url(#tilakGrad)" stroke="#FEF08A" stroke-width="1.5" />
+    <circle cx="254" cy="243" r="2" fill="#FFFFFF" opacity="0.8" />
+  </g>
+</svg>

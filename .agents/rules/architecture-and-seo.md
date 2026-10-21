@@ -20,3 +20,12 @@
 - **Semantic HTML**: Always use standard semantic HTML tags (`<header>`, `<main>`, `<article>`, `<section>`, `<nav>`, `<footer>`) with a single `<h1>` per page and an orderly heading hierarchy (`<h1>` -> `<h2>` -> `<h3>`).
 - **Structured Data (Schema.org / JSON-LD)**: Integrate relevant JSON-LD schemas for rich snippets (e.g., Organization, Place/Temple, Event, FAQPage) directly rendered on the server.
 - **Zero Hydration Mismatch**: Ensure HTML rendered on the server exactly matches client expectations, preventing layout shifts and hydration errors for web crawlers.
+
+## 4. Git Commit & Push Policy (MANDATORY)
+- **Do NOT automatically commit or push**: NEVER run `git commit` or `git push` automatically after finishing a task.
+- Only run `git commit` and `git push` when the USER explicitly requests it in chat.
+
+## 5. Banned Icons & Visuals (STRICT RESTRICTION)
+- **DO NOT USE `Sparkles` Icon**: NEVER use the `Sparkles` icon (from `lucide-react` or SVG) anywhere in this temple project. Use pure spiritual typography, om symbols (`ॐ`), sacred geometric accents, or meaningful icons instead.
+
+

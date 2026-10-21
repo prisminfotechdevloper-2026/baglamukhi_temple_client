@@ -50,3 +50,25 @@ body {
 .gold-shimmer-border {
   border-image: linear-gradient(to right, #E6840D, #FDB514, #AF0807) 1;
 }
+
+/* Smooth Infinite Marquee Slider (Right-to-Left, Calm & Slow Pace) */
+@keyframes marquee-rtl {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-rtl {
+  display: flex;
+  width: max-content;
+  animation: marquee-rtl 65s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-rtl:hover {
+  animation-play-state: paused;
+}
+

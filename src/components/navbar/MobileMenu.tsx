@@ -13,7 +13,6 @@ import {
   Flame,
   Landmark,
   Image as ImageIcon,
-  Sparkles,
 } from "lucide-react";
 import LanguageToggle from "./LanguageToggle";
 
@@ -26,8 +25,8 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { label: "Home", sub: "Top page", href: "/", icon: "home" },
-  { label: "Pandit ji", sub: "2 profiles", href: "/pandit-ji", icon: "pandit" },
-  { label: "Pujas", sub: "Booking", href: "/pujas", icon: "puja" },
+  { label: "About", sub: "पंडित जी", href: "/pandit-ji", icon: "pandit" },
+  { label: "Pujas", sub: "16+ विधान", href: "/pujas", icon: "puja" },
   { label: "Mandir", sub: "Itihas", href: "/mandir", icon: "mandir" },
   { label: "Gallery", sub: "Photo, video", href: "/gallery", icon: "gallery" },
   { label: "Contact", sub: "Call, WhatsApp", href: "/contact", icon: "contact" },
@@ -63,7 +62,7 @@ export default function MobileMenu() {
       case "contact":
         return <Phone className={iconClass} />;
       default:
-        return <Sparkles className={iconClass} />;
+        return <Landmark className={iconClass} />;
     }
   };
 
@@ -149,19 +148,19 @@ export default function MobileMenu() {
               सहायता एवं संपर्क
             </p>
             <a
-              href="tel:+919876543210"
+              href="tel:+917726815642"
               className="flex items-center gap-3 rounded-xl px-4 py-2.5 bg-stone-50 hover:bg-amber-50 text-stone-700 hover:text-amber-900 border border-stone-200/60 text-xs font-semibold transition-colors"
             >
               <Phone className="h-4 w-4 text-[#AF0807]" />
               <span>कॉल करें (Pt. Deepak Sharma)</span>
             </a>
             <a
-              href="https://wa.me/919876543210"
+              href="https://wa.me/917726815642"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 rounded-xl px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100/70 text-emerald-800 border border-emerald-200/60 text-xs font-semibold transition-colors"
+              className="flex items-center gap-3 rounded-xl px-4 py-2.5 bg-amber-50 hover:bg-amber-100/70 text-amber-950 border border-amber-200/80 text-xs font-semibold transition-colors"
             >
-              <MessageCircle className="h-4 w-4 text-emerald-600" />
+              <MessageCircle className="h-4 w-4 text-[#AF0807]" />
               <span>व्हाट्सएप पर बात करें</span>
             </a>
           </div>

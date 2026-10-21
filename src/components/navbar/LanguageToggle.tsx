@@ -18,8 +18,8 @@ export default function LanguageToggle() {
       title="भाषा बदलें / Change Language"
       aria-label="Switch Language"
     >
-      <Globe className="h-3.5 w-3.5 text-amber-600 transition-transform duration-300 group-hover:rotate-45" />
-      <div className="flex items-center text-[11px] font-semibold tracking-wider">
+      <Globe className="h-4 w-4 text-amber-600 transition-transform duration-300 group-hover:rotate-45" />
+      <div className="flex items-center text-[12px] sm:text-[13px] font-semibold tracking-wider">
         <span
           className={`px-1 py-0.5 rounded transition-all ${
             lang === "HI"

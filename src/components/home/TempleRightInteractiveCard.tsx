@@ -1,0 +1,348 @@
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import {
+  Clock,
+  ArrowRight,
+  ArrowLeft,
+  ChevronLeft,
+  ChevronRight,
+  Sun,
+  Moon,
+  Maximize2,
+  X,
+} from "lucide-react";
+
+const AARTI_SCHEDULE = [
+  {
+    time: "प्रातः 06:00 बजे",
+    title: "मंगला आरती",
+    desc: "प्रातःकालीन प्रथम दिव्य श्रृंगार एवं मंगला पूजन आरती",
+    icon: Sun,
+    iconColor: "text-amber-500",
+    bgColor: "bg-amber-50/70",
+    borderColor: "border-amber-200/80",
+  },
+  {
+    time: "सायं 07:30 बजे",
+    title: "संध्या महाआरती",
+    desc: "सांध्यकालीन शंखनाद, दीप ज्योति एवं दिव्य महाआरती",
+    icon: Moon,
+    iconColor: "text-orange-600",
+    bgColor: "bg-orange-50/60",
+    borderColor: "border-orange-200/80",
+  },
+];
+
+const TIMING_POINTS = [
+  {
+    label: "दैनिक सामान्य दर्शन",
+    time: "प्रातः 06:00 बजे से रात्रि 09:30 बजे तक",
+    desc: "समस्त श्रद्धालुओं एवं आगंतुकों हेतु मंदिर के मुख्य कपाट खुले रहते हैं।",
+    badge: "प्रतिदिन खुला",
+  },
+  {
+    label: "हवन एवं अनुष्ठान समय",
+    time: "आरती समय को छोड़कर संपूर्ण दिवस",
+    desc: "विशेष मनोकामना एवं तांत्रिक-वैदिक हवन दिनभर विधिवत संपन्न होते हैं।",
+    badge: "नियमित",
+  },
+  {
+    label: "नवरात्रि एवं विशेष पर्व",
+    time: "प्रातः 06:00 बजे से रात्रि 11:00 बजे तक",
+    desc: "चैत्र व शारदीय नवरात्रि, गुप्त नवरात्रि तथा विशेष चतुर्दशी पर विस्तारित समय।",
+    badge: "विशेष पर्व",
+  },
+];
+
+const DARSHAN_IMAGES = [
+  {
+    src: "/images/mandir-darshan-1.jpg",
+    title: "माँ पीताम्बरा दिव्य स्वर्ण श्रृंगार",
+    subtitle: "प्रातःकालीन स्वर्ण श्रृंगार दर्शन",
+    desc: "माँ बगलामुखी के दिव्य त्रिमुखी स्वरूप का प्रातःकालीन अलौकिक स्वर्ण दर्शन।",
+  },
+  {
+    src: "/images/mandir-darshan-2.jpg",
+    title: "माँ बगलामुखी नील वस्त्र महाशृंगार",
+    subtitle: "विशेष पर्व दिव्य दर्शन",
+    desc: "नील वस्त्र, छत्र एवं रजत मुकुट से सुशोभित माँ का पावन तेजस्वी स्वरूप।",
+  },
+  {
+    src: "/images/mandir-darshan-3.jpg",
+    title: "त्रिशक्ति दिव्य पीताम्बर स्वरूप",
+    subtitle: "गर्भगृह अखंड दर्शन",
+    desc: "महासरस्वती, माँ बगलामुखी एवं महालक्ष्मी का सम्मिलित अलौकिक दरबार।",
+  },
+];
+
+export default function TempleRightInteractiveCard() {
+  const [showGallery, setShowGallery] = useState(false);
+  const [currentIdx, setCurrentIdx] = useState(0);
+  const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
+
+  const handleNext = () => {
+    setCurrentIdx((prev) => (prev + 1) % DARSHAN_IMAGES.length);
+  };
+
+  const handlePrev = () => {
+    setCurrentIdx((prev) => (prev - 1 + DARSHAN_IMAGES.length) % DARSHAN_IMAGES.length);
+  };
+
+  return (
+    <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-white border border-amber-200/80 shadow-xs hover:shadow-md transition-shadow min-h-[520px] flex flex-col justify-between p-6 sm:p-8 md:p-9">
+      
+      {/* ================= PANE 1: TIMINGS & AARTI (DEFAULT VIEW) ================= */}
+      <div
+        className={`flex flex-col justify-between h-full transition-all duration-500 ${
+          showGallery
+            ? "-translate-x-full opacity-0 pointer-events-none absolute inset-6 sm:inset-8 md:inset-9"
+            : "translate-x-0 opacity-100 relative"
+        }`}
+      >
+        <div>
+          {/* Top Real-World Status Header */}
+          <div className="flex items-center justify-between pb-3.5 border-b border-stone-100 mb-5">
+            <div className="flex items-center gap-2">
+              <span className="h-3.5 w-1 bg-[#AF0807] rounded-full" />
+              <span className="text-xs font-extrabold uppercase tracking-widest text-[#3E0B02]">
+                दैनिक दर्शन व आरती सारिणी
+              </span>
+            </div>
+
+            <div className="inline-flex items-center gap-1.5 bg-amber-500/15 border border-amber-400/50 px-2.5 py-1 rounded-lg text-[11px] font-bold text-[#AF0807] shadow-2xs">
+              <Clock className="h-3.5 w-3.5 text-[#AF0807]" />
+              <span>कपाट दर्शन खुले हैं</span>
+            </div>
+          </div>
+
+          {/* Card Title */}
+          <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#AF0807] leading-snug mb-6">
+            मंदिर बंद होने एवं खुलने का समय
+          </h3>
+
+          {/* Aarti 2-Column Split */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-6">
+            {AARTI_SCHEDULE.map((aarti, idx) => {
+              const Icon = aarti.icon;
+              return (
+                <div
+                  key={idx}
+                  className={`relative flex gap-3 p-3.5 rounded-2xl ${aarti.bgColor} border ${aarti.borderColor}`}
+                >
+                  <div className="flex gap-1 shrink-0 pt-0.5">
+                    <div className="w-1 rounded-full bg-[#AF0807]" />
+                    <div className="w-0.5 rounded-full bg-amber-400" />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="flex items-center gap-1 text-xs font-bold text-[#3E0B02] mb-0.5">
+                      <Icon className={`h-3.5 w-3.5 ${aarti.iconColor}`} />
+                      <span>{aarti.title}</span>
+                    </div>
+                    <div className="font-serif text-base sm:text-lg font-extrabold text-[#AF0807]">
+                      {aarti.time}
+                    </div>
+                    <p className="mt-0.5 text-[11px] text-stone-600 leading-tight">
+                      {aarti.desc}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Darshan & Havan Timings List */}
+          <div className="space-y-3">
+            {TIMING_POINTS.map((item, idx) => (
+              <div
+                key={idx}
+                className="flex items-start gap-3 p-3 rounded-xl bg-stone-50 border border-stone-200/70 hover:border-amber-300 transition-colors"
+              >
+                <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-red-100/80 text-[#AF0807] text-xs font-bold shrink-0 mt-0.5 font-serif">
+                  卐
+                </div>
+
+                <div className="flex-1 min-w-0">
+                  <div className="flex flex-wrap items-center justify-between gap-1 mb-0.5">
+                    <span className="font-bold text-xs sm:text-sm text-[#3E0B02]">
+                      {item.label}
+                    </span>
+                    <span className="text-[10px] font-semibold text-amber-800 bg-amber-100/70 rounded-md px-1.5 py-0.5">
+                      {item.badge}
+                    </span>
+                  </div>
+                  <div className="text-xs sm:text-[13px] font-semibold text-[#AF0807]">
+                    {item.time}
+                  </div>
+                  <p className="text-[11px] text-stone-500 mt-0.5 leading-normal">
+                    {item.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom Bar: Left Contact Link & Right Arrow Button */}
+        <div className="mt-8 pt-5 border-t border-stone-100 flex flex-wrap items-center justify-between gap-3">
+          <Link
+            href="/contact"
+            className="text-xs sm:text-sm font-semibold text-stone-600 hover:text-[#AF0807] transition-colors"
+          >
+            दर्शन मार्गदर्शन
+          </Link>
+
+          {/* Interactive Arrow Button requested by user */}
+          <button
+            type="button"
+            onClick={() => setShowGallery(true)}
+            className="group inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#AF0807] hover:bg-[#8B0605] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg transition-all transform hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+            aria-label="माँ बगलामुखी के 3 दिव्य दर्शन देखें"
+          >
+            <span>माँ के 3 दिव्य दर्शन</span>
+            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white/20 group-hover:translate-x-1 transition-transform">
+              <ArrowRight className="h-3.5 w-3.5 text-white" />
+            </span>
+          </button>
+        </div>
+      </div>
+
+      {/* ================= PANE 2: 3 DARSHAN IMAGES GALLERY (SLIDES IN FROM RIGHT) ================= */}
+      <div
+        className={`absolute inset-0 bg-white p-4 sm:p-6 flex flex-col justify-between transition-all duration-500 ease-out z-10 ${
+          showGallery
+            ? "translate-x-0 opacity-100"
+            : "translate-x-full opacity-0 pointer-events-none"
+        }`}
+      >
+        {/* Gallery Header with Back Arrow Button */}
+        <div className="flex items-center justify-between pb-2.5 border-b border-stone-100">
+          <button
+            type="button"
+            onClick={() => setShowGallery(false)}
+            className="group inline-flex items-center gap-1.5 text-xs font-bold text-[#AF0807] hover:text-[#7A0505] bg-red-50 hover:bg-red-100 border border-red-200/80 rounded-full px-3 py-1.5 transition-colors cursor-pointer"
+          >
+            <ArrowLeft className="h-3.5 w-3.5 group-hover:-translate-x-0.5 transition-transform" />
+            <span>समय सारिणी पर वापस</span>
+          </button>
+
+          <span className="text-xs font-bold text-amber-900 bg-amber-100/80 rounded-full px-2.5 py-0.5 border border-amber-300/60 font-serif">
+            माँ के दर्शन {currentIdx + 1} / {DARSHAN_IMAGES.length}
+          </span>
+        </div>
+
+        {/* Full-Fit Image Showcase with Prominent Slider Arrows */}
+        <div className="relative flex-1 w-full my-2.5 rounded-2xl overflow-hidden bg-stone-950 border-2 border-amber-400/80 shadow-md group">
+          {/* Ambient Blurred Background to Fill Space Naturally */}
+          <Image
+            src={DARSHAN_IMAGES[currentIdx].src}
+            alt=""
+            fill
+            className="object-cover blur-xl opacity-35 scale-110"
+            aria-hidden
+          />
+
+          {/* Full-Fit Crisp Darshan Image (Crown to Charan completely visible) */}
+          <Image
+            src={DARSHAN_IMAGES[currentIdx].src}
+            alt={DARSHAN_IMAGES[currentIdx].title}
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-contain relative z-10 p-1.5 transition-all duration-300"
+            priority
+          />
+
+          {/* Left Navigation Arrow */}
+          <button
+            type="button"
+            onClick={handlePrev}
+            className="absolute left-3 top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full bg-black/65 hover:bg-[#AF0807] text-white shadow-xl backdrop-blur-xs transition-all transform hover:scale-110 active:scale-95 cursor-pointer border border-white/20"
+            aria-label="पिछला दर्शन"
+          >
+            <ChevronLeft className="h-6 w-6" />
+          </button>
+
+          {/* Right Navigation Arrow */}
+          <button
+            type="button"
+            onClick={handleNext}
+            className="absolute right-3 top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full bg-black/65 hover:bg-[#AF0807] text-white shadow-xl backdrop-blur-xs transition-all transform hover:scale-110 active:scale-95 cursor-pointer border border-white/20"
+            aria-label="अगला दर्शन"
+          >
+            <ChevronRight className="h-6 w-6" />
+          </button>
+
+          {/* Fullscreen Zoom Button */}
+          <button
+            type="button"
+            onClick={() => setFullscreenImage(DARSHAN_IMAGES[currentIdx].src)}
+            className="absolute top-3 right-3 z-20 p-2 rounded-full bg-black/60 hover:bg-[#AF0807] text-white backdrop-blur-xs transition-colors cursor-pointer border border-white/20"
+            title="बड़ा करके देखें"
+          >
+            <Maximize2 className="h-4 w-4" />
+          </button>
+
+          {/* Title & Dots Overlay at Bottom */}
+          <div className="absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-3.5 pt-10 text-white flex items-end justify-between">
+            <div className="min-w-0 pr-2">
+              <div className="font-serif text-sm sm:text-base font-bold text-amber-200 truncate">
+                {DARSHAN_IMAGES[currentIdx].title}
+              </div>
+              <p className="text-[11px] text-stone-200 line-clamp-1 mt-0.5">
+                {DARSHAN_IMAGES[currentIdx].desc}
+              </p>
+            </div>
+
+            {/* 3 Quick Dot Indicators */}
+            <div className="flex items-center gap-1.5 pb-0.5 shrink-0">
+              {DARSHAN_IMAGES.map((_, idx) => (
+                <button
+                  key={idx}
+                  type="button"
+                  onClick={() => setCurrentIdx(idx)}
+                  className={`h-1.5 rounded-full transition-all cursor-pointer ${
+                    currentIdx === idx
+                      ? "w-5 bg-amber-400"
+                      : "w-1.5 bg-white/50 hover:bg-white/80"
+                  }`}
+                  aria-label={`दर्शन ${idx + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ================= LIGHTBOX / FULLSCREEN MODAL ================= */}
+      {fullscreenImage && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
+          onClick={() => setFullscreenImage(null)}
+        >
+          <button
+            type="button"
+            onClick={() => setFullscreenImage(null)}
+            className="absolute top-5 right-5 p-2 rounded-full bg-white/20 hover:bg-white/40 text-white cursor-pointer"
+            aria-label="बंद करें"
+          >
+            <X className="h-6 w-6" />
+          </button>
+          <div
+            className="relative max-w-2xl max-h-[85vh] w-full h-[70vh] rounded-2xl overflow-hidden border-2 border-amber-400 shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Image
+              src={fullscreenImage}
+              alt="माँ बगलामुखी दर्शन"
+              fill
+              className="object-contain"
+            />
+          </div>
+        </div>
+      )}
+
+    </div>
+  );
+}

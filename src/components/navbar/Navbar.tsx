@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { CalendarCheck, Phone } from "lucide-react";
+import { CalendarCheck, Phone, Flame } from "lucide-react";
 import LanguageToggle from "./LanguageToggle";
 import DesktopNavLinks from "./DesktopNavLinks";
 
@@ -59,33 +59,44 @@ export default function Navbar() {
       {/* 2. Main Pristine White Glass Navigation Bar */}
       <div className="bg-white/95 backdrop-blur-xl border-b border-stone-200/70 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.04)]">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-3 sm:px-6 lg:px-8 py-2 sm:py-2.5">
-          {/* ================= LEFT: Logo + Mandir Name + Deepak Sharma ================= */}
+          {/* ================= LEFT: Divine Personal Priest Branding ================= */}
           <Link
             href="/"
-            className="flex items-center gap-2 sm:gap-3 group focus:outline-hidden"
-            title="श्री माँ बगलामुखी मंदिर - मुख्य पृष्ठ"
+            className="flex items-center gap-2.5 sm:gap-3.5 group focus:outline-hidden"
+            title="आचार्य पं. दीपक शर्मा - माँ बगलामुखी सिद्धपीठ नलखेड़ा"
           >
-            {/* Direct Deity Logo Image (No Circle, Increased Size) */}
-            <div className="relative h-14 w-14 sm:h-16 sm:w-16 shrink-0 flex items-center justify-center">
+            {/* Sacred Deity Emblem with Divine Glow & Aura Frame */}
+            <div className="relative h-13 w-13 xs:h-14 xs:w-14 sm:h-16 sm:w-16 shrink-0 flex items-center justify-center rounded-2xl bg-gradient-to-b from-amber-100/70 via-[#FFF9ED] to-[#FAEDD2] p-1 border-[1.5px] border-amber-300/80 shadow-[0_2px_14px_rgba(216,155,24,0.22)] group-hover:border-amber-400 group-hover:shadow-[0_4px_18px_rgba(216,155,24,0.35)] transition-all duration-300">
               <Image
                 src="/images/baglamukhi-logo.png"
-                alt="माँ बगलामुखी मंदिर लोगो"
+                alt="माँ बगलामुखी दिव्य स्वरूप"
                 width={64}
                 height={64}
                 priority
-                className="h-full w-full object-contain drop-shadow-sm group-hover:scale-105 transition-transform duration-300"
+                className="h-full w-full object-contain filter drop-shadow-[0_1px_3px_rgba(0,0,0,0.18)] group-hover:scale-105 transition-transform duration-300"
               />
             </div>
 
-            {/* Typography */}
-            <div className="flex flex-col">
-              <span className="font-serif font-bold text-base sm:text-lg md:text-xl text-[#3E0B02] leading-tight tracking-tight group-hover:text-[#AF0807] transition-colors">
-                श्री माँ बगलामुखी मंदिर
+            {/* Personalized Branding Hierarchy */}
+            <div className="flex flex-col text-left">
+              {/* Line 1: Sacred Shrine Location Eyebrow */}
+              <div className="flex items-center gap-1.5 leading-none">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#AF0807] animate-pulse" />
+                <span className="font-serif text-[10px] xs:text-[11px] sm:text-[11.5px] font-extrabold uppercase tracking-wide text-[#AF0807]">
+                  माँ बगलामुखी सिद्धपीठ • नलखेड़ा
+                </span>
+              </div>
+
+              {/* Line 2: Prominent Personal Priest Name */}
+              <span className="font-serif font-black text-lg sm:text-xl md:text-[22px] text-[#3E0A10] leading-tight tracking-tight group-hover:text-[#AF0807] transition-colors mt-0.5">
+                आचार्य पं. दीपक शर्मा
               </span>
-              <div className="flex items-center gap-1.5 mt-0.5">
-                <span className="inline-flex items-center gap-1 rounded-full bg-amber-50 px-1.5 sm:px-2 py-0.5 text-[10px] sm:text-[11px] font-semibold text-amber-900 border border-amber-200/70">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#AF0807]" />
-                  पं. दीपक शर्मा <span className="text-stone-400 font-normal hidden xs:inline">| मुख्य पुजारी</span>
+
+              {/* Line 3: Specialized Service Ribbon (Hawan, Puja, Path, Kundali) */}
+              <div className="flex items-center gap-1.5 mt-0.5 sm:mt-1">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-[#FAEDD2] via-[#FFF3D6] to-[#FAEDD2] px-2 sm:px-2.5 py-0.5 text-[9.5px] xs:text-[10px] sm:text-[11px] font-bold text-[#78350F] border border-amber-300/90 shadow-2xs">
+                  <Flame className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-[#AF0807] shrink-0" />
+                  <span>हवन • पूजा • पाठ • कुंडली सेवा</span>
                 </span>
               </div>
             </div>

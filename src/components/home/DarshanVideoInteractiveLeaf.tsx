@@ -1,7 +1,7 @@
 "use client";
 
 /* eslint-disable @next/next/no-img-element */
-import { memo, useCallback, useEffect, useMemo, useState } from "react";
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import {
   Play,
@@ -280,9 +280,18 @@ export default function DarshanVideoInteractiveLeaf() {
     };
   }, [theatre, active]);
 
+  const playerRef = useRef<HTMLDivElement>(null);
+
   const select = useCallback((v: DarshanVideoItem) => {
     setActive(v);
     setPlaying(true);
+    // Smoothly scroll to the video player with header offset
+    if (typeof window !== "undefined" && playerRef.current) {
+      const el = playerRef.current;
+      const yOffset = -90; // offset so sticky navbar does not cover top of video player
+      const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
+    }
   }, []);
 
   const openTheatre = () => {
@@ -382,7 +391,11 @@ export default function DarshanVideoInteractiveLeaf() {
         {/* ---------- LEFT: PLAYER + INFO (STICKY ON DESKTOP) ---------- */}
         <div className="flex flex-col gap-4 lg:col-span-7 lg:sticky lg:top-24 lg:self-start">
           {/* Player card */}
-          <div className="relative aspect-video overflow-hidden rounded-[28px] bg-[#120B06] shadow-[0_20px_50px_rgba(139,0,0,0.2)] ring-1 ring-[#D4AF37]/50 sm:rounded-[32px]">
+          <div
+            ref={playerRef}
+            id="darshan-video-player"
+            className="relative aspect-[4/5] min-h-[440px] sm:min-h-0 sm:aspect-video overflow-hidden rounded-[28px] bg-[#120B06] shadow-[0_20px_50px_rgba(139,0,0,0.2)] ring-1 ring-[#D4AF37]/50 sm:rounded-[32px] scroll-mt-24 sm:scroll-mt-28"
+          >
             {playing ? (
               <>
                 {/* blurred backdrop so the vertical Short sits in a wide frame */}

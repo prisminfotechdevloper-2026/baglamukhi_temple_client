@@ -11,6 +11,7 @@ import {
   ShieldAlert,
 } from "lucide-react";
 import WhatsAppIcon from "@/components/common/WhatsAppIcon";
+import RashiSymbolIcon from "./RashiSymbolIcon";
 import { useLanguage } from "@/context/LanguageContext";
 
 interface RashiItem {
@@ -190,8 +191,12 @@ export default function KundaliRashiSection() {
                       : "bg-[#FFFDF9] hover:bg-[#FAEDD2]/50 text-[#3E0B02] border-[#EBD9B8]/90 hover:border-[#D89B18]"
                     }`}
                 >
-                  <span className="text-xl sm:text-2xl leading-none mb-1 select-none">
-                    {rashi.symbol}
+                  <span className="mb-1.5 flex items-center justify-center">
+                    <RashiSymbolIcon
+                      id={rashi.id}
+                      className="w-8 h-8 sm:w-9 sm:h-9"
+                      iconClassName="h-4.5 w-4.5 sm:h-5 sm:w-5"
+                    />
                   </span>
                   <span className="font-serif font-bold text-xs sm:text-[13px] leading-tight">
                     {rashi.nameHi}
@@ -204,8 +209,12 @@ export default function KundaliRashiSection() {
           {/* Selected Rashi Highlight Detail Box */}
           <div className="rounded-2xl bg-gradient-to-r from-[#FFF9ED] via-[#FFFDF8] to-[#FFF9ED] border border-[#EBD9B8] p-4 sm:p-6 flex flex-col md:flex-row items-center justify-between gap-5">
             <div className="flex items-center gap-4 text-left w-full md:w-auto">
-              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-[#8B0000] to-[#4E0204] text-amber-200 border-2 border-[#D89B18] flex items-center justify-center text-3xl font-serif shadow-md shrink-0">
-                {selectedRashi.symbol}
+              <div className="shrink-0">
+                <RashiSymbolIcon
+                  id={selectedRashi.id}
+                  className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl ring-2 ring-[#D89B18] shadow-md"
+                  iconClassName="h-8 w-8 sm:h-9 sm:w-9"
+                />
               </div>
               <div className="min-w-0">
                 <div className="flex items-center gap-2">

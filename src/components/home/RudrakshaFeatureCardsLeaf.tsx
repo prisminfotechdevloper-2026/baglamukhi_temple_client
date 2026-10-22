@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowLeft } from "lucide-react";
+import { ArrowRight, ArrowLeft, ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function RudrakshaFeatureCardsLeaf() {
@@ -19,6 +19,22 @@ export default function RudrakshaFeatureCardsLeaf() {
       <article className="group relative rounded-3xl border border-[#EADCC7] bg-[#FBF7EE] shadow-[0_4px_20px_rgba(90,44,24,0.04)] hover:border-[#D4AF37] hover:shadow-[0_8px_30px_rgba(90,44,24,0.08)] transition-[border-color,box-shadow] overflow-hidden">
         {/* ============ DESKTOP VIEW (lg:flex side-by-side) ============ */}
         <div className="hidden lg:flex items-center gap-6 p-6">
+          {/* Top-Right Quick Redirect Arrow Button (Desktop) */}
+          <Link
+            href="/rudraksha"
+            aria-label={t({
+              hi: "रुद्राक्ष पेज पर जाएं",
+              en: "Go to Rudraksha page",
+            })}
+            title={t({
+              hi: "रुद्राक्ष पेज पर जाएं",
+              en: "Go to Rudraksha page",
+            })}
+            className="absolute top-5 right-5 flex h-10 w-10 items-center justify-center rounded-xl bg-[#5A2C18]/10 hover:bg-[#5A2C18] text-[#5A2C18] hover:text-[#FFF9EE] border border-[#E5D4BC] hover:border-transparent transition-[color,background-color,border-color,transform] duration-300 cursor-pointer group/desktop-arrow"
+          >
+            <ArrowUpRight className="h-5 w-5 transition-transform duration-300 group-hover/desktop-arrow:translate-x-0.5 group-hover/desktop-arrow:-translate-y-0.5" />
+          </Link>
+
           {/* Left Image Box */}
           <div className="relative h-48 w-48 xl:h-52 xl:w-52 shrink-0 rounded-2xl overflow-hidden border border-[#E5D4BC] shadow-xs bg-stone-100">
             <Image
@@ -79,6 +95,20 @@ export default function RudrakshaFeatureCardsLeaf() {
 
           {/* Gradient Scrim at bottom to give depth */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent pointer-events-none" />
+
+          {/* Top-Right Direct Page Redirect Button (↗ Arrow) */}
+          <Link
+            href="/rudraksha"
+            aria-label={t({
+              hi: "रुद्राक्ष कलेक्शन पेज पर जाएं",
+              en: "Go to Rudraksha collection page",
+            })}
+            className={`absolute top-4 right-4 z-20 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#5A2C18] text-[#FFF9EE] shadow-lg border border-amber-300/40 hover:bg-[#431F10] active:scale-95 transition-[transform,background-color,opacity] duration-300 cursor-pointer group/arrow ${
+              rudrakshaOpen ? "opacity-0 pointer-events-none" : "opacity-100"
+            }`}
+          >
+            <ArrowUpRight className="h-5 w-5 transition-transform duration-300 group-hover/arrow:translate-x-0.5 group-hover/arrow:-translate-y-0.5" />
+          </Link>
 
           {/* Default Overlay State on Image: Badge & Title */}
           <div className="absolute bottom-4 left-4 right-18 z-10 text-white">
@@ -167,6 +197,22 @@ export default function RudrakshaFeatureCardsLeaf() {
       <article className="group relative rounded-3xl border border-[#EADCC7] bg-[#FBF7EE] shadow-[0_4px_20px_rgba(90,44,24,0.04)] hover:border-[#D4AF37] hover:shadow-[0_8px_30px_rgba(90,44,24,0.08)] transition-[border-color,box-shadow] overflow-hidden">
         {/* ============ DESKTOP VIEW (lg:flex side-by-side) ============ */}
         <div className="hidden lg:flex items-center gap-6 p-6">
+          {/* Top-Right Quick Redirect Arrow Button (Desktop) */}
+          <Link
+            href="/ratna"
+            aria-label={t({
+              hi: "रत्न पेज पर जाएं",
+              en: "Go to Gemstones page",
+            })}
+            title={t({
+              hi: "रत्न पेज पर जाएं",
+              en: "Go to Gemstones page",
+            })}
+            className="absolute top-5 right-5 flex h-10 w-10 items-center justify-center rounded-xl bg-[#5A2C18]/10 hover:bg-[#5A2C18] text-[#5A2C18] hover:text-[#FFF9EE] border border-[#E5D4BC] hover:border-transparent transition-[color,background-color,border-color,transform] duration-300 cursor-pointer group/desktop-arrow"
+          >
+            <ArrowUpRight className="h-5 w-5 transition-transform duration-300 group-hover/desktop-arrow:translate-x-0.5 group-hover/desktop-arrow:-translate-y-0.5" />
+          </Link>
+
           {/* Left Image Box */}
           <div className="relative h-48 w-48 xl:h-52 xl:w-52 shrink-0 rounded-2xl overflow-hidden border border-[#E5D4BC] shadow-xs bg-stone-100">
             <Image
@@ -227,6 +273,20 @@ export default function RudrakshaFeatureCardsLeaf() {
 
           {/* Gradient Scrim at bottom to give depth */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent pointer-events-none" />
+
+          {/* Top-Right Direct Page Redirect Button (↗ Arrow) */}
+          <Link
+            href="/ratna"
+            aria-label={t({
+              hi: "रत्न कलेक्शन पेज पर जाएं",
+              en: "Go to Gemstones collection page",
+            })}
+            className={`absolute top-4 right-4 z-20 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#5A2C18] text-[#FFF9EE] shadow-lg border border-amber-300/40 hover:bg-[#431F10] active:scale-95 transition-[transform,background-color,opacity] duration-300 cursor-pointer group/arrow ${
+              ratnaOpen ? "opacity-0 pointer-events-none" : "opacity-100"
+            }`}
+          >
+            <ArrowUpRight className="h-5 w-5 transition-transform duration-300 group-hover/arrow:translate-x-0.5 group-hover/arrow:-translate-y-0.5" />
+          </Link>
 
           {/* Default Overlay State on Image: Badge & Title */}
           <div className="absolute bottom-4 left-4 right-18 z-10 text-white">

@@ -63,7 +63,7 @@ export default function PanditHawanShowcase() {
   return (
     <section className="w-full bg-[#FAF8F5] py-12 sm:py-16 md:py-20 border-b border-stone-200/80">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        
+
         {/* Section Header: Left Aligned with Vedic Danda */}
         <div className="text-left max-w-3xl mb-8 sm:mb-12">
           <div className="flex items-center gap-2 mb-2">
@@ -105,6 +105,7 @@ export default function PanditHawanShowcase() {
                     alt={t(item.title)}
                     fill
                     unoptimized
+                    priority
                     sizes="(max-width: 768px) 100vw, 650px"
                     className={`w-full h-full object-cover ${item.objectPosition} group-hover:scale-105 transition-transform duration-700`}
                   />

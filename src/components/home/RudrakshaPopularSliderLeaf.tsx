@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import { useLanguage, TranslationPair } from "@/context/LanguageContext";
 
 interface PopularProduct {
@@ -116,15 +117,15 @@ export default function RudrakshaPopularSliderLeaf() {
   const [isPaused, setIsPaused] = useState(false);
   const trackRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
-  const [stepWidth, setStepWidth] = useState(260);
+  const [stepWidth, setStepWidth] = useState(330);
   const { t } = useLanguage();
 
   // Measure card width + gap dynamically across all screens
   const updateStepWidth = useCallback(() => {
     if (cardRef.current) {
       const cardWidth = cardRef.current.offsetWidth;
-      // Gap: 14px on mobile (< 640px), 16px on sm/desktop
-      const gap = window.innerWidth < 640 ? 14 : 16;
+      // Gap: 16px on mobile (< 640px), 20px on sm/desktop (matches mr-4 / sm:mr-5)
+      const gap = window.innerWidth < 640 ? 16 : 20;
       setStepWidth(cardWidth + gap);
     }
   }, []);
@@ -191,17 +192,13 @@ export default function RudrakshaPopularSliderLeaf() {
         hi: "लोकप्रिय रुद्राक्ष एवं नवग्रह रत्न स्लाइडर",
         en: "Popular Rudraksha & Navgrah Gemstones Slider",
       })}
-      className="relative w-full overflow-hidden py-2"
+      className="relative w-full overflow-hidden py-3"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
-      {/* Subtle left & right edge fading masks for smooth divine visual appeal */}
-      <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-6 sm:w-12 bg-gradient-to-r from-[#FFFDF8] via-[#FFFDF8]/80 to-transparent z-10" />
-      <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-6 sm:w-12 bg-gradient-to-l from-[#FFFDF8] via-[#FFFDF8]/80 to-transparent z-10" />
-
-      {/* Sliding Track */}
+      {/* Sliding Track - Left & Right edge blur masks removed */}
       <div
         ref={trackRef}
         className="flex items-center"
@@ -219,44 +216,53 @@ export default function RudrakshaPopularSliderLeaf() {
             <div
               key={item.uniqueKey}
               ref={isFirstCard ? cardRef : undefined}
-              className="shrink-0 w-[240px] xs:w-[260px] sm:w-[280px] md:w-[290px] mr-3.5 sm:mr-4 select-none"
+              className="shrink-0 w-[295px] xs:w-[325px] sm:w-[355px] md:w-[380px] mr-4 sm:mr-5 select-none"
             >
               <Link
                 href={item.category === "rudraksha" ? "/rudraksha" : "/ratna"}
-                className="flex items-center gap-3 sm:gap-3.5 p-3 sm:p-3.5 rounded-2xl bg-white border border-[#EBDCC5] shadow-xs hover:border-[#D4AF37] hover:shadow-md transition-[border-color,box-shadow] group cursor-pointer"
+                className="flex items-center gap-3.5 sm:gap-4 p-3.5 sm:p-4 rounded-2xl sm:rounded-3xl bg-white border border-[#EBDCC5] shadow-xs hover:border-[#D4AF37] hover:shadow-lg transition-[border-color,box-shadow,transform] hover:-translate-y-0.5 group cursor-pointer"
                 title={t({
                   hi: item.category === "rudraksha" ? "रुद्राक्ष संग्रह देखें" : "रत्न संग्रह देखें",
                   en: item.category === "rudraksha" ? "View Rudraksha Collection" : "View Gemstone Collection",
                 })}
               >
                 {/* Large, clear, high-resolution product thumbnail */}
-                <div className="relative h-13 w-13 xs:h-14 xs:w-14 sm:h-16 sm:w-16 shrink-0 rounded-xl overflow-hidden bg-stone-50 border border-stone-200/80 shadow-inner flex items-center justify-center">
+                <div className="relative h-18 w-18 xs:h-20 xs:w-20 sm:h-22 sm:w-22 shrink-0 rounded-2xl overflow-hidden bg-stone-50 border border-stone-200/90 shadow-xs flex items-center justify-center">
                   <Image
                     src={item.image}
                     alt={t(item.name)}
                     fill
-                    sizes="(max-width: 640px) 56px, 64px"
-                    className={item.category === "ratna" ? "object-contain p-1 group-hover:scale-108 transition-transform duration-300" : "object-cover group-hover:scale-108 transition-transform duration-300"}
+                    sizes="(max-width: 640px) 80px, 96px"
+                    className={
+                      item.category === "ratna"
+                        ? "object-contain p-1.5 group-hover:scale-108 transition-transform duration-300"
+                        : "object-cover group-hover:scale-108 transition-transform duration-300"
+                    }
                   />
                 </div>
 
                 {/* Name & Subtitle */}
                 <div className="min-w-0 flex-1">
-                  <div className="flex items-center gap-1.5 mb-0.5">
+                  <div className="flex items-center gap-1.5 mb-1">
                     <span
-                      className={`h-1.5 w-1.5 rounded-full shrink-0 ${
+                      className={`h-2 w-2 rounded-full shrink-0 ${
                         item.category === "rudraksha"
                           ? "bg-[#8B5A14]"
                           : "bg-[#AF0807]"
                       }`}
                     />
-                    <h4 className="font-serif text-xs xs:text-sm sm:text-base font-bold text-[#3B1E08] group-hover:text-[#AF0807] transition-colors truncate leading-tight">
+                    <h4 className="font-serif text-[13.5px] xs:text-[15px] sm:text-base font-bold text-[#3B1E08] group-hover:text-[#AF0807] transition-colors truncate leading-tight">
                       {t(item.name)}
                     </h4>
                   </div>
-                  <p className="text-[11px] xs:text-xs text-[#8B6B58] truncate font-medium">
+                  <p className="text-xs xs:text-[13px] text-[#7A5B48] truncate font-medium pl-3.5">
                     {t(item.sub)}
                   </p>
+                </div>
+
+                {/* Right Arrow */}
+                <div className="shrink-0 flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-xl bg-amber-50/80 group-hover:bg-[#5A2C18] text-[#8B5A14] group-hover:text-white transition-[color,background-color] duration-200">
+                  <ArrowUpRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                 </div>
               </Link>
             </div>
@@ -265,7 +271,7 @@ export default function RudrakshaPopularSliderLeaf() {
       </div>
 
       {/* Progress Dots Indicator */}
-      <div className="mt-4 flex items-center justify-center gap-1.5">
+      <div className="mt-5 flex items-center justify-center gap-1.5">
         {POPULAR_PRODUCTS.map((prod, idx) => {
           const isActive = (currentIndex % TOTAL_ORIGINAL) === idx;
           return (
@@ -277,10 +283,10 @@ export default function RudrakshaPopularSliderLeaf() {
                 setCurrentIndex(idx);
                 setIsTransitioning(true);
               }}
-              className={`h-1.5 rounded-full transition-[width,background-color] duration-300 cursor-pointer ${
+              className={`h-2 rounded-full transition-[width,background-color] duration-300 cursor-pointer ${
                 isActive
-                  ? "w-6 bg-[#5A2C18]"
-                  : "w-1.5 bg-[#D8C4A5] hover:bg-[#B59975]"
+                  ? "w-7 bg-[#5A2C18]"
+                  : "w-2 bg-[#D8C4A5] hover:bg-[#B59975]"
               }`}
             />
           );

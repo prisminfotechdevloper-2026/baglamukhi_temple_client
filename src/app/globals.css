@@ -149,11 +149,8 @@ html.lenis, html.lenis body {
 }
 
 /* Prevent Next.js dev overlay button from obscuring bottom mobile navigation */
-nextjs-portal,
-[data-nextjs-toast-wrapper],
-div[data-nextjs-dev-tools-button],
-#next-logo {
-  bottom: 74px !important;
+nextjs-portal {
+  display: none !important;
 }
 
 /* Cross-browser scrollbar hiding utility */

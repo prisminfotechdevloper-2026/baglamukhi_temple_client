@@ -27,7 +27,7 @@ export default function Navbar() {
           {/* ================= LEFT: Divine Personal Priest Branding ================= */}
           <Link
             href="/"
-            className="flex items-center gap-2 sm:gap-3.5 group focus:outline-hidden min-w-0 flex-1 sm:flex-initial"
+            className="flex items-center gap-2 sm:gap-3.5 group focus:outline-hidden min-w-0 flex-1 sm:flex-initial py-0.5"
             title="आचार्य पं. दीपक शर्मा - माँ बगलामुखी सिद्धपीठ नलखेड़ा"
           >
             {/* Sacred Deity Emblem with Divine Glow & Aura Frame */}

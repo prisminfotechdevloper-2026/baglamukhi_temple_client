@@ -10,7 +10,7 @@ export default function NavbarTopRibbonLeaf() {
     <div className="bg-gradient-to-r from-[#3D0802] via-[#AF0807] to-[#3D0802] text-white text-[11px] font-medium tracking-wide border-b border-amber-500/20">
       {/* Mobile View */}
       <div className="flex sm:hidden items-center justify-between px-3 py-1 text-[11px]">
-        <span className="text-amber-200 font-serif font-bold truncate min-w-0 mr-2">
+        <span className="text-amber-200 font-bold truncate min-w-0 mr-2 leading-normal py-0.5">
           {t({
             hi: "॥ ॐ ह्लीं बगलामुखी देव्यै नमः ॥",
             en: "॥ Om Hleem Baglamukhyai Namah ॥",

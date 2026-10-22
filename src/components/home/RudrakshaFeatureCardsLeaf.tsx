@@ -103,9 +103,8 @@ export default function RudrakshaFeatureCardsLeaf() {
               hi: "रुद्राक्ष कलेक्शन पेज पर जाएं",
               en: "Go to Rudraksha collection page",
             })}
-            className={`absolute top-4 right-4 z-20 flex h-11 w-11 xs:h-12 xs:w-12 items-center justify-center rounded-2xl bg-white/20 backdrop-blur-md text-white shadow-md border border-white/30 hover:bg-white/90 hover:text-[#5A2C18] hover:border-white/60 active:scale-95 transition-[transform,background-color,color,border-color,opacity] duration-300 cursor-pointer group/arrow ${
-              rudrakshaOpen ? "opacity-0 pointer-events-none" : "opacity-100"
-            }`}
+            className={`absolute top-4 right-4 z-20 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#5A2C18] text-[#FFF9EE] shadow-lg border border-amber-300/40 hover:bg-[#431F10] active:scale-95 transition-[transform,background-color,opacity] duration-300 cursor-pointer group/arrow ${rudrakshaOpen ? "opacity-0 pointer-events-none" : "opacity-100"
+              }`}
           >
             <ArrowUpRight className="h-5 w-5 transition-transform duration-300 group-hover/arrow:translate-x-0.5 group-hover/arrow:-translate-y-0.5" />
           </Link>
@@ -132,18 +131,16 @@ export default function RudrakshaFeatureCardsLeaf() {
               en: "View Rudraksha details and collection",
             })}
             aria-expanded={rudrakshaOpen}
-            className={`absolute bottom-4 right-4 z-20 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#5A2C18] text-[#FFF9EE] shadow-lg border border-amber-300/40 hover:bg-[#431F10] active:scale-95 transition-[transform,background-color] cursor-pointer ${
-              rudrakshaOpen ? "opacity-0 pointer-events-none" : "opacity-100"
-            }`}
+            className={`absolute bottom-4 right-4 z-20 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#5A2C18] text-[#FFF9EE] shadow-lg border border-amber-300/40 hover:bg-[#431F10] active:scale-95 transition-[transform,background-color] cursor-pointer ${rudrakshaOpen ? "opacity-0 pointer-events-none" : "opacity-100"
+              }`}
           >
             <ArrowLeft className="h-5 w-5" />
           </button>
 
           {/* 2. Slide-In Content Drawer Panel (Slides Right-to-Left) */}
           <div
-            className={`absolute inset-0 z-30 flex flex-col justify-between p-5 xs:p-6 bg-[#FBF7EE]/95 backdrop-blur-md border border-[#EADCC7] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-              rudrakshaOpen ? "translate-x-0" : "translate-x-full"
-            }`}
+            className={`absolute inset-0 z-30 flex flex-col justify-between p-5 xs:p-6 bg-[#FBF7EE]/95 backdrop-blur-md border border-[#EADCC7] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${rudrakshaOpen ? "translate-x-0" : "translate-x-full"
+              }`}
           >
             {/* Top Bar with Reverse / Close Button */}
             <div className="flex items-center justify-between pb-2 border-b border-[#E8D9C5]">
@@ -281,9 +278,8 @@ export default function RudrakshaFeatureCardsLeaf() {
               hi: "रत्न कलेक्शन पेज पर जाएं",
               en: "Go to Gemstones collection page",
             })}
-            className={`absolute top-4 right-4 z-20 flex h-11 w-11 xs:h-12 xs:w-12 items-center justify-center rounded-2xl bg-white/20 backdrop-blur-md text-white shadow-md border border-white/30 hover:bg-white/90 hover:text-[#5A2C18] hover:border-white/60 active:scale-95 transition-[transform,background-color,color,border-color,opacity] duration-300 cursor-pointer group/arrow ${
-              ratnaOpen ? "opacity-0 pointer-events-none" : "opacity-100"
-            }`}
+            className={`absolute top-4 right-4 z-20 flex h-11 w-11 xs:h-12 xs:w-12 items-center justify-center rounded-md bg-[#FFF9EE]/95 backdrop-blur-md text-[#5A2C18] shadow-md border border-[#E5D4BC] hover:bg-[#5A2C18] hover:text-[#FFF9EE] hover:border-transparent active:scale-95 transition-[transform,background-color,color,border-color,opacity] duration-300 cursor-pointer group/arrow ${ratnaOpen ? "opacity-0 pointer-events-none" : "opacity-100"
+              }`}
           >
             <ArrowUpRight className="h-5 w-5 transition-transform duration-300 group-hover/arrow:translate-x-0.5 group-hover/arrow:-translate-y-0.5" />
           </Link>
@@ -310,18 +306,16 @@ export default function RudrakshaFeatureCardsLeaf() {
               en: "View Gemstones details and collection",
             })}
             aria-expanded={ratnaOpen}
-            className={`absolute bottom-4 right-4 z-20 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#5A2C18] text-[#FFF9EE] shadow-lg border border-amber-300/40 hover:bg-[#431F10] active:scale-95 transition-[transform,background-color] cursor-pointer ${
-              ratnaOpen ? "opacity-0 pointer-events-none" : "opacity-100"
-            }`}
+            className={`absolute bottom-4 right-4 z-20 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#5A2C18] text-[#FFF9EE] shadow-lg border border-amber-300/40 hover:bg-[#431F10] active:scale-95 transition-[transform,background-color] cursor-pointer ${ratnaOpen ? "opacity-0 pointer-events-none" : "opacity-100"
+              }`}
           >
             <ArrowLeft className="h-5 w-5" />
           </button>
 
           {/* 2. Slide-In Content Drawer Panel (Slides Right-to-Left) */}
           <div
-            className={`absolute inset-0 z-30 flex flex-col justify-between p-5 xs:p-6 bg-[#FBF7EE]/95 backdrop-blur-md border border-[#EADCC7] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-              ratnaOpen ? "translate-x-0" : "translate-x-full"
-            }`}
+            className={`absolute inset-0 z-30 flex flex-col justify-between p-5 xs:p-6 bg-[#FBF7EE]/95 backdrop-blur-md border border-[#EADCC7] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${ratnaOpen ? "translate-x-0" : "translate-x-full"
+              }`}
           >
             {/* Top Bar with Reverse / Close Button */}
             <div className="flex items-center justify-between pb-2 border-b border-[#E8D9C5]">

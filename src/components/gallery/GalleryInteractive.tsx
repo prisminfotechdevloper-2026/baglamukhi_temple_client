@@ -124,16 +124,6 @@ const galleryData: GalleryItem[] = [
     categories: ["mandir"],
     src: "/images/temple-board-header.png",
   },
-  {
-    id: 13,
-    title: {
-      hi: "अखंड बगलामुखी महायज्ञ एवं पावन ज्वाला",
-      en: "Akhand Baglamukhi Mahayagya & Sacred Flame",
-    },
-    category: "hawan",
-    categories: ["hawan"],
-    src: "/images/hero-desktop.png",
-  },
 ];
 
 const categoryTabs = [

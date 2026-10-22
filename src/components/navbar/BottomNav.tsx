@@ -10,24 +10,26 @@ import {
   Landmark,
   Phone,
 } from "lucide-react";
+import { useLanguage, TranslationPair } from "@/context/LanguageContext";
 
 interface BottomNavItem {
-  label: string;
+  label: TranslationPair;
   href: string;
   icon: typeof Home;
 }
 
 const navItems: BottomNavItem[] = [
-  { label: "Home", href: "/", icon: Home },
-  { label: "Pujas", href: "/pujas", icon: CalendarCheck },
-  { label: "रुद्राक्ष", href: "/rudraksha", icon: Sparkles },
-  { label: "रत्न", href: "/ratna", icon: Gem },
-  { label: "Mandir", href: "/mandir", icon: Landmark },
-  { label: "Contact", href: "/contact", icon: Phone },
+  { label: { hi: "होम", en: "Home" }, href: "/", icon: Home },
+  { label: { hi: "पूजा", en: "Puja" }, href: "/pujas", icon: CalendarCheck },
+  { label: { hi: "रुद्राक्ष", en: "Rudraksha" }, href: "/rudraksha", icon: Sparkles },
+  { label: { hi: "रत्न", en: "Ratna" }, href: "/ratna", icon: Gem },
+  { label: { hi: "मंदिर", en: "Mandir" }, href: "/mandir", icon: Landmark },
+  { label: { hi: "संपर्क", en: "Contact" }, href: "/contact", icon: Phone },
 ];
 
 export default function BottomNav() {
   const pathname = usePathname();
+  const { t } = useLanguage();
 
   return (
     <nav
@@ -41,6 +43,7 @@ export default function BottomNav() {
         {navItems.map((item) => {
           const isActive = pathname === item.href;
           const Icon = item.icon;
+          const labelText = t(item.label);
 
           return (
             <Link
@@ -68,7 +71,7 @@ export default function BottomNav() {
                     : "font-semibold text-[#6B5A52]"
                   }`}
               >
-                {item.label}
+                {labelText}
               </span>
             </Link>
           );

@@ -1,26 +1,20 @@
 import Link from "next/link";
 import Image from "next/image";
 import LanguageToggle from "./LanguageToggle";
-import DesktopNavLinks from "./DesktopNavLinks";
+import DesktopNavLinks, { NavItem } from "./DesktopNavLinks";
 import NavbarTopRibbonLeaf from "./NavbarTopRibbonLeaf";
 import NavbarBrandLeaf from "./NavbarBrandLeaf";
 import NavbarCtaLeaf from "./NavbarCtaLeaf";
 
-interface NavItem {
-  label: string;
-  sub: string;
-  href: string;
-}
-
 const navItems: NavItem[] = [
-  { label: "Home", sub: "Top page", href: "/" },
-  { label: "About", sub: "Pandit ji", href: "/pandit-ji" },
-  { label: "Pujas", sub: "16+ Vidhan", href: "/pujas" },
-  { label: "Mandir", sub: "Itihas", href: "/mandir" },
-  { label: "Rudraksha", sub: "100% Nepali", href: "/rudraksha" },
-  { label: "Ratna", sub: "Certified Gems", href: "/ratna" },
-  { label: "Gallery", sub: "Photo, video", href: "/gallery" },
-  { label: "Contact", sub: "Call, WhatsApp", href: "/contact" },
+  { label: { hi: "मुख्य पृष्ठ", en: "Home" }, href: "/" },
+  { label: { hi: "पंडित जी", en: "About" }, href: "/pandit-ji" },
+  { label: { hi: "पूजा", en: "Puja" }, href: "/pujas" },
+  { label: { hi: "मंदिर", en: "Mandir" }, href: "/mandir" },
+  { label: { hi: "रुद्राक्ष", en: "Rudraksha" }, href: "/rudraksha" },
+  { label: { hi: "रत्न", en: "Ratna" }, href: "/ratna" },
+  { label: { hi: "गैलरी", en: "Gallery" }, href: "/gallery" },
+  { label: { hi: "संपर्क", en: "Contact" }, href: "/contact" },
 ];
 
 export default function Navbar() {

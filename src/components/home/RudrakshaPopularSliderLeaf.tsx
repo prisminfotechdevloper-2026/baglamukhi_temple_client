@@ -99,7 +99,7 @@ const POPULAR_PRODUCTS: PopularProduct[] = [
     id: "heera-diamond",
     name: { hi: "हीरा (Diamond)", en: "Diamond (Heera)" },
     sub: { hi: "शुक्र ग्रह • आकर्षण व वैभव", en: "Venus Planet • Luxury & Glamour" },
-    image: "/images/gemstones/diamond-isolated.png",
+    image: "/images/gemstones/diamond-angled.png",
     category: "ratna",
   },
 ];
@@ -117,7 +117,7 @@ export default function RudrakshaPopularSliderLeaf() {
   const [isPaused, setIsPaused] = useState(false);
   const trackRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
-  const [stepWidth, setStepWidth] = useState(330);
+  const [stepWidth, setStepWidth] = useState(280);
   const { t } = useLanguage();
 
   // Measure card width + gap dynamically across all screens
@@ -216,26 +216,26 @@ export default function RudrakshaPopularSliderLeaf() {
             <div
               key={item.uniqueKey}
               ref={isFirstCard ? cardRef : undefined}
-              className="shrink-0 w-[295px] xs:w-[325px] sm:w-[355px] md:w-[380px] mr-4 sm:mr-5 select-none"
+              className="shrink-0 w-[245px] xs:w-[265px] sm:w-[285px] md:w-[305px] mr-3 sm:mr-4 select-none"
             >
               <Link
                 href={item.category === "rudraksha" ? "/rudraksha" : "/ratna"}
-                className="flex items-center gap-3.5 sm:gap-4 p-3.5 sm:p-4 rounded-2xl sm:rounded-3xl bg-white border border-[#EBDCC5] shadow-xs hover:border-[#D4AF37] hover:shadow-lg transition-[border-color,box-shadow,transform] hover:-translate-y-0.5 group cursor-pointer"
+                className="flex items-center gap-2.5 sm:gap-3 p-2.5 sm:p-3 rounded-2xl bg-white border border-[#EBDCC5] shadow-xs hover:border-[#D4AF37] hover:shadow-md transition-[border-color,box-shadow,transform] hover:-translate-y-0.5 group cursor-pointer"
                 title={t({
                   hi: item.category === "rudraksha" ? "रुद्राक्ष संग्रह देखें" : "रत्न संग्रह देखें",
                   en: item.category === "rudraksha" ? "View Rudraksha Collection" : "View Gemstone Collection",
                 })}
               >
-                {/* Large, clear, high-resolution product thumbnail */}
-                <div className="relative h-18 w-18 xs:h-20 xs:w-20 sm:h-22 sm:w-22 shrink-0 rounded-2xl overflow-hidden bg-stone-50 border border-stone-200/90 shadow-xs flex items-center justify-center">
+                {/* Compact, clear, high-resolution product thumbnail */}
+                <div className="relative h-14 w-14 xs:h-15 xs:w-15 sm:h-16 sm:w-16 shrink-0 rounded-xl overflow-hidden bg-stone-50 border border-stone-200/90 shadow-2xs flex items-center justify-center">
                   <Image
                     src={item.image}
                     alt={t(item.name)}
                     fill
-                    sizes="(max-width: 640px) 80px, 96px"
+                    sizes="(max-width: 640px) 64px, 72px"
                     className={
                       item.category === "ratna"
-                        ? "object-contain p-1.5 group-hover:scale-108 transition-transform duration-300"
+                        ? "object-contain p-1 group-hover:scale-108 transition-transform duration-300"
                         : "object-cover group-hover:scale-108 transition-transform duration-300"
                     }
                   />
@@ -243,26 +243,26 @@ export default function RudrakshaPopularSliderLeaf() {
 
                 {/* Name & Subtitle */}
                 <div className="min-w-0 flex-1">
-                  <div className="flex items-center gap-1.5 mb-1">
+                  <div className="flex items-center gap-1.5 mb-0.5">
                     <span
-                      className={`h-2 w-2 rounded-full shrink-0 ${
+                      className={`h-1.5 w-1.5 rounded-full shrink-0 ${
                         item.category === "rudraksha"
                           ? "bg-[#8B5A14]"
                           : "bg-[#AF0807]"
                       }`}
                     />
-                    <h4 className="font-serif text-[13.5px] xs:text-[15px] sm:text-base font-bold text-[#3B1E08] group-hover:text-[#AF0807] transition-colors truncate leading-tight">
+                    <h4 className="font-serif text-[13px] xs:text-[13.5px] sm:text-[14.5px] font-bold text-[#3B1E08] group-hover:text-[#AF0807] transition-colors truncate leading-tight">
                       {t(item.name)}
                     </h4>
                   </div>
-                  <p className="text-xs xs:text-[13px] text-[#7A5B48] truncate font-medium pl-3.5">
+                  <p className="text-[11px] xs:text-[11.5px] sm:text-xs text-[#7A5B48] truncate font-medium pl-3">
                     {t(item.sub)}
                   </p>
                 </div>
 
                 {/* Right Arrow */}
-                <div className="shrink-0 flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-xl bg-amber-50/80 group-hover:bg-[#5A2C18] text-[#8B5A14] group-hover:text-white transition-[color,background-color] duration-200">
-                  <ArrowUpRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                <div className="shrink-0 flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-lg bg-amber-50/80 group-hover:bg-[#5A2C18] text-[#8B5A14] group-hover:text-white transition-[color,background-color] duration-200">
+                  <ArrowUpRight className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
                 </div>
               </Link>
             </div>

@@ -7,6 +7,8 @@ import Footer from "@/components/footer/Footer";
 import FloatingQuickContact from "@/components/common/FloatingQuickContact";
 import SmoothScroll from "@/components/common/SmoothScroll";
 import { LanguageProvider } from "@/context/LanguageContext";
+import { PujaBookingProvider } from "@/context/PujaBookingContext";
+import QuickPujaBookingModal from "@/components/booking/QuickPujaBookingModal";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -101,14 +103,17 @@ export default function RootLayout({
     <html lang="hi" className={`${geistSans.variable} ${cinzel.variable}`}>
       <body className="min-h-screen max-w-full overflow-x-clip bg-[#FFF8E7] text-[#3D1B10] antialiased flex flex-col selection:bg-[#D89B18]/30 selection:text-[#8B0000]">
         <LanguageProvider>
-          <SmoothScroll />
-          <Navbar />
-          <div className="flex-1 flex flex-col pb-20 lg:pb-0 max-w-full overflow-x-clip">
-            {children}
-            <Footer />
-          </div>
-          <BottomNav />
-          <FloatingQuickContact />
+          <PujaBookingProvider>
+            <SmoothScroll />
+            <Navbar />
+            <div className="flex-1 flex flex-col pb-20 lg:pb-0 max-w-full overflow-x-clip">
+              {children}
+              <Footer />
+            </div>
+            <BottomNav />
+            <FloatingQuickContact />
+            <QuickPujaBookingModal />
+          </PujaBookingProvider>
         </LanguageProvider>
       </body>
     </html>

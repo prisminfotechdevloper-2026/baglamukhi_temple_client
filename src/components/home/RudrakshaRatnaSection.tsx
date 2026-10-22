@@ -11,9 +11,9 @@ export default function RudrakshaRatnaSection() {
     <section
       id="rudraksha-ratna-collection"
       aria-label="सिद्ध रुद्राक्ष एवं नवग्रह रत्न संग्रह"
-      className="relative w-full overflow-hidden bg-gradient-to-b from-[#FFFDF8] via-[#FFF9EE] to-[#FFFDF8] py-10 sm:py-14 border-b border-[#EBD8B4]"
+      className="relative w-full overflow-hidden bg-gradient-to-b from-[#FFFDF8] via-[#FFF9EE] to-[#FFFDF8] py-6 sm:py-8 border-b border-[#EBD8B4]"
     >
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 space-y-5 sm:space-y-6">
         {/* ========================================================= */}
         {/* ============ 1. TOP 2 CARDS (RUDRAKSHA & RATNA) ============ */}
         {/* ========================================================= */}
@@ -27,7 +27,7 @@ export default function RudrakshaRatnaSection() {
           <RudrakshaSliderHeadingLeaf />
 
           {/* Infinite Single-Direction 3s Auto-Slide Carousel Leaf (12 items) */}
-          <div className="mt-5">
+          <div className="mt-3.5 sm:mt-4">
             <RudrakshaPopularSliderLeaf />
           </div>
         </div>

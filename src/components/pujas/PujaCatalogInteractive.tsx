@@ -18,6 +18,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { usePujaBooking } from "@/context/PujaBookingContext";
 import { PUJAS_DATABASE, type PujaItem, type PujaCategory } from "@/data/pujas";
 import { siteConfig, getWhatsAppUrl, getTelUrl } from "@/data/siteConfig";
 
@@ -29,6 +30,7 @@ const ITEMS_PER_PAGE = 6;
 
 export default function PujaCatalogInteractive() {
   const { t } = useLanguage();
+  const { openBookingModal } = usePujaBooking();
   const pujasDatabase = PUJAS_DATABASE;
   const [activeCategory, setActiveCategory] = useState<CategoryFilter>("all");
   const [searchQuery, setSearchQuery] = useState("");
@@ -116,12 +118,11 @@ export default function PujaCatalogInteractive() {
   };
 
   const handleWhatsAppBooking = (title: string) => {
-    // Phone 1 (+91 72240 83313) -> Hawan / Puja inquiries
-    // Phone 2 (+91 95756 64204) -> Kundali / Jyotish / Rashi inquiries
-    const isKundaliOrJyotish = /kundali|jyotish|rashi|पत्रिका|कुंडली|ज्योतिष|horoscope|birth\s*chart/i.test(title);
-    const targetPhone = isKundaliOrJyotish ? siteConfig.contact.phone2Raw : siteConfig.contact.phone1Raw;
-    const message = `जय माँ बगलामुखी! पंडित दीपक शर्मा जी, मुझे माँ बगलामुखी सिद्धपीठ नलखेड़ा में "${title}" अनुष्ठान हेतु शुभ मुहूर्त, दक्षिणा व संकल्प प्रक्रिया की जानकारी चाहिए।`;
-    window.open(getWhatsAppUrl(targetPhone, message), "_blank", "noopener,noreferrer");
+    // If the detail modal was open, close it so the booking form takes full focus
+    if (selectedPuja) {
+      setSelectedPuja(null);
+    }
+    openBookingModal(title);
   };
 
   return (

@@ -86,7 +86,7 @@ export default function RudrakshaCatalogGridLeaf() {
               className="group flex flex-col justify-between rounded-xl border border-[#EBDCC5] bg-[#FDFBF7] p-3 sm:p-3.5 shadow-[0_2px_10px_rgba(90,44,24,0.03)] hover:border-[#D4AF37] hover:shadow-[0_6px_18px_rgba(90,44,24,0.07)] transition-[border-color,box-shadow]"
             >
               {/* Top Bead Image Container - fills properly with crisp bead */}
-              <div className="relative h-28 xs:h-30 sm:h-32 w-full flex items-center justify-center bg-gradient-to-b from-[#FAF4EA]/80 to-[#F5ECE0]/50 rounded-lg p-2 mb-2 border border-[#EFE5D6]/80 overflow-hidden">
+              <div className="relative h-24 xs:h-26 sm:h-28 w-full flex items-center justify-center bg-gradient-to-b from-[#FAF4EA]/80 to-[#F5ECE0]/50 rounded-lg p-1.5 mb-2 border border-[#EFE5D6]/80 overflow-hidden">
                 <div className="relative h-full w-full">
                   <Image
                     src={item.image}

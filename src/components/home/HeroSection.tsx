@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import WhatsAppIcon from "@/components/common/WhatsAppIcon";
 import { useLanguage } from "@/context/LanguageContext";
+import { usePujaBooking } from "@/context/PujaBookingContext";
 
 /* ---------------------------------------------------------------------------
    Small reusable pieces
@@ -103,6 +104,7 @@ const crisisBadges = [
 
 export default function HeroSection() {
   const { t } = useLanguage();
+  const { openBookingModal } = usePujaBooking();
 
   const commonBg = { alt: "श्री माँ बगलामुखी मंदिर गर्भगृह", fill: true };
   const {
@@ -229,9 +231,10 @@ export default function HeroSection() {
             {/* Action Buttons (CTAs) - SIDE BY SIDE HORIZONTALLY */}
             <div className="mt-4 flex flex-row items-center gap-3 w-auto max-w-full">
               {/* Primary CTA */}
-              <Link
-                href="/contact"
-                className="group relative inline-flex items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-[#AF0807] via-[#940706] to-[#7A0505] px-5 py-2.5 text-sm font-bold text-white shadow-xl shadow-red-950/60 border border-amber-400/50 hover:border-amber-300 hover:shadow-2xl transition-transform duration-200 hover:-translate-y-0.5 active:translate-y-0 shrink-0"
+              <button
+                type="button"
+                onClick={() => openBookingModal()}
+                className="group relative inline-flex items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-[#AF0807] via-[#940706] to-[#7A0505] px-5 py-2.5 text-sm font-bold text-white shadow-xl shadow-red-950/60 border border-amber-400/50 hover:border-amber-300 hover:shadow-2xl transition-transform duration-200 hover:-translate-y-0.5 active:translate-y-0 shrink-0 cursor-pointer"
               >
                 <CalendarCheck className="h-5 w-5 text-amber-300 shrink-0" />
                 <div className="flex flex-col text-left leading-tight">
@@ -251,7 +254,7 @@ export default function HeroSection() {
                 <span className="text-amber-300 text-sm font-bold pl-1 group-hover:translate-x-1 transition-transform">
                   →
                 </span>
-              </Link>
+              </button>
 
               {/* Secondary CTA: WhatsApp Consultation */}
               <a
@@ -466,9 +469,10 @@ export default function HeroSection() {
           </div>
 
           {/* ---- 6. Primary CTA ---- */}
-          <Link
-            href="/contact"
-            className="group relative flex items-center gap-2.5 overflow-hidden rounded-2xl border-2 border-amber-400/80 bg-gradient-to-r from-[#7A0008] via-[#A3101A] to-[#6A0208] p-2 pr-3 shadow-2xl transition-transform duration-200 hover:-translate-y-0.5 active:translate-y-0"
+          <button
+            type="button"
+            onClick={() => openBookingModal()}
+            className="group relative flex items-center gap-2.5 overflow-hidden rounded-2xl border-2 border-amber-400/80 bg-gradient-to-r from-[#7A0008] via-[#A3101A] to-[#6A0208] p-2 pr-3 shadow-2xl transition-transform duration-200 hover:-translate-y-0.5 active:translate-y-0 text-left w-full cursor-pointer"
           >
             <span
               aria-hidden="true"
@@ -500,7 +504,7 @@ export default function HeroSection() {
                 <ArrowRight className="h-3.5 w-3.5 text-amber-200" />
               </div>
             </div>
-          </Link>
+          </button>
 
           {/* ---- 7. WhatsApp card ---- */}
           <a

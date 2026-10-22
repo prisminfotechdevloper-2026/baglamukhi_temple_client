@@ -64,50 +64,50 @@ export default function RatnaCatalogGridLeaf() {
         </div>
 
         {/* 10-Item Responsive Grid: 5 columns on xl desktop (2 full rows of 5 cards) */}
-        <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-5">
+        <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3.5 sm:gap-4">
           {GEMSTONES_DATA.map((gem) => (
             <div
               key={gem.id}
-              className="group relative flex flex-col justify-between rounded-2xl border border-[#EBDCC5] bg-white p-4 sm:p-4.5 shadow-[0_2px_12px_rgba(90,44,24,0.04)] hover:shadow-[0_8px_24px_rgba(90,44,24,0.1)] transition-shadow duration-300 hover:border-[#D4AF37]"
+              className="group relative flex flex-col justify-between rounded-xl sm:rounded-2xl border border-[#EBDCC5] bg-white p-3 sm:p-3.5 shadow-[0_2px_10px_rgba(90,44,24,0.03)] hover:shadow-[0_6px_20px_rgba(90,44,24,0.08)] transition-all duration-300 hover:border-[#D4AF37]"
             >
               {/* Top Details & Gemstone Image */}
               <div>
                 {/* Image Container with 3D drop shadow */}
-                <div className="relative w-28 h-28 sm:w-32 sm:h-32 mx-auto flex items-center justify-center mb-3">
+                <div className="relative w-22 h-22 sm:w-24 sm:h-24 mx-auto flex items-center justify-center mb-2">
                   <Image
                     src={gem.image}
                     alt={`${gem.nameHi} (${gem.nameEn})`}
-                    width={128}
-                    height={128}
-                    className="object-contain filter drop-shadow-[0_4px_12px_rgba(0,0,0,0.15)] group-hover:scale-108 transition-transform duration-300"
+                    width={96}
+                    height={96}
+                    className="object-contain filter drop-shadow-[0_3px_10px_rgba(0,0,0,0.14)] group-hover:scale-108 transition-transform duration-300"
                   />
                 </div>
 
                 {/* Title */}
-                <h3 className="font-serif text-base sm:text-[17px] font-bold text-[#3B1E08] text-center leading-tight">
+                <h3 className="font-serif text-[14.5px] sm:text-base font-bold text-[#3B1E08] text-center leading-tight">
                   {gem.nameHi} ({gem.nameEn})
                 </h3>
 
                 {/* Planet Subtitle */}
-                <p className="text-xs sm:text-[13px] font-bold text-[#8C5824] text-center mt-1 mb-2">
+                <p className="text-[11px] sm:text-xs font-bold text-[#8C5824] text-center mt-0.5 mb-1.5">
                   {gem.planetHi}
                 </p>
 
                 {/* Summary Description (Hindi as requested) */}
-                <p className="text-[11.5px] xs:text-xs text-[#6B5A52] text-center leading-relaxed font-normal min-h-[44px] flex items-center justify-center px-1">
+                <p className="text-[11px] sm:text-[11.5px] text-[#6B5A52] text-center leading-snug font-normal line-clamp-2 min-h-[30px] sm:min-h-[34px] flex items-center justify-center px-0.5">
                   {gem.summaryHi}
                 </p>
               </div>
 
               {/* Action Buttons: View Details + WhatsApp */}
-              <div className="mt-4 space-y-2 pt-2 border-t border-[#F5EDE1]">
+              <div className="mt-2.5 space-y-1.5 pt-1.5 border-t border-[#F5EDE1]">
                 {/* Button 1: View Details (Light Sand Background) */}
                 <button
                   type="button"
                   onClick={() => setSelectedGem(gem)}
-                  className="w-full inline-flex items-center justify-center gap-1.5 rounded-xl border border-[#D8C6A5] bg-[#FAF3E3] hover:bg-[#F3E7CE] px-3 py-2 text-xs font-bold text-[#5A2C18] transition-colors duration-200 cursor-pointer shadow-2xs"
+                  className="w-full inline-flex items-center justify-center gap-1.5 rounded-lg sm:rounded-xl border border-[#D8C6A5] bg-[#FAF3E3] hover:bg-[#F3E7CE] px-2.5 py-1.5 text-[11px] sm:text-xs font-bold text-[#5A2C18] transition-colors duration-200 cursor-pointer shadow-2xs"
                 >
-                  <Eye className="h-3.5 w-3.5 text-[#5A2C18]" />
+                  <Eye className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[#5A2C18]" />
                   <span>{t({ hi: "विवरण देखें", en: "View Details" })}</span>
                 </button>
 
@@ -116,9 +116,9 @@ export default function RatnaCatalogGridLeaf() {
                   href={getWhatsappUrl(gem)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-1.5 rounded-xl bg-[#155E38] hover:bg-[#114E2E] px-3 py-2 text-xs font-bold text-[#FFF9EE] transition-colors duration-200 cursor-pointer shadow-2xs"
+                  className="w-full inline-flex items-center justify-center gap-1.5 rounded-lg sm:rounded-xl bg-[#155E38] hover:bg-[#114E2E] px-2.5 py-1.5 text-[11px] sm:text-xs font-bold text-[#FFF9EE] transition-colors duration-200 cursor-pointer shadow-2xs"
                 >
-                  <WhatsAppIcon className="h-3.5 w-3.5 text-white" />
+                  <WhatsAppIcon className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-white" />
                   <span>{t({ hi: "WhatsApp पर पूछें", en: "Ask on WhatsApp" })}</span>
                 </a>
               </div>

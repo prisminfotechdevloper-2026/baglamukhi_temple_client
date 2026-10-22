@@ -69,9 +69,9 @@ export default function MandirPage() {
         description: header.standfirst,
         address: {
           "@type": "PostalAddress",
-          streetAddress: "लखुन्दर नदी तट",
+          streetAddress: "शासकीय माँ बगलामुखी सिद्धपीठ, नलखेड़ा, जिला - आगर मालवा",
           addressLocality: "नलखेड़ा",
-          addressRegion: "मध्यप्रदेश",
+          addressRegion: "मध्य प्रदेश",
           postalCode: "465445",
           addressCountry: "IN",
         },

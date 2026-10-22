@@ -25,8 +25,8 @@ export default function TempleLeftOverviewCard() {
             <MapPin className="h-3.5 w-3.5 text-[#AF0807]" />
             <span>
               {t({
-                hi: "नलखेड़ा, आगर-मालवा (म.प्र.)",
-                en: "Nalkheda, Agar-Malwa (M.P.)",
+                hi: "शासकीय सिद्धपीठ, नलखेड़ा (आगर-मालवा)",
+                en: "Govt. Siddhapeeth, Nalkheda (Agar-Malwa)",
               })}
             </span>
           </div>

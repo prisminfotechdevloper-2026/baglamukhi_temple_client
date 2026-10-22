@@ -51,7 +51,7 @@ export default function GalleryPage() {
       name: "श्री माँ बगलामुखी मंदिर सिद्धपीठ नलखेड़ा",
       address: {
         "@type": "PostalAddress",
-        streetAddress: "लखुन्दर नदी तट",
+        streetAddress: "शासकीय माँ बगलामुखी सिद्धपीठ, नलखेड़ा, जिला - आगर मालवा",
         addressLocality: "नलखेड़ा",
         addressRegion: "मध्य प्रदेश",
         postalCode: "465445",

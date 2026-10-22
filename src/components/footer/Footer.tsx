@@ -54,8 +54,8 @@ export default function Footer() {
           </p>
           <p className="text-xs text-amber-300/80 mt-1.5 font-medium">
             {t({
-              hi: "विश्व प्रसिद्ध महाभारत कालीन सिद्ध शक्तिपीठ • नलखेड़ा धाम, आगर-मालवा (म.प्र.)",
-              en: "World-Renowned Mahabharata-Era Siddha Shakti Peeth • Nalkheda Dham, Agar-Malwa (M.P.)",
+              hi: "शासकीय माँ बगलामुखी सिद्धपीठ • नलखेड़ा, जिला - आगर मालवा, मध्य प्रदेश - 465445",
+              en: "Govt. Shree Maa Baglamukhi Siddhapeeth • Nalkheda, Dist - Agar Malwa, M.P. - 465445",
             })}
           </p>
         </div>
@@ -217,13 +217,21 @@ export default function Footer() {
             </h4>
             <div className="space-y-2.5 text-xs">
               <div className="flex items-start gap-2 text-stone-300">
-                <MapPin className="h-4 w-4 text-red-400 shrink-0 mt-0.5" />
-                <span className="leading-snug">
-                  {t({
-                    hi: "लखुंदर नदी तट, नलखेड़ा, जिला आगर मालवा, मध्य प्रदेश",
-                    en: "Lakhundar River Bank, Nalkheda, Dist. Agar Malwa, M.P.",
-                  })}
-                </span>
+                <MapPin className="h-4 w-4 text-amber-400 shrink-0 mt-0.5" />
+                <div className="leading-snug">
+                  <p className="font-bold text-amber-200">
+                    {t({
+                      hi: "शासकीय माँ बगलामुखी सिद्धपीठ",
+                      en: "Govt. Shree Maa Baglamukhi Siddhapeeth",
+                    })}
+                  </p>
+                  <p className="text-stone-300 text-xs mt-0.5">
+                    {t({
+                      hi: "नलखेड़ा, जिला - आगर मालवा, मध्य प्रदेश - 465445",
+                      en: "Nalkheda, District - Agar Malwa, Madhya Pradesh - 465445",
+                    })}
+                  </p>
+                </div>
               </div>
 
               {/* Transit Details */}

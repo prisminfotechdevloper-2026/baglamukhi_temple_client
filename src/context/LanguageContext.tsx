@@ -37,7 +37,7 @@ const commonDictionary: Record<string, TranslationPair> = {
   learn_more: { hi: "और जानें", en: "Learn More" },
   read_more: { hi: "पूरा पढ़ें", en: "Read Full Article" },
   helpline: { hi: "दर्शन एवं पूजा सहायता", en: "Darshan & Puja Helpline" },
-  nalkheda_mp: { hi: "नलखेड़ा, आगर-मालवा (म.प्र.)", en: "Nalkheda, Agar-Malwa (M.P.)" },
+  nalkheda_mp: { hi: "नलखेड़ा, जिला - आगर मालवा (म.प्र.) - 465445", en: "Nalkheda, Dist - Agar Malwa (M.P.) - 465445" },
   lakshundar_river: { hi: "पावन लखुन्दर नदी तट", en: "Holy Lakhundar River Bank" },
   pandit_name: { hi: "पंडित दीपक शर्मा जी", en: "Pandit Deepak Sharma Ji" },
   pandit_title: { hi: "मुख्य यज्ञाचार्य एवं वैदिक पुरोहित", en: "Chief Yagyacharya & Vedic Purohit" },

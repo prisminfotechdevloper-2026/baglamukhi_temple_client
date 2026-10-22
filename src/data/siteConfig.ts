@@ -8,7 +8,7 @@ export const siteConfig = {
   hindiName: "श्री माँ बगलामुखी सिद्धपीठ नलखेड़ा",
   panditName: "आचार्य पं. दीपक शर्मा जी",
   panditTitle: "मुख्य उपासक एवं तंत्र-वैदिक पुरोहित",
-  location: "लखुंदर नदी तट, नलखेड़ा धाम, आगर-मालवा (म.प्र.) - 465445",
+  location: "शासकीय माँ बगलामुखी सिद्धपीठ, नलखेड़ा, जिला - आगर मालवा, मध्य प्रदेश - 465445",
 
   contact: {
     primaryPhone: "7224083313",
@@ -21,12 +21,16 @@ export const siteConfig = {
     phone2Raw: "9575664204",
     email: "shribaglamukhimandirnalkheda@gmail.com",
     address: {
-      street: "लखुंदर नदी तट, माँ बगलामुखी मंदिर मार्ग",
+      templeName: "शासकीय माँ बगलामुखी सिद्धपीठ",
+      templeNameEn: "Govt. Shree Maa Baglamukhi Siddhapeeth",
+      street: "शासकीय माँ बगलामुखी सिद्धपीठ, लखुंदर नदी तट",
       city: "नलखेड़ा",
-      district: "आगर-मालवा",
+      district: "जिला - आगर मालवा",
       state: "मध्य प्रदेश",
       pincode: "465445",
       country: "भारत",
+      fullHindi: "शासकीय माँ बगलामुखी सिद्धपीठ, नलखेड़ा, जिला - आगर मालवा, मध्य प्रदेश - पिन कोड: 465445",
+      fullEnglish: "Govt. Shree Maa Baglamukhi Siddhapeeth, Nalkheda, District - Agar Malwa, Madhya Pradesh - Pin Code: 465445",
     },
     timings: "प्रातः 05:00 बजे से रात्रि 11:00 बजे तक (दैनिक)",
     aartiTimings: {

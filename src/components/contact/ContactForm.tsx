@@ -100,13 +100,11 @@ export default function ContactForm() {
   const [errorMessage, setErrorMessage] = useState("");
 
   const currentOptions = queryType === "hawan_puja" ? HAWAN_PUJA_OPTIONS : KUNDALI_OPTIONS;
-  const activeSubject = serviceSubject || t(currentOptions[0]);
 
   // Handle Type Change
   const handleTypeChange = (type: QueryType) => {
     setQueryType(type);
-    const newOptions = type === "hawan_puja" ? HAWAN_PUJA_OPTIONS : KUNDALI_OPTIONS;
-    setServiceSubject(t(newOptions[0]));
+    setServiceSubject("");
     setErrorMessage("");
   };
 
@@ -114,6 +112,7 @@ export default function ContactForm() {
     setName("");
     setPhone("");
     setCity("");
+    setServiceSubject("");
     setMessage("");
     setGotra("");
     setPreferredDate("");
@@ -148,6 +147,22 @@ export default function ContactForm() {
       return;
     }
 
+    if (!serviceSubject.trim()) {
+      setErrorMessage(
+        t({
+          hi:
+            queryType === "hawan_puja"
+              ? "कृपया अपनी इच्छित हवन या पूजा सेवा का चयन करें।"
+              : "कृपया अपने ज्योतिष परामर्श का विषय चुनें।",
+          en:
+            queryType === "hawan_puja"
+              ? "Please select a Hawan / Puja service."
+              : "Please select a Jyotish consultation topic.",
+        })
+      );
+      return;
+    }
+
     setErrorMessage("");
 
     const isHawan = queryType === "hawan_puja";
@@ -163,7 +178,7 @@ export default function ContactForm() {
     text += `*यजमान का नाम:* ${name.trim()}\n`;
     text += `*मोबाइल नंबर:* ${phone.trim()}\n`;
     if (city.trim()) text += `*शहर / राज्य:* ${city.trim()}\n`;
-    text += `*विषय / सेवा:* ${activeSubject}\n`;
+    text += `*विषय / सेवा:* ${serviceSubject.trim()}\n`;
 
     if (isHawan) {
       if (gotra.trim()) text += `*गोत्र:* ${gotra.trim()}\n`;
@@ -248,7 +263,7 @@ export default function ContactForm() {
             <span className="text-stone-500 font-medium">
               {t({ hi: "चयनित सेवा:", en: "Selected Service:" })}
             </span>
-            <span className="font-bold text-[#AF0807]">{activeSubject}</span>
+            <span className="font-bold text-[#AF0807]">{serviceSubject}</span>
           </div>
           {isHawan && gotra && (
             <div className="flex justify-between border-b border-stone-200/80 pb-2">
@@ -531,15 +546,31 @@ export default function ContactForm() {
             id="contact-service-subject"
             aria-label={
               queryType === "hawan_puja"
-                ? "हवन व पूजा का चयन करें"
-                : "ज्योतिष परामर्श विषय चुनें"
+                ? t({ hi: "हवन व पूजा का चयन करें", en: "Select Hawan or Puja" })
+                : t({ hi: "ज्योतिष परामर्श विषय चुनें", en: "Select Jyotish Consultation Topic" })
             }
-            value={activeSubject}
-            onChange={(e) => setServiceSubject(e.target.value)}
-            className="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 bg-stone-50/50 text-sm text-stone-900 font-medium focus:outline-none focus:border-[#AF0807] focus:bg-white transition-colors"
+            value={serviceSubject}
+            onChange={(e) => {
+              setServiceSubject(e.target.value);
+              if (errorMessage) setErrorMessage("");
+            }}
+            className={`w-full px-3.5 py-2.5 rounded-xl border ${
+              !serviceSubject ? "text-stone-500 font-normal" : "text-stone-900 font-medium"
+            } border-stone-200 bg-stone-50/50 text-sm focus:outline-none focus:border-[#AF0807] focus:bg-white transition-colors cursor-pointer`}
           >
+            <option value="" disabled>
+              {queryType === "hawan_puja"
+                ? t({
+                    hi: "-- कृपया हवन / पूजा का चयन करें --",
+                    en: "-- Please Select Hawan / Puja --",
+                  })
+                : t({
+                    hi: "-- कृपया ज्योतिष परामर्श विषय चुनें --",
+                    en: "-- Please Select Consultation Topic --",
+                  })}
+            </option>
             {currentOptions.map((item) => (
-              <option key={t(item)} value={t(item)}>
+              <option key={t(item)} value={t(item)} className="text-stone-900 font-medium py-1">
                 {t(item)}
               </option>
             ))}

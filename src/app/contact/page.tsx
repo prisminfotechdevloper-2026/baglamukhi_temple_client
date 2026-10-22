@@ -21,10 +21,12 @@ import ContactHero from "@/components/contact/ContactHero";
 import ContactForm from "@/components/contact/ContactForm";
 
 export const metadata: Metadata = {
-  title: "संपर्क करें | श्री माँ बगलामुखी मंदिर नलखेड़ा - पं. दीपक शर्मा",
+  title: "संपर्क करें | शासकीय माँ बगलामुखी सिद्धपीठ नलखेड़ा - पं. दीपक शर्मा",
   description:
-    "श्री माँ बगलामुखी सिद्धपीठ नलखेड़ा में विशेष महाहवन, तांत्रिक-वैदिक अनुष्ठान एवं जन्म कुंडली ज्योतिषीय मार्गदर्शन हेतु पंडित दीपक शर्मा जी से संपर्क करें। हवन/पूजा: +91 72240 83313, कुंडली: +91 95756 64204, ईमेल: AshthamMahavidhya@gmail.com।",
+    "शासकीय माँ बगलामुखी सिद्धपीठ, नलखेड़ा, जिला - आगर मालवा, मध्य प्रदेश - पिन कोड: 465445। विशेष महाहवन, तांत्रिक-वैदिक अनुष्ठान एवं जन्म कुंडली ज्योतिषीय मार्गदर्शन हेतु पंडित दीपक शर्मा जी से संपर्क करें। हवन/पूजा: +91 72240 83313, कुंडली: +91 95756 64204, ईमेल: AshthamMahavidhya@gmail.com।",
   keywords: [
+    "शासकीय माँ बगलामुखी सिद्धपीठ",
+    "बगलामुखी मंदिर नलखेड़ा पता",
     "बगलामुखी मंदिर नलखेड़ा संपर्क",
     "पंडित दीपक शर्मा फोन नंबर",
     "बगलामुखी हवन बुकिंग",
@@ -36,9 +38,9 @@ export const metadata: Metadata = {
     "माँ बगलामुखी अनुष्ठान संपर्क",
   ],
   openGraph: {
-    title: "संपर्क करें | श्री माँ बगलामुखी मंदिर नलखेड़ा - पं. दीपक शर्मा",
+    title: "संपर्क करें | शासकीय माँ बगलामुखी सिद्धपीठ नलखेड़ा - पं. दीपक शर्मा",
     description:
-      "हवन-पूजा अनुष्ठान एवं कुंडली विश्लेषण हेतु पंडित दीपक शर्मा जी से संपर्क करें। फोन: 7224083313 / 9575664204। लखुंदर नदी तट, नलखेड़ा।",
+      "शासकीय माँ बगलामुखी सिद्धपीठ, नलखेड़ा, जिला - आगर मालवा, मध्य प्रदेश - पिन कोड: 465445। हवन-पूजा अनुष्ठान एवं कुंडली विश्लेषण हेतु पंडित दीपक शर्मा जी से संपर्क करें। फोन: 7224083313 / 9575664204।",
     type: "website",
     locale: "hi_IN",
   },
@@ -369,7 +371,52 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Card 2: Temple Darshan Timings */}
+            {/* Card 2: Official Temple Address Card */}
+            <div className="rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] hover:shadow-[0_12px_32px_-4px_rgba(175,8,7,0.16)] p-6 sm:p-7 transition-colors duration-300">
+              <div className="flex items-center gap-2.5 mb-3 text-[#AF0807]">
+                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-amber-50 border border-amber-300 text-[#AF0807] shrink-0">
+                  <MapPin className="h-5 w-5 text-[#AF0807]" />
+                </div>
+                <div>
+                  <span className="text-[10px] font-extrabold uppercase tracking-wider text-amber-950 block">
+                    आधिकारिक मंदिर पता
+                  </span>
+                  <h3 className="font-serif text-base sm:text-lg font-bold text-[#3E0B02]">
+                    शासकीय माँ बगलामुखी सिद्धपीठ
+                  </h3>
+                </div>
+              </div>
+
+              <div className="bg-amber-50/70 border border-amber-200/90 rounded-2xl p-4 text-xs text-stone-800 leading-relaxed shadow-xs">
+                <p className="font-bold text-[#3E0B02] text-sm mb-1.5 flex items-center gap-1.5">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#AF0807]" />
+                  <span>शासकीय माँ बगलामुखी सिद्धपीठ</span>
+                </p>
+                <p className="font-semibold text-stone-800">नलखेड़ा, जिला - आगर मालवा</p>
+                <p className="font-bold text-[#AF0807] mt-1 text-xs sm:text-sm">
+                  मध्य प्रदेश - पिन कोड: 465445
+                </p>
+                <div className="mt-3 pt-2.5 border-t border-amber-200/80 flex items-center justify-between text-[11px] text-stone-600">
+                  <span>प्राकृतिक अवस्थिति:</span>
+                  <span className="font-medium text-stone-800">पावन लखुंदर नदी तट, नलखेड़ा</span>
+                </div>
+              </div>
+
+              <div className="mt-3.5 flex items-center justify-between text-xs pt-1">
+                <span className="text-stone-500 text-[11px]">बाहर से आने वाले श्रद्धालुओं हेतु</span>
+                <a
+                  href="https://www.google.com/maps/dir//23.8413611,76.2356389"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 font-bold text-[#AF0807] hover:underline text-xs"
+                >
+                  <span>गूगल मैप्स नेविगेशन</span>
+                  <ExternalLink className="h-3 w-3" />
+                </a>
+              </div>
+            </div>
+
+            {/* Card 3: Temple Darshan Timings */}
             <div className="rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] hover:shadow-[0_12px_32px_-4px_rgba(175,8,7,0.16)] p-6 sm:p-7 transition-colors duration-300">
               <div className="flex items-center gap-2.5 mb-3 text-[#AF0807]">
                 <Clock className="h-5 w-5" />
@@ -440,11 +487,14 @@ export default function ContactPage() {
         <div className="rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] hover:shadow-[0_12px_32px_-4px_rgba(175,8,7,0.16)] p-4 sm:p-6 overflow-hidden transition-colors duration-300">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-4 border-b border-stone-100 mb-4">
             <div>
+              <span className="text-[10px] font-extrabold uppercase tracking-wider text-amber-950 block mb-0.5">
+                आधिकारिक मंदिर पता एवं जीपीएस
+              </span>
               <h3 className="font-serif text-base sm:text-lg font-bold text-[#3E0B02]">
-                माँ बगलामुखी मंदिर नलखेड़ा - सैटेलाइट एवं जीपीएस लोकेशन
+                शासकीय माँ बगलामुखी सिद्धपीठ, नलखेड़ा
               </h3>
-              <p className="text-xs text-stone-500">
-                लखुंदर नदी तट, तहसील नलखेड़ा, जिला आगर मालवा (म.प्र.)
+              <p className="text-xs sm:text-sm text-stone-700 font-medium mt-0.5">
+                शासकीय माँ बगलामुखी सिद्धपीठ, नलखेड़ा, जिला - आगर मालवा, मध्य प्रदेश - पिन कोड: 465445
               </p>
             </div>
             <a

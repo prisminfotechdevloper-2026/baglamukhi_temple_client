@@ -91,8 +91,8 @@ export default function MandirHowToReach({ title, mapsUrl }: MandirHowToReachPro
             <h4 className="font-serif text-base sm:text-lg font-bold text-[#3E0B02]">
               सीधे नेविगेशन से मंदिर पहुंचें
             </h4>
-            <p className="text-xs text-stone-500">
-              श्री माँ बगलामुखी माता मंदिर, लखुन्दर नदी तट, नलखेड़ा (आगर-मालवा)
+            <p className="text-xs text-stone-600 font-medium">
+              शासकीय माँ बगलामुखी सिद्धपीठ, नलखेड़ा, जिला - आगर मालवा (म.प्र.) - 465445
             </p>
           </div>
         </div>

@@ -63,15 +63,15 @@ export default function ContactHero() {
         {/* Quick Action CTAs (Left-aligned) */}
         <div className="mt-5 flex flex-wrap items-center gap-3">
           <a
-            href="tel:+917223083313"
+            href="tel:+917224083313"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#AF0807] via-[#940706] to-[#7A0505] hover:from-[#940706] hover:to-[#600303] text-white text-xs sm:text-sm font-bold shadow-2xl border border-amber-400/60 hover:border-amber-300 transition-transform duration-200 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
           >
             <PhoneCall className="h-4 w-4 text-amber-300" />
-            <span>{t({ hi: "सीधा फोन करें (+91 72230 83313)", en: "Call Directly (+91 72230 83313)" })}</span>
+            <span>{t({ hi: "सीधा फोन करें (+91 72240 83313)", en: "Call Directly (+91 72240 83313)" })}</span>
           </a>
 
           <a
-            href="https://wa.me/917223083313?text=जय%20माँ%20बगलामुखी!%20पंडित%20दीपक%20शर्मा%20जी%2C%20मुझे%20पूजा%20व%20परामर्श%20के%20बारे%20में%20जानकारी%20चाहिए।"
+            href="https://wa.me/917224083313?text=जय%20माँ%20बगलामुखी!%20पंडित%20दीपक%20शर्मा%20जी%2C%20मुझे%20पूजा%20व%20परामर्श%20के%20बारे%20में%20जानकारी%20चाहिए।"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-black/40 hover:bg-black/60 text-white hover:text-amber-200 text-xs sm:text-sm font-bold border-2 border-amber-400 backdrop-blur-md shadow-2xl transition-transform duration-200 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer group"

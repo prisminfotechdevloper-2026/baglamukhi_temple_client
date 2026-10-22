@@ -17,11 +17,11 @@ export default function NavbarTopRibbonLeaf() {
           })}
         </span>
         <a
-          href="tel:+917223083313"
+          href="tel:+917224083313"
           className="flex items-center gap-1 text-white font-bold shrink-0 bg-black/40 px-2.5 py-0.5 rounded-full border border-amber-400/40 text-[10.5px]"
         >
           <Phone className="h-3 w-3 text-amber-300" />
-          <span>+91 72230 83313</span>
+          <span>+91 72240 83313</span>
         </a>
       </div>
 
@@ -38,14 +38,14 @@ export default function NavbarTopRibbonLeaf() {
 
         <div className="flex items-center gap-4 text-white/95 shrink-0 text-[11.5px]">
           <a
-            href="tel:+917223083313"
+            href="tel:+917224083313"
             className="flex items-center gap-1.5 hover:text-amber-200 transition-colors font-bold"
           >
             <Phone className="h-3 w-3 text-amber-300" />
             <span>
               {t({
-                hi: "दर्शन एवं पूजा सहायता: +91 72230 83313",
-                en: "Darshan & Puja Helpline: +91 72230 83313",
+                hi: "दर्शन एवं पूजा सहायता: +91 72240 83313",
+                en: "Darshan & Puja Helpline: +91 72240 83313",
               })}
             </span>
           </a>

@@ -81,7 +81,7 @@ export default function MandirPage() {
           longitude: "76.0125",
         },
         image: "https://baglamukhi-temple-hazel.vercel.app/images/baglamukhi-mandir-real.png",
-        telephone: "+91-7223083313",
+        telephone: "+91-7224083313",
       },
       {
         "@type": "Article",

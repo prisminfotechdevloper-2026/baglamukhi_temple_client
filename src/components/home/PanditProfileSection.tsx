@@ -260,14 +260,14 @@ export default function PanditProfileSection() {
             <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-[#EBD8B4]">
               {/* Call Pandit Ji */}
               <a
-                href="tel:+917223083313"
+                href="tel:+917224083313"
                 className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-gradient-to-r from-[#8B0000] via-[#A00B1A] to-[#68060F] hover:from-[#68060F] hover:to-[#4A0C16] text-white text-xs sm:text-sm font-extrabold shadow-lg shadow-red-950/25 border border-amber-400/50 transition-transform duration-200 hover:-translate-y-0.5 active:translate-y-0"
               >
                 <PhoneCall className="h-4 w-4 text-amber-300" />
                 <span>
                   {t({
-                    hi: "पंडित जी को कॉल करें: +91 72230 83313",
-                    en: "Call Pandit Ji: +91 72230 83313",
+                    hi: "पंडित जी को कॉल करें: +91 72240 83313",
+                    en: "Call Pandit Ji: +91 72240 83313",
                   })}
                 </span>
               </a>

@@ -372,7 +372,7 @@ export default function KundaliRashiSection() {
               </span>
             </a>
 
-            {/* Direct Calling (Primary number: 72230 83313) */}
+            {/* Direct Calling (Primary number: 72240 83313) */}
             <a
               href={getTelUrl(siteConfig.contact.phone1)}
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-amber-200 border border-amber-300/40 text-xs sm:text-sm font-bold backdrop-blur-md transition-colors cursor-pointer"

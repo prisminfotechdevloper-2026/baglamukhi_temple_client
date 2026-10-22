@@ -14,7 +14,7 @@ export default function PanditDirectBookingCard() {
   const { t } = useLanguage();
 
   const whatsappUrl =
-    "https://wa.me/917223083313?text=" +
+    "https://wa.me/917224083313?text=" +
     encodeURIComponent(
       "जय माँ बगलामुखी! पंडित दीपक शर्मा जी, मुझे आपसे पूजा / अनुष्ठान / जन्म कुंडली परामर्श हेतु मार्गदर्शन प्राप्त करना है। कृपया शुभ समय बताएं।"
     );
@@ -84,11 +84,11 @@ export default function PanditDirectBookingCard() {
                 </a>
 
                 <a
-                  href="tel:+917223083313"
+                  href="tel:+917224083313"
                   className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-stone-100 hover:bg-stone-200 text-[#3E0B02] text-xs sm:text-sm font-bold transition-colors"
                 >
                   <PhoneCall className="h-4 w-4 text-[#AF0807]" />
-                  <span>{t({ hi: "कॉल करें: +91 72230 83313", en: "Call: +91 72230 83313" })}</span>
+                  <span>{t({ hi: "कॉल करें: +91 72240 83313", en: "Call: +91 72240 83313" })}</span>
                 </a>
               </div>
             </div>

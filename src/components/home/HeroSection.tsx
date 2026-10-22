@@ -255,7 +255,7 @@ export default function HeroSection() {
 
               {/* Secondary CTA: WhatsApp Consultation */}
               <a
-                href="https://wa.me/917223083313?text=जय%20माँ%20बगलामुखी!%20पंडित%20दीपक%20शर्मा%20जी%2C%20मुझे%20पूजा%20व%20हवन%20के%20बारे%20में%20जानकारी%20चाहिए।"
+                href="https://wa.me/917224083313?text=जय%20माँ%20बगलामुखी!%20पंडित%20दीपक%20शर्मा%20जी%2C%20मुझे%20पूजा%20व%20हवन%20के%20बारे%20में%20जानकारी%20चाहिए।"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center justify-center gap-3 rounded-2xl bg-white/95 hover:bg-white px-4 py-2.5 text-sm font-bold text-[#1F2937] border-2 border-stone-200/90 hover:border-[#25D366] backdrop-blur-xl shadow-xl shadow-stone-900/15 hover:shadow-2xl hover:shadow-[#25D366]/20 transition-transform duration-200 hover:-translate-y-0.5 active:translate-y-0 shrink-0"
@@ -272,8 +272,8 @@ export default function HeroSection() {
                   </span>
                   <span className="text-[11px] text-emerald-700 font-bold tracking-tight">
                     {t({
-                      hi: "+91 72230 83313 पर तुरंत जुड़ें",
-                      en: "+91 72230 83313 • Chat Online",
+                      hi: "+91 72240 83313 पर तुरंत जुड़ें",
+                      en: "+91 72240 83313 • Chat Online",
                     })}
                   </span>
                 </div>
@@ -504,7 +504,7 @@ export default function HeroSection() {
 
           {/* ---- 7. WhatsApp card ---- */}
           <a
-            href="https://wa.me/917223083313?text=जय%20माँ%20बगलामुखी!%20पंडित%20दीपक%20शर्मा%20जी%2C%20मुझे%20पूजा%20व%20हवन%20के%20बारे%20में%20जानकारी%20चाहिए।"
+            href="https://wa.me/917224083313?text=जय%20माँ%20बगलामुखी!%20पंडित%20दीपक%20शर्मा%20जी%2C%20मुझे%20पूजा%20व%20हवन%20के%20बारे%20में%20जानकारी%20चाहिए।"
             target="_blank"
             rel="noopener noreferrer"
             className="group relative flex items-center gap-2.5 overflow-hidden rounded-2xl border border-amber-300/70 bg-gradient-to-r from-[#FFFDF8] via-white to-[#FFF7EA] p-2 pr-3 shadow-xl transition-transform duration-200 hover:-translate-y-0.5 active:translate-y-0"
@@ -531,7 +531,7 @@ export default function HeroSection() {
               </span>
               <span className="mt-0.5 flex items-center gap-1.5 whitespace-nowrap text-[clamp(10.5px,3.1vw,13.5px)]">
                 <span className="font-bold text-[#0F7A3A]">
-                  +91 72230 83313
+                  +91 72240 83313
                 </span>
                 <span className="text-stone-500">•</span>
                 <span className="font-medium text-[#0E8A6A] truncate">

@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     template: "%s | Maa Baglamukhi Mandir Nalkheda",
   },
   description:
-    "माँ बगलामुखी पूजा और हवन की जानकारी, उपलब्ध सेवाएँ और ऑनलाइन बुकिंग संबंधी सहायता प्राप्त करें। तारीख, प्रक्रिया और शुभ मुहूर्त की पुष्टि के लिए संपर्क करें। पं. दीपक शर्मा (+91 72230 83313)।",
+    "माँ बगलामुखी पूजा और हवन की जानकारी, उपलब्ध सेवाएँ और ऑनलाइन बुकिंग संबंधी सहायता प्राप्त करें। तारीख, प्रक्रिया और शुभ मुहूर्त की पुष्टि के लिए संपर्क करें। पं. दीपक शर्मा (+91 72240 83313)।",
   keywords: [
     "Maa Baglamukhi Havan Booking in Nalkheda",
     "Maa Baglamukhi Temple Nalkheda",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     "Pt Deepak Sharma Nalkheda",
     "Tantra Puja Nalkheda",
     "Shatru Badha Nivaran",
-    "7223083313",
+    "7224083313",
     "9575664204",
   ],
   authors: [{ name: "Acharya Pt. Deepak Sharma - Chief Purohit Nalkheda" }],

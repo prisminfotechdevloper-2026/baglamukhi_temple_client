@@ -236,7 +236,7 @@ P0 — Resolve trust and factual-claim risks
 - Temple history and status statements such as “महाभारत कालीन”, “विश्व प्रसिद्ध”, “अद्वितीय” should be sourced or written as traditional belief/history with careful wording. Do not state uncertain religious history as independently verified fact.
 - Confirm darshan/arti times, festival hours, travel distances, location and all listed contact details with the client or an official source. Do not silently assume that the temple schedule is always current.
 P0 — Fix contact consistency
-- The page shows +91 72230 83313 for general puja/contact and +91 95756 64204 for kundali/rashi consultation. Confirm that both numbers are correct, active, and intentionally assigned to different services. Keep labels consistent across hero, service cards, footer, and WhatsApp links.
+- The page shows +91 72240 83313 for general puja/contact and +91 95756 64204 for kundali/rashi consultation. Confirm that both numbers are correct, active, and intentionally assigned to different services. Keep labels consistent across hero, service cards, footer, and WhatsApp links.
 - Test every wa.me link and its prefilled message. Use international digits only in the URL and URL-encode message text. Ensure the visible number and destination number match.
 - Confirm the displayed email and Instagram profile are controlled by the client and are intended for public use.
 P1 — Reduce homepage overload and repeated content

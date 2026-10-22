@@ -39,7 +39,7 @@ const thumb = (id: string) => `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
 const DARSHAN_VIDEOS: DarshanVideoItem[] = [
   {
     id: "uq7Jn39CM5U",
-    title: "हवन के लिए संपर्क करें 📞7223083313 Maa Baglamukhi Mandir Nalkheda",
+    title: "हवन के लिए संपर्क करें 📞7224083313 Maa Baglamukhi Mandir Nalkheda",
     desc: "माँ बगलामुखी सिद्धपीठ नलखेड़ा में विधि-विधान से संपन्न शत्रु बाधा निवारण व कार्य सिद्धि महाहवन की दिव्य झलक।",
     category: "माँ बगलामुखी महाहवन",
     group: "हवन",
@@ -49,7 +49,7 @@ const DARSHAN_VIDEOS: DarshanVideoItem[] = [
   },
   {
     id: "qw0geTVehC0",
-    title: "गुप्त नवरात्रि हवन के लिए संपर्क करें पंडित दीपक शर्मा 📞7223083313",
+    title: "गुप्त नवरात्रि हवन के लिए संपर्क करें पंडित दीपक शर्मा 📞7224083313",
     desc: "गुप्त नवरात्रि के पावन पर्व पर माँ पीताम्बरा के सवा लाख जप अनुष्ठान एवं विशेष तांत्रिक आहुति दर्शन।",
     category: "गुप्त नवरात्रि विशेष",
     group: "नवरात्रि",
@@ -59,7 +59,7 @@ const DARSHAN_VIDEOS: DarshanVideoItem[] = [
   },
   {
     id: "pnslNXdbfWY",
-    title: "हवन के लिए संपर्क करें 📞7223083313 MAA BAGLAMUKHI MANDIR NALKHEDA",
+    title: "हवन के लिए संपर्क करें 📞7224083313 MAA BAGLAMUKHI MANDIR NALKHEDA",
     desc: "यजमानों के नाम-गोत्र संकल्प सहित वैदिक ब्राह्मणों द्वारा संपन्न अखंड हवन कुंड की पावन आहुतियां।",
     category: "संकल्प सिद्धि हवन",
     group: "हवन",
@@ -69,7 +69,7 @@ const DARSHAN_VIDEOS: DarshanVideoItem[] = [
   },
   {
     id: "3IKA30yn8AY",
-    title: "Contact Pandit Deepak Sharma at 7223083313 for Baglamukhi Havan in Nalkheda",
+    title: "Contact Pandit Deepak Sharma at 7224083313 for Baglamukhi Havan in Nalkheda",
     desc: "आचार्य पं. दीपक शर्मा जी के सानिध्य में नलखेड़ा पीठ पर महायज्ञ एवं पूर्णाहूति का पावन क्षण।",
     category: "वैदिक कर्मकाण्ड",
     group: "हवन",
@@ -79,7 +79,7 @@ const DARSHAN_VIDEOS: DarshanVideoItem[] = [
   },
   {
     id: "Y0YmOlfQT6I",
-    title: "हवन के लिए संपर्क करें 📞7223083313 MAA BAGLAMUKHI MANDIR NALKHEDA",
+    title: "हवन के लिए संपर्क करें 📞7224083313 MAA BAGLAMUKHI MANDIR NALKHEDA",
     desc: "मंगलवार एवं शनिवार विशेष माँ बगलामुखी हवन एवं पीताम्बरी वस्त्र-हल्दी आहुति अनुष्ठान।",
     category: "माँ बगलामुखी दिव्य दर्शन",
     group: "हवन",
@@ -129,7 +129,7 @@ const DARSHAN_VIDEOS: DarshanVideoItem[] = [
   },
   {
     id: "lEQ9EuAa3Ss",
-    title: "Maa Baglamukhi Mandir Nalkheda 7223083313",
+    title: "Maa Baglamukhi Mandir Nalkheda 7224083313",
     desc: "पंडित दीपक शर्मा जी से हवन, अनुष्ठान व कुंडली परामर्श हेतु संपर्क एवं मार्ग दर्शन।",
     category: "पंडित जी परामर्श एवं बुकिंग",
     group: "परामर्श",

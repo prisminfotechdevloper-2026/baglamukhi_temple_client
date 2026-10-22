@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     "Lab Certified Rudraksha",
     "Pandit Deepak Sharma Nalkheda",
     "Baglamukhi Mandir Rudraksha",
-    "7223083313",
+    "7224083313",
   ],
   alternates: {
     canonical: "https://baglamukhi-temple-hazel.vercel.app/rudraksha",

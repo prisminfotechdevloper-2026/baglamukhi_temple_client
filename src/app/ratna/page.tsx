@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     "Astrological Gemstones India",
     "Pandit Deepak Sharma Nalkheda",
     "Baglamukhi Mandir Ratna",
-    "7223083313",
+    "7224083313",
   ],
   alternates: {
     canonical: "https://baglamukhi-temple-hazel.vercel.app/ratna",

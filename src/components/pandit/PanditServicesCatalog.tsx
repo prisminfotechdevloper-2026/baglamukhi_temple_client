@@ -333,7 +333,7 @@ export default function PanditServicesCatalog() {
   ];
 
   const handleWhatsAppBooking = (serviceTitle: string) => {
-    // Phone 1 (+91 72230 83313) -> Hawan / Puja inquiries
+    // Phone 1 (+91 72240 83313) -> Hawan / Puja inquiries
     // Phone 2 (+91 95756 64204) -> Kundali / Jyotish / Rashi inquiries
     const isKundaliOrJyotish = /kundali|jyotish|rashi|पत्रिका|कुंडली|ज्योतिष|horoscope|birth\s*chart/i.test(serviceTitle);
     const targetPhone = isKundaliOrJyotish ? siteConfig.contact.phone2Raw : siteConfig.contact.phone1Raw;

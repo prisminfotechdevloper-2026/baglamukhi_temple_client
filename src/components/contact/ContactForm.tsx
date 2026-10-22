@@ -182,7 +182,7 @@ export default function ContactForm() {
     text += `पंडित दीपक शर्मा जी, कृपया मार्गदर्शन प्रदान करें।`;
 
     // Routing Logic:
-    // Phone 1 (+91 72230 83313) -> Hawan / Puja inquiries
+    // Phone 1 (+91 72240 83313) -> Hawan / Puja inquiries
     // Phone 2 (+91 95756 64204) -> Kundali / Jyotish inquiries
     const targetPhone = isHawan ? siteConfig.contact.phone1Raw : siteConfig.contact.phone2Raw;
     const whatsappUrl = getWhatsAppUrl(targetPhone, text);
@@ -426,8 +426,8 @@ export default function ContactForm() {
             </span>
             <p className="text-amber-900 mt-0.5">
               {t({
-                hi: `व्हाट्सएप खुल रहा है... यदि नहीं खुला, तो सीधे नंबर ${queryType === "hawan_puja" ? "+91 72230 83313" : "+91 95756 64204"} पर संदेश भेजें।`,
-                en: `Opening WhatsApp... If it does not open, please message directly to ${queryType === "hawan_puja" ? "+91 72230 83313" : "+91 95756 64204"}.`,
+                hi: `व्हाट्सएप खुल रहा है... यदि नहीं खुला, तो सीधे नंबर ${queryType === "hawan_puja" ? "+91 72240 83313" : "+91 95756 64204"} पर संदेश भेजें।`,
+                en: `Opening WhatsApp... If it does not open, please message directly to ${queryType === "hawan_puja" ? "+91 72240 83313" : "+91 95756 64204"}.`,
               })}
             </p>
           </div>
@@ -684,14 +684,14 @@ export default function ContactForm() {
 
           {/* Direct Call Button (Temple Maroon with Gold Border & Dynamic Phone Routing) */}
           <a
-            href={`tel:+${queryType === "hawan_puja" ? "917223083313" : "919575664204"}`}
+            href={`tel:+${queryType === "hawan_puja" ? "917224083313" : "919575664204"}`}
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-[#7A0008] via-[#8B0000] to-[#600202] hover:from-[#600202] hover:to-[#450101] text-white text-sm font-bold shadow-md hover:shadow-lg transition-transform duration-200 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer border border-amber-400/50"
           >
             <PhoneCall className="h-4 w-4 text-amber-300" />
             <span>
               {t({
-                hi: `सीधा कॉल करें (${queryType === "hawan_puja" ? "+91 72230 83313" : "+91 95756 64204"})`,
-                en: `Call Directly (${queryType === "hawan_puja" ? "+91 72230 83313" : "+91 95756 64204"})`,
+                hi: `सीधा कॉल करें (${queryType === "hawan_puja" ? "+91 72240 83313" : "+91 95756 64204"})`,
+                en: `Call Directly (${queryType === "hawan_puja" ? "+91 72240 83313" : "+91 95756 64204"})`,
               })}
             </span>
           </a>

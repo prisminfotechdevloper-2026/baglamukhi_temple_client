@@ -252,10 +252,10 @@ export default function Footer() {
               <div className="flex items-center gap-2 pt-1">
                 <Phone className="h-4 w-4 text-amber-400 shrink-0" />
                 <a
-                  href="tel:+917223083313"
+                  href="tel:+917224083313"
                   className="text-amber-200 hover:text-white transition-colors font-bold text-xs"
                 >
-                  +91 72230 83313 {t({ hi: "(हवन व पूजा बुकिंग)", en: "(Hawan & Puja Booking)" })}
+                  +91 72240 83313 {t({ hi: "(हवन व पूजा बुकिंग)", en: "(Hawan & Puja Booking)" })}
                 </a>
               </div>
 
@@ -286,7 +286,7 @@ export default function Footer() {
               {/* Instant WhatsApp */}
               <div className="pt-1">
                 <a
-                  href="https://wa.me/917223083313?text=जय%20माँ%20बगलामुखी!%20पंडित%20जी%2C%20मुझे%20हवन%20व%20पूजा%20अनुष्ठान%20की%20जानकारी%20चाहिए।"
+                  href="https://wa.me/917224083313?text=जय%20माँ%20बगलामुखी!%20पंडित%20जी%2C%20मुझे%20हवन%20व%20पूजा%20अनुष्ठान%20की%20जानकारी%20चाहिए।"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#8B0000] via-[#AF0807] to-[#7A0505] hover:brightness-110 border border-amber-400/50 px-3.5 py-2.5 text-xs font-bold text-white shadow-md transition-colors w-full justify-center group"

@@ -11,13 +11,13 @@ export const siteConfig = {
   location: "लखुंदर नदी तट, नलखेड़ा धाम, आगर-मालवा (म.प्र.) - 465445",
 
   contact: {
-    primaryPhone: "7223083313",
-    primaryPhoneFormatted: "+91 72230 83313",
+    primaryPhone: "7224083313",
+    primaryPhoneFormatted: "+91 72240 83313",
     kundaliPhone: "9575664204",
     kundaliPhoneFormatted: "+91 95756 64204",
-    phone1: "+91 72230 83313",
+    phone1: "+91 72240 83313",
     phone2: "+91 95756 64204",
-    phone1Raw: "7223083313",
+    phone1Raw: "7224083313",
     phone2Raw: "9575664204",
     email: "shribaglamukhimandirnalkheda@gmail.com",
     address: {
@@ -51,7 +51,7 @@ export function getWhatsAppUrl(
   arg1: string,
   arg2?: "primary" | "kundali" | string
 ): string {
-  // If arg1 is a phone number (e.g. "917223083313" or "7223083313") and arg2 is message
+  // If arg1 is a phone number (e.g. "917224083313" or "7224083313") and arg2 is message
   if (arg1 === "primary" || arg1 === "kundali" || /^\d+$/.test(arg1)) {
     const rawDigits = arg1.replace(/^91/, "");
     const phone = (rawDigits === siteConfig.contact.kundaliPhone || arg1 === "kundali")

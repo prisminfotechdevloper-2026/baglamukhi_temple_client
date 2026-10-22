@@ -86,14 +86,14 @@ export default function MandirHero({
         {/* Quick Action CTAs */}
         <div className="mt-5 sm:mt-6 flex flex-wrap items-center gap-3">
           <a
-            href="tel:+917223083313"
+            href="tel:+917224083313"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#AF0807] via-[#940706] to-[#7A0505] hover:from-[#940706] hover:to-[#600303] text-white text-xs sm:text-sm font-bold shadow-2xl border border-amber-400/70 hover:border-amber-300 transition-transform duration-200 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
           >
             <PhoneCall className="h-4 w-4 text-amber-300" />
             <span>
               {t({
-                hi: "दर्शन व पूजा मार्गदर्शन (+91 72230 83313)",
-                en: "Darshan & Puja Guidance (+91 72230 83313)",
+                hi: "दर्शन व पूजा मार्गदर्शन (+91 72240 83313)",
+                en: "Darshan & Puja Guidance (+91 72240 83313)",
               })}
             </span>
           </a>

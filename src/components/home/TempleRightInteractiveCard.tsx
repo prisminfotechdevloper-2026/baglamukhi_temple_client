@@ -349,7 +349,6 @@ export default function TempleRightInteractiveCard() {
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
             className="object-contain relative z-10 p-1.5 transition-colors duration-300"
-            priority
           />
 
           {/* Left Navigation Arrow */}

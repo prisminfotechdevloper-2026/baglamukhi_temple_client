@@ -141,7 +141,6 @@ export default function PanditProfileSection() {
                   fill
                   sizes="(max-width: 768px) 100vw, 420px"
                   className="object-cover object-top transition-transform duration-700 hover:scale-105"
-                  priority
                 />
 
                 {/* Subtle Gradient for contrast */}

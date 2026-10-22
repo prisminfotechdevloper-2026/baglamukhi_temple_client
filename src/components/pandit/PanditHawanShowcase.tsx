@@ -105,7 +105,6 @@ export default function PanditHawanShowcase() {
                     alt={t(item.title)}
                     fill
                     unoptimized
-                    priority
                     sizes="(max-width: 768px) 100vw, 650px"
                     className={`w-full h-full object-cover ${item.objectPosition} group-hover:scale-105 transition-transform duration-700`}
                   />

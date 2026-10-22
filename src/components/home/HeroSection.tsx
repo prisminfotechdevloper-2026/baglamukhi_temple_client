@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image, { getImageProps } from "next/image";
 import Link from "next/link";
 import {
   CalendarCheck,
@@ -104,31 +104,33 @@ const crisisBadges = [
 export default function HeroSection() {
   const { t } = useLanguage();
 
+  const commonBg = { alt: "श्री माँ बगलामुखी मंदिर गर्भगृह", fill: true };
+  const {
+    props: { srcSet: desktopBgSrcSet },
+  } = getImageProps({
+    ...commonBg,
+    src: "/images/hero-desktop.png",
+  });
+  const {
+    props: { srcSet: mobileBgSrcSet, ...mobileBgRest },
+  } = getImageProps({
+    ...commonBg,
+    src: "/images/hero-mobile.png",
+  });
+
   return (
     <section className="relative w-full flex items-center justify-center overflow-hidden py-5 sm:py-7 lg:py-10 min-h-[85vh] lg:min-h-[90vh]">
-      {/* ================= 1. SCREEN-COMPATIBLE RESPONSIVE BACKGROUNDS ================= */}
-      {/* Mobile Screen Portrait Background */}
-      <div className="absolute inset-0 block md:hidden z-0 overflow-hidden">
-        <Image
-          src="/images/hero-mobile.png"
-          alt="श्री माँ बगलामुखी मंदिर गर्भगृह"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center"
-        />
-      </div>
-
-      {/* Large Screen Landscape Background */}
-      <div className="absolute inset-0 hidden md:block z-0 overflow-hidden">
-        <Image
-          src="/images/hero-desktop.png"
-          alt="श्री माँ बगलामुखी मंदिर गर्भगृह"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center"
-        />
+      {/* ================= 1. SCREEN-COMPATIBLE RESPONSIVE BACKGROUND ================= */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <picture className="h-full w-full">
+          <source media="(min-width: 768px)" srcSet={desktopBgSrcSet} />
+          <source media="(max-width: 767px)" srcSet={mobileBgSrcSet} />
+          <img
+            {...mobileBgRest}
+            alt="श्री माँ बगलामुखी मंदिर गर्भगृह"
+            className="h-full w-full object-cover object-center"
+          />
+        </picture>
       </div>
 
       {/* ================= 2. CONTENT LAYER ================= */}
@@ -302,7 +304,6 @@ export default function HeroSection() {
                   src="/images/baglamukhi-logo.png"
                   alt="माँ बगलामुखी दिव्य स्वरूप"
                   fill
-                  priority
                   sizes="(max-width: 1280px) 380px, 440px"
                   className="object-contain drop-shadow-[0_16px_36px_rgba(0,0,0,0.8)] drop-shadow-[0_0_35px_rgba(216,155,24,0.45)] select-none"
                 />
@@ -571,7 +572,6 @@ export default function HeroSection() {
                   src="/images/baglamukhi-logo.png"
                   alt="माँ बगलामुखी दिव्य स्वरूप"
                   fill
-                  priority
                   sizes="(max-width: 640px) 280px, 320px"
                   className="w-full h-full object-contain filter drop-shadow-[0_16px_36px_rgba(0,0,0,0.8)] drop-shadow-[0_0_35px_rgba(216,155,24,0.45)] select-none"
                 />

@@ -29,7 +29,7 @@ export default function GalleryHeader() {
             </span>
           </div>
 
-          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-black text-[#3E0B02] tracking-tight leading-tight">
+          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-black text-[#3E0B02] tracking-tight leading-snug pt-1">
             श्री माँ बगलामुखी मंदिर एवं महाहवन गैलरी
           </h1>
 

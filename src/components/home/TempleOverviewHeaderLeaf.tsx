@@ -16,7 +16,7 @@ export default function TempleOverviewHeaderLeaf() {
           })}
         </span>
       </div>
-      <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-black text-[#4A0C16] tracking-tight leading-tight">
+      <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-black text-[#4A0C16] tracking-tight leading-snug pt-1">
         {t({
           hi: "मंदिर दर्शन परिचय एवं आरती समय सारिणी",
           en: "Temple Darshan Overview & Daily Aarti Schedule",

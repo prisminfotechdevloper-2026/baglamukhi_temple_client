@@ -68,7 +68,7 @@ export default function MandirHero({
         </div>
 
         {/* Main Heading */}
-        <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight drop-shadow-[0_4px_18px_rgba(0,0,0,0.95)] max-w-4xl">
+        <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.25] pt-1.5 pb-1 drop-shadow-[0_4px_18px_rgba(0,0,0,0.95)] max-w-4xl">
           {title}
         </h1>
 

@@ -152,15 +152,15 @@ export default function HeroSection() {
               </span>
             </div>
 
-            {/* Main Headings (Single wide lines) */}
-            <h1 className="font-serif text-3xl lg:text-[42px] xl:text-[46px] font-extrabold text-white tracking-tight leading-[1.25] pt-0.5 drop-shadow-[0_4px_14px_rgba(0,0,0,0.85)]">
-              <span className="block">
+            {/* Main Headings (Single wide lines with generous Devanagari line-height) */}
+            <h1 className="font-serif text-3xl lg:text-[42px] xl:text-[46px] font-extrabold text-white tracking-tight leading-[1.3] lg:leading-[1.35] pt-1.5 pb-1 drop-shadow-[0_4px_14px_rgba(0,0,0,0.85)]">
+              <span className="block leading-snug pb-1">
                 {t({
                   hi: "श्री माँ बगलामुखी दिव्य धाम",
                   en: "Shri Maa Baglamukhi Divya Dham",
                 })}
               </span>
-              <span className="block mt-1 text-xl lg:text-[28px] xl:text-[32px] font-bold bg-gradient-to-r from-amber-200 via-yellow-400 to-amber-100 bg-clip-text text-transparent drop-shadow-[0_3px_8px_rgba(0,0,0,0.9)]">
+              <span className="block mt-2.5 sm:mt-3 lg:mt-3.5 text-xl lg:text-[28px] xl:text-[32px] font-bold text-amber-300 leading-normal pt-1 pb-0.5 drop-shadow-[0_3px_10px_rgba(0,0,0,0.95)]">
                 {t({
                   hi: "विश्व प्रसिद्ध सिद्ध शक्तिपीठ • नलखेड़ा",
                   en: "World-Renowned Siddha Shakti Peeth • Nalkheda",
@@ -346,21 +346,21 @@ export default function HeroSection() {
               </span>
             </div>
 
-            {/* 2. Title (Aligned in 2-3 lines on mobile) */}
-            <h1 className="font-serif tracking-tight mt-1 leading-[1.2]">
+            {/* 2. Title (Aligned in 2-3 lines on mobile with generous Devanagari space) */}
+            <h1 className="font-serif tracking-tight mt-2 leading-[1.3] pt-1">
               <div className="text-[clamp(22px,6.2vw,30px)] font-extrabold text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.85)]">
                 <span>{t({ hi: "श्री माँ ", en: "Shri Maa " })}</span>
-                <span className="bg-gradient-to-b from-[#FFE9A0] via-[#F6C445] to-[#C98A1B] bg-clip-text text-transparent font-black drop-shadow-[0_4px_14px_rgba(0,0,0,0.55)]">
+                <span className="text-amber-300 font-black drop-shadow-[0_4px_14px_rgba(0,0,0,0.55)]">
                   {t({ hi: "बगलामुखी", en: "Baglamukhi" })}
                 </span>
-                <span className="block text-white mt-0.5">
+                <span className="block text-white mt-1.5 pb-0.5">
                   {t({ hi: "दिव्य धाम", en: "Divya Dham" })}
                 </span>
               </div>
             </h1>
 
             {/* 3. Subtitle (Single combined line) */}
-            <div className="mt-1 font-serif font-semibold text-xs text-stone-200 flex flex-wrap items-center gap-1.5 leading-snug drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
+            <div className="mt-2.5 font-serif font-semibold text-xs sm:text-sm text-amber-200 flex flex-wrap items-center gap-1.5 leading-normal pt-1 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
               <span>
                 {t({
                   hi: "विश्व प्रसिद्ध सिद्ध शक्तिपीठ • नलखेड़ा",

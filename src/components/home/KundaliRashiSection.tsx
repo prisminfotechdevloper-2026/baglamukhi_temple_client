@@ -138,7 +138,7 @@ export default function KundaliRashiSection() {
             </span>
           </div>
 
-          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#4A0C16] tracking-tight leading-tight mb-2.5">
+          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#4A0C16] tracking-tight leading-snug pt-1 mb-2.5">
             {t({
               hi: "12 राशियां, जन्म कुंडली फलादेश एवं ग्रह दोष शांति",
               en: "12 Rashis, Janam Kundali Analysis & Planetary Shanti",

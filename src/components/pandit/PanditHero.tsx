@@ -99,7 +99,7 @@ export default function PanditHero() {
               </span>
             </div>
 
-            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-black text-[#3E0B02] tracking-tight leading-tight">
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-black text-[#3E0B02] tracking-tight leading-snug pt-1">
               {t({ hi: "पंडित दीपक शर्मा", en: "Pandit Deepak Sharma" })}
             </h1>
             

@@ -35,7 +35,7 @@ export default function DarshanVideoHeaderLeaf() {
           })}
         </span>
       </div>
-      <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-black text-[#4A0C16] tracking-tight leading-tight">
+      <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-black text-[#4A0C16] tracking-tight leading-snug pt-1">
         {t({
           hi: "दिव्य अनुष्ठान एवं हवन दर्शन इन मोशन",
           en: "Sacred Hawan & Darshan in Motion",

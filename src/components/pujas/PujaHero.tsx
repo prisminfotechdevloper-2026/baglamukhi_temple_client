@@ -54,7 +54,7 @@ export default function PujaHero() {
               </span>
             </div>
 
-            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-black text-[#3E0B02] tracking-tight leading-tight mb-3">
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-black text-[#3E0B02] tracking-tight leading-snug pt-1 mb-3">
               {t({
                 hi: "माँ बगलामुखी महाहवन, तांत्रिक अनुष्ठान एवं अखंड जाप",
                 en: "Maa Baglamukhi Mahahawan, Tantric Anushthan & Akhand Jaap",

@@ -109,7 +109,7 @@ export default function PanditProfileSection() {
               })}
             </span>
           </div>
-          <h2 className="font-serif text-3xl font-black text-[#4A0C16] tracking-tight leading-tight">
+          <h2 className="font-serif text-3xl font-black text-[#4A0C16] tracking-tight leading-snug pt-1">
             {t({
               hi: "आचार्य पं. दीपक शर्मा जी",
               en: "Acharya Pt. Deepak Sharma Ji",
@@ -204,7 +204,7 @@ export default function PanditProfileSection() {
                   })}
                 </span>
               </div>
-              <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-black text-[#4A0C16] tracking-tight leading-tight mt-1 mb-1.5">
+              <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-black text-[#4A0C16] tracking-tight leading-snug pt-1 mt-1 mb-1.5">
                 {t({
                   hi: "आचार्य पं. दीपक शर्मा",
                   en: "Acharya Pt. Deepak Sharma",

@@ -79,7 +79,7 @@ export default function RatnaHero() {
           <h1 className="font-serif text-2xl xs:text-3xl sm:text-4xl lg:text-[44px] xl:text-[50px] font-black text-[#3B1E08] leading-[1.12] tracking-tight">
             Original Ratna
           </h1>
-          <h2 className="font-serif text-xl xs:text-2xl sm:text-3xl lg:text-[34px] xl:text-[36px] font-bold text-[#3B1E08] leading-tight mt-0.5 mb-2 sm:mb-3">
+          <h2 className="font-serif text-xl xs:text-2xl sm:text-3xl lg:text-[34px] xl:text-[36px] font-bold text-[#3B1E08] leading-snug pt-0.5 mt-1.5 mb-2 sm:mb-3">
             — असली रत्न (Gemstones) —
           </h2>
 

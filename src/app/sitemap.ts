@@ -18,7 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.95,
     },
     {
-      url: `${baseUrl}/pujas`,
+      url: `${baseUrl}/puja`,
       lastModified: currentDate,
       changeFrequency: "daily" as const,
       priority: 0.95,

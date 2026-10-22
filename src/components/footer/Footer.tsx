@@ -26,7 +26,7 @@ export default function Footer() {
   const quickLinks = [
     { label: { hi: "मुख्य पृष्ठ", en: "Home" }, href: "/" },
     { label: { hi: "आचार्य पं. दीपक शर्मा", en: "About Pandit Ji" }, href: "/pandit-ji" },
-    { label: { hi: "पूजा एवं अनुष्ठान", en: "Pujas & Hawan" }, href: "/pujas" },
+    { label: { hi: "पूजा एवं अनुष्ठान", en: "Puja & Hawan" }, href: "/puja" },
     { label: { hi: "मंदिर का इतिहास", en: "Mandir History" }, href: "/mandir" },
     { label: { hi: "सिद्ध रुद्राक्ष संग्रह", en: "Rudraksha Collection" }, href: "/rudraksha" },
     { label: { hi: "प्रमाणित रत्न संग्रह", en: "Certified Gemstones" }, href: "/ratna" },
@@ -190,7 +190,7 @@ export default function Footer() {
 
             <div className="mt-3">
               <Link
-                href="/pujas"
+                href="/puja"
                 className="inline-flex items-center gap-2 text-xs font-bold text-amber-300 hover:text-amber-100 transition-colors"
               >
                 <CalendarCheck className="h-3.5 w-3.5" />

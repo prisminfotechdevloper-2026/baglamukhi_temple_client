@@ -37,6 +37,11 @@ const nextConfig: NextConfig = {
         destination: "/ratna",
         permanent: true,
       },
+      {
+        source: "/pujas",
+        destination: "/puja",
+        permanent: true,
+      },
     ];
   },
 };

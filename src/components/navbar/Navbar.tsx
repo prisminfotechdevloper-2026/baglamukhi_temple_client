@@ -9,10 +9,8 @@ import NavbarCtaLeaf from "./NavbarCtaLeaf";
 const navItems: NavItem[] = [
   { label: { hi: "मुख्य पृष्ठ", en: "Home" }, href: "/" },
   { label: { hi: "पंडित जी", en: "About" }, href: "/pandit-ji" },
-  { label: { hi: "पूजा", en: "Puja" }, href: "/pujas" },
+  { label: { hi: "पूजा", en: "Puja" }, href: "/puja" },
   { label: { hi: "मंदिर", en: "Mandir" }, href: "/mandir" },
-  { label: { hi: "रुद्राक्ष", en: "Rudraksha" }, href: "/rudraksha" },
-  { label: { hi: "रत्न", en: "Ratna" }, href: "/ratna" },
   { label: { hi: "गैलरी", en: "Gallery" }, href: "/gallery" },
   { label: { hi: "संपर्क", en: "Contact" }, href: "/contact" },
 ];

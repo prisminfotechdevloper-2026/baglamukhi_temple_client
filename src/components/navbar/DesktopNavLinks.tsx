@@ -18,7 +18,7 @@ export default function DesktopNavLinks({ items }: DesktopNavLinksProps) {
   const { t } = useLanguage();
 
   return (
-    <ul className="flex items-center gap-0.5 xl:gap-1.5">
+    <ul className="flex items-center gap-1 xl:gap-2">
       {items.map((item) => {
         const isActive = pathname === item.href;
         const displayLabel = t(item.label);
@@ -27,11 +27,11 @@ export default function DesktopNavLinks({ items }: DesktopNavLinksProps) {
           <li key={item.href}>
             <Link
               href={item.href}
-              className="group relative flex flex-col items-center px-2 xl:px-3 py-1.5 text-center transition-colors focus:outline-hidden whitespace-nowrap"
+              className="group relative flex flex-col items-center px-2.5 xl:px-3.5 py-1.5 text-center transition-colors focus:outline-hidden whitespace-nowrap"
             >
-              {/* Primary Label - Sized for 8 nav links */}
+              {/* Primary Label */}
               <span
-                className={`text-[13px] xl:text-[14.5px] leading-tight transition-colors duration-200 tracking-normal ${
+                className={`text-[13.5px] xl:text-[15px] leading-tight transition-colors duration-200 tracking-normal ${
                   isActive
                     ? "font-bold text-[#AF0807]"
                     : "font-semibold text-stone-800 group-hover:text-[#AF0807]"

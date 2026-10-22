@@ -28,7 +28,7 @@ export const metadata: Metadata = {
       "पूजा एवं महाहवन बुकिंग | श्री माँ बगलामुखी मंदिर नलखेड़ा - 16+ शास्त्रोक्त अनुष्ठान",
     description:
       "माँ बगलामुखी सिद्धपीठ नलखेड़ा में 16+ विशिष्ट तांत्रिक-वैदिक महाहवन, सवा लाख अखंड जाप एवं दोष निवारण अनुष्ठान। व्यक्तिगत व लाइव वीडियो संकल्प।",
-    url: "https://baglamukhi-temple-hazel.vercel.app/pujas",
+    url: "https://baglamukhi-temple-hazel.vercel.app/puja",
     type: "website",
     locale: "hi_IN",
     images: [
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: "https://baglamukhi-temple-hazel.vercel.app/pujas",
+    canonical: "https://baglamukhi-temple-hazel.vercel.app/puja",
   },
 };
 

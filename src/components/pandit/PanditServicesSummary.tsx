@@ -178,7 +178,7 @@ export default function PanditServicesSummary() {
           </div>
 
           <Link
-            href="/pujas"
+            href="/puja"
             className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-[#AF0807] via-[#940706] to-[#7A0505] hover:from-[#940706] hover:to-[#600303] text-white text-xs sm:text-sm font-bold shadow-xl border border-amber-400/80 hover:border-amber-300 transition-colors shrink-0 hover:scale-[1.02] active:scale-[0.98]"
           >
             <span>{t({ hi: "सभी 16+ अनुष्ठानों का विवरण देखें", en: "Explore Full 16+ Puja Catalog" })}</span>

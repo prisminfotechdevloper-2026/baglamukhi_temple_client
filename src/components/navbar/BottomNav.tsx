@@ -5,9 +5,8 @@ import { usePathname } from "next/navigation";
 import {
   Home,
   CalendarCheck,
-  Sparkles,
-  Gem,
   Landmark,
+  Camera,
   Phone,
 } from "lucide-react";
 import { useLanguage, TranslationPair } from "@/context/LanguageContext";
@@ -20,10 +19,9 @@ interface BottomNavItem {
 
 const navItems: BottomNavItem[] = [
   { label: { hi: "होम", en: "Home" }, href: "/", icon: Home },
-  { label: { hi: "पूजा", en: "Puja" }, href: "/pujas", icon: CalendarCheck },
-  { label: { hi: "रुद्राक्ष", en: "Rudraksha" }, href: "/rudraksha", icon: Sparkles },
-  { label: { hi: "रत्न", en: "Ratna" }, href: "/ratna", icon: Gem },
+  { label: { hi: "पूजा", en: "Puja" }, href: "/puja", icon: CalendarCheck },
   { label: { hi: "मंदिर", en: "Mandir" }, href: "/mandir", icon: Landmark },
+  { label: { hi: "गैलरी", en: "Gallery" }, href: "/gallery", icon: Camera },
   { label: { hi: "संपर्क", en: "Contact" }, href: "/contact", icon: Phone },
 ];
 

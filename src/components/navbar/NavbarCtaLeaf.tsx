@@ -9,7 +9,7 @@ export default function NavbarCtaLeaf() {
 
   return (
     <Link
-      href="/pujas"
+      href="/puja"
       className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#AF0807] via-[#960706] to-[#730501] px-5 xl:px-6 py-2.5 text-sm xl:text-[15px] font-bold text-white shadow-md shadow-red-900/20 hover:shadow-lg hover:shadow-red-900/30 border border-amber-400/40 hover:scale-[1.02] active:scale-[0.98] transition-transform duration-200 focus:outline-hidden whitespace-nowrap"
     >
       <CalendarCheck className="h-4 w-4 xl:h-5 xl:w-5 text-amber-300" />

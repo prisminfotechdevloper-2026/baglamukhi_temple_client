@@ -101,7 +101,7 @@ export default function SacredSiddhiBar() {
             return (
               <Link
                 key={item.id}
-                href="/pujas"
+                href="/puja"
                 className="flex flex-col items-center group cursor-pointer w-[31%] xs:w-[31%] sm:w-[22%] lg:w-[11.2%] max-w-[125px] transition-transform duration-300"
               >
                 {/* Round Medallion */}

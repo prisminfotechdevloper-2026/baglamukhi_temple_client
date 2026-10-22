@@ -37,7 +37,7 @@ export default function Footer() {
       <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-amber-400 to-transparent opacity-80" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         {/* Top Sacred Mantra Ribbon */}
         <div className="text-center pb-8 border-b border-amber-900/40">
           <div className="inline-flex items-center gap-2 rounded-full bg-black/60 border border-amber-400/40 px-4 py-1 text-xs text-amber-300 mb-2.5 backdrop-blur-md">
@@ -59,7 +59,7 @@ export default function Footer() {
 
         {/* 4-Column Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 py-8">
-          
+
           {/* Column 1: Brand & Priest Info (lg:col-span-4) */}
           <div className="lg:col-span-4 flex flex-col items-start space-y-3.5">
             <div className="flex items-center gap-3">

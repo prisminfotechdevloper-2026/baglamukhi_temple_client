@@ -5,7 +5,6 @@ import KundaliRashiSection from "@/components/home/KundaliRashiSection";
 import TempleOverviewSection from "@/components/home/TempleOverviewSection";
 import DarshanVideoSection from "@/components/home/DarshanVideoSection";
 import PanditProfileSection from "@/components/home/PanditProfileSection";
-import RudrakshaRatnaSection from "@/components/home/RudrakshaRatnaSection";
 import PanditWelcomeDialog from "@/components/home/PanditWelcomeDialog";
 
 export const metadata: Metadata = {
@@ -149,10 +148,7 @@ export default function HomePage() {
         {/* 7. Chief Priest Acharya Pt. Deepak Sharma Profile & Credentials */}
         <PanditProfileSection />
 
-        {/* 8. Original Rudraksha & Navgraha Ratna Collection */}
-        <RudrakshaRatnaSection />
-
-        {/* 9. Pandit Ji Welcome Dialog (Triggered on Scroll) */}
+        {/* 7. Pandit Ji Welcome Dialog (Triggered on Scroll) */}
         <PanditWelcomeDialog />
       </main>
     </>

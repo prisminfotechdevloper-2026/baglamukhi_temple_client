@@ -103,7 +103,7 @@ export default function RudrakshaFeatureCardsLeaf() {
               hi: "रुद्राक्ष कलेक्शन पेज पर जाएं",
               en: "Go to Rudraksha collection page",
             })}
-            className={`absolute top-4 right-4 z-20 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#5A2C18] text-[#FFF9EE] shadow-lg border border-amber-300/40 hover:bg-[#431F10] active:scale-95 transition-[transform,background-color,opacity] duration-300 cursor-pointer group/arrow ${rudrakshaOpen ? "opacity-0 pointer-events-none" : "opacity-100"
+            className={`absolute top-4 right-4 z-20 flex h-11 w-11 xs:h-12 xs:w-12 items-center justify-center rounded-md bg-[#FFF9EE]/95 backdrop-blur-md text-[#5A2C18] shadow-md border border-[#E5D4BC] hover:bg-[#5A2C18] hover:text-[#FFF9EE] hover:border-transparent active:scale-95 transition-[transform,background-color,color,border-color,opacity] duration-300 cursor-pointer group/arrow ${rudrakshaOpen ? "opacity-0 pointer-events-none" : "opacity-100"
               }`}
           >
             <ArrowUpRight className="h-5 w-5 transition-transform duration-300 group-hover/arrow:translate-x-0.5 group-hover/arrow:-translate-y-0.5" />

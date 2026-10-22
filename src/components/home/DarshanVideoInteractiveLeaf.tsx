@@ -192,14 +192,14 @@ const PlaylistItem = memo(function PlaylistItem({
       type="button"
       onClick={() => onSelect(item)}
       aria-current={active}
-      className={`group flex w-full items-center gap-3.5 rounded-[20px] p-3 text-left transition-colors ${
+      className={`group flex w-full max-w-full min-w-0 items-center gap-2.5 sm:gap-3.5 rounded-[18px] sm:rounded-[20px] p-2.5 sm:p-3 text-left transition-colors ${
         active
           ? "border-2 border-[#D97706] bg-[#FFF4DB] shadow-md"
           : "border border-[#EBDCC2] bg-white hover:border-[#D97706]/60"
       }`}
     >
       {/* Thumbnail */}
-      <span className="relative block aspect-[16/10] w-28 shrink-0 overflow-hidden rounded-xl bg-black sm:w-36">
+      <span className="relative block aspect-[16/10] w-24 min-[400px]:w-28 sm:w-36 shrink-0 overflow-hidden rounded-xl bg-black">
         <img
           src={thumb(item.id)}
           alt=""
@@ -207,35 +207,35 @@ const PlaylistItem = memo(function PlaylistItem({
           className="h-full w-full object-cover"
         />
         <span className="absolute inset-0 grid place-items-center bg-black/25 transition-colors group-hover:bg-black/10">
-          <span className="grid h-8 w-8 place-items-center rounded-full bg-[#D97706] text-[#3B1E08]">
-            <Play className="h-3.5 w-3.5 fill-current" />
+          <span className="grid h-7 w-7 sm:h-8 sm:w-8 place-items-center rounded-full bg-[#D97706] text-[#3B1E08]">
+            <Play className="h-3 w-3 sm:h-3.5 sm:w-3.5 fill-current" />
           </span>
         </span>
-        <span className="absolute bottom-1.5 right-1.5 rounded bg-black/80 px-1.5 py-0.5 font-mono text-[10px] font-semibold text-white">
+        <span className="absolute bottom-1 right-1 sm:bottom-1.5 sm:right-1.5 rounded bg-black/80 px-1.5 py-0.5 font-mono text-[9px] sm:text-[10px] font-semibold text-white">
           {item.duration}
         </span>
       </span>
 
       {/* Text */}
-      <span className="min-w-0 flex-1">
-        <span className="flex items-center justify-between gap-2">
-          <span className="truncate text-[11px] font-bold tracking-wide text-[#8B0000]/80">
+      <span className="min-w-0 flex-1 overflow-hidden">
+        <span className="flex items-center justify-between gap-1.5 sm:gap-2">
+          <span className="truncate text-[10px] sm:text-[11px] font-bold tracking-wide text-[#8B0000]/80">
             {item.category}
           </span>
           {active && (
-            <span className="shrink-0 rounded-full bg-[#8B0000] px-2 py-0.5 text-[10px] font-extrabold text-white">
+            <span className="shrink-0 rounded-full bg-[#8B0000] px-2 py-0.5 text-[9px] sm:text-[10px] font-extrabold text-white">
               {activeLabel || "▶ सक्रिय"}
             </span>
           )}
         </span>
-        <span className="mt-1 line-clamp-2 block text-[13px] font-semibold leading-snug text-[#3B1E08] sm:text-sm">
+        <span className="mt-0.5 sm:mt-1 line-clamp-2 block text-xs sm:text-sm font-semibold leading-snug text-[#3B1E08]">
           {item.title}
         </span>
-        <span className="mt-1.5 flex items-center gap-1.5 text-[11px] text-[#5C3A21]/70">
-          <Flame className="h-3 w-3 text-[#8B0000]" />
-          {item.views} Views
+        <span className="mt-1 sm:mt-1.5 flex items-center gap-1.5 text-[10px] sm:text-[11px] text-[#5C3A21]/70">
+          <Flame className="h-3 w-3 shrink-0 text-[#8B0000]" />
+          <span>{item.views} Views</span>
           <span aria-hidden>•</span>
-          Video #{number}
+          <span>Video #{number}</span>
         </span>
       </span>
     </button>
@@ -304,7 +304,7 @@ export default function DarshanVideoInteractiveLeaf() {
 
   /* Active Video Info Card (Rendered under Player on desktop, and after Playlist on mobile) */
   const renderInfoCard = () => (
-    <div className="rounded-[24px] border border-[#E8D8B8] bg-white p-4 sm:p-5 shadow-[0_10px_30px_rgba(139,0,0,0.06)] max-w-full overflow-hidden">
+    <div className="w-full max-w-full overflow-hidden rounded-[20px] sm:rounded-[24px] border border-[#E8D8B8] bg-white p-3.5 sm:p-5 shadow-[0_10px_30px_rgba(139,0,0,0.06)]">
       {/* title row */}
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div className="min-w-0">
@@ -345,7 +345,7 @@ export default function DarshanVideoInteractiveLeaf() {
         {active.tags.map((tag) => (
           <span
             key={tag}
-            className="inline-flex items-center gap-1 rounded-full border border-[#E8D8B8] bg-[#FFFDF8] px-2.5 py-0.5 text-[11px] font-medium text-[#3B1E08]"
+            className="inline-flex items-center gap-1 rounded-full border border-[#E8D8B8] bg-[#FFFDF8] px-2.5 py-0.5 text-[10px] sm:text-[11px] font-medium text-[#3B1E08]"
           >
             <CheckCircle2 className="h-3 w-3 text-[#B45309]" />
             {tag}
@@ -365,7 +365,7 @@ export default function DarshanVideoInteractiveLeaf() {
         </p>
         <a
           href={`tel:+91${PHONE}`}
-          className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#8B0000] via-[#A51D1D] to-[#8B0000] px-5 py-2.5 text-xs sm:text-sm font-bold text-white shadow-md transition-colors hover:brightness-110 active:scale-95"
+          className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#8B0000] via-[#A51D1D] to-[#8B0000] px-5 py-2.5 text-xs sm:text-sm font-bold text-white shadow-md transition-colors hover:brightness-110 active:scale-95"
         >
           <PhoneCall className="h-3.5 w-3.5" />
           {t({
@@ -379,19 +379,16 @@ export default function DarshanVideoInteractiveLeaf() {
   );
 
   return (
-    <div className="w-full">
-      {/* ============ FILTER TABS + COUNTER ============ */}
-      
-
+    <div className="w-full max-w-full min-w-0">
       {/* ============ 2-COLUMN GRID (Sticky Left Player + Natural Right Playlist Scroll) ============ */}
-      <div className="grid items-start gap-6 lg:grid-cols-12 lg:gap-8">
+      <div className="grid w-full max-w-full min-w-0 items-start gap-6 lg:grid-cols-12 lg:gap-8">
         {/* ---------- LEFT: PLAYER + INFO (STICKY ON DESKTOP) ---------- */}
-        <div className="flex flex-col gap-4 lg:col-span-7 lg:sticky lg:top-24 lg:self-start">
+        <div className="flex w-full min-w-0 max-w-full flex-col gap-4 lg:col-span-7 lg:sticky lg:top-24 lg:self-start">
           {/* Player card */}
           <div
             ref={playerRef}
             id="darshan-video-player"
-            className="relative aspect-[4/5] min-h-[440px] sm:min-h-0 sm:aspect-video overflow-hidden rounded-[28px] bg-[#120B06] shadow-[0_20px_50px_rgba(139,0,0,0.2)] ring-1 ring-[#D4AF37]/50 sm:rounded-[32px] scroll-mt-24 sm:scroll-mt-28"
+            className="relative w-full max-w-full aspect-[4/5] sm:aspect-video overflow-hidden rounded-[24px] sm:rounded-[32px] bg-[#120B06] shadow-[0_20px_50px_rgba(139,0,0,0.2)] ring-1 ring-[#D4AF37]/50 scroll-mt-24 sm:scroll-mt-28"
           >
             {playing ? (
               <>
@@ -402,7 +399,7 @@ export default function DarshanVideoInteractiveLeaf() {
                   aria-hidden="true"
                   className="absolute inset-0 h-full w-full scale-125 object-cover opacity-40 blur-2xl"
                 />
-                <div className="absolute inset-y-0 left-1/2 aspect-[9/16] h-full -translate-x-1/2">
+                <div className="absolute inset-y-0 left-1/2 aspect-[9/16] h-full -translate-x-1/2 max-w-full">
                   <iframe
                     key={active.id}
                     src={embed(active.id, true)}
@@ -427,7 +424,7 @@ export default function DarshanVideoInteractiveLeaf() {
                 type="button"
                 onClick={() => setPlaying(true)}
                 aria-label={`चलाएं: ${active.title}`}
-                className="group absolute inset-0 block h-full w-full text-left cursor-pointer"
+                className="group absolute inset-0 block h-full w-full text-left cursor-pointer overflow-hidden"
               >
                 <img
                   src={thumb(active.id)}
@@ -437,36 +434,38 @@ export default function DarshanVideoInteractiveLeaf() {
                 <span className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-black/50" />
 
                 {/* top pills */}
-                <span className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/70 px-3 py-1.5 text-[11px] font-bold tracking-wider text-white backdrop-blur-md sm:left-5 sm:top-5">
-                  <YoutubeLogo />
-                  ASHTHAM MAHAVIDHYA
-                </span>
-                <span className="absolute right-4 top-4 inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-black/70 px-3 py-1.5 text-[11px] font-bold tracking-wider text-[#FBBF24] backdrop-blur-md sm:right-5 sm:top-5">
-                  <Flame className="h-3.5 w-3.5" />
-                  {active.views} VIEWS
-                </span>
+                <div className="absolute inset-x-0 top-0 flex items-center justify-between gap-2 p-3 sm:p-5">
+                  <span className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-white/10 bg-black/70 px-2.5 py-1 sm:px-3 sm:py-1.5 text-[10px] sm:text-[11px] font-bold tracking-wider text-white backdrop-blur-md">
+                    <YoutubeLogo className="h-3.5 w-3.5 shrink-0" />
+                    <span className="truncate max-w-[120px] sm:max-w-none">ASHTHAM MAHAVIDHYA</span>
+                  </span>
+                  <span className="inline-flex shrink-0 items-center gap-1 sm:gap-1.5 rounded-full border border-white/10 bg-black/70 px-2.5 py-1 sm:px-3 sm:py-1.5 text-[10px] sm:text-[11px] font-bold tracking-wider text-[#FBBF24] backdrop-blur-md">
+                    <Flame className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
+                    <span>{active.views} VIEWS</span>
+                  </span>
+                </div>
 
                 {/* center play */}
-                <span className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-                  <span className="grid h-16 w-16 place-items-center rounded-full bg-[#D97706] text-[#3B1E08] shadow-2xl ring-4 ring-white/25 transition-transform group-hover:scale-110 sm:h-[84px] sm:w-[84px]">
-                    <Play className="ml-1 h-7 w-7 fill-current sm:h-9 sm:w-9" />
+                <span className="absolute inset-0 flex flex-col items-center justify-center gap-2 sm:gap-3 pointer-events-none">
+                  <span className="grid h-14 w-14 sm:h-[84px] sm:w-[84px] place-items-center rounded-full bg-[#D97706] text-[#3B1E08] shadow-2xl ring-4 ring-white/25 transition-transform group-hover:scale-110">
+                    <Play className="ml-1 h-6 w-6 sm:h-9 sm:w-9 fill-current" />
                   </span>
-                  <span className="text-[11px] font-bold tracking-[0.2em] text-white/90 sm:text-xs">
+                  <span className="text-[10px] sm:text-xs font-bold tracking-[0.2em] text-white/90">
                     CLICK TO PLAY REEL
                   </span>
                 </span>
 
                 {/* bottom info */}
-                <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-4 sm:p-5">
-                  <span className="min-w-0">
-                    <span className="block truncate text-[11px] font-bold tracking-wide text-[#FBBF24]">
+                <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-3 sm:p-5">
+                  <span className="min-w-0 flex-1">
+                    <span className="block truncate text-[10px] sm:text-[11px] font-bold tracking-wide text-[#FBBF24]">
                       {active.category}
                     </span>
-                    <span className="mt-1 line-clamp-2 block font-serif text-base font-bold leading-snug text-white sm:text-xl">
+                    <span className="mt-0.5 sm:mt-1 line-clamp-2 block font-serif text-sm sm:text-xl font-bold leading-snug text-white">
                       {active.title}
                     </span>
                   </span>
-                  <span className="shrink-0 rounded-full border border-white/10 bg-black/70 px-2.5 py-1 font-mono text-[11px] font-semibold text-white">
+                  <span className="shrink-0 rounded-full border border-white/10 bg-black/70 px-2 sm:px-2.5 py-0.5 sm:py-1 font-mono text-[10px] sm:text-[11px] font-semibold text-white">
                     {active.duration}
                   </span>
                 </span>
@@ -475,27 +474,29 @@ export default function DarshanVideoInteractiveLeaf() {
           </div>
 
           {/* Info card (Desktop only: sticky alongside player) */}
-          <div className="hidden lg:block">
+          <div className="hidden lg:block w-full min-w-0 max-w-full">
             {renderInfoCard()}
           </div>
         </div>
 
         {/* ---------- RIGHT: PLAYLIST (All 10 videos scroll naturally with page) ---------- */}
-        <aside className="flex flex-col lg:col-span-5">
-          <div className="mb-4 flex items-center justify-between px-1">
-            <h3 className="flex items-center gap-2 text-sm font-bold tracking-wide text-[#8B0000]">
-              <Tv className="h-4 w-4" />
-              {t({
-                hi: "वैदिक अनुष्ठान एवं दर्शन प्लेलिस्ट",
-                en: "Vedic Rituals & Darshan Playlist",
-              })}
+        <aside className="flex w-full min-w-0 max-w-full flex-col lg:col-span-5">
+          <div className="mb-3.5 flex items-center justify-between gap-2 px-1">
+            <h3 className="flex items-center gap-2 text-xs sm:text-sm font-bold tracking-wide text-[#8B0000] truncate">
+              <Tv className="h-4 w-4 shrink-0" />
+              <span className="truncate">
+                {t({
+                  hi: "वैदिक अनुष्ठान एवं दर्शन प्लेलिस्ट",
+                  en: "Vedic Rituals & Darshan Playlist",
+                })}
+              </span>
             </h3>
-            <span className="rounded-md bg-amber-500/15 border border-amber-500/30 px-2.5 py-0.5 text-xs font-bold text-[#78350F]">
+            <span className="shrink-0 rounded-md bg-amber-500/15 border border-amber-500/30 px-2.5 py-0.5 text-xs font-bold text-[#78350F]">
               {list.length} {t({ hi: "वीडियो", en: "Videos" })}
             </span>
           </div>
 
-          <div className="space-y-3 lg:max-h-[620px] xl:max-h-[650px] lg:overflow-y-auto lg:pr-2.5 lg:overscroll-contain [scrollbar-width:thin] [scrollbar-color:#D89B18_transparent] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-amber-100/30 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-amber-400/60 hover:[&::-webkit-scrollbar-thumb]:bg-amber-500">
+          <div className="space-y-2.5 sm:space-y-3 w-full max-w-full lg:max-h-[620px] xl:max-h-[650px] lg:overflow-y-auto lg:pr-2.5 lg:overscroll-contain [scrollbar-width:thin] [scrollbar-color:#D89B18_transparent] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-amber-100/30 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-amber-400/60 hover:[&::-webkit-scrollbar-thumb]:bg-amber-500">
             {list.map((item) => (
               <PlaylistItem
                 key={item.id}
@@ -509,7 +510,7 @@ export default function DarshanVideoInteractiveLeaf() {
           </div>
 
           {/* Info card (Small screens only: appears after the playlist) */}
-          <div className="block lg:hidden mt-6">
+          <div className="block lg:hidden mt-6 w-full min-w-0 max-w-full">
             {renderInfoCard()}
           </div>
         </aside>

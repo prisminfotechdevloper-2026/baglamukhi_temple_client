@@ -52,9 +52,9 @@ export default function DarshanVideoHeaderLeaf() {
         {trustBadges.map(({ icon: Icon, text, color }) => (
           <div
             key={text.en}
-            className="inline-flex items-center gap-1.5 rounded-xl border border-[#E8D8B8] bg-white/90 px-3.5 py-1.5 text-xs font-bold text-[#3B1E08] shadow-xs"
+            className="inline-flex items-center gap-1.5 rounded-xl border border-[#E8D8B8] bg-white/90 px-2.5 py-1 sm:px-3.5 sm:py-1.5 text-[11px] sm:text-xs font-bold text-[#3B1E08] shadow-xs"
           >
-            <Icon className={`h-3.5 w-3.5 ${color}`} />
+            <Icon className={`h-3.5 w-3.5 shrink-0 ${color}`} />
             <span>{t(text)}</span>
           </div>
         ))}

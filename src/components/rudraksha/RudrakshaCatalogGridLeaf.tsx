@@ -291,20 +291,23 @@ export default function RudrakshaCatalogGridLeaf() {
       id="rudraksha-catalog"
       ref={sectionRef}
       aria-label="प्रामाणिक रुद्राक्ष संग्रह"
-      className="relative w-full overflow-hidden bg-[#FAF6EE] py-8 sm:py-10 lg:py-12 border-b border-[#EADCC7]"
+      className="relative w-full overflow-hidden bg-[#FAF6EE] py-2 sm:py-4 lg:py-5 border-b border-[#EADCC7]"
     >
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* ============ SECTION HEADER ============ */}
-        <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F3E7CE] border border-[#E0D0B6] text-[#8B5A14] text-xs font-bold mb-2">
-            <span>{t({ hi: "100% प्राकृतिक एवं लैब प्रमाणित संग्रह", en: "100% Natural & Lab Certified Collection" })}</span>
+        {/* ============ SECTION HEADER: Clean & Left-Aligned ============ */}
+        <div className="text-left max-w-3xl mb-5 sm:mb-7">
+          <div className="flex items-center gap-2 mb-1.5 sm:mb-2">
+            <span className="h-3.5 sm:h-4 w-1 bg-[#5A2C18] rounded-xs" />
+            <span className="text-[11.5px] sm:text-xs font-extrabold uppercase tracking-widest text-[#8C5824]">
+              {t({ hi: "100% प्राकृतिक एवं लैब प्रमाणित संग्रह", en: "100% Natural & Lab Certified Collection" })}
+            </span>
           </div>
 
-          <h2 className="font-serif text-2xl xs:text-3xl font-black text-[#3B1E08] tracking-tight leading-tight">
+          <h2 className="font-serif text-2xl xs:text-3xl sm:text-4xl font-black text-[#3B1E08] tracking-tight leading-tight">
             {t({ hi: "सिद्ध रुद्राक्ष संग्रह", en: "Energized Rudraksha Collection" })}
           </h2>
 
-          <p className="mt-1.5 text-xs sm:text-[13px] text-[#6B5A52] leading-relaxed">
+          <p className="mt-1.5 sm:mt-2 text-xs sm:text-sm text-[#6B5A52] leading-relaxed">
             {t({
               hi: "माँ बगलामुखी धाम नलखेड़ा से अभिमंत्रित 1 से 14 मुखी व दुर्लभ रुद्राक्ष। अपनी राशि व समस्या अनुसार सही रुद्राक्ष का चयन करें।",
               en: "Energized 1 to 14 Mukhi and rare divine Rudraksha from Maa Baglamukhi Dham Nalkheda.",

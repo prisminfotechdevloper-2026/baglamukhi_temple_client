@@ -27,6 +27,8 @@
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  --breakpoint-xs: 30rem;
 }
 
 html {

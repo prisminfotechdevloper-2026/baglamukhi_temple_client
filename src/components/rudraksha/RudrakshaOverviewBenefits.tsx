@@ -27,7 +27,7 @@ export default function RudrakshaOverviewBenefits() {
   return (
     <section
       aria-label="रुद्राक्ष परिचय एवं परंपरागत लाभ"
-      className="relative w-full overflow-hidden bg-[#FDF9F0] py-8 sm:py-10 md:py-12 border-t border-b border-[#EFE3CF]"
+      className="relative w-full overflow-hidden bg-[#FDF9F0] py-1 sm:py-1 md:py-1 border-t border-b border-[#EFE3CF]"
     >
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-center">

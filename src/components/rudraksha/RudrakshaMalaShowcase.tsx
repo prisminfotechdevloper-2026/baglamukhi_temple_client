@@ -24,7 +24,7 @@ export default function RudrakshaMalaShowcase() {
   return (
     <section
       aria-label="रुद्राक्ष माला परिचय"
-      className="relative w-full overflow-hidden bg-gradient-to-b from-[#FAF6EE] via-[#FDF9F2] to-[#FFFDF8] py-10 sm:py-14 border-t border-b border-[#EADCC7]"
+      className="relative w-full overflow-hidden bg-gradient-to-b from-[#FAF6EE] via-[#FDF9F2] to-[#FFFDF8] py-2 sm:py-2 border-t border-b border-[#EADCC7]"
     >
       {/* Decorative Golden Foliage on Far Left */}
       <div

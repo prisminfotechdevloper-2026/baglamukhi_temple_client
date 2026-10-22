@@ -203,7 +203,7 @@ export default function RudrakshaFeatureCardsLeaf() {
             {/* Button */}
             <div className="mt-4">
               <Link
-                href="/gemstones"
+                href="/ratna"
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#5A2C18] hover:bg-[#431F10] px-5 py-2.5 text-xs sm:text-sm font-bold text-[#FFF9EE] transition-colors shadow-xs group-hover:shadow-md cursor-pointer"
               >
                 <span>{t({ hi: "रत्न कलेक्शन देखें", en: "View Gemstone Collection" })}</span>
@@ -298,7 +298,7 @@ export default function RudrakshaFeatureCardsLeaf() {
             {/* Bottom CTA Button */}
             <div className="pt-2">
               <Link
-                href="/gemstones"
+                href="/ratna"
                 className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-[#5A2C18] hover:bg-[#431F10] px-5 py-3 text-sm font-bold text-[#FFF9EE] transition-colors shadow-md cursor-pointer"
               >
                 <span>{t({ hi: "रत्न कलेक्शन देखें", en: "View Gemstone Collection" })}</span>

@@ -156,3 +156,12 @@ div[data-nextjs-dev-tools-button],
   bottom: 74px !important;
 }
 
+/* Cross-browser scrollbar hiding utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+

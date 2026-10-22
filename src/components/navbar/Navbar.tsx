@@ -17,6 +17,8 @@ const navItems: NavItem[] = [
   { label: "About", sub: "Pandit ji", href: "/pandit-ji" },
   { label: "Pujas", sub: "16+ Vidhan", href: "/pujas" },
   { label: "Mandir", sub: "Itihas", href: "/mandir" },
+  { label: "Rudraksha", sub: "100% Nepali", href: "/rudraksha" },
+  { label: "Ratna", sub: "Certified Gems", href: "/ratna" },
   { label: "Gallery", sub: "Photo, video", href: "/gallery" },
   { label: "Contact", sub: "Call, WhatsApp", href: "/contact" },
 ];

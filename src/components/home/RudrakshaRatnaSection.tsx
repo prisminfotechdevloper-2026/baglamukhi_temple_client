@@ -2,8 +2,9 @@ import RudrakshaFeatureCardsLeaf from "./RudrakshaFeatureCardsLeaf";
 import RudrakshaSliderHeadingLeaf from "./RudrakshaSliderHeadingLeaf";
 import RudrakshaPopularSliderLeaf from "./RudrakshaPopularSliderLeaf";
 import RudrakshaConsultationBannerLeaf from "./RudrakshaConsultationBannerLeaf";
+import { siteConfig } from "@/data/siteConfig";
 
-const PHONE = "7223083313";
+const PHONE = siteConfig.contact.primaryPhone;
 
 export default function RudrakshaRatnaSection() {
   return (

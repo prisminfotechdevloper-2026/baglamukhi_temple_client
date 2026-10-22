@@ -3,8 +3,8 @@
 import Image from "next/image";
 import { Check, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
-
-const PHONE = "7223083313";
+import { siteConfig, getWhatsAppUrl } from "@/data/siteConfig";
+import GoldenFoliageDecor from "@/components/common/GoldenFoliageDecor";
 
 export default function RatnaShowcase() {
   const { t, language } = useLanguage();
@@ -35,7 +35,7 @@ export default function RatnaShowcase() {
   const getWhatsAppRatnaUrl = () => {
     const text =
       "जय श्री माँ बगलामुखी! पंडित जी, मुझे अपनी कुंडली अनुसार उपयुक्त असली व प्रमाणित रत्न चयन हेतु मार्गदर्शन चाहिए।";
-    return `https://wa.me/91${PHONE}?text=${encodeURIComponent(text)}`;
+    return getWhatsAppUrl(text, "kundali");
   };
 
   return (
@@ -43,87 +43,9 @@ export default function RatnaShowcase() {
       aria-label="रत्न चयन एवं महत्व"
       className="relative w-full overflow-hidden bg-gradient-to-b from-[#FAF6EE] via-[#FDF9F2] to-[#FFFDF8] py-8 sm:py-10 lg:py-12 border-t border-b border-[#EADCC7]"
     >
-      {/* Decorative Golden Foliage on Far Left Bottom */}
-      <div
-        className="absolute -left-2 bottom-0 pointer-events-none opacity-40 hidden sm:block"
-        aria-hidden="true"
-      >
-        <svg width="90" height="130" viewBox="0 0 90 130" fill="none">
-          <path
-            d="M5 125 C 20 85, 45 60, 80 40"
-            stroke="#D4AF37"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-          />
-          {/* Leaf 1 */}
-          <path
-            d="M20 105 C 10 90, 15 75, 30 82 C 40 88, 32 102, 20 105 Z"
-            fill="#C9A063"
-            fillOpacity="0.45"
-            stroke="#B8860B"
-            strokeWidth="0.8"
-          />
-          {/* Leaf 2 */}
-          <path
-            d="M38 85 C 42 68, 58 65, 55 80 C 52 92, 40 92, 38 85 Z"
-            fill="#D4AF37"
-            fillOpacity="0.5"
-            stroke="#B8860B"
-            strokeWidth="0.8"
-          />
-          {/* Leaf 3 */}
-          <path
-            d="M58 60 C 55 42, 70 35, 78 48 C 82 58, 68 67, 58 60 Z"
-            fill="#C9A063"
-            fillOpacity="0.45"
-            stroke="#B8860B"
-            strokeWidth="0.8"
-          />
-          {/* Small accents */}
-          <circle cx="28" cy="98" r="2" fill="#D4AF37" fillOpacity="0.6" />
-          <circle cx="48" cy="74" r="2.5" fill="#D4AF37" fillOpacity="0.6" />
-          <circle cx="70" cy="50" r="2" fill="#D4AF37" fillOpacity="0.6" />
-        </svg>
-      </div>
-
-      {/* Decorative Golden Foliage on Far Right Bottom */}
-      <div
-        className="absolute -right-2 bottom-0 pointer-events-none opacity-40 hidden sm:block scale-x-[-1]"
-        aria-hidden="true"
-      >
-        <svg width="90" height="130" viewBox="0 0 90 130" fill="none">
-          <path
-            d="M5 125 C 20 85, 45 60, 80 40"
-            stroke="#D4AF37"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-          />
-          <path
-            d="M20 105 C 10 90, 15 75, 30 82 C 40 88, 32 102, 20 105 Z"
-            fill="#C9A063"
-            fillOpacity="0.45"
-            stroke="#B8860B"
-            strokeWidth="0.8"
-          />
-          <path
-            d="M38 85 C 42 68, 58 65, 55 80 C 52 92, 40 92, 38 85 Z"
-            fill="#D4AF37"
-            fillOpacity="0.5"
-            stroke="#B8860B"
-            strokeWidth="0.8"
-          />
-          <path
-            d="M58 60 C 55 42, 70 35, 78 48 C 82 58, 68 67, 58 60 Z"
-            fill="#C9A063"
-            fillOpacity="0.45"
-            stroke="#B8860B"
-            strokeWidth="0.8"
-          />
-          <circle cx="28" cy="98" r="2" fill="#D4AF37" fillOpacity="0.6" />
-          <circle cx="48" cy="74" r="2.5" fill="#D4AF37" fillOpacity="0.6" />
-          <circle cx="70" cy="50" r="2" fill="#D4AF37" fillOpacity="0.6" />
-        </svg>
-      </div>
+      {/* Decorative Golden Foliage */}
+      <GoldenFoliageDecor position="left-bottom" />
+      <GoldenFoliageDecor position="right-bottom" />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">

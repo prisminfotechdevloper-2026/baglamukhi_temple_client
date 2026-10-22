@@ -75,16 +75,6 @@ const galleryData: GalleryItem[] = [
     src: "/images/pandit-deepak-sharma.jpg",
   },
   {
-    id: 7,
-    title: {
-      hi: "मंदिर मुख्य प्रवेश द्वार एवं लखुन्दर तट",
-      en: "Mandir Main Entry Gate & Lakhundar River Bank",
-    },
-    category: "mandir",
-    categories: ["mandir"],
-    src: "/images/baglamukhi-entry-gate.jpg",
-  },
-  {
     id: 8,
     title: {
       hi: "माँ पीताम्बरा त्रिमुखी दिव्य विग्रह स्वरूप",
@@ -198,6 +188,17 @@ export default function GalleryInteractive() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [lightboxIndex, filteredItems.length]);
 
+  // Lock body scroll when lightbox modal is active
+  useEffect(() => {
+    if (lightboxIndex !== null) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = originalOverflow;
+      };
+    }
+  }, [lightboxIndex]);
+
   return (
     <section className="w-full bg-[#FAF8F5] py-8 sm:py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -290,6 +291,7 @@ export default function GalleryInteractive() {
       {lightboxIndex !== null && filteredItems[lightboxIndex] && (
         <dialog
           open
+          data-lenis-prevent="true"
           aria-label={t(filteredItems[lightboxIndex].title)}
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md p-4 sm:p-6 border-0 w-full h-full max-w-none max-h-none m-0"
           onKeyDown={(e) => {

@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useLanguage, TranslationPair } from "@/context/LanguageContext";
 
 interface PopularProduct {
@@ -62,42 +63,42 @@ const POPULAR_PRODUCTS: PopularProduct[] = [
     id: "manikya-ruby",
     name: { hi: "माणिक (Ruby)", en: "Ruby (Manikya)" },
     sub: { hi: "सूर्य ग्रह • मान-सम्मान", en: "Sun Planet • Prestige & Leadership" },
-    image: "/images/popular-ruby.jpg",
+    image: "/images/gemstones/ruby-isolated.png",
     category: "ratna",
   },
   {
     id: "moti-pearl",
     name: { hi: "मोती (Pearl)", en: "Pearl (Moti)" },
     sub: { hi: "चंद्र ग्रह • चित्त शीतलता", en: "Moon Planet • Peace of Mind" },
-    image: "/images/popular-pearl.jpg",
+    image: "/images/gemstones/pearl-isolated.png",
     category: "ratna",
   },
   {
     id: "panna-emerald",
     name: { hi: "पन्ना (Emerald)", en: "Emerald (Panna)" },
     sub: { hi: "बुध ग्रह • बुद्धि व व्यापार", en: "Mercury Planet • Intellect & Business" },
-    image: "/images/popular-emerald.jpg",
+    image: "/images/gemstones/emerald-isolated.png",
     category: "ratna",
   },
   {
     id: "pukhraj-sapphire",
     name: { hi: "पुखराज (Yellow Sapphire)", en: "Yellow Sapphire (Pukhraj)" },
     sub: { hi: "बृहस्पति ग्रह • ज्ञान व विवाह", en: "Jupiter Planet • Wisdom & Marriage" },
-    image: "/images/popular-yellow-sapphire.jpg",
+    image: "/images/gemstones/yellow-sapphire-isolated.png",
     category: "ratna",
   },
   {
     id: "neelam-blue-sapphire",
     name: { hi: "नीलम (Blue Sapphire)", en: "Blue Sapphire (Neelam)" },
     sub: { hi: "शनि ग्रह • त्वरित उन्नति", en: "Saturn Planet • Rapid Growth" },
-    image: "/images/popular-neelam.jpg",
+    image: "/images/gemstones/blue-sapphire-isolated.png",
     category: "ratna",
   },
   {
     id: "heera-diamond",
     name: { hi: "हीरा (Diamond)", en: "Diamond (Heera)" },
     sub: { hi: "शुक्र ग्रह • आकर्षण व वैभव", en: "Venus Planet • Luxury & Glamour" },
-    image: "/images/popular-diamond.jpg",
+    image: "/images/gemstones/diamond-isolated.png",
     category: "ratna",
   },
 ];
@@ -220,19 +221,26 @@ export default function RudrakshaPopularSliderLeaf() {
               ref={isFirstCard ? cardRef : undefined}
               className="shrink-0 w-[240px] xs:w-[260px] sm:w-[280px] md:w-[290px] mr-3.5 sm:mr-4 select-none"
             >
-              <div className="flex items-center gap-3 sm:gap-3.5 p-3 sm:p-3.5 rounded-2xl bg-white border border-[#EBDCC5] shadow-xs hover:border-[#D4AF37] hover:shadow-sm transition-[border-color,box-shadow]">
-                {/* Large, clear, high-resolution product thumbnail (Enlarged on mobile as requested) */}
-                <div className="relative h-13 w-13 xs:h-14 xs:w-14 sm:h-16 sm:w-16 shrink-0 rounded-xl overflow-hidden bg-stone-50 border border-stone-200/80 shadow-inner">
+              <Link
+                href={item.category === "rudraksha" ? "/rudraksha" : "/ratna"}
+                className="flex items-center gap-3 sm:gap-3.5 p-3 sm:p-3.5 rounded-2xl bg-white border border-[#EBDCC5] shadow-xs hover:border-[#D4AF37] hover:shadow-md transition-[border-color,box-shadow] group cursor-pointer"
+                title={t({
+                  hi: item.category === "rudraksha" ? "रुद्राक्ष संग्रह देखें" : "रत्न संग्रह देखें",
+                  en: item.category === "rudraksha" ? "View Rudraksha Collection" : "View Gemstone Collection",
+                })}
+              >
+                {/* Large, clear, high-resolution product thumbnail */}
+                <div className="relative h-13 w-13 xs:h-14 xs:w-14 sm:h-16 sm:w-16 shrink-0 rounded-xl overflow-hidden bg-stone-50 border border-stone-200/80 shadow-inner flex items-center justify-center">
                   <Image
                     src={item.image}
                     alt={t(item.name)}
                     fill
                     sizes="(max-width: 640px) 56px, 64px"
-                    className="object-cover"
+                    className={item.category === "ratna" ? "object-contain p-1 group-hover:scale-108 transition-transform duration-300" : "object-cover group-hover:scale-108 transition-transform duration-300"}
                   />
                 </div>
 
-                {/* Name & Subtitle - Larger font and generous spacing so text never cuts off */}
+                {/* Name & Subtitle */}
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center gap-1.5 mb-0.5">
                     <span
@@ -242,7 +250,7 @@ export default function RudrakshaPopularSliderLeaf() {
                           : "bg-[#AF0807]"
                       }`}
                     />
-                    <h4 className="font-serif text-xs xs:text-sm sm:text-base font-bold text-[#3B1E08] truncate leading-tight">
+                    <h4 className="font-serif text-xs xs:text-sm sm:text-base font-bold text-[#3B1E08] group-hover:text-[#AF0807] transition-colors truncate leading-tight">
                       {t(item.name)}
                     </h4>
                   </div>
@@ -250,7 +258,7 @@ export default function RudrakshaPopularSliderLeaf() {
                     {t(item.sub)}
                   </p>
                 </div>
-              </div>
+              </Link>
             </div>
           );
         })}

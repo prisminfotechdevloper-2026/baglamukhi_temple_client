@@ -4,12 +4,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   Home,
-  Users,
   CalendarCheck,
+  Sparkles,
+  Gem,
   Landmark,
-  Image as ImageIcon,
   Phone,
 } from "lucide-react";
+
 interface BottomNavItem {
   label: string;
   href: string;
@@ -18,10 +19,10 @@ interface BottomNavItem {
 
 const navItems: BottomNavItem[] = [
   { label: "Home", href: "/", icon: Home },
-  { label: "About", href: "/pandit-ji", icon: Users },
   { label: "Pujas", href: "/pujas", icon: CalendarCheck },
+  { label: "रुद्राक्ष", href: "/rudraksha", icon: Sparkles },
+  { label: "रत्न", href: "/ratna", icon: Gem },
   { label: "Mandir", href: "/mandir", icon: Landmark },
-  { label: "Gallery", href: "/gallery", icon: ImageIcon },
   { label: "Contact", href: "/contact", icon: Phone },
 ];
 

@@ -13,6 +13,7 @@ import {
 import WhatsAppIcon from "@/components/common/WhatsAppIcon";
 import RashiSymbolIcon from "./RashiSymbolIcon";
 import { useLanguage } from "@/context/LanguageContext";
+import { siteConfig, getWhatsAppUrl, getTelUrl } from "@/data/siteConfig";
 
 interface RashiItem {
   id: string;
@@ -103,21 +104,16 @@ export default function KundaliRashiSection() {
   const { t } = useLanguage();
   const [selectedRashi, setSelectedRashi] = useState<RashiItem>(rashis[0]);
 
-  // Number 2 (+91 95756 64204) -> Dedicated WhatsApp routing for Kundali / Jyotish inquiries
-  const targetPhone = "919575664204";
-
   const handleRashiWhatsApp = (rashi: RashiItem) => {
-    const text = encodeURIComponent(
-      `जय माँ बगलामुखी! पंडित दीपक शर्मा जी, मेरी राशि "${rashi.nameHi} (${rashi.nameEn})" है। मुझे अपनी जन्म कुंडली, राशि फलादेश एवं शुभ रत्न/उपाय के संबंध में मार्गदर्शन प्राप्त करना है।`
-    );
-    window.open(`https://wa.me/${targetPhone}?text=${text}`, "_blank");
+    const text =
+      `जय माँ बगलामुखी! पंडित दीपक शर्मा जी, मेरी राशि "${rashi.nameHi} (${rashi.nameEn})" है। मुझे अपनी जन्म कुंडली, राशि फलादेश एवं शुभ रत्न/उपाय के संबंध में मार्गदर्शन प्राप्त करना है।`;
+    window.open(getWhatsAppUrl(text, "kundali"), "_blank", "noopener,noreferrer");
   };
 
   const handleDoshWhatsApp = (doshTitle: string) => {
-    const text = encodeURIComponent(
-      `जय माँ बगलामुखी! पंडित दीपक शर्मा जी, मुझे अपनी जन्म पत्रिका में "${doshTitle}" के प्रभाव व शास्त्रोक्त निवारण अनुष्ठान के संबंध में परामर्श चाहिए।`
-    );
-    window.open(`https://wa.me/${targetPhone}?text=${text}`, "_blank");
+    const text =
+      `जय माँ बगलामुखी! पंडित दीपक शर्मा जी, मुझे अपनी जन्म पत्रिका में "${doshTitle}" के प्रभाव व शास्त्रोक्त निवारण अनुष्ठान के संबंध में परामर्श चाहिए।`;
+    window.open(getWhatsAppUrl(text, "kundali"), "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -359,9 +355,10 @@ export default function KundaliRashiSection() {
           <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto shrink-0">
             {/* WhatsApp Booking (Routes to Number 2: 9575664204 for Kundali/Rashi) */}
             <a
-              href={`https://wa.me/${targetPhone}?text=${encodeURIComponent(
-                "जय माँ बगलामुखी! पंडित दीपक शर्मा जी, मुझे अपनी जन्म कुंडली एवं राशि का संपूर्ण विश्लेषण व मार्गदर्शन प्राप्त करना है। कृपया शुभ समय बताएं।"
-              )}`}
+              href={getWhatsAppUrl(
+                "जय माँ बगलामुखी! पंडित दीपक शर्मा जी, मुझे अपनी जन्म कुंडली एवं राशि का संपूर्ण विश्लेषण व मार्गदर्शन प्राप्त करना है। कृपया शुभ समय बताएं।",
+                "kundali"
+              )}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-gradient-to-r from-[#25D366] via-[#1EBE5D] to-[#159E4A] hover:brightness-110 text-white text-xs sm:text-sm font-bold shadow-xl transition-colors cursor-pointer"
@@ -369,22 +366,22 @@ export default function KundaliRashiSection() {
               <WhatsAppIcon className="h-4 w-4" />
               <span>
                 {t({
-                  hi: "कुंडली व्हाट्सएप करें (+91 95756 64204)",
-                  en: "Send Kundali on WhatsApp (+91 95756 64204)",
+                  hi: `कुंडली व्हाट्सएप करें (${siteConfig.contact.phone2})`,
+                  en: `Send Kundali on WhatsApp (${siteConfig.contact.phone2})`,
                 })}
               </span>
             </a>
 
             {/* Direct Calling (Primary number: 72230 83313) */}
             <a
-              href="tel:+917223083313"
+              href={getTelUrl(siteConfig.contact.phone1)}
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-amber-200 border border-amber-300/40 text-xs sm:text-sm font-bold backdrop-blur-md transition-colors cursor-pointer"
             >
               <PhoneCall className="h-4 w-4 text-amber-300" />
               <span>
                 {t({
-                  hi: "कॉल करें: +91 72230 83313",
-                  en: "Call Helpline: +91 72230 83313",
+                  hi: `कॉल करें: ${siteConfig.contact.phone1}`,
+                  en: `Call Helpline: ${siteConfig.contact.phone1}`,
                 })}
               </span>
             </a>

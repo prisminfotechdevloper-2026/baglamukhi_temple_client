@@ -12,6 +12,14 @@ const nextConfig: NextConfig = {
       },
     },
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "img.youtube.com",
+      },
+    ],
+  },
   async redirects() {
     return [
       {
@@ -22,6 +30,11 @@ const nextConfig: NextConfig = {
       {
         source: "/about",
         destination: "/pandit-ji",
+        permanent: true,
+      },
+      {
+        source: "/gemstones",
+        destination: "/ratna",
         permanent: true,
       },
     ];

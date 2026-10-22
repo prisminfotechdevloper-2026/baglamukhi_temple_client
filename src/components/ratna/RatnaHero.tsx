@@ -5,15 +5,16 @@ import Link from "next/link";
 import { User } from "lucide-react";
 import WhatsAppIcon from "@/components/common/WhatsAppIcon";
 import { useLanguage } from "@/context/LanguageContext";
+import { siteConfig, getWhatsAppUrl } from "@/data/siteConfig";
 
-const PHONE = "7223083313";
+const PHONE = siteConfig.contact.primaryPhone;
 
 export default function RatnaHero() {
   const { t } = useLanguage();
 
-  const whatsappUrl = `https://wa.me/91${PHONE}?text=${encodeURIComponent(
+  const whatsappUrl = getWhatsAppUrl(
     "जय श्री माँ बगलामुखी! पंडित जी, मुझे अपनी जन्मकुंडली व राशि के अनुसार 100% असली व प्रमाणित रत्न (Navratna Gemstones) के चयन हेतु मार्गदर्शन चाहिए।"
-  )}`;
+  );
 
   return (
     <section

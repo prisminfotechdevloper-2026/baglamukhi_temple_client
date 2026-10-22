@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import WhatsAppIcon from "@/components/common/WhatsAppIcon";
 import { useLanguage } from "@/context/LanguageContext";
+import { siteConfig, getWhatsAppUrl, getTelUrl } from "@/data/siteConfig";
 
 export default function PanditWelcomeDialog() {
   const { t } = useLanguage();
@@ -101,10 +102,9 @@ export default function PanditWelcomeDialog() {
   };
 
   const handleWhatsApp = () => {
-    const text = encodeURIComponent(
-      "जय माँ बगलामुखी! पंडित दीपक शर्मा जी, मुझे आपसे पूजा / अनुष्ठान / कुंडली परामर्श हेतु मार्गदर्शन प्राप्त करना है।"
-    );
-    window.open(`https://wa.me/917223083313?text=${text}`, "_blank");
+    const text =
+      "जय माँ बगलामुखी! पंडित दीपक शर्मा जी, मुझे आपसे पूजा / अनुष्ठान / कुंडली परामर्श हेतु मार्गदर्शन प्राप्त करना है।";
+    window.open(getWhatsAppUrl(text, "primary"), "_blank", "noopener,noreferrer");
     handleClose();
   };
 
@@ -248,7 +248,7 @@ export default function PanditWelcomeDialog() {
 
             <div className="flex items-center gap-2">
               <a
-                href="tel:+917223083313"
+                href={getTelUrl(siteConfig.contact.phone1)}
                 className="flex-1 flex items-center justify-center gap-1.5 py-2 px-3 rounded-full bg-[#AF0807] hover:bg-[#8B0605] text-white font-bold text-xs shadow-xs"
               >
                 <PhoneCall className="h-3.5 w-3.5" />
@@ -383,14 +383,14 @@ export default function PanditWelcomeDialog() {
 
             <div className="flex items-center gap-2">
               <a
-                href="tel:+917223083313"
+                href={getTelUrl(siteConfig.contact.phone1)}
                 className="flex-1 flex items-center justify-center gap-1.5 py-2 px-3 rounded-full bg-stone-100 hover:bg-stone-200 text-[#3E0B02] font-bold text-[11px] transition-colors"
               >
                 <PhoneCall className="h-3 w-3 text-[#AF0807]" />
                 <span>
                   {t({
-                    hi: "कॉल: 72230 83313",
-                    en: "Call: 72230 83313",
+                    hi: `कॉल: ${siteConfig.contact.primaryPhone}`,
+                    en: `Call: ${siteConfig.contact.primaryPhone}`,
                   })}
                 </span>
               </a>

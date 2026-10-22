@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { siteConfig, getWhatsAppUrl, getTelUrl } from "@/data/siteConfig";
 import {
   Flame,
   Scroll,
@@ -279,6 +280,22 @@ export default function PanditServicesCatalog() {
     null
   );
 
+  // Lock body scroll when modal is open to prevent background page scroll bleed
+  useEffect(() => {
+    if (selectedService) {
+      const originalOverflow = document.body.style.overflow;
+      const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+      document.body.style.overflow = "hidden";
+      if (scrollBarWidth > 0) {
+        document.body.style.paddingRight = `${scrollBarWidth}px`;
+      }
+      return () => {
+        document.body.style.overflow = originalOverflow;
+        document.body.style.paddingRight = "";
+      };
+    }
+  }, [selectedService]);
+
   // Filter logic
   const filteredServices = servicesData.filter((item) => {
     const matchesCategory =
@@ -316,14 +333,12 @@ export default function PanditServicesCatalog() {
   ];
 
   const handleWhatsAppBooking = (serviceTitle: string) => {
-    // Number 1 (+91 72230 83313) -> Hawan / Puja inquiries
-    // Number 2 (+91 95756 64204) -> Kundali / Jyotish / Rashi inquiries
+    // Phone 1 (+91 72230 83313) -> Hawan / Puja inquiries
+    // Phone 2 (+91 95756 64204) -> Kundali / Jyotish / Rashi inquiries
     const isKundaliOrJyotish = /kundali|jyotish|rashi|पत्रिका|कुंडली|ज्योतिष|horoscope|birth\s*chart/i.test(serviceTitle);
-    const targetPhone = isKundaliOrJyotish ? "919575664204" : "917223083313";
-    const message = encodeURIComponent(
-      `जय माँ बगलामुखी! पंडित दीपक शर्मा जी, मुझे आपसे "${serviceTitle}" के संदर्भ में विधि, शुभ मुहूर्त एवं संकल्प हेतु मार्गदर्शन प्राप्त करना है।`
-    );
-    window.open(`https://wa.me/${targetPhone}?text=${message}`, "_blank");
+    const targetPhone = isKundaliOrJyotish ? siteConfig.contact.phone2Raw : siteConfig.contact.phone1Raw;
+    const message = `जय माँ बगलामुखी! पंडित दीपक शर्मा जी, मुझे आपसे "${serviceTitle}" के संदर्भ में विधि, शुभ मुहूर्त एवं संकल्प हेतु मार्गदर्शन प्राप्त करना है।`;
+    window.open(getWhatsAppUrl(targetPhone, message), "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -511,10 +526,12 @@ export default function PanditServicesCatalog() {
         {/* ================= MODAL FOR DETAILED RITUAL VIEW ================= */}
         {selectedService && (
           <div
+            data-lenis-prevent="true"
             className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4 overflow-y-auto animate-in fade-in duration-200"
             onClick={() => setSelectedService(null)}
           >
             <div
+              data-lenis-prevent="true"
               className="relative w-full max-w-2xl rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 p-6 sm:p-8 shadow-2xl max-h-[90vh] overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
             >
@@ -612,11 +629,11 @@ export default function PanditServicesCatalog() {
                 </button>
 
                 <a
-                  href="tel:+917223083313"
+                  href={getTelUrl(siteConfig.contact.phone1)}
                   className="w-full sm:w-auto flex items-center justify-center gap-2 py-3 px-5 rounded-full bg-stone-100 hover:bg-stone-200 text-[#3E0B02] font-bold text-xs sm:text-sm transition-colors"
                 >
                   <PhoneCall className="h-4 w-4 text-[#AF0807]" />
-                  <span>+91 72230 83313</span>
+                  <span>{siteConfig.contact.phone1}</span>
                 </a>
               </div>
             </div>

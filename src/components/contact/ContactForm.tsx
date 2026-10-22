@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import WhatsAppIcon from "@/components/common/WhatsAppIcon";
 import { useLanguage } from "@/context/LanguageContext";
+import { siteConfig, getWhatsAppUrl, getTelUrl } from "@/data/siteConfig";
 
 type QueryType = "hawan_puja" | "kundali_jyotish";
 
@@ -181,18 +182,17 @@ export default function ContactForm() {
     text += `पंडित दीपक शर्मा जी, कृपया मार्गदर्शन प्रदान करें।`;
 
     // Routing Logic:
-    // Number 1 (+91 72230 83313) -> Hawan / Puja inquiries
-    // Number 2 (+91 95756 64204) -> Kundali / Jyotish inquiries
-    const targetPhone = isHawan ? "917223083313" : "919575664204";
-    const encoded = encodeURIComponent(text);
-    const whatsappUrl = `https://wa.me/${targetPhone}?text=${encoded}`;
+    // Phone 1 (+91 72230 83313) -> Hawan / Puja inquiries
+    // Phone 2 (+91 95756 64204) -> Kundali / Jyotish inquiries
+    const targetPhone = isHawan ? siteConfig.contact.phone1Raw : siteConfig.contact.phone2Raw;
+    const whatsappUrl = getWhatsAppUrl(targetPhone, text);
 
     setGeneratedWhatsAppUrl(whatsappUrl);
     setSubmitted(true);
 
     // Direct synchronous trigger (Not blocked by browser popup blocker)
     try {
-      window.open(whatsappUrl, "_blank");
+      window.open(whatsappUrl, "_blank", "noopener,noreferrer");
     } catch {
       // Fallback is rendered immediately on screen for user to click
     }
@@ -201,8 +201,8 @@ export default function ContactForm() {
   // Render Confirmation / Fallback Screen when Submitted
   if (submitted) {
     const isHawan = queryType === "hawan_puja";
-    const targetPhoneDisplay = isHawan ? "+91 72230 83313" : "+91 95756 64204";
-    const targetPhoneRaw = isHawan ? "917223083313" : "919575664204";
+    const targetPhoneDisplay = isHawan ? siteConfig.contact.phone1 : siteConfig.contact.phone2;
+    const targetPhoneRaw = isHawan ? siteConfig.contact.phone1Raw : siteConfig.contact.phone2Raw;
 
     return (
       <div className="w-full bg-white rounded-3xl border-y-0 border-x-2 border-amber-400 p-6 sm:p-8 md:p-10 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] text-center transition-colors duration-300 animate-fadeIn">

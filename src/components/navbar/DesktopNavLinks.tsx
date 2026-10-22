@@ -17,7 +17,7 @@ export default function DesktopNavLinks({ items }: DesktopNavLinksProps) {
   const pathname = usePathname();
 
   return (
-    <ul className="flex items-center gap-1 xl:gap-2">
+    <ul className="flex items-center gap-0.5 xl:gap-1.5">
       {items.map((item) => {
         const isActive = pathname === item.href;
 
@@ -25,11 +25,11 @@ export default function DesktopNavLinks({ items }: DesktopNavLinksProps) {
           <li key={item.href}>
             <Link
               href={item.href}
-              className="group relative flex flex-col items-center px-3.5 xl:px-4 py-2 text-center transition-colors focus:outline-hidden"
+              className="group relative flex flex-col items-center px-2.5 xl:px-3.5 py-1.5 text-center transition-colors focus:outline-hidden"
             >
-              {/* Primary Label - Standard Website Navbar Size (15px-16px) */}
+              {/* Primary Label - Sized for 8 nav links */}
               <span
-                className={`text-[15px] xl:text-[16px] leading-tight transition-colors duration-200 tracking-normal ${
+                className={`text-[13.5px] xl:text-[15px] leading-tight transition-colors duration-200 tracking-normal ${
                   isActive
                     ? "font-bold text-[#AF0807]"
                     : "font-semibold text-stone-800 group-hover:text-[#AF0807]"

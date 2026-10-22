@@ -3,8 +3,7 @@
 import Image from "next/image";
 import { Check, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
-
-const PHONE = "7223083313";
+import { siteConfig, getWhatsAppUrl } from "@/data/siteConfig";
 
 export default function RudrakshaMalaShowcase() {
   const { t, language } = useLanguage();
@@ -18,7 +17,7 @@ export default function RudrakshaMalaShowcase() {
   const getWhatsAppMalaUrl = () => {
     const text =
       "जय श्री माँ बगलामुखी! पंडित जी, मुझे सिद्ध 108 दानों वाली रुद्राक्ष जप माला के बारे में जानकारी व परामर्श चाहिए।";
-    return `https://wa.me/91${PHONE}?text=${encodeURIComponent(text)}`;
+    return getWhatsAppUrl(text, "primary");
   };
 
   return (

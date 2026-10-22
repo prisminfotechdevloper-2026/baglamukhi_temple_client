@@ -18,6 +18,7 @@ import {
 import WhatsAppIcon from "@/components/common/WhatsAppIcon";
 import InstagramIcon from "@/components/common/InstagramIcon";
 import { useLanguage } from "@/context/LanguageContext";
+import { siteConfig, getWhatsAppUrl, getTelUrl } from "@/data/siteConfig";
 
 export default function Footer() {
   const { t } = useLanguage();
@@ -27,6 +28,8 @@ export default function Footer() {
     { label: { hi: "आचार्य पं. दीपक शर्मा", en: "About Pandit Ji" }, href: "/pandit-ji" },
     { label: { hi: "पूजा एवं अनुष्ठान", en: "Pujas & Hawan" }, href: "/pujas" },
     { label: { hi: "मंदिर का इतिहास", en: "Mandir History" }, href: "/mandir" },
+    { label: { hi: "सिद्ध रुद्राक्ष संग्रह", en: "Rudraksha Collection" }, href: "/rudraksha" },
+    { label: { hi: "प्रमाणित रत्न संग्रह", en: "Certified Gemstones" }, href: "/ratna" },
     { label: { hi: "फोटो दीर्घा", en: "Photo Gallery" }, href: "/gallery" },
     { label: { hi: "संपर्क सूत्र", en: "Contact Us" }, href: "/contact" },
   ];

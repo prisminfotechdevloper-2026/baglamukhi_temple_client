@@ -1,6 +1,5 @@
 "use client";
 
-/* eslint-disable @next/next/no-img-element */
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import {
@@ -18,6 +17,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { siteConfig } from "@/data/siteConfig";
 
 /* ------------------------------------------------------------------ */
 /* DATA                                                                */
@@ -33,6 +33,8 @@ export interface DarshanVideoItem {
   duration: string;
   views: string;
 }
+
+const thumb = (id: string) => `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
 
 const DARSHAN_VIDEOS: DarshanVideoItem[] = [
   {
@@ -141,10 +143,8 @@ const DARSHAN_VIDEOS: DarshanVideoItem[] = [
 /* HELPERS                                                             */
 /* ------------------------------------------------------------------ */
 
-const PHONE = "7223083313";
+const PHONE = siteConfig.contact.primaryPhone;
 const ALL = "सभी";
-
-const thumb = (id: string) => `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
 const embed = (id: string, loop = false) =>
   `https://www.youtube.com/embed/${id}?autoplay=1&rel=0&playsinline=1&modestbranding=1${
     loop ? `&loop=1&playlist=${id}` : ""

@@ -1,274 +1,37 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { Eye, ChevronLeft, ChevronRight, X, ShieldCheck, Sparkles, PhoneCall } from "lucide-react";
 import WhatsAppIcon from "@/components/common/WhatsAppIcon";
 import { useLanguage } from "@/context/LanguageContext";
 
-const PHONE = "7223083313";
+import { RUDRAKSHA_PRODUCTS, type RudrakshaCardItem } from "@/data/rudraksha";
+import { siteConfig } from "@/data/siteConfig";
+
+const PHONE = siteConfig.contact.primaryPhone;
 const ITEMS_PER_PAGE = 8;
-
-export interface RudrakshaCardItem {
-  id: string;
-  hindiName: string;
-  mukhi: string;
-  description: string;
-  image: string;
-  deity: string;
-  planet: string;
-  mantra: string;
-  detailedBenefits: string[];
-}
-
-const RUDRAKSHA_PRODUCTS: RudrakshaCardItem[] = [
-  {
-    id: "1-mukhi",
-    hindiName: "एक मुखी रुद्राक्ष",
-    mukhi: "(1 Mukhi)",
-    description: "आत्मज्ञान, मोक्ष और परम शांति का प्रतीक माना जाता है।",
-    image: "/images/rudraksha-1-mukhi.png",
-    deity: "भगवान शिव (साक्षात ओंकार स्वरूप)",
-    planet: "सूर्य ग्रह (Sun)",
-    mantra: "ॐ ह्रीं नमः",
-    detailedBenefits: [
-      "आत्मज्ञान, मोक्ष और परम चेतना की प्राप्ति में सहायक।",
-      "सूर्य जनित दोषों का निवारण व समाज में मान-सम्मान व उच्च प्रतिष्ठा।",
-      "अहंकार का शमन और नेतृत्व क्षमता में अद्भुत वृद्धि।",
-    ],
-  },
-  {
-    id: "2-mukhi",
-    hindiName: "दो मुखी रुद्राक्ष",
-    mukhi: "(2 Mukhi)",
-    description: "मानसिक शांति, रिश्तों में प्रगाढ़ता और दांपत्य सुख का प्रतीक।",
-    image: "/images/rudraksha-2-mukhi.png",
-    deity: "अर्द्धनारीश्वर (भगवान शिव व माता पार्वती)",
-    planet: "चंद्रमा ग्रह (Moon)",
-    mantra: "ॐ नमः",
-    detailedBenefits: [
-      "पति-पत्नी व पारिवारिक संबंधों में अटूट प्रेम और सामंजस्य की स्थापना।",
-      "चंद्रमा जनित मानसिक अशांति, तनाव, अनिद्रा और अवसाद का निवारण।",
-      "भावनात्मक स्थिरता और सही समय पर सही निर्णय लेने की क्षमता।",
-    ],
-  },
-  {
-    id: "3-mukhi",
-    hindiName: "तीन मुखी रुद्राक्ष",
-    mukhi: "(3 Mukhi)",
-    description: "आत्मविश्वास, आत्मशुद्धि और भूतकाल के पापों से मुक्ति दिलाने वाला।",
-    image: "/images/rudraksha-3-mukhi.png",
-    deity: "अग्नि देव (पावक)",
-    planet: "मंगल ग्रह (Mars)",
-    mantra: "ॐ क्लीं नमः",
-    detailedBenefits: [
-      "हीनभावना, आत्मग्लानि, भय और आलस्य से स्थायी मुक्ति।",
-      "शरीर में नई ऊर्जा, तेज, स्फूर्ति और पराक्रम का निरंतर संचार।",
-      "अग्नि तत्व को संतुलित कर पाचन व आंतरिक बल में वृद्धि।",
-    ],
-  },
-  {
-    id: "4-mukhi",
-    hindiName: "चार मुखी रुद्राक्ष",
-    mukhi: "(4 Mukhi)",
-    description: "ज्ञान, बुद्धि, स्मरण शक्ति और संचार कौशल को प्रखर करने वाला।",
-    image: "/images/rudraksha-4-mukhi.png",
-    deity: "चतुरानन भगवान ब्रह्मा",
-    planet: "बुध ग्रह (Mercury)",
-    mantra: "ॐ ह्रीं नमः",
-    detailedBenefits: [
-      "विद्यार्थियों, लेखकों व वक्ताओं के लिए बौद्धिक वरदान।",
-      "तीव्र स्मरण शक्ति, तार्किक सोच और एकाग्रता में असाधारण वृद्धि।",
-      "वाणी दोष, संकोच और संचार संबंधी समस्याओं का निवारण।",
-    ],
-  },
-  {
-    id: "5-mukhi",
-    hindiName: "पंच मुखी रुद्राक्ष",
-    mukhi: "(5 Mukhi)",
-    description: "सामान्य, सर्वाधिक लोकप्रिय और सर्वसुलभ रुद्राक्ष।",
-    image: "/images/rudraksha-5-mukhi.png",
-    deity: "कालाग्नि रुद्र (भगवान शिव)",
-    planet: "बृहस्पति ग्रह (Jupiter)",
-    mantra: "ॐ ह्रीं नमः",
-    detailedBenefits: [
-      "रक्तचाप व हृदय स्वास्थ्य के संतुलन में परंपरागत सहायक।",
-      "मानसिक तनाव, चिंता और नकारात्मक विचारों से मुक्ति।",
-      "ज्ञान, बुद्धि, दीर्घायु और आध्यात्मिक चेतना का जागरण।",
-    ],
-  },
-  {
-    id: "6-mukhi",
-    hindiName: "छह मुखी रुद्राक्ष",
-    mukhi: "(6 Mukhi)",
-    description: "बुद्धि, ज्ञान और ध्यान शक्ति में वृद्धि करने वाला।",
-    image: "/images/rudraksha-6-mukhi.png",
-    deity: "भगवान कार्तिकेय",
-    planet: "शुक्र ग्रह (Venus)",
-    mantra: "ॐ ह्रीं हुं नमः",
-    detailedBenefits: [
-      "एकाग्रता, तीव्र स्मरण शक्ति और वाणी में सम्मोहन शक्ति।",
-      "विद्यार्थियों, शिक्षकों और बौद्धिक कार्य करने वालों हेतु सर्वोत्तम।",
-      "आलस्य, सुस्ती और मानसिक भ्रम का निवारण।",
-    ],
-  },
-  {
-    id: "7-mukhi",
-    hindiName: "सात मुखी रुद्राक्ष",
-    mukhi: "(7 Mukhi)",
-    description: "धन, समृद्धि और जीवन में स्थिरता प्रदान करने वाला।",
-    image: "/images/rudraksha-7-mukhi.png",
-    deity: "माता महालक्ष्मी व सप्तर्षि",
-    planet: "शनि ग्रह (Saturn)",
-    mantra: "ॐ हुं नमः",
-    detailedBenefits: [
-      "आर्थिक तंगी, ऋण और व्यापारिक बाधाओं का स्थायी निवारण।",
-      "शनि की साढ़ेसाती व ढैय्या के दुष्प्रभावों में परम शांति।",
-      "अखंड सौभाग्य, मान-प्रतिष्ठा और पारिवारिक स्थिरता।",
-    ],
-  },
-  {
-    id: "8-mukhi",
-    hindiName: "आठ मुखी रुद्राक्ष",
-    mukhi: "(8 Mukhi)",
-    description: "विघ्नों से रक्षा, साहस और आत्मबल बढ़ाने वाला।",
-    image: "/images/rudraksha-8-mukhi.png",
-    deity: "विघ्नहर्ता भगवान गणेश",
-    planet: "राहु ग्रह (Rahu)",
-    mantra: "ॐ हुं नमः",
-    detailedBenefits: [
-      "सभी कार्यों में आने वाले अप्रत्याशित विघ्नों व रुकावटों का नाश।",
-      "राहु जनित भय, अज्ञात चिंता और आकस्मिक संकटों से सुरक्षा।",
-      "अदम्य साहस, धैर्य और सही निर्णय लेने की क्षमता।",
-    ],
-  },
-  {
-    id: "9-mukhi",
-    hindiName: "नौ मुखी रुद्राक्ष",
-    mukhi: "(9 Mukhi)",
-    description: "शक्ति, सुरक्षा और नकारात्मक ऊर्जा से रक्षा करने वाला।",
-    image: "/images/rudraksha-9-mukhi.png",
-    deity: "माँ नवदुर्गा (आदिशक्ति भगवती)",
-    planet: "केतु ग्रह (Ketu)",
-    mantra: "ॐ ह्रीं हुं नमः",
-    detailedBenefits: [
-      "माँ भगवती के नौ स्वरूपों की कृपा और अभेद्य सुरक्षा कवच।",
-      "अज्ञात भय, शत्रु बाधा और नकारात्मक ऊर्जा से पूर्ण सुरक्षा।",
-      "दृढ़ इच्छाशक्ति, आत्मविश्वास और सकारात्मक ऊर्जा का संचार।",
-    ],
-  },
-  {
-    id: "10-mukhi",
-    hindiName: "दस मुखी रुद्राक्ष",
-    mukhi: "(10 Mukhi)",
-    description: "भय, बाधाओं और नकारात्मक प्रभावों से संरक्षण देता है।",
-    image: "/images/rudraksha-10-mukhi.png",
-    deity: "भगवान विष्णु (दशावतार)",
-    planet: "सभी नवग्रह शांति (Navgrah)",
-    mantra: "ॐ ह्रीं नमः",
-    detailedBenefits: [
-      "दसों दिशाओं से रक्षा कवच और नजर दोष व तंत्र बाधा शांति।",
-      "कोर्ट-कचहरी, कानूनी अड़चनों व गुप्त विरोधियों पर विजय।",
-      "पारिवारिक कलह से मुक्ति व घर में सुख-शांति का वास।",
-    ],
-  },
-  {
-    id: "11-mukhi",
-    hindiName: "ग्यारह मुखी रुद्राक्ष",
-    mukhi: "(11 Mukhi)",
-    description: "इच्छा शक्ति, सफलता और आध्यात्मिक बल प्रदान करता है।",
-    image: "/images/rudraksha-11-mukhi.png",
-    deity: "रुद्र अवतार संकटमोचन श्री हनुमान जी",
-    planet: "मंगल ग्रह (Mars)",
-    mantra: "ॐ ह्रीं हुं नमः",
-    detailedBenefits: [
-      "शारीरिक बल, स्फूर्ति, पराक्रम और रोग प्रतिरोधक क्षमता में वृद्धि।",
-      "संकटों और प्रतिकूल परिस्थितियों में त्वरित विजय प्राप्ति।",
-      "इंद्रियों पर नियंत्रण, ध्यान साधना और आध्यात्मिक सिद्धि।",
-    ],
-  },
-  {
-    id: "12-mukhi",
-    hindiName: "बारह मुखी रुद्राक्ष",
-    mukhi: "(12 Mukhi)",
-    description: "प्रभुत्व, तेज, आत्मविश्वास और नेतृत्व क्षमता बढ़ाने वाला।",
-    image: "/images/rudraksha-12-mukhi.png",
-    deity: "द्वादश आदित्य (भगवान सूर्य)",
-    planet: "सूर्य ग्रह (Sun)",
-    mantra: "ॐ क्रौं क्षौं रौं नमः",
-    detailedBenefits: [
-      "सूर्य के समान ओज, तेज, आभा और व्यक्तित्व में आकर्षण।",
-      "प्रशासनिक, राजनीतिक, व्यापारिक व उच्च पदों पर अभूतपूर्व सफलता।",
-      "आंतरिक हीनभावना, संकोच और भय का समूल निवारण।",
-    ],
-  },
-  {
-    id: "13-mukhi",
-    hindiName: "तेरह मुखी रुद्राक्ष",
-    mukhi: "(13 Mukhi)",
-    description: "आकर्षण, समृद्धि और सकारात्मक अवसर प्रदान करता है।",
-    image: "/images/rudraksha-13-mukhi.png",
-    deity: "कामदेव एवं देवराज इंद्र",
-    planet: "शुक्र ग्रह (Venus)",
-    mantra: "ॐ ह्रीं नमः",
-    detailedBenefits: [
-      "व्यक्तिगत सम्मोहन, चुंबकीय आकर्षण और वाक्पटुता की सिद्धि।",
-      "व्यापारिक साझेदारियों, जनसंपर्क और नेटवर्किंग में असाधारण लाभ।",
-      "समस्त भौतिक सुख, समृद्धि, कला व ऐश्वर्य की प्राप्ति।",
-    ],
-  },
-  {
-    id: "14-mukhi",
-    hindiName: "चौदह मुखी रुद्राक्ष",
-    mukhi: "(14 Mukhi)",
-    description: "अंतर्ज्ञान, निर्णय क्षमता और आध्यात्मिक जागरण का प्रतीक।",
-    image: "/images/rudraksha-14-mukhi.png",
-    deity: "साक्षात भगवान शिव (देवमणि रुद्राक्ष)",
-    planet: "शनि ग्रह (Saturn)",
-    mantra: "ॐ नमः",
-    detailedBenefits: [
-      "दिव्य अंतर्ज्ञान (Sixth Sense) व भविष्य की घटनाओं का पूर्वाभास।",
-      "सर्वोच्च आध्यात्मिक सुरक्षा और कालसर्प व शनि दोष शांति।",
-      "जीवन के अत्यंत जटिल और महत्वपूर्ण निर्णयों में अचूक स्पष्टता।",
-    ],
-  },
-  {
-    id: "gauri-shankar",
-    hindiName: "गौरी शंकर रुद्राक्ष",
-    mukhi: "गौरी शंकर",
-    description: "शिव और शक्ति की एकता का प्रतीक, वैवाहिक सुख और रिश्तों में सामंजस्य प्रदान करता है।",
-    image: "/images/rudraksha-gauri-shankar.png",
-    deity: "भगवान शिव एवं माता पार्वती",
-    planet: "चंद्र व शुक्र ग्रह (Moon & Venus)",
-    mantra: "ॐ गौरीशंकराय नमः",
-    detailedBenefits: [
-      "विवाह में आ रहे विलंब, बाधाओं और दोषों का शीघ्र निवारण।",
-      "पति-पत्नी के दांपत्य जीवन में अटूट प्रेम, सम्मान और सामंजस्य।",
-      "संतान सुख, वंश वृद्धि और घर में अखंड सौभाग्य की स्थापना।",
-    ],
-  },
-  {
-    id: "ganesha",
-    hindiName: "गणेश रुद्राक्ष",
-    mukhi: "गणेश स्वरूप",
-    description: "प्राकृतिक सूंड सदृश उभार युक्त, समस्त विघ्नों का नाश व कार्यों में सिद्धि देने वाला।",
-    image: "/images/rudraksha-ganesha.png",
-    deity: "विघ्नहर्ता भगवान श्री गणेश",
-    planet: "बुध व राहु ग्रह शांति",
-    mantra: "ॐ गं गणपतये नमः",
-    detailedBenefits: [
-      "नए व्यापार, विद्या व शुभ कार्यों में आने वाली अड़चनों का नाश।",
-      "बुद्धि, विवेक और एकाग्रता में वृद्धि।",
-      "रिद्धि-सिद्धि व घर में सकारात्मक वातावरण का निर्माण।",
-    ],
-  },
-];
 
 export default function RudrakshaCatalogGridLeaf() {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedProduct, setSelectedProduct] = useState<RudrakshaCardItem | null>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
   const { t } = useLanguage();
+
+  // Close modal on Escape key press and lock background scrolling
+  useEffect(() => {
+    function handleKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") setSelectedProduct(null);
+    }
+    if (selectedProduct) {
+      window.addEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "hidden";
+    }
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "unset";
+    };
+  }, [selectedProduct]);
 
   const totalPages = Math.ceil(RUDRAKSHA_PRODUCTS.length / ITEMS_PER_PAGE);
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
@@ -462,7 +225,10 @@ export default function RudrakshaCatalogGridLeaf() {
           />
 
           {/* Modal Container */}
-          <div className="relative z-10 w-full max-w-2xl lg:max-w-3xl rounded-3xl bg-[#FFFDF9] border border-[#E0D0B6] p-4 sm:p-6 shadow-2xl max-h-[92vh] overflow-y-auto">
+          <div
+            data-lenis-prevent
+            className="relative z-10 w-full max-w-2xl lg:max-w-3xl rounded-3xl bg-[#FFFDF9] border border-[#E0D0B6] p-4 sm:p-6 shadow-2xl max-h-[92vh] overflow-y-auto"
+          >
             {/* Top Close Button */}
             <button
               type="button"

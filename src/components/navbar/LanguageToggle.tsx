@@ -4,38 +4,47 @@ import { Globe } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function LanguageToggle() {
-  const { language, toggleLanguage } = useLanguage();
+  const { language, setLanguage } = useLanguage();
 
   return (
-    <button
-      type="button"
-      onClick={toggleLanguage}
-      className="group relative inline-flex items-center gap-1 sm:gap-1.5 rounded-full bg-stone-50 hover:bg-amber-50/80 px-2 sm:px-3 py-1 sm:py-1.5 text-xs font-medium text-stone-700 transition-colors duration-200 border border-stone-200/70 hover:border-amber-300 shadow-2xs hover:shadow-xs cursor-pointer focus:outline-hidden shrink-0"
-      title="भाषा बदलें / Switch Language (Hindi / English)"
-      aria-label="Switch Language"
+    <div
+      role="group"
+      aria-label="भाषा चयन / Select Language"
+      className="inline-flex items-center rounded-full bg-stone-100/90 p-0.5 border border-stone-200/90 shadow-2xs shrink-0"
     >
-      <Globe className="h-4 w-4 text-amber-600 transition-transform duration-300 group-hover:rotate-45" />
-      <div className="flex items-center text-[12px] sm:text-[13px] font-semibold tracking-wider">
-        <span
-          className={`px-1 py-0.5 rounded transition-colors ${
-            language === "hi"
-              ? "text-[#AF0807] font-bold"
-              : "text-stone-400 font-normal"
-          }`}
-        >
-          हिन्दी
-        </span>
-        <span className="text-stone-300 mx-0.5 font-light">|</span>
-        <span
-          className={`px-1 py-0.5 rounded transition-colors ${
-            language === "en"
-              ? "text-[#AF0807] font-bold"
-              : "text-stone-400 font-normal"
-          }`}
-        >
-          EN
-        </span>
+      <div className="pl-2 pr-1 text-amber-700 hidden sm:flex items-center" aria-hidden="true">
+        <Globe className="h-3.5 w-3.5" />
       </div>
-    </button>
+
+      {/* Hindi Option */}
+      <button
+        type="button"
+        onClick={() => setLanguage("hi")}
+        className={`px-2.5 sm:px-3 py-1 text-xs rounded-full font-bold transition-all duration-200 cursor-pointer ${
+          language === "hi"
+            ? "bg-[#AF0807] text-white shadow-xs"
+            : "text-stone-600 hover:text-stone-900 hover:bg-stone-200/50"
+        }`}
+        aria-pressed={language === "hi"}
+        title="हिन्दी में देखें"
+      >
+        हिन्दी
+      </button>
+
+      {/* English Option */}
+      <button
+        type="button"
+        onClick={() => setLanguage("en")}
+        className={`px-2.5 sm:px-3 py-1 text-xs rounded-full font-bold transition-all duration-200 cursor-pointer ${
+          language === "en"
+            ? "bg-[#AF0807] text-white shadow-xs"
+            : "text-stone-600 hover:text-stone-900 hover:bg-stone-200/50"
+        }`}
+        aria-pressed={language === "en"}
+        title="View in English"
+      >
+        EN
+      </button>
+    </div>
   );
 }

@@ -148,3 +148,11 @@ html.lenis, html.lenis body {
   animation: aura-pulse 4s ease-in-out infinite;
 }
 
+/* Prevent Next.js dev overlay button from obscuring bottom mobile navigation */
+nextjs-portal,
+[data-nextjs-toast-wrapper],
+div[data-nextjs-dev-tools-button],
+#next-logo {
+  bottom: 74px !important;
+}
+

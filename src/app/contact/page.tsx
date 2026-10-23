@@ -19,6 +19,7 @@ import {
 import InstagramIcon from "@/components/common/InstagramIcon";
 import ContactHero from "@/components/contact/ContactHero";
 import ContactForm from "@/components/contact/ContactForm";
+import QuickContactSliderLeaf from "@/components/contact/QuickContactSliderLeaf";
 
 export const metadata: Metadata = {
   title: "संपर्क करें | शासकीय माँ बगलामुखी सिद्धपीठ नलखेड़ा - पं. दीपक शर्मा",
@@ -74,9 +75,13 @@ export default function ContactPage() {
       {/* ================= 1. DEDICATED CONTACT HERO SECTION COMPONENT ================= */}
       <ContactHero />
 
-      {/* ================= 2. QUICK CONTACT CARDS (4 CHANNELS: HAWAN PHONE, KUNDALI PHONE, EMAIL, INSTAGRAM) ================= */}
+      {/* ================= 2. QUICK CONTACT CARDS (MOBILE SLIDER + DESKTOP GRID) ================= */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 -mt-12 sm:-mt-14 lg:-mt-16 relative z-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+        {/* Mobile View: Fixed-height, 1-by-1 sliding row across 3 sections with manual controls */}
+        <QuickContactSliderLeaf />
+
+        {/* Desktop View: Fixed 4-column responsive grid */}
+        <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           
           {/* Card 1: Hawan & Puja Booking Hotline */}
           <div className="rounded-2xl sm:rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] hover:shadow-[0_12px_32px_-4px_rgba(175,8,7,0.16)] p-5 flex flex-col items-center text-center hover:-translate-y-1 transition-colors duration-300">

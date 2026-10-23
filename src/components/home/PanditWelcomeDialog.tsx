@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import {
   PhoneCall,
@@ -16,15 +17,35 @@ import { siteConfig, getWhatsAppUrl, getTelUrl } from "@/data/siteConfig";
 const DISMISSED_KEY = "pandit_welcome_dismissed_v2";
 
 export default function PanditWelcomeDialog() {
+  const pathname = usePathname();
   const { t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
-  const [hasTriggered, setHasTriggered] = useState(false);
+  const [, setHasTriggered] = useState(false);
   const [progress, setProgress] = useState(100);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
+  const handleClose = useCallback(() => {
+    setIsOpen(false);
+    if (timerRef.current) clearTimeout(timerRef.current);
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    try {
+      sessionStorage.setItem(DISMISSED_KEY, Date.now().toString());
+    } catch {
+      // ignore
+    }
+  }, []);
+
+  const handleWhatsApp = useCallback(() => {
+    const text =
+      "जय माँ बगलामुखी! पंडित दीपक शर्मा जी, मुझे आपसे पूजा / अनुष्ठान / कुंडली परामर्श हेतु मार्गदर्शन प्राप्त करना है।";
+    window.open(getWhatsAppUrl(text, "primary"), "_blank", "noopener,noreferrer");
+    handleClose();
+  }, [handleClose]);
+
   useEffect(() => {
     if (typeof window === "undefined") return;
+    if (pathname !== "/") return;
 
     // 1. Clear any legacy dismissed flag that might permanently block the popup
     try {
@@ -96,25 +117,9 @@ export default function PanditWelcomeDialog() {
       if (timerRef.current) clearTimeout(timerRef.current);
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, []);
+  }, [pathname, handleClose]);
 
-  const handleClose = () => {
-    setIsOpen(false);
-    if (timerRef.current) clearTimeout(timerRef.current);
-    if (intervalRef.current) clearInterval(intervalRef.current);
-    try {
-      sessionStorage.setItem(DISMISSED_KEY, Date.now().toString());
-    } catch {
-      // ignore
-    }
-  };
-
-  const handleWhatsApp = () => {
-    const text =
-      "जय माँ बगलामुखी! पंडित दीपक शर्मा जी, मुझे आपसे पूजा / अनुष्ठान / कुंडली परामर्श हेतु मार्गदर्शन प्राप्त करना है।";
-    window.open(getWhatsAppUrl(text, "primary"), "_blank", "noopener,noreferrer");
-    handleClose();
-  };
+  if (pathname !== "/") return null;
 
   const PANDIT_BLUR =
     "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAAAwAgCdASoQABAABUB8JbACdADiRFdg8A1MAAD5OUtyGV84wi3qzBAbUZSOGRtbUgmbByap4uGShgkIfrQVDU/BuPMp8pWERG+d8sqq3J0zeCO5obE9bXESbGuBrvUF2hAAAA==";
@@ -124,7 +129,7 @@ export default function PanditWelcomeDialog() {
       role="dialog"
       aria-modal="true"
       aria-label="पंडित दीपक शर्मा स्वागत संवाद"
-      className={`fixed inset-0 z-[80] flex items-center justify-center p-3 sm:p-4 bg-black/65 backdrop-blur-xs transition-opacity duration-300 ${
+      className={`fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-4 pb-28 sm:pb-4 pt-4 sm:pt-4 bg-black/70 backdrop-blur-xs transition-opacity duration-300 ${
         isOpen
           ? "opacity-100 pointer-events-auto"
           : "opacity-0 pointer-events-none"
@@ -138,7 +143,7 @@ export default function PanditWelcomeDialog() {
     >
       {/* Main Popup Modal Card */}
       <div
-        className={`relative z-10 w-full max-w-[430px] rounded-2xl sm:rounded-3xl bg-gradient-to-b from-[#FFFDF9] via-[#FAF4E8] to-[#FFF9EE] border-2 border-[#D4AF37] shadow-[0_20px_60px_-15px_rgba(90,44,24,0.4)] p-4 sm:p-5 flex flex-col transition-all duration-300 ease-out overflow-hidden max-h-[calc(100dvh-2rem)] sm:max-h-[90vh] overflow-y-auto ${
+        className={`relative z-10 w-full max-w-[430px] rounded-2xl sm:rounded-3xl bg-gradient-to-b from-[#FFFDF9] via-[#FAF4E8] to-[#FFF9EE] border-2 border-[#D4AF37] shadow-[0_20px_60px_-15px_rgba(90,44,24,0.4)] p-4 sm:p-5 flex flex-col transition-all duration-300 ease-out overflow-hidden max-h-[calc(100dvh-8rem)] sm:max-h-[90vh] overflow-y-auto ${
           isOpen
             ? "scale-100 opacity-100"
             : "scale-95 opacity-0"

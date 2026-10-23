@@ -106,12 +106,7 @@ export default function TestimonialsSlider() {
       {/* Navigation Controls: Top Right on Desktop */}
       <div className="flex items-center justify-between mb-6 sm:mb-8">
         <div className="flex items-center gap-2">
-          <span className="text-xs sm:text-sm font-bold text-amber-900 bg-amber-100/70 border border-amber-300/80 px-3 py-1 rounded-md">
-            {t({
-              hi: `9 में से ${safeIndex + 1}–${Math.min(safeIndex + visibleCount, testimonialsData.length)} अनुभव`,
-              en: `Showing ${safeIndex + 1}–${Math.min(safeIndex + visibleCount, testimonialsData.length)} of 9`,
-            })}
-          </span>
+           
           <span className="hidden sm:inline-flex items-center gap-1 text-xs text-stone-500 font-medium">
             <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" />
             {t({ hi: "100% वास्तविक यजमान समीक्षा", en: "100% Genuine Devotee Reviews" })}

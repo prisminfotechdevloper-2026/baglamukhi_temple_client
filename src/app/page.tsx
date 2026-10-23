@@ -8,7 +8,6 @@ import HowBookingWorksSection from "@/components/home/HowBookingWorksSection";
 import PanditProfileSection from "@/components/home/PanditProfileSection";
 import RudrakshaRatnaSection from "@/components/home/RudrakshaRatnaSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
-import PanditWelcomeDialog from "@/components/home/PanditWelcomeDialog";
 
 export const metadata: Metadata = {
   title: "Maa Baglamukhi Havan Booking in Nalkheda | Pt. Deepak Sharma",
@@ -158,9 +157,6 @@ export default function HomePage() {
 
         {/* 9. Authentic Devotee Testimonials & Experiences Slider (Positioned at bottom before Footer) */}
         <TestimonialsSection />
-
-        {/* Pandit Ji Welcome Dialog (Gentle Trigger) */}
-        <PanditWelcomeDialog />
       </main>
     </>
   );

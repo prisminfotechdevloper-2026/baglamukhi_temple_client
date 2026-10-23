@@ -9,6 +9,7 @@ import SmoothScroll from "@/components/common/SmoothScroll";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { PujaBookingProvider } from "@/context/PujaBookingContext";
 import QuickPujaBookingModal from "@/components/booking/QuickPujaBookingModal";
+import PanditWelcomeDialog from "@/components/home/PanditWelcomeDialog";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -113,6 +114,7 @@ export default function RootLayout({
             <BottomNav />
             <FloatingQuickContact />
             <QuickPujaBookingModal />
+            <PanditWelcomeDialog />
           </PujaBookingProvider>
         </LanguageProvider>
       </body>

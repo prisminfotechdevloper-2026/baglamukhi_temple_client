@@ -122,7 +122,7 @@ export default function PanditWelcomeDialog() {
   if (pathname !== "/") return null;
 
   const PANDIT_BLUR =
-    "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAAAwAgCdASoQABAABUB8JbACdADiRFdg8A1MAAD5OUtyGV84wi3qzBAbUZSOGRtbUgmbByap4uGShgkIfrQVDU/BuPMp8pWERG+d8sqq3J0zeCO5obE9bXESbGuBrvUF2hAAAA==";
+    "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADwAQCdASoQABAABUB8JbACdAD7KKjCV7AA/tOn060gzA6nTTSTJbVOnLfzKjrauTBcSRfNy2AZ92InM0zDJbkxDg6GrKKSE/0bWxSaGe2EpjcAAAA=";
 
   return (
     <div

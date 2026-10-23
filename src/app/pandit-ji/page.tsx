@@ -3,6 +3,7 @@ import PanditHero from "@/components/pandit/PanditHero";
 import PanditHawanShowcase from "@/components/pandit/PanditHawanShowcase";
 import PanditCredentialsGrid from "@/components/pandit/PanditCredentialsGrid";
 import PanditServicesSummary from "@/components/pandit/PanditServicesSummary";
+import TestimonialsSection from "@/components/home/TestimonialsSection";
 import PanditDirectBookingCard from "@/components/pandit/PanditDirectBookingCard";
 
 export const metadata: Metadata = {
@@ -100,7 +101,10 @@ export default function PanditJiPage() {
       {/* 4. Core Services Summary with Link to /pujas for complete 16+ catalog */}
       <PanditServicesSummary />
 
-      {/* 5. Direct Contact, Address & Confidential Consultation Card */}
+      {/* 5. Authentic Devotee Testimonials & Experiences Slider (Total 9, 3 on desktop, 1 on mobile) */}
+      <TestimonialsSection />
+
+      {/* 6. Direct Contact, Address & Confidential Consultation Card */}
       <PanditDirectBookingCard />
     </main>
   );

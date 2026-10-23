@@ -65,7 +65,7 @@ export default function QuickPujaBookingModal() {
 
   const [name, setName] = useState("");
   const [gotra, setGotra] = useState("");
-  const [pujaType, setPujaType] = useState(PUJA_OPTIONS[0]);
+  const [pujaType, setPujaType] = useState("");
   const [preferredDate, setPreferredDate] = useState("");
   const [phone, setPhone] = useState("");
   const [notes, setNotes] = useState("");
@@ -97,7 +97,7 @@ export default function QuickPujaBookingModal() {
         );
         setPujaType(match || prefilledPuja);
       } else {
-        setPujaType(PUJA_OPTIONS[0]);
+        setPujaType("");
       }
 
       // Default preferred date to tomorrow if empty
@@ -142,6 +142,13 @@ export default function QuickPujaBookingModal() {
       newErrors.name = t({
         hi: "कृपया यजमान का पूरा नाम दर्ज करें",
         en: "Please enter yajman full name",
+      });
+    }
+
+    if (!pujaType.trim()) {
+      newErrors.pujaType = t({
+        hi: "कृपया अनुष्ठान / पूजा का प्रकार चुनें",
+        en: "Please select puja / hawan type",
       });
     }
 
@@ -242,6 +249,7 @@ export default function QuickPujaBookingModal() {
   const handleResetForNew = () => {
     setName("");
     setGotra("");
+    setPujaType("");
     setNotes("");
     setPhone("");
     setIsSuccess(false);
@@ -253,7 +261,7 @@ export default function QuickPujaBookingModal() {
       role="dialog"
       aria-modal="true"
       aria-labelledby="booking-modal-title"
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/75 backdrop-blur-xs animate-in fade-in duration-200"
+      className="fixed inset-0 z-[90] flex items-center justify-center p-3 sm:p-4 bg-black/75 backdrop-blur-xs animate-in fade-in duration-200"
       onClick={(e) => {
         if (e.target === e.currentTarget) {
           closeBookingModal();
@@ -463,18 +471,36 @@ export default function QuickPujaBookingModal() {
 
               {/* Row 2: Puja Type Selector (Full Width) */}
               <div>
-                <label className="block text-xs font-semibold text-stone-800 mb-1">
+                <label htmlFor="quick-puja-select" className="block text-xs font-semibold text-stone-800 mb-1">
                   {t({ hi: "अनुष्ठान / पूजा का प्रकार", en: "Puja / Hawan Type" })}{" "}
                   <span className="text-red-600">*</span>
                 </label>
                 <div className="relative">
                   <select
+                    id="quick-puja-select"
                     value={pujaType}
-                    onChange={(e) => setPujaType(e.target.value)}
-                    className="w-full rounded-xl bg-white border border-stone-300 py-2.5 pl-3.5 pr-9 text-xs sm:text-sm text-stone-900 font-medium focus:outline-hidden focus:border-[#AF0807] focus:ring-2 focus:ring-[#AF0807]/15 transition-all appearance-none cursor-pointer shadow-2xs"
+                    onChange={(e) => {
+                      setPujaType(e.target.value);
+                      if (errors.pujaType) {
+                        setErrors((prev) => ({ ...prev, pujaType: "" }));
+                      }
+                    }}
+                    className={`w-full rounded-xl bg-white border py-2.5 pl-3.5 pr-9 text-xs sm:text-sm font-medium focus:outline-hidden transition-all appearance-none cursor-pointer shadow-2xs ${
+                      !pujaType ? "text-stone-400 font-normal" : "text-stone-900"
+                    } ${
+                      errors.pujaType
+                        ? "border-red-500 focus:border-red-600 focus:ring-2 focus:ring-red-100"
+                        : "border-stone-300 focus:border-[#AF0807] focus:ring-2 focus:ring-[#AF0807]/15"
+                    }`}
                   >
+                    <option value="" disabled className="text-stone-400 font-normal">
+                      {t({
+                        hi: "-- अपनी पूजा / अनुष्ठान का चयन करें (Select your Puja) --",
+                        en: "-- Select your Puja / Hawan --",
+                      })}
+                    </option>
                     {PUJA_OPTIONS.map((opt) => (
-                      <option key={opt} value={opt}>
+                      <option key={opt} value={opt} className="text-stone-900 font-medium">
                         {opt}
                       </option>
                     ))}
@@ -483,6 +509,12 @@ export default function QuickPujaBookingModal() {
                     <ChevronDown className="h-4 w-4" />
                   </div>
                 </div>
+                {errors.pujaType && (
+                  <p className="mt-1 flex items-center gap-1 text-[11px] text-red-600">
+                    <AlertCircle className="h-3 w-3 shrink-0" />
+                    <span>{errors.pujaType}</span>
+                  </p>
+                )}
               </div>
 
               {/* Row 3: 2 Columns on sm: Preferred Date & Phone */}

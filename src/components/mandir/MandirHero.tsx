@@ -4,23 +4,29 @@ import Image from "next/image";
 import Link from "next/link";
 import { MapPin, PhoneCall, Navigation } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { mandirHeader } from "@/data/mandirContent";
 
 interface MandirHeroProps {
-  title: string;
-  standfirst: string;
-  dateline: string;
-  imageSrc: string;
-  mapsUrl: string;
+  title?: string;
+  standfirst?: string;
+  dateline?: string;
+  imageSrc?: string;
+  mapsUrl?: string;
 }
 
 export default function MandirHero({
   title,
   standfirst,
   dateline,
-  imageSrc,
-  mapsUrl,
+  imageSrc = mandirHeader.leadImage.src,
+  mapsUrl = "https://maps.app.goo.gl/3w6U7f8qT4Lh5F4z7",
 }: MandirHeroProps) {
   const { t } = useLanguage();
+
+  const displayTitle = title || t(mandirHeader.title);
+  const displayStandfirst = standfirst || t(mandirHeader.standfirst);
+  const displayDateline = dateline || t(mandirHeader.dateline);
+  const displayAlt = t(mandirHeader.leadImage.alt);
 
   return (
     <section className="relative w-full h-[54vh] min-h-[440px] sm:min-h-[480px] max-h-[580px] pb-6 sm:pb-8 flex items-center overflow-hidden bg-stone-900">
@@ -28,7 +34,7 @@ export default function MandirHero({
       <div className="absolute inset-0 z-0">
         <Image
           src={imageSrc}
-          alt={title}
+          alt={displayAlt}
           fill
           priority
           sizes="100vw"
@@ -69,18 +75,18 @@ export default function MandirHero({
 
         {/* Main Heading */}
         <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.25] pt-1.5 pb-1 drop-shadow-[0_4px_18px_rgba(0,0,0,0.95)] max-w-4xl">
-          {title}
+          {displayTitle}
         </h1>
 
         {/* Standfirst / Summary Paragraph */}
         <p className="mt-3 text-xs sm:text-sm md:text-base text-stone-100 font-medium max-w-2xl leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
-          {standfirst}
+          {displayStandfirst}
         </p>
 
         {/* Dateline & Location Tag */}
         <div className="mt-3.5 inline-flex items-center gap-2 text-xs sm:text-sm text-amber-200 font-bold drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
           <MapPin className="h-4 w-4 text-amber-400 shrink-0" />
-          <span>{dateline}</span>
+          <span>{displayDateline}</span>
         </div>
 
         {/* Quick Action CTAs */}

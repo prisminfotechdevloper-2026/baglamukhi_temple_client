@@ -89,7 +89,7 @@ export default function PanditHero() {
           <div className="lg:col-span-7 flex flex-col justify-center text-left">
             
             {/* Sacred Accent Header */}
-            <div className="flex items-center gap-2 mb-2">
+            <div className="flex items-center gap-2 mb-2 pr-10 sm:pr-0">
               <span className="h-4 w-1 bg-[#AF0807] rounded-full" />
               <span className="text-xs font-extrabold uppercase tracking-widest text-[#AF0807]">
                 {t({
@@ -99,11 +99,11 @@ export default function PanditHero() {
               </span>
             </div>
 
-            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-black text-[#3E0B02] tracking-tight leading-snug pt-1">
+            <h1 className="font-serif text-2xl sm:text-4xl lg:text-5xl font-black text-[#3E0B02] tracking-tight leading-snug pt-1 pr-10 sm:pr-0">
               {t({ hi: "पंडित दीपक शर्मा", en: "Pandit Deepak Sharma" })}
             </h1>
             
-            <p className="font-serif text-base sm:text-lg font-bold text-[#AF0807] mt-1.5 mb-4">
+            <p className="font-serif text-sm sm:text-lg font-bold text-[#AF0807] mt-1.5 mb-4 pr-10 sm:pr-0">
               {t({
                 hi: "माँ बगलामुखी अनन्य उपासक • विशिष्ट तांत्रिक-वैदिक महाहवन एवं ज्योतिष यज्ञाचार्य",
                 en: "Maa Baglamukhi Devout Upasak • Tantric-Vedic Mahahawan & Jyotish Yagyacharya",
@@ -152,12 +152,12 @@ export default function PanditHero() {
             </div>
 
             {/* Direct Contact & WhatsApp Consultation CTA */}
-            <div className="flex flex-wrap items-center gap-3.5 pt-4 border-t border-stone-200">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-4 border-t border-stone-200">
               <a
                 href="https://wa.me/917224083313?text=%E0%A4%9C%E0%A4%AF%20%E0%A4%AE%E0%A4%BE%E0%A4%81%20%E0%A4%AC%E0%A4%97%E0%A4%B2%E0%A4%BE%E0%A4%AE%E0%A4%81%E0%A4%96%E0%A4%B0!%20%E0%A4%AA%E0%A4%82%E0%A4%A1%E0%A4%BF%E0%A4%A4%20%E0%A4%A6%E0%A4%80%E0%A4%AA%E0%A4%95%20%E0%A4%B6%E0%A4%B0%E0%A5%8D%E0%A4%AE%E0%A4%BE%20%E0%A4%9C%E0%A4%80%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20%E0%A4%86%E0%A4%AA%E0%A4%B8%E0%A5%87%20%E0%A4%AA%E0%A5%82%E0%A4%9C%E0%A4%BE%20/%20%E0%A4%B9%E0%A4%B5%E0%A4%A8%20/%20%E0%A4%95%E0%A5%81%E0%A4%82%E0%A4%A1%E0%A4%B2%E0%A5%80%20%E0%A4%AA%E0%A4%B0%E0%A4%BE%E0%A4%AE%E0%A4%B0%E0%A5%8D%E0%A4%B6%20%E0%A4%B9%E0%A5%87%E0%A4%A4%E0%A5%81%20%E0%A4%B8%E0%A4%82%E0%A4%AA%E0%A4%B0%E0%A5%8D%E0%A4%95%20%E0%A4%95%E0%A4%B0%E0%A4%A8%E0%A4%BE%20%E0%A4%B9%E0%A5%88%E0%A5%A4"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#AF0807] hover:bg-[#8B0605] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98] group"
+                className="w-full sm:w-auto justify-center inline-flex items-center gap-2 px-5 sm:px-6 py-3 rounded-full bg-[#AF0807] hover:bg-[#8B0605] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98] group text-center"
               >
                 <div className="flex h-5 w-5 items-center justify-center rounded-md bg-[#25D366] text-white shrink-0 group-hover:scale-110 transition-transform">
                   <WhatsAppIcon className="h-3.5 w-3.5 text-white" />
@@ -167,7 +167,7 @@ export default function PanditHero() {
 
               <a
                 href="tel:+917224083313"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white hover:bg-amber-50 text-[#3E0B02] hover:text-[#AF0807] text-xs sm:text-sm font-bold border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-sm transition-colors"
+                className="w-full sm:w-auto justify-center inline-flex items-center gap-2 px-5 sm:px-6 py-3 rounded-full bg-white hover:bg-amber-50 text-[#3E0B02] hover:text-[#AF0807] text-xs sm:text-sm font-bold border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-sm transition-colors text-center"
               >
                 <PhoneCall className="h-4 w-4 text-[#AF0807]" />
                 <span>{t({ hi: "सीधा कॉल: +91 72240 83313", en: "Direct Call: +91 72240 83313" })}</span>
@@ -179,39 +179,39 @@ export default function PanditHero() {
         </div>
 
         {/* 4 Trust Metrics Bar */}
-        <div className="mt-10 sm:mt-12 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
-          <div className="rounded-2xl bg-white border-y-0 border-x-2 border-amber-400 shadow-[0_4px_20px_-4px_rgba(217,119,6,0.1)] p-4 text-center">
-            <div className="font-serif text-2xl sm:text-3xl font-black text-[#AF0807]">
+        <div className="mt-10 sm:mt-12 grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4">
+          <div className="rounded-2xl bg-white border-y-0 border-x-2 border-amber-400 shadow-[0_4px_20px_-4px_rgba(217,119,6,0.1)] px-2.5 py-3 sm:p-4 text-center overflow-hidden">
+            <div className="font-serif text-xl sm:text-2xl lg:text-3xl font-black text-[#AF0807] tracking-tight">
               2100+
             </div>
-            <div className="text-xs font-semibold text-stone-600 mt-1">
+            <div className="text-[11px] sm:text-xs font-semibold text-stone-600 mt-1 leading-snug">
               {t({ hi: "सफल महाहवन व अनुष्ठान", en: "Successful Mahahawans & Pujas" })}
             </div>
           </div>
 
-          <div className="rounded-2xl bg-white border-y-0 border-x-2 border-amber-400 shadow-[0_4px_20px_-4px_rgba(217,119,6,0.1)] p-4 text-center">
-            <div className="font-serif text-2xl sm:text-3xl font-black text-[#AF0807]">
+          <div className="rounded-2xl bg-white border-y-0 border-x-2 border-amber-400 shadow-[0_4px_20px_-4px_rgba(217,119,6,0.1)] px-2.5 py-3 sm:p-4 text-center overflow-hidden">
+            <div className="font-serif text-xl sm:text-2xl lg:text-3xl font-black text-[#AF0807] tracking-tight">
               5+ {t({ hi: "वर्ष", en: "Years" })}
             </div>
-            <div className="text-xs font-semibold text-stone-600 mt-1">
+            <div className="text-[11px] sm:text-xs font-semibold text-stone-600 mt-1 leading-snug">
               {t({ hi: "नलखेड़ा सिद्धपीठ साधना अनुभव", en: "Nalkheda Siddhapeeth Experience" })}
             </div>
           </div>
 
-          <div className="rounded-2xl bg-white border-y-0 border-x-2 border-amber-400 shadow-[0_4px_20px_-4px_rgba(217,119,6,0.1)] p-4 text-center">
-            <div className="font-serif text-2xl sm:text-3xl font-black text-[#AF0807]">
+          <div className="rounded-2xl bg-white border-y-0 border-x-2 border-amber-400 shadow-[0_4px_20px_-4px_rgba(217,119,6,0.1)] px-2.5 py-3 sm:p-4 text-center overflow-hidden">
+            <div className="font-serif text-xl sm:text-2xl lg:text-3xl font-black text-[#AF0807] tracking-tight">
               100%
             </div>
-            <div className="text-xs font-semibold text-stone-600 mt-1">
+            <div className="text-[11px] sm:text-xs font-semibold text-stone-600 mt-1 leading-snug">
               {t({ hi: "शास्त्रोक्त तांत्रिक-वैदिक विधि", en: "Authentic Vedic-Tantric Vidhi" })}
             </div>
           </div>
 
-          <div className="rounded-2xl bg-white border-y-0 border-x-2 border-amber-400 shadow-[0_4px_20px_-4px_rgba(217,119,6,0.1)] p-4 text-center">
-            <div className="font-serif text-2xl sm:text-3xl font-black text-[#AF0807]">
+          <div className="rounded-2xl bg-white border-y-0 border-x-2 border-amber-400 shadow-[0_4px_20px_-4px_rgba(217,119,6,0.1)] px-2.5 py-3 sm:p-4 text-center overflow-hidden">
+            <div className="font-serif text-base sm:text-xl lg:text-3xl font-black text-[#AF0807] tracking-tight truncate sm:overflow-visible uppercase">
               {t({ hi: "देश-विदेश", en: "Worldwide" })}
             </div>
-            <div className="text-xs font-semibold text-stone-600 mt-1">
+            <div className="text-[11px] sm:text-xs font-semibold text-stone-600 mt-1 leading-snug">
               {t({ hi: "लाइव वीडियो संकल्प व डाक सेवा", en: "Live Video Sankalp & Post Service" })}
             </div>
           </div>

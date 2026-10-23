@@ -7,6 +7,7 @@ import HawanBenefitsSection from "@/components/home/HawanBenefitsSection";
 import HowBookingWorksSection from "@/components/home/HowBookingWorksSection";
 import PanditProfileSection from "@/components/home/PanditProfileSection";
 import RudrakshaRatnaSection from "@/components/home/RudrakshaRatnaSection";
+import TestimonialsSection from "@/components/home/TestimonialsSection";
 import PanditWelcomeDialog from "@/components/home/PanditWelcomeDialog";
 
 export const metadata: Metadata = {
@@ -146,7 +147,10 @@ export default function HomePage() {
         {/* 5. 15 Sacred Benefits of Maa Baglamukhi Hawan */}
         <HawanBenefitsSection />
 
-        {/* 3. 3 Simple Steps: How Booking Works */}
+        {/* 6. Authentic Devotee Testimonials & Experiences Slider (Total 9, 3 on desktop, 1 on mobile) */}
+        <TestimonialsSection />
+
+        {/* 7. 3 Simple Steps: How Booking Works */}
         <HowBookingWorksSection />
 
         {/* 4. Chief Priest Pt. Deepak Sharma Profile & Credentials */}

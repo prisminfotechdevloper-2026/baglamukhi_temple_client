@@ -124,7 +124,7 @@ export default function PanditWelcomeDialog() {
       role="dialog"
       aria-modal="true"
       aria-label="पंडित दीपक शर्मा स्वागत संवाद"
-      className={`fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/60 backdrop-blur-xs transition-opacity duration-300 ${
+      className={`fixed inset-0 z-[80] flex items-center justify-center p-3 sm:p-4 bg-black/65 backdrop-blur-xs transition-opacity duration-300 ${
         isOpen
           ? "opacity-100 pointer-events-auto"
           : "opacity-0 pointer-events-none"
@@ -138,10 +138,10 @@ export default function PanditWelcomeDialog() {
     >
       {/* Main Popup Modal Card */}
       <div
-        className={`relative z-10 w-full sm:max-w-[430px] rounded-t-3xl sm:rounded-3xl bg-gradient-to-b from-[#FFFDF9] via-[#FAF4E8] to-[#FFF9EE] border-t-2 sm:border-2 border-[#D4AF37] shadow-[0_20px_60px_-15px_rgba(90,44,24,0.4)] p-4 sm:p-5 flex flex-col transition-all duration-300 ease-out overflow-hidden max-h-[92vh] sm:max-h-[90vh] overflow-y-auto ${
+        className={`relative z-10 w-full max-w-[430px] rounded-2xl sm:rounded-3xl bg-gradient-to-b from-[#FFFDF9] via-[#FAF4E8] to-[#FFF9EE] border-2 border-[#D4AF37] shadow-[0_20px_60px_-15px_rgba(90,44,24,0.4)] p-4 sm:p-5 flex flex-col transition-all duration-300 ease-out overflow-hidden max-h-[calc(100dvh-2rem)] sm:max-h-[90vh] overflow-y-auto ${
           isOpen
-            ? "translate-y-0 sm:scale-100 opacity-100"
-            : "translate-y-full sm:translate-y-4 sm:scale-95 opacity-0"
+            ? "scale-100 opacity-100"
+            : "scale-95 opacity-0"
         }`}
       >
         {/* Top Gold Accent Strip */}

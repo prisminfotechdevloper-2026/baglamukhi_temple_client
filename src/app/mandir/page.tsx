@@ -1,6 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
-import mandirData from "../../../content/mandir.json";
+import { mandirHeader } from "@/data/mandirContent";
 import MandirHero from "@/components/mandir/MandirHero";
 import MandirStatsRibbon from "@/components/mandir/MandirStatsRibbon";
 import MandirArticles from "@/components/mandir/MandirArticles";
@@ -48,17 +48,6 @@ export const metadata: Metadata = {
 };
 
 export default function MandirPage() {
-  const {
-    header,
-    articleBody,
-    pullQuote,
-    factBox,
-    timingBox,
-    timeline,
-    howToReach,
-    footerNote,
-  } = mandirData;
-
   // JSON-LD for rich snippets (PlaceOfWorship + Article)
   const jsonLd = {
     "@context": "https://schema.org",
@@ -66,8 +55,8 @@ export default function MandirPage() {
       {
         "@type": "PlaceOfWorship",
         "@id": "https://baglamukhi-temple-hazel.vercel.app/#mandir",
-        name: header.title,
-        description: header.standfirst,
+        name: mandirHeader.title.hi,
+        description: mandirHeader.standfirst.hi,
         address: {
           "@type": "PostalAddress",
           streetAddress: "शासकीय माँ बगलामुखी सिद्धपीठ, नलखेड़ा, जिला - आगर मालवा",
@@ -86,8 +75,8 @@ export default function MandirPage() {
       },
       {
         "@type": "Article",
-        headline: header.title,
-        description: header.standfirst,
+        headline: mandirHeader.title.hi,
+        description: mandirHeader.standfirst.hi,
         image: "https://baglamukhi-temple-hazel.vercel.app/images/baglamukhi-mandir-real.webp",
         inLanguage: "hi",
         publisher: {
@@ -108,16 +97,10 @@ export default function MandirPage() {
         }}
       />
 
-      {/* 1. Hero Section matching site aesthetic */}
-      <MandirHero
-        title={header.title}
-        standfirst={header.standfirst}
-        dateline={header.dateline}
-        imageSrc={header.leadImage.src}
-        mapsUrl={howToReach.mapsUrl}
-      />
+      {/* 1. Hero Section with dynamic bilingual headline & dateline */}
+      <MandirHero />
 
-      {/* 2. Highlights Ribbon with signature left-right amber borders */}
+      {/* 2. Highlights Ribbon with bilingual cards */}
       <MandirStatsRibbon />
 
       {/* 3. Temple Overview, Live Darshan & Aarti Timings, and Sacred Images */}
@@ -126,32 +109,25 @@ export default function MandirPage() {
       {/* 4. Main Content Area: 2-Column Responsive Grid with Sticky Sidebar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 pb-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
-          {/* Left Column: 5 Article Sections (Smoothly Scrolls) */}
+          {/* Left Column: 5 Article Chapters (Bilingual & Smoothly Scrolls) */}
           <div className="lg:col-span-8 order-2 lg:order-1 min-w-0">
-            <MandirArticles sections={articleBody} pullQuote={pullQuote} />
+            <MandirArticles />
           </div>
 
-          {/* Right Column: Fact Box & Direct Helpline Sidebar (Stays Fixed / Sticky on Desktop) */}
+          {/* Right Column: Fact Box & Direct Helpline Sidebar (Bilingual & Sticky on Desktop) */}
           <div className="lg:col-span-4 order-1 lg:order-2 lg:sticky lg:top-24 lg:self-start">
-            <MandirFactSidebar
-              title={factBox.title}
-              facts={factBox.facts}
-              mapsUrl={howToReach.mapsUrl}
-            />
+            <MandirFactSidebar />
           </div>
         </div>
 
-        {/* 4. Timeline "इतिहास एक नज़र में" */}
-        <MandirTimeline title={timeline.title} events={timeline.events} />
+        {/* 4. Timeline "इतिहास एक नज़र में" / "History & Heritage at a Glance" */}
+        <MandirTimeline />
 
-        {/* 5. How to reach ("कैसे पहुँचें") */}
-        <MandirHowToReach
-          title={howToReach.title}
-          mapsUrl={howToReach.mapsUrl}
-        />
+        {/* 5. How to reach ("कैसे पहुँचें" / "How to Reach") */}
+        <MandirHowToReach />
 
-        {/* 6. Tradition Note & Direct Helpline CTA */}
-        <MandirTraditionNotice traditionNote={footerNote.traditionNote} />
+        {/* 6. Tradition Note & Direct Helpline CTA (Bilingual) */}
+        <MandirTraditionNotice />
       </div>
     </main>
   );

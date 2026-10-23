@@ -35,7 +35,7 @@ export default function BottomNav() {
 
   return (
     <nav
-      className="fixed bottom-0 left-0 right-0 z-50 lg:hidden bg-white/95 backdrop-blur-xl border-t border-amber-200/90 shadow-[0_-4px_24px_rgba(74,12,22,0.08)]"
+      className="fixed bottom-0 left-0 right-0 z-40 lg:hidden bg-white/95 backdrop-blur-xl border-t border-amber-200/90 shadow-[0_-4px_24px_rgba(74,12,22,0.08)]"
       aria-label="Mobile Bottom Navigation"
     >
       {/* ================= PROTRUDING RED "पूजा बुकिंग" TAB (Matches User Screenshot) ================= */}
@@ -47,7 +47,7 @@ export default function BottomNav() {
       >
         <CalendarCheck className="h-3.5 w-3.5 text-amber-300 shrink-0 stroke-[2.5]" />
         <span className="font-extrabold text-[11px] sm:text-xs text-white tracking-wider uppercase font-sans whitespace-nowrap drop-shadow-xs">
-          {t({ hi: "पूजा बुकिंग", en: "puja BOOKING" })}
+          {t({ hi: "पूजा बुकिंग", en: "Puja Booking" })}
         </span>
       </button>
 

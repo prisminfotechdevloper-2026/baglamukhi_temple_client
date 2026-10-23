@@ -91,7 +91,7 @@ export default function PanditServicesSummary() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-left max-w-3xl mb-10 sm:mb-12">
+        <div className="text-left max-w-3xl mb-10 sm:mb-12 pr-14 sm:pr-0">
           <div className="flex items-center gap-2 mb-2">
             <span className="h-4 w-1 bg-[#AF0807] rounded-full" />
             <span className="text-xs font-extrabold uppercase tracking-widest text-[#AF0807]">
@@ -102,7 +102,7 @@ export default function PanditServicesSummary() {
             </span>
           </div>
 
-          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#3E0B02] tracking-tight leading-tight">
+          <h2 className="font-serif text-xl sm:text-3xl md:text-4xl font-extrabold text-[#3E0B02] tracking-tight leading-tight">
             {t({
               hi: "माँ बगलामुखी मंदिर में संपन्न मुख्य महाहवन",
               en: "Key Mahahawans Performed at Maa Baglamukhi Mandir",

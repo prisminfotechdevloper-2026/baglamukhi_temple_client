@@ -16,7 +16,6 @@ export interface Testimonial {
     hi: string;
     en: string;
   };
-  image: string;
   rating: number;
   date: {
     hi: string;
@@ -26,24 +25,23 @@ export interface Testimonial {
 
 export const testimonialsData: Testimonial[] = [
   {
-    id: "amit-sharma",
+    id: "vishal-sangle",
     name: {
-      hi: "अमित शर्मा",
-      en: "Amit Sharma",
+      hi: "विशाल सांगले",
+      en: "Vishal Sangle",
     },
     location: {
-      hi: "इंदौर, मध्य प्रदेश",
-      en: "Indore, Madhya Pradesh",
+      hi: "महाराष्ट्र",
+      en: "Maharashtra",
     },
     hawan: {
-      hi: "माँ बगलामुखी पावन महाहवन",
-      en: "Maa Baglamukhi Sacred Mahahawan",
+      hi: "माँ बगलामुखी महाहवन व शत्रु बाधा निवारण",
+      en: "Maa Baglamukhi Mahahawan & Shatru Badha Nivaran",
     },
     quote: {
-      hi: "हवन के बाद घर का माहौल पहले से शांत महसूस होने लगा। हम सबने साथ बैठकर समय बिताया और मन को भी सुकून मिला।",
-      en: "Hawan ke baad ghar ka mahaul pehle se shaant mehsoos hone laga. Hum sabne saath baithkar samay bitaya aur mann ko bhi sukoon mila.",
+      hi: "महाराष्ट्र से नलखेड़ा आकर पूज्य आचार्यों के सानिध्य में बगलामुखी महाहवन करवाया था। व्यापारिक गतिरोध व मानसिक तनाव से पूरी तरह मुक्ति मिली। माँ पीताम्बरा की असीम कृपा की साक्षात अनुभूति हुई।",
+      en: "Traveled from Maharashtra to Nalkheda for Maa Baglamukhi Mahahawan. Got immense relief from business obstacles and stress. Divine grace of Maa Pitambara is truly experienced here.",
     },
-    image: "/images/testimonials/amit-sharma.webp",
     rating: 5,
     date: {
       hi: "अक्टूबर 2026",
@@ -51,28 +49,123 @@ export const testimonialsData: Testimonial[] = [
     },
   },
   {
-    id: "neha-joshi",
+    id: "robin-ji",
     name: {
-      hi: "नेहा जोशी",
-      en: "Neha Joshi",
+      hi: "रॉबिन जी",
+      en: "Robin Ji",
+    },
+    location: {
+      hi: "इंदौर, मध्य प्रदेश",
+      en: "Indore, Madhya Pradesh",
+    },
+    hawan: {
+      hi: "सवा लाख पीताम्बरा अखंड जाप एवं दशांश हवन",
+      en: "1.25 Lakh Peetambara Akhand Jaap",
+    },
+    quote: {
+      hi: "इंदौर से लगातार नलखेड़ा दर्शन हेतु जाता हूँ। गुरुदेव के मार्गदर्शन में सवा लाख महामंत्र का अनुष्ठान करवाया था। पुराने कानूनी विवाद और कोर्ट-कचहरी के मामले में अप्रत्याशित रूप से विजय और न्याय प्राप्त हुआ।",
+      en: "Regularly visit Nalkheda from Indore. Completed 1.25 Lakh Mahamantra Anushthan under Gurudev's guidance. Achieved unexpected resolution and victory in long-standing legal disputes.",
+    },
+    rating: 5,
+    date: {
+      hi: "अक्टूबर 2026",
+      en: "October 2026",
+    },
+  },
+  {
+    id: "vivek-artist",
+    name: {
+      hi: "विवेक आर्टिस्ट",
+      en: "Vivek Artist",
+    },
+    location: {
+      hi: "इंदौर, मध्य प्रदेश",
+      en: "Indore, Madhya Pradesh",
+    },
+    hawan: {
+      hi: "माँ बगलामुखी अष्टक पाठ एवं विशेष अनुष्ठान",
+      en: "Maa Baglamukhi Ashtak & Special Anushthan",
+    },
+    quote: {
+      hi: "आर्ट और क्रिएटिव फील्ड में लंबे समय से काम में अप्रत्याशित रुकावटें आ रही थीं। नलखेड़ा सिद्धपीठ पर पंडित जी द्वारा विधिवत संकल्प के साथ संपन्न हवन के बाद जीवन में नई सकारात्मक ऊर्जा और नए प्रोजेक्ट्स का शुभ आरंभ हुआ।",
+      en: "Facing artistic and professional blocks for months. Pandit Ji performed the sacred Baglamukhi Hawan with personal Sankalp, opening new auspicious creative opportunities and projects.",
+    },
+    rating: 5,
+    date: {
+      hi: "सितंबर 2026",
+      en: "September 2026",
+    },
+  },
+  {
+    id: "payal-panchal",
+    name: {
+      hi: "पायल पांचाल",
+      en: "Payal Panchal",
     },
     location: {
       hi: "उज्जैन, मध्य प्रदेश",
       en: "Ujjain, Madhya Pradesh",
     },
     hawan: {
-      hi: "पीताम्बरा विशेष अनुष्ठान",
-      en: "Peetambara Special Anushthan",
+      hi: "जन्म पत्रिका विश्लेषण एवं ग्रह शांति हवन",
+      en: "Janam Kundali Analysis & Graha Shanti",
     },
     quote: {
-      hi: "पूजा के बाद मन में एक अलग ही शांति महसूस हुई। घर में भी हम सबने सकारात्मक सोच और शांत रहने पर ध्यान देना शुरू किया।",
-      en: "Puja ke baad mann mein ek alag hi shanti mehsoos hui. Ghar mein bhi hum sabne sakaratmak soch aur shaant rehne par dhyan dena shuru kiya.",
+      hi: "आचार्य जी ने जन्म कुंडली का बहुत सूक्ष्म और सटीक विश्लेषण किया। पारिवारिक अशांति व विवाह विलंब के जो वैदिक उपाय बताए, उनसे जीवन में अद्भूत शांति और सकारात्मक परिवर्तन आया है।",
+      en: "Acharya Ji provided precise and deep Janam Kundali diagnosis. The Shastric remedies and Graha Shanti Hawan brought immense peace and harmony to our family.",
     },
-    image: "/images/testimonials/neha-joshi.webp",
+    rating: 5,
+    date: {
+      hi: "अक्टूबर 2026",
+      en: "October 2026",
+    },
+  },
+  {
+    id: "alisha-rajput",
+    name: {
+      hi: "अलीशा राजपूत",
+      en: "Alisha Rajput",
+    },
+    location: {
+      hi: "भोपाल, मध्य प्रदेश",
+      en: "Bhopal, Madhya Pradesh",
+    },
+    hawan: {
+      hi: "पीताम्बरा महायज्ञ एवं ई-संकल्प लाइव पूजा",
+      en: "Peetambara Mahayagya & Live E-Sankalp",
+    },
+    quote: {
+      hi: "भोपाल से लाइव वीडियो कॉल द्वारा अग्नि के सम्मुख यज्ञाचार्य जी ने नाम-गोत्र से प्रत्यक्ष संकल्प करवाया। हवन की शुचिता और वैदिक मंत्रोच्चार ऐसा लगा जैसे हम स्वयं सिद्धपीठ यज्ञशाला में उपस्थित हों। शत-शत नमन।",
+      en: "Participated in live video Hawan from Bhopal. The purity, Shastric chanting, and personal Sankalp made us feel directly seated in Nalkheda Yajnashala. Truly blessed.",
+    },
     rating: 5,
     date: {
       hi: "सितंबर 2026",
       en: "September 2026",
+    },
+  },
+  {
+    id: "maheer-gupta",
+    name: {
+      hi: "माहिर गुप्ता",
+      en: "Maheer Gupta",
+    },
+    location: {
+      hi: "मुंबई, महाराष्ट्र",
+      en: "Mumbai, Maharashtra",
+    },
+    hawan: {
+      hi: "व्यापार वृद्धि एवं संकट मोचन महाहवन",
+      en: "Business Growth & Sankat Mochan Hawan",
+    },
+    quote: {
+      hi: "मुंबई में कॉर्पोरेट व्यापार में अज्ञात बाधाओं से परेशान था। नलखेड़ा सिद्धपीठ पर बगलामुखी हवन और अभिमंत्रित पीताम्बरा रक्षा सूत्र प्राप्त होने के बाद व्यापार में अभूतपूर्व स्थिरता और सफलता मिली।",
+      en: "Encountered continuous setbacks in business in Mumbai. Performing the sacred Baglamukhi Hawan at Nalkheda Siddhapeeth restored stability and remarkable growth.",
+    },
+    rating: 5,
+    date: {
+      hi: "अक्टूबर 2026",
+      en: "October 2026",
     },
   },
   {
@@ -82,43 +175,41 @@ export const testimonialsData: Testimonial[] = [
       en: "Rajesh Patel",
     },
     location: {
-      hi: "कोटा, राजस्थान",
-      en: "Kota, Rajasthan",
+      hi: "अहमदाबाद, गुजरात",
+      en: "Ahmedabad, Gujarat",
     },
     hawan: {
-      hi: "पारिवारिक शांति व रक्षा हवन",
-      en: "Family Peace & Protection Hawan",
+      hi: "कालसर्प व पितृ दोष निवारण अनुष्ठान",
+      en: "Kaal Sarp & Pitra Dosh Shanti",
     },
     quote: {
-      hi: "हवन में शामिल होना हमारे परिवार के लिए एक सुकून भरा अनुभव रहा। पूजा के बाद हमने घर में शांति और आपस में समझ बनाये रखने का संकल्प लिया।",
-      en: "Hawan mein shamil hona hamare parivaar ke liye ek sukoon bhara anubhav raha. Puja ke baad humne ghar mein shaanti aur aapas mein samajh banaye rakhne ka sankalp liya.",
+      hi: "अहमदाबाद से परिवार सहित आकर माँ बगलामुखी धाम में शास्त्रोक्त हवन करवाया। पंडित जी की वाणी और पूजन विधि अत्यंत प्रामाणिक और प्रभावकारी है। घर में सुख-समृद्धि व शांति का वास हुआ।",
+      en: "Visited Nalkheda with family from Ahmedabad. The Shastric authenticity, Vedic chanting, and priest's divine devotion brought enduring peace and prosperity to our household.",
     },
-    image: "/images/testimonials/rajesh-patel.webp",
     rating: 5,
     date: {
-      hi: "अक्टूबर 2026",
-      en: "October 2026",
+      hi: "सितंबर 2026",
+      en: "September 2026",
     },
   },
   {
-    id: "vikramaditya-singh",
+    id: "amit-sharma-dr",
     name: {
-      hi: "विक्रमादित्य सिंह",
-      en: "Vikramaditya Singh",
+      hi: "डॉ. अमित शर्मा",
+      en: "Dr. Amit Sharma",
     },
     location: {
       hi: "जयपुर, राजस्थान",
       en: "Jaipur, Rajasthan",
     },
     hawan: {
-      hi: "शत्रु बाधा व न्यायालय विजय अनुष्ठान",
-      en: "Court Case & Obstacle Removal Anushthan",
+      hi: "माँ बगलामुखी रक्षा कवच एवं महाहवन",
+      en: "Maa Baglamukhi Raksha Kavach Hawan",
     },
     quote: {
-      hi: "लंबे समय से जमीन व व्यापारिक विवाद के कारण तनाव में थे। पंडित दीपक शर्मा जी द्वारा नलखेड़ा सिद्धपीठ पर बगलामुखी तांत्रिक हवन संपन्न कराने के बाद 3 माह में अनुकूल समाधान निकला। माँ की असीम कृपा है।",
-      en: "We were under severe stress due to prolonged commercial disputes. Pandit Deepak Sharma Ji conducted the Shastric Baglamukhi Hawan at Nalkheda, bringing favorable resolution within 3 months.",
+      hi: "चिकित्सा सेवा में कार्य करते हुए मानसिक शांति और पारिवारिक सुरक्षा हेतु माँ पीताम्बरा के पावन दरबार में अनुष्ठान करवाया। पंडित जी द्वारा कराया गया वैदिक विधान अत्यंत फलदायी और शांतिदायक रहा।",
+      en: "Sought peace of mind and family protection. The Shastric Baglamukhi Raksha Hawan performed by Pandit Ji was authentic, serene, and profoundly rewarding.",
     },
-    image: "/images/testimonials/vikramaditya-singh.webp",
     rating: 5,
     date: {
       hi: "अगस्त 2026",
@@ -132,122 +223,21 @@ export const testimonialsData: Testimonial[] = [
       en: "Sunita Agrawal",
     },
     location: {
-      hi: "मुंबई, महाराष्ट्र",
-      en: "Mumbai, Maharashtra",
+      hi: "दिल्ली एनसीआर",
+      en: "Delhi NCR",
     },
     hawan: {
-      hi: "व्यापार वृद्धि व श्री पीताम्बरा हवन",
-      en: "Business Growth & Prosperity Hawan",
+      hi: "पारिवारिक सुख-शांति एवं संकट निवारण हवन",
+      en: "Family Peace & Protection Hawan",
     },
     quote: {
-      hi: "मुंबई से नलखेड़ा आना संभव नहीं हो पा रहा था, पंडित जी ने लाइव वीडियो कॉल पर पूरे विधि-विधान से हमारे नाम-गोत्र का संकल्प करवाकर हवन कराया। प्रसाद व रक्षा सूत्र समय पर डाक से प्राप्त हुए। व्यापार में नई गति आई।",
-      en: "Unable to travel from Mumbai, Pandit Ji arranged the live video Sankalp with our Gotra and performed the hawan transparently. Prasad and energized Raksha Sutra reached us safely via post.",
+      hi: "दिल्ली से नलखेड़ा पहुंचकर माँ बगलामुखी की संध्या आरती और विशेष हवन में भाग लिया। मंदिर का वातावरण और पंडित जी का विनम्र, निस्वार्थ मार्गदर्शन मन को असीम श्रद्धा और शांति से भर देता है।",
+      en: "Traveled from Delhi to attend the evening Aarti and special Hawan at Nalkheda. The sacred ambiance and selfless Shastric guidance by Pandit Ji filled our hearts with devotion.",
     },
-    image: "/images/testimonials/sunita-agrawal.webp",
-    rating: 5,
-    date: {
-      hi: "सितंबर 2026",
-      en: "September 2026",
-    },
-  },
-  {
-    id: "alok-trivedi",
-    name: {
-      hi: "डॉ. आलोक त्रिवेदी",
-      en: "Dr. Alok Trivedi",
-    },
-    location: {
-      hi: "अहमदाबाद, गुजरात",
-      en: "Ahmedabad, Gujarat",
-    },
-    hawan: {
-      hi: "सवा लाख पीताम्बरा महामंत्र अखंड जाप",
-      en: "1.25 Lakh Peetambara Akhand Jaap",
-    },
-    quote: {
-      hi: "गंभीर मानसिक अशांति और कार्यक्षेत्र में अकारण रुकावटों के चलते सवा लाख महामंत्र अनुष्ठान करवाया। पंडित जी की सात्विक साधना और वैदिक शुद्धता का प्रभाव साक्षात अनुभव हुआ। घर में अभूतपूर्व सकारात्मकता है।",
-      en: "Conducted the 1.25 Lakh Akhand Jaap for career obstacles and stress. Pandit Ji's disciplined Vedic rituals and authentic mantras brought tangible positivity and peace into our life.",
-    },
-    image: "/images/testimonials/alok-trivedi.webp",
-    rating: 5,
-    date: {
-      hi: "जुलाई 2026",
-      en: "July 2026",
-    },
-  },
-  {
-    id: "meenakshi-sundaram",
-    name: {
-      hi: "मीनाक्षी सुंदरम",
-      en: "Meenakshi Sundaram",
-    },
-    location: {
-      hi: "बेंगलुरु, कर्नाटक",
-      en: "Bengaluru, Karnataka",
-    },
-    hawan: {
-      hi: "आरोग्य व स्वास्थ्य रक्षा महाहवन",
-      en: "Health & Vitality Protection Hawan",
-    },
-    quote: {
-      hi: "माताजी के स्वास्थ्य को लेकर पूरा परिवार चिंतित था। नलखेड़ा सिद्धपीठ में महामृत्युंजय व बगलामुखी संयुक्त अनुष्ठान करवाया। पंडित जी ने हर चरण का दर्शन कराया। अब माताजी के स्वास्थ्य में निरंतर सुधार है।",
-      en: "Our family was anxious regarding mother's health. Pandit Ji performed the combined Mahamrityunjay-Baglamukhi anushthan. We witnessed every ritual via video. Mother's recovery has been steady and blessed.",
-    },
-    image: "/images/testimonials/meenakshi-sundaram.webp",
     rating: 5,
     date: {
       hi: "अक्टूबर 2026",
       en: "October 2026",
-    },
-  },
-  {
-    id: "sanjay-verma",
-    name: {
-      hi: "संजय वर्मा",
-      en: "Sanjay Verma",
-    },
-    location: {
-      hi: "नई दिल्ली (NCR)",
-      en: "New Delhi (NCR)",
-    },
-    hawan: {
-      hi: "नकारात्मक ऊर्जा व तंत्र बाधा निवारण",
-      en: "Negative Energy & Evil Eye Cleansing",
-    },
-    quote: {
-      hi: "अक्सर घर में भारीपन और अकारण कलह रहती थी। पंडित जी के परामर्श पर पीताम्बरा महाहवन व घर हेतु अभिमंत्रित रक्षा भस्म मंगवाई। पूरे घर का वातावरण अत्यंत हल्का, शुद्ध और भक्तिमय हो गया है।",
-      en: "There was persistent negativity and tension in our household. Following Pandit Ji's guidance, we arranged the Peetambara Hawan and received the energized Raksha Bhasma. Our home feels deeply sacred now.",
-    },
-    image: "/images/testimonials/sanjay-verma.webp",
-    rating: 5,
-    date: {
-      hi: "सितंबर 2026",
-      en: "September 2026",
-    },
-  },
-  {
-    id: "pooja-mishra",
-    name: {
-      hi: "पूजा मिश्रा",
-      en: "Pooja Mishra",
-    },
-    location: {
-      hi: "लखनऊ, उत्तर प्रदेश",
-      en: "Lucknow, Uttar Pradesh",
-    },
-    hawan: {
-      hi: "शीघ्र विवाह व मांगलिक दोष शांति",
-      en: "Marriage Blessing & Manglik Dosh Shanti",
-    },
-    quote: {
-      hi: "विवाह में लगातार विलंब और कुंडली में ग्रह दोष के कारण चिंतित थे। पंडित दीपक शर्मा जी ने विधिपूर्वक हल्दी माला से बगलामुखी जप व हवन करवाया। माँ पीताम्बरा की कृपा से 4 माह में शुभ संबंध तय हुआ।",
-      en: "Worried about prolonged marriage delays, Pandit Deepak Sharma Ji conducted the authentic Baglamukhi Haldi Mala Anushthan. With Maa Peetambara's divine grace, a blissful alliance was finalized within 4 months.",
-    },
-    image: "/images/testimonials/pooja-mishra.webp",
-    rating: 5,
-    date: {
-      hi: "जून 2026",
-      en: "June 2026",
     },
   },
 ];

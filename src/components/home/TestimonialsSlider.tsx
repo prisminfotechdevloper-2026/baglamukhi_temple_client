@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback, useSyncExternalStore } from "react";
-import Image from "next/image";
 import {
   ChevronLeft,
   ChevronRight,
@@ -154,7 +153,7 @@ export default function TestimonialsSlider() {
                 {/* Top Row: Hawan Tag & 5 Star Rating */}
                 <div>
                   <div className="flex items-start justify-between gap-2 mb-3">
-                    <span className="text-[11px] font-extrabold uppercase tracking-wide text-amber-900 bg-amber-50 border border-amber-200 px-2.5 py-1 rounded-md inline-block max-w-[200px] truncate">
+                    <span className="text-[11px] font-extrabold uppercase tracking-wide text-amber-900 bg-amber-50 border border-amber-200 px-2.5 py-1 leading-normal rounded-md inline-block max-w-[200px] truncate">
                       {t(item.hawan)}
                     </span>
                     <div className="flex items-center gap-0.5 shrink-0" aria-label="5 Star Rating">
@@ -176,34 +175,22 @@ export default function TestimonialsSlider() {
                   </div>
                 </div>
 
-                {/* Bottom Row: Devotee Profile (Photo + Name + Location + Verification) */}
+                {/* Bottom Row: Devotee Profile (Name + Location + Verification) - NO PHOTO */}
                 <div className="pt-4 mt-2 border-t border-amber-100/80 flex items-center justify-between gap-3">
-                  <div className="flex items-center gap-3 min-w-0">
-                    <div className="relative h-12 w-12 sm:h-13 sm:w-13 rounded-full overflow-hidden border-2 border-amber-400 shrink-0 shadow-sm bg-amber-50">
-                      <Image
-                        src={item.image}
-                        alt={t(item.name)}
-                        fill
-                        unoptimized
-                        sizes="52px"
-                        className="object-cover object-top"
-                      />
-                    </div>
-                    <div className="min-w-0">
-                      <h3 className="font-serif text-sm sm:text-base font-bold text-[#3E0B02] leading-tight truncate">
-                        {t(item.name)}
-                      </h3>
-                      <div className="flex items-center gap-1 text-[11px] text-stone-500 font-medium mt-0.5 truncate">
-                        <MapPin className="h-3 w-3 text-[#AF0807] shrink-0" />
-                        <span className="truncate">{t(item.location)}</span>
-                      </div>
+                  <div className="min-w-0 flex-1 pt-1">
+                    <h3 className="font-serif text-base sm:text-lg font-black text-[#3E0B02] leading-normal">
+                      {t(item.name)}
+                    </h3>
+                    <div className="flex items-center gap-1.5 text-xs text-stone-600 font-medium mt-0.5">
+                      <MapPin className="h-3.5 w-3.5 text-[#AF0807] shrink-0" />
+                      <span>{t(item.location)}</span>
                     </div>
                   </div>
 
                   {/* Verification Pill */}
-                  <div className="shrink-0 flex items-center gap-1 px-2 py-0.5 rounded-md bg-emerald-50 border border-emerald-200/70 text-[10px] sm:text-[11px] font-bold text-emerald-800">
-                    <CheckCircle2 className="h-3 w-3 text-emerald-600 shrink-0" />
-                    <span className="hidden xs:inline">{t({ hi: "सत्यापित", en: "Verified" })}</span>
+                  <div className="shrink-0 flex items-center gap-1 px-2.5 py-1 rounded-md bg-emerald-50 border border-emerald-200/70 text-[10px] sm:text-[11px] font-bold text-emerald-800">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
+                    <span>{t({ hi: "सत्यापित", en: "Verified" })}</span>
                   </div>
                 </div>
 

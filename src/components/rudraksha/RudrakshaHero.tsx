@@ -25,7 +25,7 @@ export default function RudrakshaHero() {
       {/* 1. Large Screen Background Banner (Desktop >= 1024px) */}
       <div className="hidden lg:block absolute inset-0 z-0 select-none pointer-events-none">
         <Image
-          src="/images/rudraksha-hero-desktop.png"
+          src="/images/rudraksha-hero-desktop.webp"
           alt="Original Rudraksha Collection Background"
           fill
           priority
@@ -40,7 +40,7 @@ export default function RudrakshaHero() {
       {/* 2. Small Screen Background Image (Mobile & Tablet < 1024px) */}
       <div className="block lg:hidden absolute inset-0 z-0 select-none pointer-events-none">
         <Image
-          src="/images/rudraksha-hero-mobile.png"
+          src="/images/rudraksha-hero-mobile.webp"
           alt="Original Rudraksha Mobile Background"
           fill
           priority

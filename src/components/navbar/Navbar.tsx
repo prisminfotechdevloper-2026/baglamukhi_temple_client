@@ -33,7 +33,7 @@ export default function Navbar() {
             {/* Sacred Deity Emblem with Divine Glow & Aura Frame */}
             <div className="relative h-12 w-12 xs:h-13 xs:w-13 sm:h-16 sm:w-16 shrink-0 flex items-center justify-center rounded-2xl bg-gradient-to-b from-amber-100/70 via-[#FFF9ED] to-[#FAEDD2] p-1 border-[1.5px] border-amber-300/80 shadow-[0_2px_14px_rgba(216,155,24,0.22)] group-hover:border-amber-400 group-hover:shadow-[0_4px_18px_rgba(216,155,24,0.35)] transition-colors duration-300">
               <Image
-                src="/images/baglamukhi-logo.png"
+                src="/images/baglamukhi-logo.webp"
                 alt="माँ बगलामुखी दिव्य स्वरूप"
                 width={64}
                 height={64}

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import HeroSection from "@/components/home/HeroSection";
 import HawanPackagesSection from "@/components/home/HawanPackagesSection";
+import VisheshAnushthanSection from "@/components/home/VisheshAnushthanSection";
+import MahaAshtakSection from "@/components/home/MahaAshtakSection";
 import HawanBenefitsSection from "@/components/home/HawanBenefitsSection";
 import HowBookingWorksSection from "@/components/home/HowBookingWorksSection";
 import PanditProfileSection from "@/components/home/PanditProfileSection";
@@ -34,7 +36,7 @@ export const metadata: Metadata = {
     locale: "hi_IN",
     images: [
       {
-        url: "/images/baglamukhi-logo.png",
+        url: "/images/baglamukhi-logo.webp",
         width: 1200,
         height: 1200,
         alt: "माँ बगलामुखी दिव्य स्वरूप नलखेड़ा",
@@ -46,7 +48,7 @@ export const metadata: Metadata = {
     title: "Maa Baglamukhi Havan Booking in Nalkheda | Pt. Deepak Sharma",
     description:
       "माँ बगलामुखी पूजा और हवन की जानकारी, उपलब्ध सेवाएँ और ऑनलाइन बुकिंग सहायता प्राप्त करें।",
-    images: ["/images/baglamukhi-logo.png"],
+    images: ["/images/baglamukhi-logo.webp"],
   },
 };
 
@@ -132,10 +134,16 @@ export default function HomePage() {
         {/* 1. Hero Section: Clean, focused, reduced height with primary booking action */}
         <HeroSection />
 
-        {/* 2. Authentic Hawan Packages & Transparent Dakshina (Pandit Ji's Offerings) */}
+        {/* 2. Authentic Hawan Packages & Transparent Dakshina (hawan_anusthan.png) */}
         <HawanPackagesSection />
 
-        {/* 3. 15 Sacred Benefits of Maa Baglamukhi Hawan */}
+        {/* 3. Special Anushthan: 1.25 Lakh Akhand Jaap (vishesh_anusthan.png) */}
+        <VisheshAnushthanSection />
+
+        {/* 4. Maa Baglamukhi Ashtak Hawan & Divine Recitations (maha_ashtak.png) */}
+        <MahaAshtakSection />
+
+        {/* 5. 15 Sacred Benefits of Maa Baglamukhi Hawan */}
         <HawanBenefitsSection />
 
         {/* 3. 3 Simple Steps: How Booking Works */}

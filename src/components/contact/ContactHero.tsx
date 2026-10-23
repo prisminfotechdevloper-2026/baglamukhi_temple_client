@@ -14,7 +14,7 @@ export default function ContactHero() {
       {/* ================= BACKGROUND: USER-PROVIDED TEMPLE IMAGE WITH SOFT MILD DARK OVERLAY ================= */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/baglamukhi-mandir-real.png"
+          src="/images/baglamukhi-mandir-real.webp"
           alt="माँ बगलामुखी मंदिर नलखेड़ा सिंह द्वार एवं शिखर"
           fill
           priority

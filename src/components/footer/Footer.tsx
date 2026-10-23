@@ -68,7 +68,7 @@ export default function Footer() {
             <div className="flex items-center gap-3">
               <div className="relative h-14 w-14 shrink-0 flex items-center justify-center rounded-2xl bg-black/40 border border-amber-400/30 p-1">
                 <Image
-                  src="/images/baglamukhi-logo.png"
+                  src="/images/baglamukhi-logo.webp"
                   alt="माँ बगलामुखी मंदिर लोगो"
                   width={56}
                   height={56}

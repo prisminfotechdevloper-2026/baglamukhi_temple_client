@@ -76,7 +76,7 @@ export const metadata: Metadata = {
     siteName: "Shri Maa Baglamukhi Temple Nalkheda",
     images: [
       {
-        url: "/images/baglamukhi-logo.png",
+        url: "/images/baglamukhi-logo.webp",
         width: 1200,
         height: 1200,
         alt: "माँ बगलामुखी दिव्य स्वरूप नलखेड़ा",
@@ -90,7 +90,7 @@ export const metadata: Metadata = {
     title: "Maa Baglamukhi Havan Booking in Nalkheda | Pt. Deepak Sharma",
     description:
       "माँ बगलामुखी पूजा और हवन की जानकारी, उपलब्ध सेवाएँ और ऑनलाइन बुकिंग संबंधी सहायता प्राप्त करें।",
-    images: ["/images/baglamukhi-logo.png"],
+    images: ["/images/baglamukhi-logo.webp"],
   },
 };
 

@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     locale: "hi_IN",
     images: [
       {
-        url: "/images/ratna-hero-desktop.png",
+        url: "/images/ratna-hero-desktop.webp",
         width: 1024,
         height: 342,
         alt: "Original Ratna Gemstones - माँ बगलामुखी धाम नलखेड़ा",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     title: "Original Ratna | Certified Astrological Gemstones — Pt. Deepak Sharma",
     description:
       "माँ बगलामुखी सिद्धपीठ नलखेड़ा से 100% असली, वैदिक प्राण-प्रतिष्ठित नवरत्न संग्रह।",
-    images: ["/images/ratna-hero-desktop.png"],
+    images: ["/images/ratna-hero-desktop.webp"],
   },
 };
 

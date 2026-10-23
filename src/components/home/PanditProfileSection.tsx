@@ -136,7 +136,7 @@ export default function PanditProfileSection() {
               <div className="relative aspect-[4/5] rounded-[1.75rem] overflow-hidden border-2 border-[#D89B18]/70 shadow-2xl bg-gradient-to-b from-[#FFFDF8] to-[#FFF3DC]">
                 {/* Pandit Ji Image */}
                 <Image
-                  src="/images/pandit-deepak-sharma.jpg"
+                  src="/images/pandit-deepak-sharma.webp"
                   alt="पंडित दीपक शर्मा - माँ बगलामुखी उपासक नलखेड़ा"
                   fill
                   sizes="(max-width: 768px) 100vw, 420px"

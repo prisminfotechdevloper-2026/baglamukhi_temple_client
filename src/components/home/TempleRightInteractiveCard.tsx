@@ -131,19 +131,19 @@ const TIMING_POINTS: TimingItem[] = [
 
 const DARSHAN_IMAGES = [
   {
-    src: "/images/mandir-darshan-1.jpg",
+    src: "/images/mandir-darshan-1.webp",
     title: "माँ पीताम्बरा दिव्य स्वर्ण श्रृंगार",
     subtitle: "प्रातःकालीन स्वर्ण श्रृंगार दर्शन",
     desc: "माँ बगलामुखी के दिव्य त्रिमुखी स्वरूप का प्रातःकालीन अलौकिक स्वर्ण दर्शन।",
   },
   {
-    src: "/images/mandir-darshan-2.jpg",
+    src: "/images/mandir-darshan-2.webp",
     title: "माँ बगलामुखी नील वस्त्र महाशृंगार",
     subtitle: "विशेष पर्व दिव्य दर्शन",
     desc: "नील वस्त्र, छत्र एवं रजत मुकुट से सुशोभित माँ का पावन तेजस्वी स्वरूप।",
   },
   {
-    src: "/images/mandir-darshan-3.jpg",
+    src: "/images/mandir-darshan-3.webp",
     title: "त्रिशक्ति दिव्य पीताम्बर स्वरूप",
     subtitle: "गर्भगृह अखंड दर्शन",
     desc: "महासरस्वती, माँ बगलामुखी एवं महालक्ष्मी का सम्मिलित अलौकिक दरबार।",

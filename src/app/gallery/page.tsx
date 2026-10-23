@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     locale: "hi_IN",
     images: [
       {
-        url: "/images/baglamukhi-mandir-real.png",
+        url: "/images/baglamukhi-mandir-real.webp",
         width: 1200,
         height: 675,
         alt: "माँ बगलामुखी मंदिर नलखेड़ा फोटो गैलरी",

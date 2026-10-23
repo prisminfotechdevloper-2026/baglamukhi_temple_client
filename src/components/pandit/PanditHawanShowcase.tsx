@@ -9,7 +9,7 @@ export default function PanditHawanShowcase() {
 
   const photos = [
     {
-      src: "/images/hawan-anushthan-1.jpg",
+      src: "/images/hawan-anushthan-1.webp",
       title: {
         hi: "माँ बगलामुखी दिव्य महाहवन एवं अग्नि आहुति",
         en: "Maa Baglamukhi Divine Mahahawan & Sacred Ahutis",
@@ -34,7 +34,7 @@ export default function PanditHawanShowcase() {
       objectPosition: "object-[center_28%]",
     },
     {
-      src: "/images/hawan-anushthan-2.jpg",
+      src: "/images/hawan-anushthan-2.webp",
       title: {
         hi: "शास्त्रोक्त वेदी निर्माण व समिधा अर्पण",
         en: "Shastric Vedi Construction & Sacred Samidha Offering",

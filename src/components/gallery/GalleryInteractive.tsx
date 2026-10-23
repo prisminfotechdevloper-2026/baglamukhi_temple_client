@@ -22,7 +22,7 @@ const galleryData: GalleryItem[] = [
     },
     category: "mandir",
     categories: ["mandir"],
-    src: "/images/mata_rani.png",
+    src: "/images/mata_rani.webp",
   },
   {
     id: 2,
@@ -32,7 +32,7 @@ const galleryData: GalleryItem[] = [
     },
     category: "mandir",
     categories: ["mandir"],
-    src: "/images/mandir_parisar.png",
+    src: "/images/mandir_parisar.webp",
   },
   {
     id: 3,
@@ -42,7 +42,7 @@ const galleryData: GalleryItem[] = [
     },
     category: "mandir",
     categories: ["mandir"],
-    src: "/images/baglamukhi-mandir-real.png",
+    src: "/images/baglamukhi-mandir-real.webp",
   },
   {
     id: 4,
@@ -52,7 +52,7 @@ const galleryData: GalleryItem[] = [
     },
     category: "hawan",
     categories: ["hawan", "pandit-ji"],
-    src: "/images/hawan-anushthan-1.jpg",
+    src: "/images/hawan-anushthan-1.webp",
   },
   {
     id: 5,
@@ -62,7 +62,7 @@ const galleryData: GalleryItem[] = [
     },
     category: "hawan",
     categories: ["hawan", "pandit-ji"],
-    src: "/images/hawan-anushthan-2.jpg",
+    src: "/images/hawan-anushthan-2.webp",
   },
   {
     id: 6,
@@ -72,7 +72,7 @@ const galleryData: GalleryItem[] = [
     },
     category: "pandit-ji",
     categories: ["pandit-ji"],
-    src: "/images/pandit-deepak-sharma.jpg",
+    src: "/images/pandit-deepak-sharma.webp",
   },
   {
     id: 8,
@@ -82,7 +82,7 @@ const galleryData: GalleryItem[] = [
     },
     category: "mandir",
     categories: ["mandir"],
-    src: "/images/baglamukhi-mata.jpg",
+    src: "/images/baglamukhi-mata.webp",
   },
   {
     id: 9,
@@ -92,7 +92,7 @@ const galleryData: GalleryItem[] = [
     },
     category: "mandir",
     categories: ["mandir"],
-    src: "/images/mandir-darshan-1.jpg",
+    src: "/images/mandir-darshan-1.webp",
   },
   {
     id: 10,
@@ -102,7 +102,7 @@ const galleryData: GalleryItem[] = [
     },
     category: "mandir",
     categories: ["mandir"],
-    src: "/images/mandir-darshan-2.jpg",
+    src: "/images/mandir-darshan-2.webp",
   },
   {
     id: 11,
@@ -112,7 +112,7 @@ const galleryData: GalleryItem[] = [
     },
     category: "mandir",
     categories: ["mandir"],
-    src: "/images/mandir-darshan-3.jpg",
+    src: "/images/mandir-darshan-3.webp",
   },
   {
     id: 12,
@@ -122,7 +122,37 @@ const galleryData: GalleryItem[] = [
     },
     category: "mandir",
     categories: ["mandir"],
-    src: "/images/temple-board-header.png",
+    src: "/images/temple-board-header.webp",
+  },
+  {
+    id: 13,
+    title: {
+      hi: "माँ बगलामुखी महाविशेष हवन एवं अनुष्ठान - अधिकृत विवरण पत्र",
+      en: "Maa Baglamukhi Mahavishesh Hawan - Official Document",
+    },
+    category: "hawan",
+    categories: ["hawan", "pandit-ji"],
+    src: "/images/hawan_anusthan.webp",
+  },
+  {
+    id: 14,
+    title: {
+      hi: "माँ बगलामुखी विशेष अनुष्ठान - पावन वेदी एवं सर्वतोभद्र मण्डल",
+      en: "Maa Baglamukhi Vishesh Anushthan - Sacred Altar & Mandala",
+    },
+    category: "hawan",
+    categories: ["hawan"],
+    src: "/images/vishesh_anusthan.webp",
+  },
+  {
+    id: 15,
+    title: {
+      hi: "माँ बगलामुखी अष्टक - परम स्तम्भन शक्ति स्वरूप",
+      en: "Maa Baglamukhi Ashtak - Supreme Stambhan Shakti Swaroop",
+    },
+    category: "mandir",
+    categories: ["mandir", "hawan"],
+    src: "/images/maha_ashtak.webp",
   },
 ];
 

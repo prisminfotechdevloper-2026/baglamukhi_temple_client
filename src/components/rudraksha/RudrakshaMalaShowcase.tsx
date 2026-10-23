@@ -72,7 +72,7 @@ export default function RudrakshaMalaShowcase() {
             {/* Mala Image in Wooden Bowl */}
             <div className="relative w-full sm:w-[280px] md:w-[320px] aspect-[4/3] rounded-2xl overflow-hidden border border-[#EBDCC5] shadow-[0_4px_20px_rgba(90,44,24,0.06)] shrink-0 group">
               <Image
-                src="/images/rudraksha-mala-showcase.jpg"
+                src="/images/rudraksha-mala-showcase.webp"
                 alt="108 दानों वाली सिद्ध रुद्राक्ष जप माला"
                 fill
                 sizes="(max-width: 640px) 100vw, 320px"

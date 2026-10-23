@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import {
   Flame,
   Scroll,
@@ -11,6 +12,9 @@ import {
   Users,
   Leaf,
   ShieldCheck,
+  Maximize2,
+  X,
+  Eye,
 } from "lucide-react";
 import WhatsAppIcon from "@/components/common/WhatsAppIcon";
 import { useLanguage } from "@/context/LanguageContext";
@@ -20,7 +24,23 @@ import { getWhatsAppUrl } from "@/data/siteConfig";
 export default function HawanPackagesSection() {
   const { t } = useLanguage();
   const { openBookingModal } = usePujaBooking();
-  const [activeTab, setActiveTab] = useState<"hawan" | "anushthan" | "ashtak">("hawan");
+  const [lightbox, setLightbox] = useState<boolean>(false);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setLightbox(false);
+    };
+    if (lightbox) {
+      document.body.style.overflow = "hidden";
+      window.addEventListener("keydown", handleKeyDown);
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [lightbox]);
 
   // ================= 1. CORE HAWAN PACKAGES (हवन श्रेणियां) =================
   const hawanPackages = [
@@ -40,8 +60,7 @@ export default function HawanPackagesSection() {
       highlights: [
         { hi: "पारिवारिक सुख व शांति", en: "Family peace & harmony" },
         { hi: "पीली सरसों व हवन समिधा", en: "Yellow mustard & sacred wood" },
-        { hi: "व्यक्तिगत नाम-गोत्र संकल्प", en: "Personal Name-Gotra Sankalp" },
-        { hi: "डाक द्वारा सिद्ध भस्म व प्रसाद", en: "Consecrated Bhasma by post" },
+        { hi: "नाम-गोत्र संकल्प व सिद्ध भस्म", en: "Name-Gotra Sankalp & Bhasma" },
       ],
       isPopular: false,
     },
@@ -61,8 +80,7 @@ export default function HawanPackagesSection() {
       highlights: [
         { hi: "21 दिव्य औषधियों की आहुतियां", en: "21 Rare medicinal ahutis" },
         { hi: "लाल मिर्च द्वारा स्तम्भन क्रिया", en: "Red chili Stambhan ritual" },
-        { hi: "लाइव वीडियो दर्शन सुविधा", en: "Live video darshan option" },
-        { hi: "सिद्ध पीताम्बरा रक्षा सूत्र", en: "Consecrated Raksha Sutra" },
+        { hi: "लाइव वीडियो दर्शन व रक्षा सूत्र", en: "Live video & Raksha Sutra" },
       ],
       isPopular: false,
     },
@@ -83,7 +101,6 @@ export default function HawanPackagesSection() {
         { hi: "36 प्रकार की दिव्य औषधियां", en: "36 Consecrated divine herbs" },
         { hi: "शत्रु, तंत्र व नजर बाधा निवारण", en: "Shield against enemies & tantra" },
         { hi: "कोर्ट-केस व व्यापार में सफलता", en: "Victory in litigation & commerce" },
-        { hi: "लाइव HD संकल्प व विशेष प्रसाद", en: "Live HD Sankalp & Special Prasad" },
       ],
       isPopular: true,
     },
@@ -97,122 +114,15 @@ export default function HawanPackagesSection() {
       priests: { hi: "1-2 उच्चकोटि वैदिक ब्राह्मण", en: "1-2 High Vedic Brahmins" },
       badge: { hi: "सर्वोच्च सिद्धि विधान", en: "Supreme Fulfillment Vidhan" },
       desc: {
-        hi: "जीवन के समस्त असाध्य संकटों का नाश, राजनीतिक विजय, भूमि-संपत्ति विवाद एवं सर्व मनोरथ पूर्ण करने हेतु सर्वोच्च हवन।",
+        hi: "जीवन के समस्त असाध्य संकटों का नाश, राजनीतिक विजय, भूमि विवाद एवं सर्व मनोरथ पूर्ण करने हेतु।",
         en: "Highest hawan for fulfilling any cherished desire, political triumph, and total adversity eradication.",
       },
       highlights: [
         { hi: "108 दुर्लभ जड़ी-बूटियों का महायज्ञ", en: "Grand yajna with 108 rare herbs" },
         { hi: "अखंड मंत्र सम्पुट व स्तम्भन", en: "Continuous mantra samput" },
-        { hi: "सर्व मनोकामना व विजय आशीष", en: "Complete wish fulfillment" },
         { hi: "संपूर्ण सिद्ध पीताम्बरा कवच किट", en: "Complete consecrated kavach kit" },
       ],
       isPopular: false,
-    },
-  ];
-
-  // ================= 2. SPECIAL ANUSHTHAN (विशेष अनुष्ठान एवं मंत्र जाप) =================
-  const anushthanPackages = [
-    {
-      id: "anushthan-21k",
-      title: { hi: "21,000 बगलामुखी महामंत्र जाप", en: "21,000 Baglamukhi Mantra Jaap" },
-      price: "₹17,000",
-      priceNum: 17000,
-      duration: { hi: "1 से 2 दिवस", en: "1-2 Days" },
-      desc: {
-        hi: "वैदिक ब्राह्मणों द्वारा 36 अक्षरी मूल मंत्र का 21,000 सस्वर पाठ एवं तत्पश्चात दशांश हवन।",
-        en: "21,000 chants of 36-akshari mul mantra followed by Dashansh hawan.",
-      },
-      brahmins: { hi: "5 वैदिक ब्राह्मण", en: "5 Vedic Brahmins" },
-      includes: { hi: "दशांश हवन व महाविशेष आहुतियां सम्मिलित", en: "Dashansh Hawan & Mahavishesh Ahuti included" },
-    },
-    {
-      id: "anushthan-36k",
-      title: { hi: "36,000 बगलामुखी महामंत्र जाप", en: "36,000 Baglamukhi Mantra Jaap" },
-      price: "₹21,000",
-      priceNum: 21000,
-      duration: { hi: "2 से 3 दिवस", en: "2-3 Days" },
-      desc: {
-        hi: "36 अक्षरी मूल मंत्र का 36,000 जप। शत्रुओं की वाणी व बुद्धि स्तम्भन एवं कानूनी विवादों में विजय।",
-        en: "36,000 chants of 36-letter mul mantra for paralyzing disputes and winning legal cases.",
-      },
-      brahmins: { hi: "7 वैदिक ब्राह्मण", en: "7 Vedic Brahmins" },
-      includes: { hi: "शाबर मंत्र सम्पुट व महाविशेष हवन", en: "Shabar mantra samput & Mahavishesh hawan" },
-    },
-    {
-      id: "anushthan-51k",
-      title: { hi: "51,000 बगलामुखी महामंत्र जाप", en: "51,000 Baglamukhi Mantra Jaap" },
-      price: "₹36,000",
-      priceNum: 36000,
-      duration: { hi: "3 से 5 दिवस", en: "3-5 Days" },
-      desc: {
-        hi: "गंभीर संकट, असाध्य विरोधियों की शांति व व्यापारिक-राजनीतिक प्रतिष्ठा की रक्षा हेतु अति फलदायी अनुष्ठान।",
-        en: "Highly effective sadhana for severe adversities and securing business & political prestige.",
-      },
-      brahmins: { hi: "11 वैदिक ब्राह्मण", en: "11 Vedic Brahmins" },
-      includes: { hi: "11 ब्राह्मणों द्वारा जप व दशांश महायज्ञ", en: "Jaap by 11 priests & Dashansh Mahayajna" },
-    },
-    {
-      id: "anushthan-125k",
-      title: { hi: "1,25,000 (सवा लाख) महामंत्र अखंड साधना", en: "1.25 Lakh (Sawa Lakh) Akhand Jaap" },
-      price: "₹51,000",
-      priceNum: 51000,
-      duration: { hi: "5 से 7 दिवस", en: "5-7 Days" },
-      desc: {
-        hi: "11 अथवा 21 ब्राह्मणों द्वारा 36 अक्षरी मूल मंत्र का सवा लाख अखंड जप, दिव्य साधना एवं दशांश महाविशेष हवन।",
-        en: "The supreme 1.25 lakh Vedic-Tantric anushthan by 11/21 priests with Dashansh Mahavishesh hawan.",
-      },
-      brahmins: { hi: "11 अथवा 21 वैदिक ब्राह्मण", en: "11 or 21 Vedic Brahmins" },
-      includes: { hi: "महाविशेष हवन, शाबर मंत्र व संपूर्ण प्रसाद किट", en: "Mahavishesh hawan, Shabar mantras & Complete Kit" },
-      isSupreme: true,
-    },
-  ];
-
-  // ================= 3. MAHA ASHTAK HAWAN & PATH (बगलामुखी अष्टक) =================
-  const ashtakHawan = [
-    {
-      title: { hi: "बगलामुखी अष्टक हवन (51 औषधि)", en: "Ashtak Hawan (51 Herbs)" },
-      price: "₹21,000",
-      priceNum: 21000,
-      duration: { hi: "3 घंटे", en: "3 Hours" },
-      samagri: { hi: "51 प्रकार की औषधियां", en: "51 Consecrated Herbs" },
-      brahmins: { hi: "2-3 वैदिक ब्राह्मणों के सानिध्य में", en: "Under 2-3 Vedic Brahmins" },
-      desc: {
-        hi: "माँ बगलामुखी अष्टक के दिव्य श्लोकों द्वारा 51 विशेष औषधियों से संकट नाशक महाहवन।",
-        en: "Auspicious hawan chanting Maa Baglamukhi Ashtak with 51 medicinal herbs.",
-      },
-    },
-    {
-      title: { hi: "बगलामुखी अष्टक हवन (108 जड़ी-बूटी)", en: "Ashtak Hawan (108 Herbs)" },
-      price: "₹51,000",
-      priceNum: 51000,
-      duration: { hi: "5 घंटे", en: "5 Hours" },
-      samagri: { hi: "108 प्रकार की जड़ी-बूटियां", en: "108 Rare Herbs" },
-      brahmins: { hi: "5 वैदिक ब्राह्मणों के सानिध्य में", en: "Under 5 Vedic Brahmins" },
-      desc: {
-        hi: "अत्यंत शक्तिशाली अष्टक हवन। 5 ब्राह्मणों द्वारा 108 दुर्लभ औषधियों से महाआहुतियां।",
-        en: "Mighty Ashtak hawan with 108 rare herbs by 5 Vedic scholars.",
-      },
-    },
-  ];
-
-  const ashtakPathPackages = [
-    {
-      title: { hi: "11,000 बगलामुखी अष्टक पाठ एवं दशांश हवन", en: "11,000 Ashtak Path & Dashansh Hawan" },
-      price: "₹1,00,000",
-      priceNum: 100000,
-      desc: { hi: "11,000 सस्वर अष्टक पाठ, दशांश हवन, तर्पण एवं मार्जन सहित।", en: "11,000 Ashtak recitations with Dashansh hawan & tarpan." },
-    },
-    {
-      title: { hi: "21,000 बगलामुखी अष्टक पाठ एवं दशांश हवन", en: "21,000 Ashtak Path & Dashansh Hawan" },
-      price: "₹2,00,000",
-      priceNum: 200000,
-      desc: { hi: "21,000 दिव्य अष्टक पाठ, विशेष तांत्रिक दशांश हवन एवं ब्राह्मण भोजन।", en: "21,000 divine recitations with special tantric Dashansh hawan." },
-    },
-    {
-      title: { hi: "36,000 बगलामुखी अष्टक पाठ एवं दशांश हवन", en: "36,000 Ashtak Path & Dashansh Hawan" },
-      price: "₹2,51,000",
-      priceNum: 251000,
-      desc: { hi: "36,000 सर्वोच्च अष्टक पाठ महायज्ञ, पूर्ण शास्त्रीय विधि व महाप्रसाद।", en: "Supreme 36,000 recitation mahayajna with full Vedic protocol." },
     },
   ];
 
@@ -232,10 +142,10 @@ export default function HawanPackagesSection() {
             </span>
           </div>
 
-          <h2 className="font-serif text-2xl xs:text-3xl sm:text-4xl lg:text-[40px] font-black text-[#4A0C16] tracking-tight leading-tight">
+          <h2 className="font-serif text-2xl xs:text-3xl sm:text-4xl lg:text-[38px] font-black text-[#4A0C16] tracking-tight leading-tight">
             {t({
-              hi: "माँ बगलामुखी हवन एवं अनुष्ठान श्रेणियां",
-              en: "Maa Baglamukhi Hawan & Anushthan Packages",
+              hi: "माँ बगलामुखी मुख्य हवन श्रेणियां एवं दक्षिणा",
+              en: "Maa Baglamukhi Hawan Packages & Dakshina",
             })}
           </h2>
 
@@ -245,386 +155,292 @@ export default function HawanPackagesSection() {
               en: "Select the consecrated Hawan matching your needs. All fire rituals are performed at Nalkheda Siddhapeeth under Chief Priest Pt. Deepak Sharma (+91 72240 83313).",
             })}
           </p>
+
+          {/* Quick Jump Navigation Anchors */}
+          <div className="mt-4 flex flex-wrap items-center gap-2">
+            <a
+              href="#hawan-packages"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#8B0000] text-white font-serif text-xs font-bold shadow-xs border border-[#D89B18]"
+            >
+              <Flame className="h-3.5 w-3.5 text-amber-300" />
+              <span>{t({ hi: "1. मुख्य हवन श्रेणियां (₹2,500 - ₹21,000)", en: "1. Hawan Packages (₹2.5k - ₹21k)" })}</span>
+            </a>
+            <a
+              href="#vishesh-anushthan"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#FFFDF8] hover:bg-white text-stone-700 font-serif text-xs font-bold border border-[#EBD8B4] hover:border-[#D89B18] transition-all"
+            >
+              <Scroll className="h-3.5 w-3.5 text-[#8B0000]" />
+              <span>{t({ hi: "2. विशेष अनुष्ठान (₹17,000 - ₹51,000)", en: "2. Special Jaap (₹17k - ₹51k)" })}</span>
+            </a>
+            <a
+              href="#ashtak-packages"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#FFFDF8] hover:bg-white text-stone-700 font-serif text-xs font-bold border border-[#EBD8B4] hover:border-[#D89B18] transition-all"
+            >
+              <BookOpen className="h-3.5 w-3.5 text-[#8B0000]" />
+              <span>{t({ hi: "3. बगलामुखी अष्टक हवन व पाठ", en: "3. Ashtak Hawan & Path" })}</span>
+            </a>
+          </div>
         </div>
 
-        {/* ================= TAB NAVIGATION BUTTONS ================= */}
-        <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-8 border-b border-amber-300/60 pb-3">
-          <button
-            type="button"
-            onClick={() => setActiveTab("hawan")}
-            className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-lg font-serif text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer ${
-              activeTab === "hawan"
-                ? "bg-[#8B0000] text-white shadow-md border border-[#D89B18]"
-                : "bg-[#FFFDF8] text-stone-700 hover:bg-white border border-[#EBD8B4]"
-            }`}
-          >
-            <Flame className={`h-4 w-4 ${activeTab === "hawan" ? "text-amber-300" : "text-[#8B0000]"}`} />
-            <span>{t({ hi: "1. मुख्य हवन श्रेणियां (₹2,500 - ₹21,000)", en: "1. Hawan Packages (₹2,500 - ₹21,000)" })}</span>
-          </button>
+        {/* ================= UNIFIED ARCHITECTURE: SIDE-BY-SIDE ON DESKTOP ================= */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-6 items-start">
+          
+          {/* ============ LEFT COLUMN: OFFICIAL POSTER & VERIFICATION (lg:col-span-4) ============ */}
+          <div className="lg:col-span-4 flex flex-col gap-3">
+            <div className="p-4 rounded-2xl bg-[#FFFDF8] border border-amber-300/80 border-l-[6px] border-l-[#D89B18] shadow-sm flex flex-col justify-between">
+              
+              {/* Authenticity Badge */}
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-amber-100 text-[#8B0000] text-xs font-bold border border-amber-300/80 mb-3 w-fit">
+                <ShieldCheck className="h-3.5 w-3.5 text-[#D89B18]" />
+                <span>{t({ hi: "अधिकृत विवरण पत्र • पं. दीपक शर्मा प्रमाणित", en: "Authorized Poster • Pt. Deepak Sharma" })}</span>
+              </div>
 
-          <button
-            type="button"
-            onClick={() => setActiveTab("anushthan")}
-            className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-lg font-serif text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer ${
-              activeTab === "anushthan"
-                ? "bg-[#8B0000] text-white shadow-md border border-[#D89B18]"
-                : "bg-[#FFFDF8] text-stone-700 hover:bg-white border border-[#EBD8B4]"
-            }`}
-          >
-            <Scroll className={`h-4 w-4 ${activeTab === "anushthan" ? "text-amber-300" : "text-[#8B0000]"}`} />
-            <span>{t({ hi: "2. विशेष महामंत्र जाप (₹17,000 - ₹51,000)", en: "2. Special Jaap (₹17,000 - ₹51,000)" })}</span>
-          </button>
-
-          <button
-            type="button"
-            onClick={() => setActiveTab("ashtak")}
-            className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-lg font-serif text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer ${
-              activeTab === "ashtak"
-                ? "bg-[#8B0000] text-white shadow-md border border-[#D89B18]"
-                : "bg-[#FFFDF8] text-stone-700 hover:bg-white border border-[#EBD8B4]"
-            }`}
-          >
-            <BookOpen className={`h-4 w-4 ${activeTab === "ashtak" ? "text-amber-300" : "text-[#8B0000]"}`} />
-            <span>{t({ hi: "3. बगलामुखी अष्टक हवन व पाठ", en: "3. Ashtak Hawan & Path" })}</span>
-          </button>
-        </div>
-
-        {/* ================= TAB 1: CORE HAWAN PACKAGES ================= */}
-        {activeTab === "hawan" && (
-          <div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-              {hawanPackages.map((pkg) => (
-                <div
-                  key={pkg.id}
-                  className={`relative bg-[#FFFDF8] rounded-2xl p-4 sm:p-5 border transition-all duration-300 flex flex-col justify-between ${
-                    pkg.isPopular
-                      ? "border-l-[6px] border-l-[#8B0000] border-amber-400 shadow-lg ring-1 ring-amber-300/60"
-                      : "border-[#EBD8B4] border-l-[6px] border-l-[#D89B18] hover:border-l-[#8B0000] shadow-xs hover:shadow-md"
-                  }`}
-                >
-                  {/* Top Badge */}
-                  <div>
-                    <div className="flex items-center justify-between gap-1 mb-2">
-                      <span className="text-[11px] font-bold px-2 py-0.5 rounded bg-amber-100 text-[#8B0000] border border-amber-300/60 truncate">
-                        {t(pkg.badge)}
-                      </span>
-                      {pkg.isPopular && (
-                        <span className="text-[10px] font-black px-2 py-0.5 rounded bg-[#8B0000] text-amber-300 uppercase tracking-wider shrink-0">
-                          {t({ hi: "सर्वाधिक अनुशंसित", en: "Recommended" })}
-                        </span>
-                      )}
-                    </div>
-
-                    <h3 className="font-serif text-lg sm:text-xl font-black text-[#4A0C16] leading-snug">
-                      {t(pkg.title)}
-                    </h3>
-
-                    {/* Price & Duration Strip */}
-                    <div className="mt-2.5 mb-3 p-2.5 rounded-lg bg-[#FFF3DC]/80 border border-[#EBD8B4] flex items-center justify-between">
-                      <div>
-                        <span className="text-[10px] text-stone-500 uppercase block font-medium">
-                          {t({ hi: "प्रामाणिक दक्षिणा", en: "Dakshina" })}
-                        </span>
-                        <span className="font-serif text-xl sm:text-2xl font-black text-[#8B0000]">
-                          {pkg.price}
-                        </span>
-                      </div>
-                      <div className="text-right">
-                        <span className="text-[10px] text-stone-500 uppercase block font-medium flex items-center gap-1 justify-end">
-                          <Clock className="h-3 w-3 text-amber-700" />
-                          {t({ hi: "समय", en: "Time" })}
-                        </span>
-                        <span className="text-xs font-bold text-stone-800">
-                          {t(pkg.duration)}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Samagri & Priests Spec */}
-                    <div className="space-y-1.5 mb-3 text-xs text-stone-700">
-                      <div className="flex items-start gap-1.5">
-                        <Leaf className="h-3.5 w-3.5 text-amber-700 shrink-0 mt-0.5" />
-                        <span className="leading-tight">
-                          <strong>{t({ hi: "सामग्री: ", en: "Herbs: " })}</strong>
-                          {t(pkg.samagri)}
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-1.5">
-                        <Users className="h-3.5 w-3.5 text-amber-700 shrink-0" />
-                        <span>
-                          <strong>{t({ hi: "पुरोहित: ", en: "Priests: " })}</strong>
-                          {t(pkg.priests)}
-                        </span>
-                      </div>
-                    </div>
-
-                    <p className="text-stone-600 text-xs leading-relaxed mb-3">
-                      {t(pkg.desc)}
-                    </p>
-
-                    {/* Bullet Highlights */}
-                    <div className="space-y-1 mb-4 pt-2.5 border-t border-amber-200/50">
-                      {pkg.highlights.map((h, idx) => (
-                        <div key={idx} className="flex items-center gap-1.5 text-[11px] text-stone-700">
-                          <CheckCircle2 className="h-3 w-3 text-amber-600 shrink-0" />
-                          <span className="truncate">{t(h)}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Actions */}
-                  <div className="space-y-2 pt-2 border-t border-amber-200/50">
-                    <button
-                      type="button"
-                      onClick={() => openBookingModal(`${t(pkg.title)} - ${pkg.price}`)}
-                      className="w-full inline-flex items-center justify-center gap-2 py-2 px-3 rounded-lg bg-gradient-to-r from-[#8B0000] to-[#680000] hover:from-[#A00000] hover:to-[#550000] text-white font-bold text-xs sm:text-sm shadow-sm transition-all cursor-pointer"
-                    >
-                      <CalendarCheck className="h-4 w-4 text-amber-300" />
-                      <span>{t({ hi: "हवन बुक करें", en: "Book This Hawan" })}</span>
-                    </button>
-
-                    <a
-                      href={getWhatsAppUrl(
-                        `जय माँ बगलामुखी! पंडित दीपक शर्मा जी, मुझे ${t(pkg.title)} (${pkg.price}) के बारे में जानकारी एवं शुभ मुहूर्त जानना है।`,
-                        "primary"
-                      )}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full inline-flex items-center justify-center gap-1.5 py-1.5 px-3 rounded-lg bg-white hover:bg-stone-50 text-stone-800 font-bold text-xs border border-stone-300 hover:border-[#25D366] transition-all"
-                    >
-                      <WhatsAppIcon className="h-3.5 w-3.5 text-[#25D366]" />
-                      <span>{t({ hi: "WhatsApp परामर्श", en: "Ask on WhatsApp" })}</span>
-                    </a>
-                  </div>
+              {/* Poster Image with Zoom Trigger */}
+              <div
+                onClick={() => setLightbox(true)}
+                className="relative w-full aspect-square rounded-xl overflow-hidden border-2 border-[#D89B18] shadow-md group cursor-pointer bg-stone-900"
+              >
+                <Image
+                  src="/images/hawan_anusthan.webp"
+                  alt="माँ बगलामुखी महाविशेष हवन एवं अनुष्ठान अधिकृत विवरण पत्र"
+                  fill
+                  className="object-contain group-hover:scale-105 transition-transform duration-300"
+                  sizes="(max-width: 1024px) 100vw, 360px"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent opacity-95 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
+                  <span className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-300">
+                    <Maximize2 className="h-3.5 w-3.5 text-amber-300" />
+                    {t({ hi: "बड़ा देखें (Click to Zoom)", en: "Click to Zoom" })}
+                  </span>
+                  <span className="text-[10.5px] text-stone-300 mt-0.5">
+                    {t({ hi: "नलखेड़ा सिद्धपीठ अधिकृत विवरण पत्र", en: "Nalkheda Siddhapeeth Official Notice" })}
+                  </span>
                 </div>
-              ))}
+              </div>
+
+              {/* Poster Action Buttons */}
+              <div className="mt-3.5 space-y-2">
+                <button
+                  type="button"
+                  onClick={() => setLightbox(true)}
+                  className="w-full inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-amber-100 hover:bg-amber-200 text-[#8B0000] font-bold text-xs border border-amber-300 transition-colors cursor-pointer"
+                >
+                  <Eye className="h-4 w-4" />
+                  <span>{t({ hi: "विवरण पत्र पूरा देखें (Full View)", en: "View Full Poster" })}</span>
+                </button>
+
+                <p className="text-[11px] text-stone-600 leading-relaxed text-left pt-1">
+                  {t({
+                    hi: "हवन की तैयारी नलखेड़ा सिद्धपीठ की पावन यज्ञशाला में की जाती है। संकल्प यजमान के नाम व गोत्र से विधिवत लिया जाता है।",
+                    en: "Hawan is conducted in the sacred Yajnashala at Nalkheda Siddhapeeth with individual name-gotra sankalp.",
+                  })}
+                </p>
+              </div>
             </div>
 
-            {/* Pandit Ji's Guidance Callout */}
-            <div className="mt-6 p-4 rounded-xl bg-[#FFFDF8] border border-amber-300/80 border-l-[6px] border-l-[#D89B18] text-left">
-              <p className="font-serif text-xs sm:text-sm font-bold text-[#8B0000] mb-1 flex items-center gap-2">
-                <ShieldCheck className="h-4 w-4 text-[#D89B18]" />
-                <span>{t({ hi: "पंडित दीपक शर्मा जी का विशेष मार्गदर्शन:", en: "Pt. Deepak Sharma's Guidance:" })}</span>
+            {/* Pandit Ji's Guidance Callout (Left Column) */}
+            <div className="p-3.5 rounded-xl bg-[#FFFDF8] border border-amber-300/80 border-l-[6px] border-l-[#D89B18] text-left">
+              <p className="font-serif text-xs font-bold text-[#8B0000] mb-1 flex items-center gap-1.5">
+                <ShieldCheck className="h-3.5 w-3.5 text-[#D89B18]" />
+                <span>{t({ hi: "पंडित दीपक शर्मा जी का मार्गदर्शन:", en: "Pt. Deepak Sharma's Guidance:" })}</span>
               </p>
-              <p className="text-stone-700 text-xs sm:text-sm leading-relaxed">
+              <p className="text-stone-700 text-xs leading-relaxed">
                 {t({
-                  hi: "मान्यता है कि सामान्य हवन (₹2,500) भक्तजन घर की सुख-शांति हेतु करवाते हैं। वहीं विशेष (₹5,500), महाविशेष (₹11,000) अथवा सर्वमनोकामना सिद्धि हवन (₹21,000) अनेक विशिष्ट मनोकामनाओं—जैसे कि शत्रु बाधा, तंत्र बाधा, नजर दोष निवारण, कोर्ट-कचहरी में विजय, व्यापार वृद्धि एवं लक्ष्मी प्राप्ति आदि के लिए करवाए जाते हैं।",
-                  en: "Samanya Hawan (₹2,500) is ideal for household peace. For intense crisis such as enemy obstacles, black magic, evil eye, court cases, and business revival, the Vishesh (₹5,500), Mahavishesh (₹11,000), or Sarva Manokamna Hawan (₹21,000) is prescribed.",
+                  hi: "सामान्य हवन (₹2,500) घर की सुख-शांति हेतु उपयुक्त है। विशेष संकट—जैसे शत्रु बाधा, तंत्र दोष, कोर्ट-केस व व्यापार वृद्धि हेतु विशेष (₹5,500) या महाविशेष (₹11,000) हवन अनुशंसित है।",
+                  en: "Samanya Hawan (₹2,500) is ideal for household peace. For intense enemy, tantra, or court crises, Vishesh (₹5,500) or Mahavishesh (₹11,000) is advised.",
                 })}
               </p>
             </div>
           </div>
-        )}
 
-        {/* ================= TAB 2: SPECIAL ANUSHTHAN & MANTRA JAAP ================= */}
-        {activeTab === "anushthan" && (
-          <div className="space-y-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {anushthanPackages.map((anu) => (
-                <div
-                  key={anu.id}
-                  className={`bg-[#FFFDF8] rounded-2xl p-4 sm:p-5 border transition-all flex flex-col justify-between ${
-                    anu.isSupreme
-                      ? "border-l-[6px] border-l-[#8B0000] border-amber-400 shadow-md ring-1 ring-amber-300"
-                      : "border-[#EBD8B4] border-l-[6px] border-l-[#D89B18] hover:border-l-[#8B0000] shadow-xs"
-                  }`}
-                >
-                  <div>
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="font-serif text-sm font-black text-[#8B0000]">
-                        {t(anu.title)}
+          {/* ============ RIGHT COLUMN: 4 HAWAN PACKAGES IN A 2x2 GRID (lg:col-span-8) ============ */}
+          <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {hawanPackages.map((pkg) => (
+              <div
+                key={pkg.id}
+                className={`relative bg-[#FFFDF8] rounded-2xl p-4 sm:p-4.5 border transition-all duration-300 flex flex-col justify-between ${
+                  pkg.isPopular
+                    ? "border-l-[6px] border-l-[#8B0000] border-amber-400 shadow-md ring-1 ring-amber-300/60"
+                    : "border-[#EBD8B4] border-l-[6px] border-l-[#D89B18] hover:border-l-[#8B0000] shadow-xs hover:shadow-sm"
+                }`}
+              >
+                <div>
+                  {/* Top Badge */}
+                  <div className="flex items-center justify-between gap-1 mb-2">
+                    <span className="text-[10.5px] font-bold px-2 py-0.5 rounded bg-amber-100 text-[#8B0000] border border-amber-300/60 truncate">
+                      {t(pkg.badge)}
+                    </span>
+                    {pkg.isPopular && (
+                      <span className="text-[9.5px] font-black px-2 py-0.5 rounded bg-[#8B0000] text-amber-300 uppercase tracking-wider shrink-0">
+                        {t({ hi: "सर्वाधिक अनुशंसित", en: "Recommended" })}
                       </span>
-                      {anu.isSupreme && (
-                        <span className="text-[10px] font-black px-2 py-0.5 rounded bg-[#8B0000] text-amber-300">
-                          {t({ hi: "सर्वोच्च महासाधना", en: "Supreme Sadhana" })}
-                        </span>
-                      )}
+                    )}
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="font-serif text-lg font-black text-[#4A0C16] leading-snug">
+                    {t(pkg.title)}
+                  </h3>
+
+                  {/* Price & Duration Strip */}
+                  <div className="mt-2 mb-2.5 p-2 rounded-lg bg-[#FFF3DC]/80 border border-[#EBD8B4] flex items-center justify-between">
+                    <div>
+                      <span className="text-[9.5px] text-stone-500 uppercase block font-medium">
+                        {t({ hi: "प्रामाणिक दक्षिणा", en: "Dakshina" })}
+                      </span>
+                      <span className="font-serif text-xl font-black text-[#8B0000]">
+                        {pkg.price}
+                      </span>
                     </div>
-
-                    <div className="p-3 rounded-lg bg-[#FFF3DC]/70 border border-[#EBD8B4] flex items-center justify-between mb-3">
-                      <div>
-                        <span className="text-[10px] text-stone-500 uppercase block font-medium">
-                          {t({ hi: "संपूर्ण अनुष्ठान दक्षिणा", en: "Complete Dakshina" })}
-                        </span>
-                        <span className="font-serif text-2xl font-black text-[#8B0000]">
-                          {anu.price}
-                        </span>
-                      </div>
-                      <div className="text-right">
-                        <span className="text-xs font-bold text-stone-800 block">
-                          {t(anu.duration)}
-                        </span>
-                        <span className="text-[11px] text-[#B45309] font-semibold">
-                          {t(anu.brahmins)}
-                        </span>
-                      </div>
-                    </div>
-
-                    <p className="text-stone-700 text-xs sm:text-[13px] leading-relaxed mb-3">
-                      {t(anu.desc)}
-                    </p>
-
-                    <div className="p-2 rounded bg-amber-50 text-[11px] text-[#8B0000] font-semibold flex items-center gap-1.5 mb-4">
-                      <CheckCircle2 className="h-3.5 w-3.5 text-[#D89B18] shrink-0" />
-                      <span>{t(anu.includes)}</span>
+                    <div className="text-right">
+                      <span className="text-[9.5px] text-stone-500 uppercase block font-medium flex items-center gap-1 justify-end">
+                        <Clock className="h-3 w-3 text-amber-700" />
+                        {t({ hi: "समय", en: "Time" })}
+                      </span>
+                      <span className="text-xs font-bold text-stone-800">
+                        {t(pkg.duration)}
+                      </span>
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-2 pt-2 border-t border-amber-200/50">
-                    <button
-                      type="button"
-                      onClick={() => openBookingModal(`${t(anu.title)} - ${anu.price}`)}
-                      className="inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-[#8B0000] hover:bg-[#A00000] text-white font-bold text-xs shadow-xs cursor-pointer"
-                    >
-                      <CalendarCheck className="h-3.5 w-3.5 text-amber-300" />
-                      <span>{t({ hi: "अनुष्ठान बुक करें", en: "Book Anushthan" })}</span>
-                    </button>
+                  {/* Samagri & Priests Spec */}
+                  <div className="space-y-1 mb-2.5 text-[11.5px] text-stone-700">
+                    <div className="flex items-start gap-1.5">
+                      <Leaf className="h-3.5 w-3.5 text-amber-700 shrink-0 mt-0.5" />
+                      <span className="leading-tight">
+                        <strong>{t({ hi: "सामग्री: ", en: "Herbs: " })}</strong>
+                        {t(pkg.samagri)}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-1.5">
+                      <Users className="h-3.5 w-3.5 text-amber-700 shrink-0" />
+                      <span>
+                        <strong>{t({ hi: "पुरोहित: ", en: "Priests: " })}</strong>
+                        {t(pkg.priests)}
+                      </span>
+                    </div>
+                  </div>
 
-                    <a
-                      href={getWhatsAppUrl(
-                        `जय माँ बगलामुखी! पंडित दीपक शर्मा जी, मुझे ${t(anu.title)} (${anu.price}) के अनुष्ठान विधान की जानकारी चाहिए।`,
-                        "primary"
-                      )}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-white text-stone-800 font-bold text-xs border border-stone-300 hover:border-[#25D366]"
-                    >
-                      <WhatsAppIcon className="h-3.5 w-3.5 text-[#25D366]" />
-                      <span>{t({ hi: "WhatsApp परामर्श", en: "Consult" })}</span>
-                    </a>
+                  <p className="text-stone-600 text-xs leading-relaxed mb-2.5 line-clamp-2">
+                    {t(pkg.desc)}
+                  </p>
+
+                  {/* Bullet Highlights */}
+                  <div className="space-y-1 mb-3 pt-2 border-t border-amber-200/50">
+                    {pkg.highlights.map((h, idx) => (
+                      <div key={idx} className="flex items-center gap-1.5 text-[11px] text-stone-700">
+                        <CheckCircle2 className="h-3 w-3 text-amber-600 shrink-0" />
+                        <span className="truncate">{t(h)}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
-              ))}
-            </div>
 
-            {/* Anushthan Features Summary Banner */}
-            <div className="p-4 rounded-xl bg-gradient-to-r from-[#2B0609] to-[#4A0C16] text-white border border-[#D89B18]/50 text-left">
-              <h4 className="font-serif text-sm sm:text-base font-bold text-amber-200 mb-2">
-                {t({ hi: "माँ बगलामुखी विशेष अनुष्ठान की वैदिक विशेषताएं:", en: "Key Highlights of Special Anushthan:" })}
-              </h4>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2 text-xs text-stone-200">
-                <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="h-3.5 w-3.5 text-amber-400 shrink-0" />
-                  <span>{t({ hi: "11/21 ब्राह्मणों द्वारा जप", en: "11/21 Vedic Priests" })}</span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="h-3.5 w-3.5 text-amber-400 shrink-0" />
-                  <span>{t({ hi: "36 अक्षरी मूल महामंत्र", en: "36-Akshari Mul Mantra" })}</span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="h-3.5 w-3.5 text-amber-400 shrink-0" />
-                  <span>{t({ hi: "दशांश हवन व शाबर मंत्र", en: "Dashansh Hawan & Shabar" })}</span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="h-3.5 w-3.5 text-amber-400 shrink-0" />
-                  <span>{t({ hi: "महाविशेष हवन सम्मिलित", en: "Mahavishesh Hawan included" })}</span>
+                {/* Actions */}
+                <div className="space-y-1.5 pt-2 border-t border-amber-200/50">
+                  <button
+                    type="button"
+                    onClick={() => openBookingModal(`${t(pkg.title)} - ${pkg.price}`)}
+                    className="w-full inline-flex items-center justify-center gap-2 py-2 px-3 rounded-lg bg-gradient-to-r from-[#8B0000] to-[#680000] hover:from-[#A00000] hover:to-[#550000] text-white font-bold text-xs sm:text-sm shadow-xs transition-all cursor-pointer"
+                  >
+                    <CalendarCheck className="h-3.5 w-3.5 text-amber-300" />
+                    <span>{t({ hi: "हवन बुक करें", en: "Book Hawan" })}</span>
+                  </button>
+
+                  <a
+                    href={getWhatsAppUrl(
+                      `जय माँ बगलामुखी! पंडित दीपक शर्मा जी, मुझे ${t(pkg.title)} (${pkg.price}) के बारे में जानकारी एवं शुभ मुहूर्त जानना है।`,
+                      "primary"
+                    )}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full inline-flex items-center justify-center gap-1.5 py-1.5 px-3 rounded-lg bg-white hover:bg-stone-50 text-stone-800 font-bold text-xs border border-stone-300 hover:border-[#25D366] transition-all"
+                  >
+                    <WhatsAppIcon className="h-3.5 w-3.5 text-[#25D366]" />
+                    <span>{t({ hi: "WhatsApp परामर्श", en: "Ask on WhatsApp" })}</span>
+                  </a>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
-        )}
 
-        {/* ================= TAB 3: ASHTAK HAWAN & PATH ================= */}
-        {activeTab === "ashtak" && (
-          <div className="space-y-6 text-left">
-            {/* Ashtak Hawan Grid */}
-            <div>
-              <h3 className="font-serif text-base sm:text-lg font-bold text-[#4A0C16] mb-3 flex items-center gap-2">
-                <Flame className="h-4 w-4 text-[#8B0000]" />
-                <span>{t({ hi: "अत्यंत शक्तिशाली माँ बगलामुखी अष्टक हवन:", en: "Potent Maa Baglamukhi Ashtak Hawan:" })}</span>
-              </h3>
+        </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {ashtakHawan.map((ash, idx) => (
-                  <div
-                    key={idx}
-                    className="bg-[#FFFDF8] rounded-2xl p-4 sm:p-5 border border-[#EBD8B4] border-l-[6px] border-l-[#D89B18] hover:border-l-[#8B0000] shadow-xs flex flex-col justify-between"
-                  >
-                    <div>
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="font-serif text-base font-bold text-[#4A0C16]">
-                          {t(ash.title)}
-                        </span>
-                        <span className="font-serif text-xl font-black text-[#8B0000]">
-                          {ash.price}
-                        </span>
-                      </div>
-
-                      <div className="text-xs text-stone-600 space-y-1 mb-3">
-                        <p><strong>{t({ hi: "समय: ", en: "Time: " })}</strong>{t(ash.duration)}</p>
-                        <p><strong>{t({ hi: "सामग्री: ", en: "Herbs: " })}</strong>{t(ash.samagri)}</p>
-                        <p><strong>{t({ hi: "सानिध्य: ", en: "Priests: " })}</strong>{t(ash.brahmins)}</p>
-                      </div>
-
-                      <p className="text-stone-700 text-xs leading-relaxed mb-4">
-                        {t(ash.desc)}
-                      </p>
-                    </div>
-
-                    <div className="grid grid-cols-2 gap-2 pt-2 border-t border-amber-200/50">
-                      <button
-                        type="button"
-                        onClick={() => openBookingModal(`${t(ash.title)} - ${ash.price}`)}
-                        className="inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-[#8B0000] hover:bg-[#A00000] text-white font-bold text-xs cursor-pointer"
-                      >
-                        <CalendarCheck className="h-3.5 w-3.5 text-amber-300" />
-                        <span>{t({ hi: "हवन बुक करें", en: "Book Hawan" })}</span>
-                      </button>
-
-                      <a
-                        href={getWhatsAppUrl(
-                          `जय माँ बगलामुखी! पंडित दीपक शर्मा जी, मुझे ${t(ash.title)} (${ash.price}) के बारे में जानकारी चाहिए।`,
-                          "primary"
-                        )}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-white text-stone-800 font-bold text-xs border border-stone-300 hover:border-[#25D366]"
-                      >
-                        <WhatsAppIcon className="h-3.5 w-3.5 text-[#25D366]" />
-                        <span>{t({ hi: "WhatsApp", en: "WhatsApp" })}</span>
-                      </a>
-                    </div>
-                  </div>
-                ))}
+        {/* ================= LIGHTBOX PREVIEW MODAL ================= */}
+        {lightbox && (
+          <div
+            role="dialog"
+            aria-modal="true"
+            className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-sm animate-in fade-in duration-200"
+            onClick={() => setLightbox(false)}
+          >
+            <div
+              className="relative max-w-4xl w-full max-h-[92vh] bg-[#1E0407] border-2 border-[#D89B18] rounded-2xl shadow-2xl overflow-hidden flex flex-col"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex items-center justify-between px-4 py-3 bg-[#2B0609] border-b border-[#D89B18]/40">
+                <div className="flex items-center gap-2 min-w-0 pr-3">
+                  <ShieldCheck className="h-4 w-4 text-[#D89B18] shrink-0" />
+                  <h4 className="font-serif text-sm sm:text-base font-bold text-amber-200 truncate">
+                    {t({
+                      hi: "माँ बगलामुखी महाविशेष हवन एवं अनुष्ठान - अधिकृत विवरण पत्र",
+                      en: "Maa Baglamukhi Mahavishesh Hawan - Official Document",
+                    })}
+                  </h4>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setLightbox(false)}
+                  className="p-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-stone-200 hover:text-white transition-colors cursor-pointer shrink-0"
+                  aria-label="Close"
+                >
+                  <X className="h-5 w-5" />
+                </button>
               </div>
-            </div>
 
-            {/* Ashtak Path & Dashansh Hawan List */}
-            <div>
-              <h3 className="font-serif text-base sm:text-lg font-bold text-[#4A0C16] mb-3 flex items-center gap-2">
-                <Scroll className="h-4 w-4 text-[#8B0000]" />
-                <span>{t({ hi: "दिव्य वैदिक बगलामुखी अष्टक पाठ एवं दशांश हवन:", en: "Divine Vedic Ashtak Recitations & Dashansh Hawan:" })}</span>
-              </h3>
+              <div className="relative flex-1 min-h-[300px] max-h-[66vh] w-full bg-black/50 flex items-center justify-center p-2 sm:p-4">
+                <div className="relative w-full h-full min-h-[300px] max-h-[64vh]">
+                  <Image
+                    src="/images/hawan_anusthan.webp"
+                    alt="माँ बगलामुखी महाविशेष हवन एवं अनुष्ठान अधिकृत विवरण पत्र"
+                    fill
+                    className="object-contain"
+                    sizes="(max-width: 1024px) 100vw, 896px"
+                    priority
+                  />
+                </div>
+              </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {ashtakPathPackages.map((pathPkg, i) => (
-                  <div
-                    key={i}
-                    className="bg-[#FFFDF8] rounded-xl p-4 border border-[#EBD8B4] border-l-[4px] border-l-[#D89B18] shadow-xs flex flex-col justify-between"
+              <div className="px-4 py-3 bg-[#2B0609] border-t border-[#D89B18]/40 flex flex-col sm:flex-row items-center justify-between gap-3">
+                <p className="text-xs text-stone-300 text-left line-clamp-2">
+                  {t({
+                    hi: "नलखेड़ा सिद्धपीठ मुख्य यज्ञाचार्य पं. दीपक शर्मा जी (+91 72240 83313) द्वारा प्रमाणित 4 हवन श्रेणियां एवं 15 दिव्य लाभ सूची",
+                    en: "4 Authorized Hawan categories and 15 sacred blessings consecrated by Chief Priest Pt. Deepak Sharma (+91 72240 83313).",
+                  })}
+                </p>
+                <div className="flex items-center gap-2 w-full sm:w-auto shrink-0">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setLightbox(false);
+                      openBookingModal("माँ बगलामुखी महाविशेष हवन");
+                    }}
+                    className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 py-2 px-3.5 rounded-lg bg-[#D89B18] hover:bg-[#C08512] text-stone-900 font-bold text-xs shadow-md transition-colors cursor-pointer"
                   >
-                    <div>
-                      <h4 className="font-serif text-sm font-bold text-[#4A0C16] mb-1">
-                        {t(pathPkg.title)}
-                      </h4>
-                      <p className="font-serif text-xl font-black text-[#8B0000] mb-2">
-                        {pathPkg.price}
-                      </p>
-                      <p className="text-stone-600 text-xs leading-relaxed mb-3">
-                        {t(pathPkg.desc)}
-                      </p>
-                    </div>
-
-                    <button
-                      type="button"
-                      onClick={() => openBookingModal(`${t(pathPkg.title)} - ${pathPkg.price}`)}
-                      className="w-full inline-flex items-center justify-center gap-1 py-1.5 px-3 rounded bg-[#8B0000] hover:bg-[#A00000] text-white font-bold text-xs transition-colors cursor-pointer"
-                    >
-                      <CalendarCheck className="h-3.5 w-3.5 text-amber-300" />
-                      <span>{t({ hi: "पाठ बुक करें", en: "Book Recitation" })}</span>
-                    </button>
-                  </div>
-                ))}
+                    <CalendarCheck className="h-3.5 w-3.5" />
+                    <span>{t({ hi: "हवन बुक करें", en: "Book Hawan" })}</span>
+                  </button>
+                  <a
+                    href={getWhatsAppUrl("जय माँ बगलामुखी! पंडित दीपक शर्मा जी, मुझे माँ बगलामुखी मुख्य हवन के संदर्भ में जानकारी चाहिए।", "primary")}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 py-2 px-3.5 rounded-lg bg-[#25D366] hover:bg-[#20ba59] text-white font-bold text-xs shadow-md transition-colors"
+                  >
+                    <WhatsAppIcon className="h-3.5 w-3.5 text-white" />
+                    <span>WhatsApp</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>

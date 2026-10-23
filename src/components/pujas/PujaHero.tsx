@@ -137,7 +137,7 @@ export default function PujaHero() {
           <div className="lg:col-span-5 flex justify-center">
             <div className="relative w-full max-w-[420px] aspect-[4/4.5] rounded-3xl overflow-hidden border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_12px_40px_-6px_rgba(217,119,6,0.18)] bg-gradient-to-b from-amber-100 to-stone-100 transition-colors duration-300 group">
               <Image
-                src="/images/baglamukhi-mandir-real.png"
+                src="/images/baglamukhi-mandir-real.webp"
                 alt="माँ बगलामुखी मंदिर नलखेड़ा - पावन हवन वेदी"
                 fill
                 sizes="(max-width: 768px) 100vw, 420px"

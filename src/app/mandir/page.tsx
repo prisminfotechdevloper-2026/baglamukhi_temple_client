@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     siteName: "श्री माँ बगलामुखी मंदिर नलखेड़ा",
     images: [
       {
-        url: "/images/baglamukhi-mandir-real.png",
+        url: "/images/baglamukhi-mandir-real.webp",
         width: 1200,
         height: 675,
         alt: "माँ बगलामुखी मंदिर नलखेड़ा शिखर एवं सिंहद्वार",
@@ -81,14 +81,14 @@ export default function MandirPage() {
           latitude: "23.8329",
           longitude: "76.0125",
         },
-        image: "https://baglamukhi-temple-hazel.vercel.app/images/baglamukhi-mandir-real.png",
+        image: "https://baglamukhi-temple-hazel.vercel.app/images/baglamukhi-mandir-real.webp",
         telephone: "+91-7224083313",
       },
       {
         "@type": "Article",
         headline: header.title,
         description: header.standfirst,
-        image: "https://baglamukhi-temple-hazel.vercel.app/images/baglamukhi-mandir-real.png",
+        image: "https://baglamukhi-temple-hazel.vercel.app/images/baglamukhi-mandir-real.webp",
         inLanguage: "hi",
         publisher: {
           "@type": "Organization",

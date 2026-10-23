@@ -16,13 +16,13 @@ export default function HeroSection() {
     props: { srcSet: desktopBgSrcSet },
   } = getImageProps({
     ...commonBg,
-    src: "/images/hero-desktop.png",
+    src: "/images/hero-desktop.webp",
   });
   const {
     props: { srcSet: mobileBgSrcSet, ...mobileBgRest },
   } = getImageProps({
     ...commonBg,
-    src: "/images/hero-mobile.png",
+    src: "/images/hero-mobile.webp",
   });
 
   const whatsappMessage =
@@ -196,7 +196,7 @@ export default function HeroSection() {
 
               <div className="relative w-[240px] h-[240px] lg:w-[280px] lg:h-[280px] aspect-square transition-transform duration-300 group-hover:scale-102">
                 <Image
-                  src="/images/baglamukhi-logo.png"
+                  src="/images/baglamukhi-logo.webp"
                   alt="माँ बगलामुखी दिव्य स्वरूप नलखेड़ा"
                   fill
                   sizes="(max-width: 1024px) 240px, 280px"

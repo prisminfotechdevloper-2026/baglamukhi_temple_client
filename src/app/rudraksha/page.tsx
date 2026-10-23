@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     locale: "hi_IN",
     images: [
       {
-        url: "/images/rudraksha-hero.jpg",
+        url: "/images/rudraksha-hero.webp",
         width: 1200,
         height: 900,
         alt: "Original Rudraksha Mala - माँ बगलामुखी धाम नलखेड़ा",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     title: "Original Rudraksha | Certified Nepal Rudraksha — Pt. Deepak Sharma",
     description:
       "माँ बगलामुखी सिद्धपीठ नलखेड़ा से 100% असली, वैदिक प्राण-प्रतिष्ठित नेपाली रुद्राक्ष संग्रह।",
-    images: ["/images/rudraksha-hero.jpg"],
+    images: ["/images/rudraksha-hero.webp"],
   },
 };
 

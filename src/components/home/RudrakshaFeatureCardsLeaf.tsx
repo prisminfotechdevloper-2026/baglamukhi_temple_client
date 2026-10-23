@@ -6,6 +6,9 @@ import Link from "next/link";
 import { ArrowRight, ArrowLeft, ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
+const RUDRAKSHA_BLUR = "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAADwAQCdASoQABAABUB8JbACdAC9ozWATgAA/sjxM6wvi0n2uxNK9VeXtis+US1v2J32FK/Fd2bLLhQTIOs9GJhYWHTKLUJ57UYIWsfIqv7YVpdBqE3y51s/ren40hgAAAA=";
+const GEMSTONES_BLUR = "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAACwAQCdASoQABAABUB8JYgCdAEOIl4AAP7edOyNtpjyxbFh2xi2ICZAv9nPBEVtC7S3AwEbIFlsSdqLoNnGQpAA";
+
 export default function RudrakshaFeatureCardsLeaf() {
   const [rudrakshaOpen, setRudrakshaOpen] = useState(false);
   const [ratnaOpen, setRatnaOpen] = useState(false);
@@ -38,10 +41,12 @@ export default function RudrakshaFeatureCardsLeaf() {
           {/* Left Image Box */}
           <div className="relative h-40 w-40 xl:h-44 xl:w-44 shrink-0 rounded-xl overflow-hidden border border-[#E5D4BC] shadow-xs bg-stone-100">
             <Image
-              src="/images/rudraksha-feature.jpg"
+              src="/images/rudraksha-feature.webp"
               alt="रुद्राक्ष - आध्यात्मिक शांति एवं मानसिक संतुलन"
               fill
-              sizes="176px"
+              sizes="(max-width: 1280px) 160px, 176px"
+              placeholder="blur"
+              blurDataURL={RUDRAKSHA_BLUR}
               className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
             />
           </div>
@@ -85,12 +90,13 @@ export default function RudrakshaFeatureCardsLeaf() {
         <div className="block lg:hidden relative h-[255px] xs:h-[275px] sm:h-[295px] w-full overflow-hidden">
           {/* 1. Large High-Resolution Dominant Image */}
           <Image
-            src="/images/rudraksha-feature.jpg"
+            src="/images/rudraksha-feature.webp"
             alt="रुद्राक्ष - आध्यात्मिक शांति एवं मानसिक संतुलन"
             fill
-            sizes="(max-width: 1024px) 100vw, 500px"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 500px"
+            placeholder="blur"
+            blurDataURL={RUDRAKSHA_BLUR}
             className="object-cover transition-transform duration-700 ease-out"
-            priority={false}
           />
 
           {/* Gradient Scrim at bottom to give depth */}
@@ -213,10 +219,12 @@ export default function RudrakshaFeatureCardsLeaf() {
           {/* Left Image Box */}
           <div className="relative h-40 w-40 xl:h-44 xl:w-44 shrink-0 rounded-xl overflow-hidden border border-[#E5D4BC] shadow-xs bg-stone-100">
             <Image
-              src="/images/gemstones-feature.jpg"
+              src="/images/gemstones-feature.webp"
               alt="रत्न (नवरत्न) - ग्रहों का संतुलन एवं सकारात्मक ऊर्जा"
               fill
-              sizes="176px"
+              sizes="(max-width: 1280px) 160px, 176px"
+              placeholder="blur"
+              blurDataURL={GEMSTONES_BLUR}
               className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
             />
           </div>
@@ -260,12 +268,13 @@ export default function RudrakshaFeatureCardsLeaf() {
         <div className="block lg:hidden relative h-[255px] xs:h-[275px] sm:h-[295px] w-full overflow-hidden">
           {/* 1. Large High-Resolution Dominant Image */}
           <Image
-            src="/images/gemstones-feature.jpg"
+            src="/images/gemstones-feature.webp"
             alt="रत्न (नवरत्न) - ग्रहों का संतुलन एवं सकारात्मक ऊर्जा"
             fill
-            sizes="(max-width: 1024px) 100vw, 500px"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 500px"
+            placeholder="blur"
+            blurDataURL={GEMSTONES_BLUR}
             className="object-cover transition-transform duration-700 ease-out"
-            priority={false}
           />
 
           {/* Gradient Scrim at bottom to give depth */}

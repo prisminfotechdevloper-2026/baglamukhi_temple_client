@@ -54,7 +54,7 @@ export default function RatnaShowcase() {
             {/* Gemstones Image in Brass Thali */}
             <div className="relative w-full sm:w-[280px] md:w-[320px] aspect-[4/3] rounded-2xl overflow-hidden border border-[#EBDCC5] shadow-[0_4px_20px_rgba(90,44,24,0.08)] shrink-0 group">
               <Image
-                src="/images/ratna-showcase.jpg"
+                src="/images/ratna-showcase.webp"
                 alt="प्राकृतिक एवं प्रमाणित नवरत्न संग्रह - असली रत्न"
                 fill
                 sizes="(max-width: 640px) 100vw, 320px"

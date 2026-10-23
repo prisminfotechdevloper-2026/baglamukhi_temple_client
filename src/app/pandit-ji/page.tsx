@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     type: "profile",
     images: [
       {
-        url: "/images/pandit-deepak-sharma.jpg",
+        url: "/images/pandit-deepak-sharma.webp",
         width: 800,
         height: 1000,
         alt: "पंडित दीपक शर्मा - माँ बगलामुखी सिद्धपीठ नलखेड़ा",
@@ -64,7 +64,7 @@ export default function PanditJiPage() {
     alumniOf: "महामृत्युंजय वेद विद्यालय, उज्जैन",
     memberOf: "श्री वशिष्ठ ज्योतिष संस्थान केन्द्र",
     telephone: "+91-7224083313",
-    image: "/images/pandit-deepak-sharma.jpg",
+    image: "/images/pandit-deepak-sharma.webp",
     description:
       "माँ बगलामुखी अनन्य साधक, 5+ वर्षों से नलखेड़ा सिद्धपीठ में तांत्रिक-वैदिक महाहवन, सवा लाख अखंड जप, शत्रु बाधा निवारण एवं जन्म कुंडली दोष शांति के विशेषज्ञ।",
     knowsAbout: [

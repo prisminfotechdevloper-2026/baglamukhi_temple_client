@@ -49,7 +49,7 @@ export default function PanditHero() {
               
               {/* Pandit Ji Real Image */}
               <Image
-                src="/images/pandit-deepak-sharma.jpg"
+                src="/images/pandit-deepak-sharma.webp"
                 alt="पंडित दीपक शर्मा - माँ बगलामुखी अनन्य साधक, नलखेड़ा"
                 fill
                 sizes="(max-width: 768px) 100vw, 420px"

@@ -25,7 +25,7 @@ export default function RatnaHero() {
       {/* 1. Large Screen Background Banner (Desktop >= 1024px) */}
       <div className="hidden lg:block absolute inset-0 z-0 select-none pointer-events-none">
         <Image
-          src="/images/ratna-hero-desktop.png"
+          src="/images/ratna-hero-desktop.webp"
           alt="Original Ratna Gemstones Collection Background"
           fill
           priority
@@ -40,7 +40,7 @@ export default function RatnaHero() {
       {/* 2. Small Screen Background Image (Mobile & Tablet < 1024px) */}
       <div className="block lg:hidden absolute inset-0 z-0 select-none pointer-events-none">
         <Image
-          src="/images/ratna-hero-mobile.jpg"
+          src="/images/ratna-hero-mobile.webp"
           alt="Original Ratna Gemstones Mobile Background"
           fill
           priority

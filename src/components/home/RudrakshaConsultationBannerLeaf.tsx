@@ -30,7 +30,7 @@ export default function RudrakshaConsultationBannerLeaf({ phone }: Props) {
           {/* Temple Icon/Graphic Container */}
           <div className="relative h-14 w-14 sm:h-16 sm:w-16 shrink-0 rounded-2xl overflow-hidden border border-amber-500/40 bg-black/40 p-1 flex items-center justify-center">
             <Image
-              src="/images/baglamukhi-logo.png"
+              src="/images/baglamukhi-logo.webp"
               alt={t({
                 hi: "माँ बगलामुखी मंदिर नलखेड़ा",
                 en: "Maa Baglamukhi Temple Nalkheda",

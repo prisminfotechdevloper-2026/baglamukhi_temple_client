@@ -4,6 +4,8 @@ import PujaTrustRibbon from "@/components/pujas/PujaTrustRibbon";
 import PujaHowItWorks from "@/components/pujas/PujaHowItWorks";
 import PujaCatalogInteractive from "@/components/pujas/PujaCatalogInteractive";
 import HawanPackagesSection from "@/components/home/HawanPackagesSection";
+import VisheshAnushthanSection from "@/components/home/VisheshAnushthanSection";
+import MahaAshtakSection from "@/components/home/MahaAshtakSection";
 import KundaliRashiPujaSection from "@/components/pujas/KundaliRashiPujaSection";
 import PujaDirectHelpline from "@/components/pujas/PujaDirectHelpline";
 import PujaFAQ from "@/components/pujas/PujaFAQ";
@@ -35,7 +37,7 @@ export const metadata: Metadata = {
     locale: "hi_IN",
     images: [
       {
-        url: "/images/baglamukhi-mandir-real.png",
+        url: "/images/baglamukhi-mandir-real.webp",
         width: 1200,
         height: 630,
         alt: "माँ बगलामुखी मंदिर नलखेड़ा - पावन महाहवन",
@@ -137,6 +139,12 @@ export default function PujasPage() {
 
       {/* 3. Official Hawan Packages & Transparent Dakshina (Pt. Deepak Sharma) */}
       <HawanPackagesSection />
+
+      {/* 3b. Special Anushthan: 1.25 Lakh Akhand Jaap (vishesh_anusthan.png) */}
+      <VisheshAnushthanSection />
+
+      {/* 3c. Maa Baglamukhi Ashtak Hawan & Divine Recitations (maha_ashtak.png) */}
+      <MahaAshtakSection />
 
       {/* 4. Kundali Dosh Shanti & 12 Rashi Planetary Services (Short highlights, easy UI) */}
       <KundaliRashiPujaSection />

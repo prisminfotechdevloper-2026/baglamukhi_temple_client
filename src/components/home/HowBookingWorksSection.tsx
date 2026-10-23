@@ -1,14 +1,10 @@
 "use client";
 
-import { CheckCircle2, PhoneCall, Calendar, Flame, ShieldCheck } from "lucide-react";
-import WhatsAppIcon from "@/components/common/WhatsAppIcon";
+import { Calendar, Flame, ShieldCheck } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
-import { siteConfig, getWhatsAppUrl, getTelUrl } from "@/data/siteConfig";
-import { usePujaBooking } from "@/context/PujaBookingContext";
 
 export default function HowBookingWorksSection() {
   const { t } = useLanguage();
-  const { openBookingModal } = usePujaBooking();
 
   const steps = [
     {
@@ -85,7 +81,7 @@ export default function HowBookingWorksSection() {
 
         {/* ================= 3 STEPS GRID ================= */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 relative">
-          {steps.map((step, idx) => {
+          {steps.map((step) => {
             const Icon = step.icon;
             return (
               <div
@@ -114,48 +110,6 @@ export default function HowBookingWorksSection() {
               </div>
             );
           })}
-        </div>
-
-        {/* ================= REASSURANCE BAR ================= */}
-        <div className="mt-8 sm:mt-10 rounded-2xl bg-[#FFF9ED] border border-amber-300/80 p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-          <div className="flex items-center gap-3">
-            <div className="h-10 w-10 rounded-full bg-[#AF0807] text-white flex items-center justify-center shrink-0">
-              <PhoneCall className="h-4 w-4" />
-            </div>
-            <div>
-              <h4 className="font-serif text-sm font-bold text-[#3E0B02]">
-                {t({
-                  hi: "कोई संशय या प्रश्न है? सीधे पंडित जी से पूछें",
-                  en: "Have questions? Speak directly with Pandit Ji",
-                })}
-              </h4>
-              <p className="text-xs text-stone-600">
-                {t({
-                  hi: "आधिकारिक हेल्पलाइन: +91 72240 83313 • नलखेड़ा सिद्धपीठ",
-                  en: "Official Helpline: +91 72240 83313 • Nalkheda Siddhapeeth",
-                })}
-              </p>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-2.5 w-full sm:w-auto">
-            <button
-              type="button"
-              onClick={() => openBookingModal()}
-              className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#AF0807] hover:bg-[#8B0605] text-white font-bold text-xs sm:text-sm shadow-xs cursor-pointer"
-            >
-              <span>{t({ hi: "पूजा बुक करें", en: "Book Puja" })}</span>
-            </button>
-            <a
-              href={getWhatsAppUrl("जय माँ बगलामुखी! पंडित जी, मुझे पूजा बुकिंग के संदर्भ में जानकारी चाहिए।")}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-xs sm:text-sm shadow-xs"
-            >
-              <WhatsAppIcon className="h-4 w-4 text-white" />
-              <span>WhatsApp</span>
-            </a>
-          </div>
         </div>
       </div>
     </section>

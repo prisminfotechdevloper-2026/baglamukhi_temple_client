@@ -147,19 +147,19 @@ export default function HomePage() {
         {/* 5. 15 Sacred Benefits of Maa Baglamukhi Hawan */}
         <HawanBenefitsSection />
 
-        {/* 6. Authentic Devotee Testimonials & Experiences Slider (Total 9, 3 on desktop, 1 on mobile) */}
-        <TestimonialsSection />
-
-        {/* 7. 3 Simple Steps: How Booking Works */}
+        {/* 6. 3 Simple Steps: How Booking Works */}
         <HowBookingWorksSection />
 
-        {/* 4. Chief Priest Pt. Deepak Sharma Profile & Credentials */}
+        {/* 7. Chief Priest Pt. Deepak Sharma Profile & Credentials */}
         <PanditProfileSection />
 
-        {/* 5. Original Rudraksha & Navgraha Ratna Highlight Showcase */}
+        {/* 8. Original Rudraksha & Navgraha Ratna Highlight Showcase */}
         <RudrakshaRatnaSection />
 
-        {/* 7. Pandit Ji Welcome Dialog (Gentle Trigger) */}
+        {/* 9. Authentic Devotee Testimonials & Experiences Slider (Positioned at bottom before Footer) */}
+        <TestimonialsSection />
+
+        {/* Pandit Ji Welcome Dialog (Gentle Trigger) */}
         <PanditWelcomeDialog />
       </main>
     </>

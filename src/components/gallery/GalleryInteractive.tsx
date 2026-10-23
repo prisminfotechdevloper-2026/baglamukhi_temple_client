@@ -17,13 +17,34 @@ const galleryData: GalleryItem[] = [
   {
     id: 1,
     title: {
-      hi: "माँ पीताम्बरा बगलामुखी माता रानी दिव्य दर्शन",
-      en: "Maa Pitambara Baglamukhi Mata Rani Divya Darshan",
+      hi: "आचार्य वशिष्ठ विशाल शर्मा (गुरु प्रदत्त नाम: विश्वेश्वरप्रपन्न रामानुज दास) - वशिष्ठ ज्योतिष संस्थानम्, अखिल भारतीय विद्वत्परिषद् सम्मान",
+      en: "Acharya Vashishtha Vishal Sharma (Guru-Pradatta Naam: Vishveshwara Prapanna Ramanuja Das) - Vashishtha Jyotish Sansthanam, Akhil Bharatiya Vidwat Parishad Honor",
     },
-    category: "mandir",
-    categories: ["mandir"],
-    src: "/images/mata_rani.webp",
+    category: "pandit-ji",
+    categories: ["pandit-ji"],
+    src: "/images/acharya-vashishtha-vishal-sharma-samman.webp",
   },
+  {
+    id: 18,
+    title: {
+      hi: "आचार्य वशिष्ठ विशाल शर्मा - वशिष्ठ ज्योतिष संस्थानम् (वरिष्ठ ज्योतिषाचार्य)",
+      en: "Acharya Vashishtha Vishal Sharma - Vashishtha Jyotish Sansthanam (Senior Astrologer)",
+    },
+    category: "pandit-ji",
+    categories: ["pandit-ji"],
+    src: "/images/acharya-vashishtha-vishal-sharma.webp",
+  },
+  {
+    id: 19,
+    title: {
+      hi: "पंडित पवन शर्मा जी - माँ बगलामुखी साधक एवं वैदिक पुरोहित (7+ वर्ष अनुभव)",
+      en: "Pandit Pawan Sharma Ji - Maa Baglamukhi Sadhak & Vedic Priest (7+ Yrs Exp)",
+    },
+    category: "pandit-ji",
+    categories: ["pandit-ji"],
+    src: "/images/pandit-pawan-sharma.webp",
+  },
+
   {
     id: 2,
     title: {
@@ -72,7 +93,37 @@ const galleryData: GalleryItem[] = [
     },
     category: "pandit-ji",
     categories: ["pandit-ji"],
-    src: "/images/pandit-deepak-sharma.webp",
+    src: "/images/pandit-deepak-sharma-new.webp",
+  },
+    {
+    id: 7,
+    title: {
+      hi: "माँ पीताम्बरा बगलामुखी माता रानी दिव्य दर्शन",
+      en: "Maa Pitambara Baglamukhi Mata Rani Divya Darshan",
+    },
+    category: "mandir",
+    categories: ["mandir"],
+    src: "/images/mata_rani.webp",
+  },
+  {
+    id: 16,
+    title: {
+      hi: "पंडित दीपक शर्मा जी यजमान के साथ नलखेड़ा सिद्धपीठ यज्ञशाला में",
+      en: "Pandit Deepak Sharma Ji with Devotee at Nalkheda Siddhapeeth Yajnashala",
+    },
+    category: "pandit-ji",
+    categories: ["pandit-ji", "hawan"],
+    src: "/images/pandit-deepak-sharma-yajnashala.webp",
+  },
+  {
+    id: 17,
+    title: {
+      hi: "पंडित दीपक शर्मा जी यजमान परिवार के साथ अनुष्ठान उपरांत",
+      en: "Pandit Deepak Sharma Ji with Devotee Family after Sacred Anushthan",
+    },
+    category: "pandit-ji",
+    categories: ["pandit-ji", "hawan"],
+    src: "/images/pandit-deepak-sharma-yajman-family.webp",
   },
   {
     id: 8,
@@ -160,7 +211,7 @@ const categoryTabs = [
   { key: "all", label: { hi: "सभी", en: "All" } },
   { key: "mandir", label: { hi: "मंदिर", en: "Mandir" } },
   { key: "hawan", label: { hi: "हवन", en: "Hawan" } },
-  { key: "pandit-ji", label: { hi: "पंडित जी", en: "Pandit Ji" } },
+  { key: "pandit-ji", label: { hi: "पंडित जी एवं आचार्य", en: "Pandit Ji & Acharya" } },
 ];
 
 export default function GalleryInteractive() {
@@ -176,7 +227,7 @@ export default function GalleryInteractive() {
       return t({ hi: "हवन-अनुष्ठान", en: "Hawan & Yagya" });
     }
     if (category === "pandit-ji") {
-      return t({ hi: "पंडित जी", en: "Pandit Ji" });
+      return t({ hi: "पंडित जी एवं आचार्य", en: "Pandit Ji & Acharya" });
     }
     return t({ hi: "दर्शन", en: "Darshan" });
   };

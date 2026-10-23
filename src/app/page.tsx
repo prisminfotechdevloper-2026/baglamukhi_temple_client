@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import HeroSection from "@/components/home/HeroSection";
+import GuruJiKundaliSection from "@/components/home/GuruJiKundaliSection";
 import HawanPackagesSection from "@/components/home/HawanPackagesSection";
 import VisheshAnushthanSection from "@/components/home/VisheshAnushthanSection";
 import MahaAshtakSection from "@/components/home/MahaAshtakSection";
 import HawanBenefitsSection from "@/components/home/HawanBenefitsSection";
 import HowBookingWorksSection from "@/components/home/HowBookingWorksSection";
-import PanditProfileSection from "@/components/home/PanditProfileSection";
+import PriestsProfileSection from "@/components/home/PriestsProfileSection";
 import RudrakshaRatnaSection from "@/components/home/RudrakshaRatnaSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
 
@@ -109,6 +110,20 @@ export default function HomePage() {
           "महामृत्युंजय वेद विद्यालय (उज्जैन) से कर्मकाण्ड प्रशिक्षित एवं श्री वशिष्ठ ज्योतिष संस्थान संबद्ध, 5+ वर्षों का साधना अनुभव।",
       },
       {
+        "@type": "Person",
+        "@id": "https://baglamukhi-temple-hazel.vercel.app/#gurudev",
+        name: "आचार्य वशिष्ठ विशाल शर्मा (Acharya Vashishtha Vishal Sharma)",
+        jobTitle: "श्रद्धेय गुरुदेव एवं वरिष्ठ ज्योतिषाचार्य (संस्कृत साहित्य Ph.D. शोधार्थी)",
+        worksFor: {
+          "@type": "Organization",
+          name: "श्री वशिष्ठ ज्योतिष संस्थान",
+        },
+        telephone: "+91-9575664204",
+        award: "अखिल भारतीय काशी विद्वत् परिषद् सम्मान",
+        description:
+          "संस्कृत साहित्य से M.A., B.Ed. एवं Ph.D. शोधार्थी। 10+ वर्षों का साधना अनुभव एवं अखिल भारतीय काशी विद्वत् परिषद् से सम्मानित।",
+      },
+      {
         "@type": "BreadcrumbList",
         itemListElement: [
           {
@@ -134,7 +149,10 @@ export default function HomePage() {
         {/* 1. Hero Section: Clean, focused, reduced height with primary booking action */}
         <HeroSection />
 
-        {/* 2. Authentic Hawan Packages & Transparent Dakshina (hawan_anusthan.png) */}
+        {/* 2. Revered Gurudev Seva: Janam Kundali & Vedic Jyotish (Acharya Vashishtha Vishal Sharma) */}
+        <GuruJiKundaliSection />
+
+        {/* 3. Authentic Hawan Packages & Transparent Dakshina (hawan_anusthan.png) */}
         <HawanPackagesSection />
 
         {/* 3. Special Anushthan: 1.25 Lakh Akhand Jaap (vishesh_anusthan.png) */}
@@ -149,8 +167,8 @@ export default function HomePage() {
         {/* 6. 3 Simple Steps: How Booking Works */}
         <HowBookingWorksSection />
 
-        {/* 7. Chief Priest Pt. Deepak Sharma Profile & Credentials */}
-        <PanditProfileSection />
+        {/* 7. Unified Revered Priests Profile Showcase (With Top Highlight Row: Vishal -> Pawan -> Deepak) */}
+        <PriestsProfileSection />
 
         {/* 8. Original Rudraksha & Navgraha Ratna Highlight Showcase */}
         <RudrakshaRatnaSection />

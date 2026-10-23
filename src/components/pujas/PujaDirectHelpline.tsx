@@ -98,7 +98,7 @@ export default function PujaDirectHelpline() {
               <div className="w-full max-w-sm rounded-2xl bg-gradient-to-b from-[#FFFDF9] to-white border border-amber-300/80 p-5 shadow-sm text-center">
                 <div className="relative h-28 w-28 mx-auto rounded-full overflow-hidden border-2 border-amber-400 shadow-md mb-3">
                   <Image
-                    src="/images/pandit-deepak-sharma.webp"
+                    src="/images/pandit-deepak-sharma-new.webp"
                     alt="पंडित दीपक शर्मा"
                     fill
                     sizes="112px"

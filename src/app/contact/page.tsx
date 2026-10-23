@@ -305,7 +305,7 @@ export default function ContactPage() {
               <div className="flex items-center gap-4 pb-5 border-b border-stone-100">
                 <div className="relative h-16 w-16 rounded-2xl overflow-hidden border-2 border-amber-400 shrink-0 shadow-sm">
                   <Image
-                    src="/images/pandit-deepak-sharma.webp"
+                    src="/images/pandit-deepak-sharma-new.webp"
                     alt="पंडित दीपक शर्मा"
                     fill
                     sizes="64px"

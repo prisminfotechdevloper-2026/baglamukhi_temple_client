@@ -122,7 +122,7 @@ export default function PanditWelcomeDialog() {
   if (pathname !== "/") return null;
 
   const PANDIT_BLUR =
-    "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADwAQCdASoQABAABUB8JbACdAD7KKjCV7AA/tOn060gzA6nTTSTJbVOnLfzKjrauTBcSRfNy2AZ92InM0zDJbkxDg6GrKKSE/0bWxSaGe2EpjcAAAA=";
+    "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADQAQCdASoQABAABUB8JbACdACjIfDVAAD+1qp0wy31CYNrC32qh/n51NRbbyaZKxK0kqdmuPeyKZw6ediLer/9li1TFRP9GvJh/xB94u/8AAAA";
 
   return (
     <div
@@ -173,7 +173,7 @@ export default function PanditWelcomeDialog() {
         <div className="flex items-center gap-3.5 p-3 rounded-2xl bg-gradient-to-r from-[#FFF7EA] to-[#FFFDF9] border border-[#EBD7B2] shadow-xs mb-3">
           <div className="relative h-15 w-15 sm:h-16 sm:w-16 rounded-xl overflow-hidden border-2 border-[#D4AF37] shadow-sm shrink-0 bg-stone-100">
             <Image
-              src="/images/pandit-deepak-sharma-thumb.webp"
+              src="/images/pandit-deepak-sharma-new-thumb.webp"
               alt="पंडित दीपक शर्मा"
               fill
               sizes="64px"

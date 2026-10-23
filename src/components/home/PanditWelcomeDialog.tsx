@@ -31,7 +31,7 @@ export default function PanditWelcomeDialog() {
       if (hasTriggered) return;
       setHasTriggered(true);
 
-      // Smooth delayed appearance
+      // Fast & smooth appearance (reduced delay for immediate opening)
       setTimeout(() => {
         setIsOpen(true);
 
@@ -49,11 +49,14 @@ export default function PanditWelcomeDialog() {
         timerRef.current = setTimeout(() => {
           handleClose();
         }, DURATION);
-      }, 500);
+      }, 100);
     };
 
-    // Scroll Observer: Trigger when user scrolls to Temple Darshan Section with genuine intent
-    const targetElement = document.getElementById("temple-darshan-section");
+    // Scroll Observer: Trigger when user scrolls into the featured pujas section
+    const targetElement =
+      document.getElementById("featured-pujas") ||
+      document.getElementById("how-it-works") ||
+      document.getElementById("temple-darshan-section");
 
     if (targetElement && "IntersectionObserver" in window) {
       const observer = new IntersectionObserver(
@@ -64,7 +67,7 @@ export default function PanditWelcomeDialog() {
             observer.disconnect();
           }
         },
-        { threshold: 0.3 }
+        { threshold: 0.05 }
       );
 
       observer.observe(targetElement);
@@ -75,9 +78,9 @@ export default function PanditWelcomeDialog() {
         if (intervalRef.current) clearInterval(intervalRef.current);
       };
     } else {
-      // Fallback: Trigger after scrolling at least 950px to ensure genuine interest
+      // Fallback: Trigger as soon as user scrolls past hero into Rashi section (~350px)
       const handleScroll = () => {
-        if (window.scrollY > 950) {
+        if (window.scrollY > 350) {
           triggerPopup();
           window.removeEventListener("scroll", handleScroll);
         }
@@ -116,7 +119,7 @@ export default function PanditWelcomeDialog() {
       <dialog
         open={isOpen}
         aria-label="पंडित जी स्वागत संवाद"
-        className={`fixed inset-0 z-50 sm:hidden flex flex-col justify-end bg-black/60 backdrop-blur-xs transition-opacity duration-500 border-0 w-full h-full max-w-none max-h-none m-0 p-0 ${
+        className={`fixed inset-0 z-50 sm:hidden flex flex-col justify-end bg-black/60 backdrop-blur-xs transition-opacity duration-300 border-0 w-full h-full max-w-none max-h-none m-0 p-0 ${
           isOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
@@ -133,7 +136,7 @@ export default function PanditWelcomeDialog() {
           aria-label="बंद करें"
         />
         <div
-          className={`relative z-10 w-full max-h-[82vh] rounded-t-3xl bg-gradient-to-b from-white via-[#FFFDF9] to-[#FFF9F2] border-t-2 border-amber-400 p-4 pb-6 flex flex-col shadow-2xl transition-transform duration-500 ease-out overflow-y-auto ${
+          className={`relative z-10 w-full max-h-[82vh] rounded-t-3xl bg-gradient-to-b from-white via-[#FFFDF9] to-[#FFF9F2] border-t-2 border-amber-400 p-4 pb-6 flex flex-col shadow-2xl transition-transform duration-300 ease-out overflow-y-auto ${
             isOpen ? "translate-y-0" : "translate-y-full"
           }`}
         >
@@ -278,7 +281,7 @@ export default function PanditWelcomeDialog() {
       {/* ================= DESKTOP VIEW (Floating Left-Center Dialog with Spring Slide Animation) ================= */}
       <aside
         aria-label="पंडित जी परामर्श संवाद"
-        className={`hidden sm:block fixed left-6 top-1/2 -translate-y-1/2 z-50 w-[390px] max-w-[90vw] transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        className={`hidden sm:block fixed left-6 top-1/2 -translate-y-1/2 z-50 w-[390px] max-w-[90vw] transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
           isOpen
             ? "translate-x-0 opacity-100 pointer-events-auto"
             : "-translate-x-[125%] opacity-0 pointer-events-none"

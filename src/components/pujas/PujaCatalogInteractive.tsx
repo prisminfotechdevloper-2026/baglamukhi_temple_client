@@ -6,6 +6,7 @@ import {
   Scroll,
   Clock,
   CheckCircle2,
+  CalendarCheck,
   MessageCircle,
   PhoneCall,
   ArrowRight,
@@ -254,15 +255,15 @@ export default function PujaCatalogInteractive() {
               return (
                 <div
                   key={puja.id}
-                  className="group rounded-3xl bg-white border-y-0 border-x-2 border-amber-400 hover:border-amber-500 shadow-[0_6px_24px_-4px_rgba(217,119,6,0.12)] hover:shadow-[0_12px_32px_-4px_rgba(175,8,7,0.16)] p-6 flex flex-col justify-between hover:-translate-y-1 transition-colors duration-300"
+                  className="group rounded-2xl bg-[#FFFDF8] border border-[#EBD8B4] border-l-[6px] border-l-[#D89B18] hover:border-l-[#8B0000] shadow-xs hover:shadow-md p-5 flex flex-col justify-between transition-all duration-300"
                 >
                   {/* Top Header: Category & Badge */}
                   <div>
-                    <div className="flex items-center justify-between gap-2 mb-3">
-                      <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#AF0807] bg-red-50 border border-red-200/60 rounded-md px-2 py-0.5">
+                    <div className="flex items-center justify-between gap-2 mb-2.5">
+                      <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#8B0000] bg-red-50 border border-red-200/60 rounded px-2 py-0.5">
                         {puja.categoryLabel}
                       </span>
-                      <span className="text-[10.5px] font-bold text-amber-900 bg-amber-100/70 border border-amber-300/60 rounded-full px-2.5 py-0.5">
+                      <span className="text-[10.5px] font-bold text-amber-900 bg-amber-100/70 border border-amber-300/60 rounded px-2 py-0.5">
                         {puja.badge}
                       </span>
                     </div>
@@ -274,26 +275,26 @@ export default function PujaCatalogInteractive() {
                     </div>
 
                     {/* Title */}
-                    <h3 className="font-serif text-base sm:text-lg font-bold text-[#3E0B02] leading-snug mb-2 group-hover:text-[#AF0807] transition-colors">
+                    <h3 className="font-serif text-base sm:text-lg font-bold text-[#4A0C16] leading-snug mb-2 group-hover:text-[#8B0000] transition-colors">
                       {puja.title}
                     </h3>
 
                     {/* Short Description */}
-                    <p className="text-xs text-stone-600 leading-relaxed mb-4">
+                    <p className="text-xs text-stone-600 leading-relaxed mb-3">
                       {puja.shortDesc}
                     </p>
 
                     {/* Key Attributes Box */}
-                    <div className="space-y-1.5 p-3 rounded-2xl bg-[#FFFDF9] border border-amber-200/60 text-[11.5px] text-stone-700 mb-5">
+                    <div className="space-y-1.5 p-2.5 rounded-xl bg-[#FFF3DC]/60 border border-[#EBD8B4] text-[11.5px] text-stone-700 mb-4">
                       <div className="flex items-center gap-2">
-                        <Clock className="h-3.5 w-3.5 text-amber-600 shrink-0" />
+                        <Clock className="h-3.5 w-3.5 text-amber-700 shrink-0" />
                         <span className="text-stone-500">{t({ hi: "अवधि:", en: "Duration:" })}</span>
                         <span className="font-semibold text-stone-800 truncate">
                           {puja.duration}
                         </span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <Scroll className="h-3.5 w-3.5 text-amber-600 shrink-0" />
+                        <Scroll className="h-3.5 w-3.5 text-amber-700 shrink-0" />
                         <span className="text-stone-500">{t({ hi: "मंत्र संख्या:", en: "Mantra Count:" })}</span>
                         <span className="font-semibold text-stone-800 truncate">
                           {puja.mantraCount}
@@ -302,25 +303,36 @@ export default function PujaCatalogInteractive() {
                     </div>
                   </div>
 
-                  {/* Actions: Direct WhatsApp Booking & View Details */}
-                  <div className="pt-3 border-t border-stone-100 space-y-2">
+                  {/* Actions: Direct Modal Booking & View Details */}
+                  <div className="pt-3 border-t border-amber-200/50 space-y-2">
                     <button
                       type="button"
-                      onClick={() => handleWhatsAppBooking(puja.title)}
-                      className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-full bg-[#AF0807] hover:bg-[#8B0605] text-white font-bold text-xs shadow-xs hover:shadow-md transition-colors active:scale-[0.98]"
+                      onClick={() => openBookingModal(puja.title)}
+                      className="w-full inline-flex items-center justify-center gap-2 py-2 px-4 rounded-lg bg-[#8B0000] hover:bg-[#A00000] text-white font-bold text-xs shadow-xs transition-colors cursor-pointer"
                     >
-                      <MessageCircle className="h-4 w-4 text-amber-300" />
+                      <CalendarCheck className="h-4 w-4 text-amber-300" />
                       <span>{t({ hi: "अनुष्ठान बुक करें / संकल्प लें", en: "Book Anushthan / Take Sankalp" })}</span>
                     </button>
 
-                    <button
-                      type="button"
-                      onClick={() => setSelectedPuja(puja)}
-                      className="w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-full bg-white hover:bg-amber-50 text-[#3E0B02] hover:text-[#AF0807] text-xs font-semibold border border-stone-200 hover:border-amber-300 transition-colors"
-                    >
-                      <span>{t({ hi: "विधि व सामग्री विवरण देखें", en: "View Vidhi & Samagri Details" })}</span>
-                      <ArrowRight className="h-3.5 w-3.5 text-[#AF0807]" />
-                    </button>
+                    <div className="grid grid-cols-2 gap-2">
+                      <button
+                        type="button"
+                        onClick={() => setSelectedPuja(puja)}
+                        className="inline-flex items-center justify-center gap-1 py-1.5 px-2.5 rounded-lg bg-white hover:bg-stone-50 text-stone-800 text-xs font-semibold border border-stone-300 hover:border-[#D89B18] transition-colors cursor-pointer"
+                      >
+                        <span>{t({ hi: "विधि व सामग्री", en: "Vidhi & Samagri" })}</span>
+                        <ArrowRight className="h-3.5 w-3.5 text-[#8B0000]" />
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={() => handleWhatsAppBooking(puja.title)}
+                        className="inline-flex items-center justify-center gap-1 py-1.5 px-2.5 rounded-lg bg-white hover:bg-emerald-50 text-emerald-800 text-xs font-semibold border border-emerald-300 hover:border-emerald-500 transition-colors cursor-pointer"
+                      >
+                        <MessageCircle className="h-3.5 w-3.5 text-emerald-600" />
+                        <span>{t({ hi: "WhatsApp", en: "WhatsApp" })}</span>
+                      </button>
+                    </div>
                   </div>
                 </div>
               );

@@ -106,25 +106,6 @@ export default function RatnaOverviewBenefits() {
                   <line x1="75" y1="20" x2="60" y2="42" />
                   <line x1="40" y1="42" x2="50" y2="88" />
                   <line x1="60" y1="42" x2="50" y2="88" />
-                  {/* Subtle Sparkle Stars */}
-                  <path
-                    d="M14 16 L16 10 L18 16 L24 18 L18 20 L16 26 L14 20 L8 18 Z"
-                    fill="#D4AF37"
-                    fillOpacity="0.4"
-                    stroke="none"
-                  />
-                  <path
-                    d="M84 12 L85.5 8 L87 12 L91 13.5 L87 15 L85.5 19 L84 15 L80 13.5 Z"
-                    fill="#D4AF37"
-                    fillOpacity="0.4"
-                    stroke="none"
-                  />
-                  <path
-                    d="M86 64 L87.5 60 L89 64 L93 65.5 L89 67 L87.5 71 L86 67 L82 65.5 Z"
-                    fill="#D4AF37"
-                    fillOpacity="0.4"
-                    stroke="none"
-                  />
                 </svg>
               </div>
 

@@ -16,7 +16,7 @@ export default function GalleryHeader() {
           </Link>
           <span>/</span>
           <span className="text-[#AF0807] font-semibold">
-            फोटो दीर्घा (Gallery)
+            फोटो एवं वीडियो दीर्घा (Gallery)
           </span>
         </nav>
 
@@ -25,7 +25,7 @@ export default function GalleryHeader() {
           <div className="flex items-center gap-2 mb-2">
             <span className="h-4 w-1 bg-[#AF0807] rounded-full" />
             <span className="text-xs font-extrabold uppercase tracking-widest text-[#AF0807]">
-              पावन दर्शन एवं अनुष्ठान दीर्घा
+              पावन दर्शन, अनुष्ठान एवं वीडियो दीर्घा
             </span>
           </div>
 
@@ -34,7 +34,7 @@ export default function GalleryHeader() {
           </h1>
 
           <p className="mt-2 text-xs sm:text-sm md:text-base text-stone-600 leading-relaxed">
-            नलखेड़ा सिद्धपीठ, पावन लखुन्दर नदी तट, माँ बगलामुखी के दिव्य स्वरूप, महाहवन यज्ञ एवं मुख्य यज्ञाचार्य पंडित दीपक शर्मा जी की वास्तविक पावन छवियां।
+            नलखेड़ा सिद्धपीठ, पावन लखुन्दर नदी तट, माँ बगलामुखी के दिव्य स्वरूप, महाहवन यज्ञ एवं मुख्य यज्ञाचार्य पंडित दीपक शर्मा जी की वास्तविक पावन छवियां व दर्शन वीडियो।
           </p>
         </div>
 

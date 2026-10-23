@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import GalleryHeader from "@/components/gallery/GalleryHeader";
 import GalleryInteractive from "@/components/gallery/GalleryInteractive";
+import DarshanVideoSection from "@/components/home/DarshanVideoSection";
 
 export const metadata: Metadata = {
   title:
-    "फोटो दीर्घा (Gallery) | श्री माँ बगलामुखी मंदिर नलखेड़ा - मंदिर, हवन एवं दर्शन छवियां",
+    "फोटो एवं वीडियो दीर्घा (Gallery) | श्री माँ बगलामुखी मंदिर नलखेड़ा - दर्शन, हवन व आरती",
   description:
-    "विश्वविख्यात माँ बगलामुखी सिद्धपीठ नलखेड़ा के दिव्य दर्शन, मंदिर शिखर, सिंहद्वार, पावन लखुन्दर नदी तट, महाहवन यज्ञ एवं पंडित दीपक शर्मा जी की वास्तविक पावन फोटो गैलरी।",
+    "विश्वविख्यात माँ बगलामुखी सिद्धपीठ नलखेड़ा के पावन दर्शन, मंदिर, महाहवन यज्ञ, आरती एवं पंडित दीपक शर्मा जी की वास्तविक फोटो व वीडियो दीर्घा।",
   keywords: [
     "माँ बगलामुखी मंदिर फोटो",
     "बगलामुखी नलखेड़ा गैलरी",
@@ -75,6 +76,9 @@ export default function GalleryPage() {
 
       {/* 2. Interactive Category Tabs, Grid with Bottom-Left Hover Title, and Lightbox */}
       <GalleryInteractive />
+
+      {/* 3. Sacred Darshan & Mahahawan Video Player Section */}
+      <DarshanVideoSection />
     </main>
   );
 }

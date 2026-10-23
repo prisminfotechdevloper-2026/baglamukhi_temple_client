@@ -164,16 +164,6 @@ export default function PanditProfileSection() {
                   </div>
                 </div>
 
-                {/* Floating Experience Badge */}
-                <div className="absolute bottom-4 right-4 z-20 inline-flex items-center gap-1 rounded-xl bg-gradient-to-r from-[#8B0000] to-[#5C0D15] px-3 py-1 text-xs font-bold text-white shadow-lg border border-amber-400/60">
-                  <Award className="h-3.5 w-3.5 text-amber-300" />
-                  <span>
-                    {t({
-                      hi: "उज्जैन वेद विद्यालय दीक्षा",
-                      en: "Vedic Diksha Ujjain",
-                    })}
-                  </span>
-                </div>
               </div>
             </div>
 

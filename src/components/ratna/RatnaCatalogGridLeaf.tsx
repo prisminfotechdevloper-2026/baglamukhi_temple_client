@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { Eye, X, PhoneCall, Sparkles, ShieldCheck } from "lucide-react";
+import { Eye, X, PhoneCall, ShieldCheck } from "lucide-react";
 import WhatsAppIcon from "@/components/common/WhatsAppIcon";
 import { useLanguage } from "@/context/LanguageContext";
 

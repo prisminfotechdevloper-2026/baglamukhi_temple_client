@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import { Eye, ChevronLeft, ChevronRight, X, ShieldCheck, Sparkles, PhoneCall } from "lucide-react";
+import { Eye, ChevronLeft, ChevronRight, X, ShieldCheck, PhoneCall } from "lucide-react";
 import WhatsAppIcon from "@/components/common/WhatsAppIcon";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -298,7 +298,7 @@ export default function RudrakshaCatalogGridLeaf() {
                 {/* Detailed Benefits List */}
                 <div className="w-full text-left bg-white border border-[#EBDCC5] rounded-xl p-3 sm:p-3.5 mb-3.5 flex-1">
                   <h4 className="font-serif text-xs sm:text-[13px] font-bold text-[#3B1E08] mb-2 border-b border-[#F2E5D5] pb-1 flex items-center gap-1.5">
-                    <Sparkles className="h-3.5 w-3.5 text-[#8B5A14]" />
+                    <ShieldCheck className="h-3.5 w-3.5 text-[#8B5A14]" />
                     <span>धार्मिक एवं आध्यात्मिक लाभ</span>
                   </h4>
                   <ul className="space-y-1.5">

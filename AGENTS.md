@@ -23,3 +23,8 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - Maintain clean semantic HTML (`<h1>` hierarchy, `<main>`, `<article>`, `<nav>`, `<section>`).
 - Add JSON-LD Structured Data on the server for rich snippet search indexing.
 
+### 4. Strict UI & Icon Restrictions (PERMANENT RULE)
+- **STRICT PROHIBITION ON SPARKLE ICONS (`Sparkles` / `Sparkle`)**: NEVER use `Sparkles`, `Sparkle`, or any 4-point AI/magic sparkle icon anywhere in this project (headers, badges, cards, buttons, lists, SVGs, or decorations). Use dignified Vedic symbols (`Flame`, `SunMedium`, `BookOpen`, `Scroll`, `ShieldCheck`, `CheckCircle2`, `Award`) instead.
+- **NO Bubbly Oval / Sausage Pill Shapes**: Avoid `rounded-full` or `rounded-2xl` sausage pills for buttons and badges. Use crisp, architectural corners (`rounded-lg` / `rounded-md` / `rounded-xl`) with the signature gold left border (`border-l-[6px] border-l-[#D89B18]`).
+- **NO Column-Wise Centered Stacking**: Do not center-stack elements in a long vertical column. Use structured, left-aligned editorial hierarchy and horizontal micro-grids.
+

@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import HeroSection from "@/components/home/HeroSection";
-import SacredSiddhiBar from "@/components/home/SacredSiddhiBar";
-import KundaliRashiSection from "@/components/home/KundaliRashiSection";
-import TempleOverviewSection from "@/components/home/TempleOverviewSection";
-import DarshanVideoSection from "@/components/home/DarshanVideoSection";
+import HawanPackagesSection from "@/components/home/HawanPackagesSection";
+import HawanBenefitsSection from "@/components/home/HawanBenefitsSection";
+import HowBookingWorksSection from "@/components/home/HowBookingWorksSection";
 import PanditProfileSection from "@/components/home/PanditProfileSection";
 import RudrakshaRatnaSection from "@/components/home/RudrakshaRatnaSection";
 import PanditWelcomeDialog from "@/components/home/PanditWelcomeDialog";
@@ -21,7 +20,6 @@ export const metadata: Metadata = {
     "Court Case Victory Baglamukhi Puja",
     "Nalkheda Mandir Havan",
     "7224083313",
-    "9575664204",
   ],
   alternates: {
     canonical: "https://baglamukhi-temple-hazel.vercel.app",
@@ -131,28 +129,25 @@ export default function HomePage() {
         }}
       />
       <main className="w-full max-w-full overflow-x-clip min-h-screen flex flex-col bg-[#FFF8E7]">
-        {/* 1. Hero Section with Responsive Divine Backgrounds & Sacred Mantra Box */}
+        {/* 1. Hero Section: Clean, focused, reduced height with primary booking action */}
         <HeroSection />
 
-        {/* 2. 8 Sacred Siddhi & Hawan Anushthan Medallions Bar */}
-        <SacredSiddhiBar />
+        {/* 2. Authentic Hawan Packages & Transparent Dakshina (Pandit Ji's Offerings) */}
+        <HawanPackagesSection />
 
-        {/* 3. Janam Kundali, 12 Rashi & Dosha Nivaran Section (Interactive) */}
-        <KundaliRashiSection />
+        {/* 3. 15 Sacred Benefits of Maa Baglamukhi Hawan */}
+        <HawanBenefitsSection />
 
-        {/* 5. Temple Overview (Left) & Timings/Aarti Schedule (Right) */}
-        <TempleOverviewSection />
+        {/* 3. 3 Simple Steps: How Booking Works */}
+        <HowBookingWorksSection />
 
-        {/* 6. Sacred Hawan & Darshan Video Reels (In Motion - Nikhar Style) */}
-        <DarshanVideoSection />
-
-        {/* 7. Chief Priest Acharya Pt. Deepak Sharma Profile & Credentials */}
+        {/* 4. Chief Priest Pt. Deepak Sharma Profile & Credentials */}
         <PanditProfileSection />
 
-        {/* 8. Original Rudraksha & Navgraha Ratna Highlight Showcase */}
+        {/* 5. Original Rudraksha & Navgraha Ratna Highlight Showcase */}
         <RudrakshaRatnaSection />
 
-        {/* 9. Pandit Ji Welcome Dialog (Triggered on Scroll) */}
+        {/* 7. Pandit Ji Welcome Dialog (Gentle Trigger) */}
         <PanditWelcomeDialog />
       </main>
     </>

@@ -3,6 +3,8 @@ import PujaHero from "@/components/pujas/PujaHero";
 import PujaTrustRibbon from "@/components/pujas/PujaTrustRibbon";
 import PujaHowItWorks from "@/components/pujas/PujaHowItWorks";
 import PujaCatalogInteractive from "@/components/pujas/PujaCatalogInteractive";
+import HawanPackagesSection from "@/components/home/HawanPackagesSection";
+import KundaliRashiPujaSection from "@/components/pujas/KundaliRashiPujaSection";
 import PujaDirectHelpline from "@/components/pujas/PujaDirectHelpline";
 import PujaFAQ from "@/components/pujas/PujaFAQ";
 
@@ -133,10 +135,13 @@ export default function PujasPage() {
       {/* 2. Four Sacred Trust Pillars Ribbon */}
       <PujaTrustRibbon />
 
-      {/* 3. Simple 4-Step Booking Workflow */}
-      <PujaHowItWorks />
+      {/* 3. Official Hawan Packages & Transparent Dakshina (Pt. Deepak Sharma) */}
+      <HawanPackagesSection />
 
-      {/* 4. Interactive 16-Puja Catalog with Category Tabs, Search & Detail Modal */}
+      {/* 4. Kundali Dosh Shanti & 12 Rashi Planetary Services (Short highlights, easy UI) */}
+      <KundaliRashiPujaSection />
+
+      {/* 5. Interactive 16-Puja Catalog with Category Tabs, Search & Detail Modal */}
       <PujaCatalogInteractive />
 
       {/* 5. Pandit Deepak Sharma Direct Consultation & Muhurta Helpline */}

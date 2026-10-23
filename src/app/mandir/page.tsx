@@ -8,6 +8,7 @@ import MandirFactSidebar from "@/components/mandir/MandirFactSidebar";
 import MandirTimeline from "@/components/mandir/MandirTimeline";
 import MandirHowToReach from "@/components/mandir/MandirHowToReach";
 import MandirTraditionNotice from "@/components/mandir/MandirTraditionNotice";
+import TempleOverviewSection from "@/components/home/TempleOverviewSection";
 
 export const metadata: Metadata = {
   title: "माँ बगलामुखी मंदिर, नलखेड़ा | इतिहास, मान्यता व दर्शन जानकारी",
@@ -119,7 +120,10 @@ export default function MandirPage() {
       {/* 2. Highlights Ribbon with signature left-right amber borders */}
       <MandirStatsRibbon />
 
-      {/* 3. Main Content Area: 2-Column Responsive Grid with Sticky Sidebar */}
+      {/* 3. Temple Overview, Live Darshan & Aarti Timings, and Sacred Images */}
+      <TempleOverviewSection />
+
+      {/* 4. Main Content Area: 2-Column Responsive Grid with Sticky Sidebar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 pb-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
           {/* Left Column: 5 Article Sections (Smoothly Scrolls) */}

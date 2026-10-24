@@ -11,11 +11,14 @@ import PujaDirectHelpline from "@/components/pujas/PujaDirectHelpline";
 import PujaFAQ from "@/components/pujas/PujaFAQ";
 
 export const metadata: Metadata = {
-  title:
-    "पूजा एवं महाहवन बुकिंग | श्री माँ बगलामुखी मंदिर नलखेड़ा - 16+ तांत्रिक-वैदिक अनुष्ठान",
+  title: "Online Puja & Hawan Booking in Nalkheda | Best Website for Baglamukhi Hawan",
   description:
-    "विश्वविख्यात माँ बगलामुखी सिद्धपीठ नलखेड़ा में शत्रु बाधा निवारण, कोर्ट केस विजय, सवा लाख अखंड जाप, व्यापार वृद्धि एवं कालसर्प दोष शांति हेतु अधिकृत पूजा बुकिंग। पं. दीपक शर्मा (+91 72240 83313)।",
+    "विश्वविख्यात माँ बगलामुखी सिद्धपीठ नलखेड़ा में 16+ शास्त्रोक्त महाहवन, शत्रु बाधा निवारण, कोर्ट केस विजय, सवा लाख अखंड जाप एवं गृह शांति पूजा ऑनलाइन बुकिंग। पं. दीपक शर्मा (+91 72240 83313)।",
   keywords: [
+    "Best website for puja hawan",
+    "Nalkheda Mata Baglamukhi puja hawan",
+    "Ghar shanti puja hawan",
+    "Best hawan puja pandit in Nalkheda",
     "बगलामुखी पूजा बुकिंग",
     "बगलामुखी महाहवन नलखेड़ा",
     "शत्रु बाधा निवारण हवन",
@@ -25,16 +28,26 @@ export const metadata: Metadata = {
     "बगलामुखी ऑनलाइन ई-संकल्प",
     "पंडित दीपक शर्मा पूजा बुकिंग",
     "माँ बगलामुखी मंदिर हवन",
+    "गृह शांति हवन पूजा",
     "7224083313",
+    "9575664204",
   ],
+  alternates: {
+    canonical: "https://www.baglamukhipujanalkheda.com/puja",
+    languages: {
+      "hi-IN": "https://www.baglamukhipujanalkheda.com/puja",
+      "en-US": "https://www.baglamukhipujanalkheda.com/puja",
+      "x-default": "https://www.baglamukhipujanalkheda.com/puja",
+    },
+  },
   openGraph: {
-    title:
-      "पूजा एवं महाहवन बुकिंग | श्री माँ बगलामुखी मंदिर नलखेड़ा - 16+ शास्त्रोक्त अनुष्ठान",
+    title: "Online Puja & Hawan Booking in Nalkheda | Best Website for Baglamukhi Hawan",
     description:
       "माँ बगलामुखी सिद्धपीठ नलखेड़ा में 16+ विशिष्ट तांत्रिक-वैदिक महाहवन, सवा लाख अखंड जाप एवं दोष निवारण अनुष्ठान। व्यक्तिगत व लाइव वीडियो संकल्प।",
-    url: "https://baglamukhi-temple-hazel.vercel.app/puja",
+    url: "https://www.baglamukhipujanalkheda.com/puja",
     type: "website",
     locale: "hi_IN",
+    alternateLocale: ["en_US", "en_IN"],
     images: [
       {
         url: "/images/baglamukhi-mandir-real.webp",
@@ -44,8 +57,12 @@ export const metadata: Metadata = {
       },
     ],
   },
-  alternates: {
-    canonical: "https://baglamukhi-temple-hazel.vercel.app/puja",
+  twitter: {
+    card: "summary_large_image",
+    title: "Online Puja & Hawan Booking in Nalkheda | Best Website for Baglamukhi Hawan",
+    description:
+      "माँ बगलामुखी सिद्धपीठ नलखेड़ा में 16+ महाहवन व अनुष्ठान बुकिंग। आचार्य पं. दीपक शर्मा (+91 72240 83313)।",
+    images: ["/images/baglamukhi-mandir-real.webp"],
   },
 };
 

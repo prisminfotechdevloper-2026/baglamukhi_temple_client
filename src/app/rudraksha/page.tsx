@@ -22,13 +22,18 @@ export const metadata: Metadata = {
     "7224083313",
   ],
   alternates: {
-    canonical: "https://baglamukhi-temple-hazel.vercel.app/rudraksha",
+    canonical: "https://www.baglamukhipujanalkheda.com/rudraksha",
+    languages: {
+      "hi-IN": "https://www.baglamukhipujanalkheda.com/rudraksha",
+      "en-US": "https://www.baglamukhipujanalkheda.com/rudraksha",
+      "x-default": "https://www.baglamukhipujanalkheda.com/rudraksha",
+    },
   },
   openGraph: {
     title: "Original Rudraksha | 100% Lab Certified & Energized — Maa Baglamukhi Dham",
     description:
       "माँ बगलामुखी सिद्धपीठ नलखेड़ा से प्रमाणित नेपाली रुद्राक्ष संग्रह। वैदिक मंत्रोच्चार व प्राण-प्रतिष्ठा युक्त रुद्राक्ष प्राप्त करें।",
-    url: "https://baglamukhi-temple-hazel.vercel.app/rudraksha",
+    url: "https://www.baglamukhipujanalkheda.com/rudraksha",
     siteName: "Shri Maa Baglamukhi Dham Nalkheda",
     type: "website",
     locale: "hi_IN",
@@ -56,16 +61,16 @@ export default function RudrakshaPage() {
     "@graph": [
       {
         "@type": "CollectionPage",
-        "@id": "https://baglamukhi-temple-hazel.vercel.app/rudraksha#webpage",
+        "@id": "https://www.baglamukhipujanalkheda.com/rudraksha#webpage",
         name: "Original Rudraksha Collection - माँ बगलामुखी धाम",
         description:
           "100% Lab Certified and spiritually energized natural Nepal Rudraksha beads and malas by Pt. Deepak Sharma, Nalkheda.",
-        url: "https://baglamukhi-temple-hazel.vercel.app/rudraksha",
+        url: "https://www.baglamukhipujanalkheda.com/rudraksha",
         isPartOf: {
           "@type": "WebSite",
-          "@id": "https://baglamukhi-temple-hazel.vercel.app/#website",
+          "@id": "https://www.baglamukhipujanalkheda.com/#website",
           name: "Shri Maa Baglamukhi Dham Nalkheda",
-          url: "https://baglamukhi-temple-hazel.vercel.app",
+          url: "https://www.baglamukhipujanalkheda.com",
         },
       },
     ],

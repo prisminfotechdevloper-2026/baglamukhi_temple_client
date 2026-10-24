@@ -11,25 +11,35 @@ import MandirTraditionNotice from "@/components/mandir/MandirTraditionNotice";
 import TempleOverviewSection from "@/components/home/TempleOverviewSection";
 
 export const metadata: Metadata = {
-  title: "माँ बगलामुखी मंदिर, नलखेड़ा | इतिहास, मान्यता व दर्शन जानकारी",
+  title: "Maa Baglamukhi Mandir Nalkheda | Temple History, Darshan & Aarti Timings",
   description:
-    "पावन लखुन्दर नदी के तट पर स्थित माँ बगलामुखी मंदिर नलखेड़ा (आगर-मालवा, म.प्र.) का इतिहास, कथा, मान्यताएँ, स्वयंभू त्रिमुखी स्वरूप एवं दर्शन संबंधी संपूर्ण विवरण।",
+    "पावन लखुन्दर नदी के तट पर स्थित महाभारत कालीन स्वयंभू त्रिमुखी माँ बगलामुखी सिद्धपीठ नलखेड़ा (आगर-मालवा, म.प्र.) का इतिहास, दर्शन समय, आरती समय, हवन परंपरा एवं यात्रा मार्ग।",
   keywords: [
-    "माँ बगलामुखी मंदिर",
-    "बगलामुखी नलखेड़ा",
-    "Baglamukhi Mandir Nalkheda",
-    "त्रिशक्ति स्वरूप",
-    "पीताम्बरा देवी नलखेड़ा",
-    "बगलामुखी इतिहास",
+    "Maa Baglamukhi Mandir Nalkheda",
+    "Maa Baglamukhi Temple Nalkheda darshan timings",
+    "बगलामुखी मंदिर नलखेड़ा",
+    "Nalkheda temple aarti time",
+    "पीताम्बरा सिद्धपीठ नलखेड़ा",
+    "Best hawan puja pandit in Nalkheda",
+    "त्रिशक्ति स्वरूप बगलामुखी",
+    "बगलामुखी मंदिर इतिहास",
     "हवन परंपरा नलखेड़ा",
-    "माँ बगलामुखी दर्शन",
     "नलखेड़ा कैसे पहुंचे",
+    "Agar Malwa Baglamukhi Mandir",
   ],
+  alternates: {
+    canonical: "https://www.baglamukhipujanalkheda.com/mandir",
+    languages: {
+      "hi-IN": "https://www.baglamukhipujanalkheda.com/mandir",
+      "en-US": "https://www.baglamukhipujanalkheda.com/mandir",
+      "x-default": "https://www.baglamukhipujanalkheda.com/mandir",
+    },
+  },
   openGraph: {
-    title: "माँ बगलामुखी मंदिर, नलखेड़ा — विस्तृत आलेख एवं दर्शन विवरण",
+    title: "Maa Baglamukhi Mandir Nalkheda | Temple History, Darshan & Aarti Timings",
     description:
       "लखुन्दर नदी के किनारे बसा नलखेड़ा का यह मंदिर देश के प्राचीन सिद्धपीठों में गिना जाता है, जहाँ तंत्र-साधना और हवन की परंपरा सदियों से चली आ रही है।",
-    url: "https://baglamukhi-temple-hazel.vercel.app/mandir",
+    url: "https://www.baglamukhipujanalkheda.com/mandir",
     siteName: "श्री माँ बगलामुखी मंदिर नलखेड़ा",
     images: [
       {
@@ -42,8 +52,11 @@ export const metadata: Metadata = {
     locale: "hi_IN",
     type: "article",
   },
-  alternates: {
-    canonical: "https://baglamukhi-temple-hazel.vercel.app/mandir",
+  twitter: {
+    card: "summary_large_image",
+    title: "Maa Baglamukhi Mandir Nalkheda | Darshan Timings & History",
+    description: "माँ बगलामुखी सिद्धपीठ नलखेड़ा का संपूर्ण दर्शन, इतिहास व आरती विवरण।",
+    images: ["/images/baglamukhi-mandir-real.webp"],
   },
 };
 
@@ -53,10 +66,11 @@ export default function MandirPage() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "PlaceOfWorship",
-        "@id": "https://baglamukhi-temple-hazel.vercel.app/#mandir",
+        "@type": "HinduTemple",
+        "@id": "https://www.baglamukhipujanalkheda.com/#mandir",
         name: mandirHeader.title.hi,
         description: mandirHeader.standfirst.hi,
+        url: "https://www.baglamukhipujanalkheda.com/mandir",
         address: {
           "@type": "PostalAddress",
           streetAddress: "शासकीय माँ बगलामुखी सिद्धपीठ, नलखेड़ा, जिला - आगर मालवा",
@@ -67,22 +81,22 @@ export default function MandirPage() {
         },
         geo: {
           "@type": "GeoCoordinates",
-          latitude: "23.8329",
-          longitude: "76.0125",
+          latitude: "23.8344",
+          longitude: "76.2239",
         },
-        image: "https://baglamukhi-temple-hazel.vercel.app/images/baglamukhi-mandir-real.webp",
+        image: "https://www.baglamukhipujanalkheda.com/images/baglamukhi-mandir-real.webp",
         telephone: "+91-7224083313",
       },
       {
         "@type": "Article",
         headline: mandirHeader.title.hi,
         description: mandirHeader.standfirst.hi,
-        image: "https://baglamukhi-temple-hazel.vercel.app/images/baglamukhi-mandir-real.webp",
+        image: "https://www.baglamukhipujanalkheda.com/images/baglamukhi-mandir-real.webp",
         inLanguage: "hi",
         publisher: {
           "@type": "Organization",
           name: "श्री माँ बगलामुखी मंदिर सिद्धपीठ",
-          url: "https://baglamukhi-temple-hazel.vercel.app",
+          url: "https://www.baglamukhipujanalkheda.com",
         },
       },
     ],

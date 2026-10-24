@@ -15,14 +15,23 @@ export const metadata: Metadata = {
     "बगलामुखी महाहवन फोटो",
     "पंडित दीपक शर्मा फोटो",
     "नलखेड़ा मंदिर दर्शन",
+    "Best hawan puja pandit in Nalkheda",
     "पीताम्बरा देवी विग्रह फोटो",
   ],
+  alternates: {
+    canonical: "https://www.baglamukhipujanalkheda.com/gallery",
+    languages: {
+      "hi-IN": "https://www.baglamukhipujanalkheda.com/gallery",
+      "en-US": "https://www.baglamukhipujanalkheda.com/gallery",
+      "x-default": "https://www.baglamukhipujanalkheda.com/gallery",
+    },
+  },
   openGraph: {
     title:
       "फोटो दीर्घा | श्री माँ बगलामुखी मंदिर नलखेड़ा - मंदिर, महाहवन एवं पंडित जी",
     description:
       "नलखेड़ा सिद्धपीठ, पावन लखुन्दर नदी, दिव्य महाहवन एवं मुख्य यज्ञाचार्य पंडित दीपक शर्मा जी की वास्तविक पावन फोटो दीर्घा।",
-    url: "https://baglamukhi-temple-hazel.vercel.app/gallery",
+    url: "https://www.baglamukhipujanalkheda.com/gallery",
     type: "website",
     locale: "hi_IN",
     images: [
@@ -34,8 +43,11 @@ export const metadata: Metadata = {
       },
     ],
   },
-  alternates: {
-    canonical: "https://baglamukhi-temple-hazel.vercel.app/gallery",
+  twitter: {
+    card: "summary_large_image",
+    title: "Maa Baglamukhi Mandir Nalkheda Gallery | Darshan & Hawan Photos",
+    description: "माँ बगलामुखी मंदिर नलखेड़ा व हवन अनुष्ठान फोटो दीर्घा।",
+    images: ["/images/baglamukhi-mandir-real.webp"],
   },
 };
 
@@ -46,7 +58,7 @@ export default function GalleryPage() {
     name: "श्री माँ बगलामुखी मंदिर नलखेड़ा फोटो दीर्घा",
     description:
       "माँ बगलामुखी सिद्धपीठ नलखेड़ा के पावन मंदिर दर्शन, तांत्रिक महाहवन एवं पंडित दीपक शर्मा जी की प्रामाणिक फोटो गैलरी।",
-    url: "https://baglamukhi-temple-hazel.vercel.app/gallery",
+    url: "https://www.baglamukhipujanalkheda.com/gallery",
     publisher: {
       "@type": "PlaceOfWorship",
       name: "श्री माँ बगलामुखी मंदिर सिद्धपीठ नलखेड़ा",

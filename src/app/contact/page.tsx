@@ -22,31 +22,51 @@ import ContactForm from "@/components/contact/ContactForm";
 import QuickContactSliderLeaf from "@/components/contact/QuickContactSliderLeaf";
 
 export const metadata: Metadata = {
-  title: "संपर्क करें | शासकीय माँ बगलामुखी सिद्धपीठ नलखेड़ा - पं. दीपक शर्मा",
+  title: "Contact Pt. Deepak Sharma | Maa Baglamukhi Temple Nalkheda Helpline",
   description:
-    "शासकीय माँ बगलामुखी सिद्धपीठ, नलखेड़ा, जिला - आगर मालवा, मध्य प्रदेश - पिन कोड: 465445। विशेष महाहवन, तांत्रिक-वैदिक अनुष्ठान एवं जन्म कुंडली ज्योतिषीय मार्गदर्शन हेतु पंडित दीपक शर्मा जी से संपर्क करें। हवन/पूजा: +91 72240 83313, कुंडली: +91 95756 64204, ईमेल: AshthamMahavidhya@gmail.com।",
+    "शासकीय माँ बगलामुखी सिद्धपीठ, नलखेड़ा (आगर मालवा, म.प्र. - 465445) में विशेष महाहवन, शत्रु बाधा निवारण एवं ऑनलाइन पूजा हेतु पं. दीपक शर्मा जी से संपर्क करें। हेल्पलाइन: +91 72240 83313, कुंडली: +91 95756 64204।",
   keywords: [
-    "शासकीय माँ बगलामुखी सिद्धपीठ",
-    "बगलामुखी मंदिर नलखेड़ा पता",
-    "बगलामुखी मंदिर नलखेड़ा संपर्क",
+    "Best hawan puja pandit in Nalkheda",
     "पंडित दीपक शर्मा फोन नंबर",
-    "बगलामुखी हवन बुकिंग",
-    "नलखेड़ा कैसे पहुंचे",
-    "बगलामुखी मंदिर टाइमिंग",
+    "बगलामुखी मंदिर नलखेड़ा संपर्क",
+    "Baglamukhi Mandir Nalkheda contact number",
+    "Pt Deepak Sharma Nalkheda phone",
+    "बगलामुखी हवन बुकिंग फोन",
+    "शासकीय माँ बगलामुखी सिद्धपीठ पता",
     "7224083313",
     "9575664204",
+    "Nalkheda Mandir helpline",
     "AshthamMahavidhya@gmail.com",
-    "माँ बगलामुखी अनुष्ठान संपर्क",
   ],
+  alternates: {
+    canonical: "https://www.baglamukhipujanalkheda.com/contact",
+    languages: {
+      "hi-IN": "https://www.baglamukhipujanalkheda.com/contact",
+      "en-US": "https://www.baglamukhipujanalkheda.com/contact",
+      "x-default": "https://www.baglamukhipujanalkheda.com/contact",
+    },
+  },
   openGraph: {
-    title: "संपर्क करें | शासकीय माँ बगलामुखी सिद्धपीठ नलखेड़ा - पं. दीपक शर्मा",
+    title: "Contact Pt. Deepak Sharma | Maa Baglamukhi Temple Nalkheda Helpline",
     description:
-      "शासकीय माँ बगलामुखी सिद्धपीठ, नलखेड़ा, जिला - आगर मालवा, मध्य प्रदेश - पिन कोड: 465445। हवन-पूजा अनुष्ठान एवं कुंडली विश्लेषण हेतु पंडित दीपक शर्मा जी से संपर्क करें। फोन: 7224083313 / 9575664204।",
+      "शासकीय माँ बगलामुखी सिद्धपीठ, नलखेड़ा में हवन-पूजा अनुष्ठान एवं कुंडली विश्लेषण हेतु पंडित दीपक शर्मा जी से संपर्क करें। फोन: +91 72240 83313 / +91 95756 64204।",
+    url: "https://www.baglamukhipujanalkheda.com/contact",
     type: "website",
     locale: "hi_IN",
+    images: [
+      {
+        url: "/images/pandit-deepak-sharma-new.webp",
+        width: 800,
+        height: 1000,
+        alt: "पंडित दीपक शर्मा - मुख्य पुरोहित नलखेड़ा",
+      },
+    ],
   },
-  alternates: {
-    canonical: "/contact",
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact Pt. Deepak Sharma | Maa Baglamukhi Temple Nalkheda",
+    description: "पूजा-हवन बुकिंग हेल्पलाइन: +91 72240 83313, +91 95756 64204",
+    images: ["/images/pandit-deepak-sharma-new.webp"],
   },
 };
 

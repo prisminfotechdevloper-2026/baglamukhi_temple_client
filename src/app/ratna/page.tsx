@@ -24,13 +24,18 @@ export const metadata: Metadata = {
     "7224083313",
   ],
   alternates: {
-    canonical: "https://baglamukhi-temple-hazel.vercel.app/ratna",
+    canonical: "https://www.baglamukhipujanalkheda.com/ratna",
+    languages: {
+      "hi-IN": "https://www.baglamukhipujanalkheda.com/ratna",
+      "en-US": "https://www.baglamukhipujanalkheda.com/ratna",
+      "x-default": "https://www.baglamukhipujanalkheda.com/ratna",
+    },
   },
   openGraph: {
     title: "Original Ratna (Gemstones) | 100% Certified & Energized — Maa Baglamukhi Dham",
     description:
       "माँ बगलामुखी सिद्धपीठ नलखेड़ा से 100% प्रमाणित व प्राकृतिक नवरत्न संग्रह। कुंडली अनुसार वैदिक प्राण-प्रतिष्ठित रत्न प्राप्त करें।",
-    url: "https://baglamukhi-temple-hazel.vercel.app/ratna",
+    url: "https://www.baglamukhipujanalkheda.com/ratna",
     siteName: "Shri Maa Baglamukhi Dham Nalkheda",
     type: "website",
     locale: "hi_IN",
@@ -58,16 +63,16 @@ export default function RatnaPage() {
     "@graph": [
       {
         "@type": "CollectionPage",
-        "@id": "https://baglamukhi-temple-hazel.vercel.app/ratna#webpage",
+        "@id": "https://www.baglamukhipujanalkheda.com/ratna#webpage",
         name: "Original Ratna (Gemstones) Collection - माँ बगलामुखी धाम",
         description:
           "100% Lab Certified and spiritually energized natural Vedic Navratna gemstones by Pt. Deepak Sharma, Nalkheda.",
-        url: "https://baglamukhi-temple-hazel.vercel.app/ratna",
+        url: "https://www.baglamukhipujanalkheda.com/ratna",
         isPartOf: {
           "@type": "WebSite",
-          "@id": "https://baglamukhi-temple-hazel.vercel.app/#website",
+          "@id": "https://www.baglamukhipujanalkheda.com/#website",
           name: "Shri Maa Baglamukhi Dham Nalkheda",
-          url: "https://baglamukhi-temple-hazel.vercel.app",
+          url: "https://www.baglamukhipujanalkheda.com",
         },
       },
     ],

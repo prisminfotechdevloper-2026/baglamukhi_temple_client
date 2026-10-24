@@ -11,30 +11,45 @@ import RudrakshaRatnaSection from "@/components/home/RudrakshaRatnaSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
 
 export const metadata: Metadata = {
-  title: "Maa Baglamukhi Havan Booking in Nalkheda | Pt. Deepak Sharma",
+  title: "Best Hawan Puja Pandit in Nalkheda | Maa Baglamukhi Hawan Booking Online",
   description:
-    "माँ बगलामुखी पूजा और हवन की जानकारी, उपलब्ध सेवाएँ और ऑनलाइन बुकिंग संबंधी सहायता प्राप्त करें। तारीख, प्रक्रिया और शुभ मुहूर्त की पुष्टि के लिए संपर्क करें। पं. दीपक शर्मा (+91 72240 83313)।",
+    "नलखेड़ा सिद्धपीठ में माँ बगलामुखी पूजा और हवन की ऑनलाइन बुकिंग। शत्रु बाधा निवारण, कोर्ट केस विजय, तंत्र दोष शांति व ग्रह शांति। आचार्य पं. दीपक शर्मा (+91 72240 83313)।",
   keywords: [
+    "Best Hawan Puja Pandit in Nalkheda",
+    "Best website for puja hawan",
+    "Nalkheda Mata Baglamukhi puja hawan",
+    "Best pandit for hawan in Nalkheda",
     "Maa Baglamukhi Havan Booking in Nalkheda",
     "Baglamukhi Puja Nalkheda",
     "बगलामुखी हवन बुकिंग नलखेड़ा",
     "Pandit Deepak Sharma Nalkheda",
     "Shatru Badha Nivaran Hawan",
     "Court Case Victory Baglamukhi Puja",
+    "Ghar Shanti Puja Hawan",
     "Nalkheda Mandir Havan",
+    "Tantra Puja Nalkheda",
+    "Pandit in Agar Malwa",
+    "Best Hawan Pandit Ujjain Indore MP India",
     "7224083313",
+    "9575664204",
   ],
   alternates: {
-    canonical: "https://baglamukhi-temple-hazel.vercel.app",
+    canonical: "https://www.baglamukhipujanalkheda.com",
+    languages: {
+      "hi-IN": "https://www.baglamukhipujanalkheda.com",
+      "en-US": "https://www.baglamukhipujanalkheda.com",
+      "x-default": "https://www.baglamukhipujanalkheda.com",
+    },
   },
   openGraph: {
-    title: "Maa Baglamukhi Havan Booking in Nalkheda | Pt. Deepak Sharma",
+    title: "Best Hawan Puja Pandit in Nalkheda | Maa Baglamukhi Hawan Booking Online",
     description:
-      "माँ बगलामुखी पूजा और हवन की जानकारी, उपलब्ध सेवाएँ और ऑनलाइन बुकिंग सहायता प्राप्त करें। तारीख, प्रक्रिया और शुभ मुहूर्त की पुष्टि हेतु संपर्क करें।",
-    url: "https://baglamukhi-temple-hazel.vercel.app",
+      "माँ बगलामुखी पूजा और हवन की जानकारी, उपलब्ध सेवाएँ और ऑनलाइन बुकिंग सहायता प्राप्त करें। पं. दीपक शर्मा (+91 72240 83313)।",
+    url: "https://www.baglamukhipujanalkheda.com",
     siteName: "Shri Maa Baglamukhi Dham Nalkheda",
     type: "website",
     locale: "hi_IN",
+    alternateLocale: ["en_US", "en_IN"],
     images: [
       {
         url: "/images/baglamukhi-logo.webp",
@@ -46,9 +61,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Maa Baglamukhi Havan Booking in Nalkheda | Pt. Deepak Sharma",
+    title: "Best Hawan Puja Pandit in Nalkheda | Maa Baglamukhi Hawan Booking Online",
     description:
-      "माँ बगलामुखी पूजा और हवन की जानकारी, उपलब्ध सेवाएँ और ऑनलाइन बुकिंग सहायता प्राप्त करें।",
+      "माँ बगलामुखी पूजा और हवन की जानकारी, उपलब्ध सेवाएँ और ऑनलाइन बुकिंग सहायता प्राप्त करें। पं. दीपक शर्मा (+91 72240 83313)।",
     images: ["/images/baglamukhi-logo.webp"],
   },
 };
@@ -59,12 +74,12 @@ export default function HomePage() {
     "@graph": [
       {
         "@type": "PlaceOfWorship",
-        "@id": "https://baglamukhi-temple-hazel.vercel.app/#temple",
+        "@id": "https://www.baglamukhipujanalkheda.com/#temple",
         name: "श्री माँ बगलामुखी मंदिर सिद्धपीठ नलखेड़ा (Shri Maa Baglamukhi Temple)",
         alternateName: ["Maa Baglamukhi Mandir Nalkheda", "Pitambara Peeth Nalkheda"],
         description:
           "महाभारत कालीन स्वयंभू त्रिमुखी माँ बगलामुखी सिद्धपीठ नलखेड़ा। शत्रु बाधा निवारण, कोर्ट केस विजय, तंत्र दोष शांति एवं सवा लाख जप महाहवन का पावन तीर्थ।",
-        url: "https://baglamukhi-temple-hazel.vercel.app",
+        url: "https://www.baglamukhipujanalkheda.com",
         telephone: "+91-7224083313",
         address: {
           "@type": "PostalAddress",
@@ -91,14 +106,14 @@ export default function HomePage() {
               "Saturday",
               "Sunday",
             ],
-            opens: "06:00",
-            closes: "21:30",
+            opens: "05:00",
+            closes: "23:00",
           },
         ],
       },
       {
         "@type": "Person",
-        "@id": "https://baglamukhi-temple-hazel.vercel.app/#priest",
+        "@id": "https://www.baglamukhipujanalkheda.com/#priest",
         name: "आचार्य पं. दीपक शर्मा (Acharya Pt. Deepak Sharma)",
         jobTitle: "मुख्य उपासक एवं वैदिक कर्मकाण्ड मर्मज्ञ",
         worksFor: {
@@ -111,7 +126,7 @@ export default function HomePage() {
       },
       {
         "@type": "Person",
-        "@id": "https://baglamukhi-temple-hazel.vercel.app/#gurudev",
+        "@id": "https://www.baglamukhipujanalkheda.com/#gurudev",
         name: "आचार्य वशिष्ठ विशाल शर्मा (Acharya Vashishtha Vishal Sharma)",
         jobTitle: "श्रद्धेय गुरुदेव एवं वरिष्ठ ज्योतिषाचार्य (संस्कृत साहित्य Ph.D. शोधार्थी)",
         worksFor: {
@@ -130,7 +145,44 @@ export default function HomePage() {
             "@type": "ListItem",
             position: 1,
             name: "मुख्य पृष्ठ (Home)",
-            item: "https://baglamukhi-temple-hazel.vercel.app",
+            item: "https://www.baglamukhipujanalkheda.com",
+          },
+        ],
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: "नलखेड़ा में माँ बगलामुखी पूजा और हवन कैसे बुक करें?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "माँ बगलामुखी मंदिर नलखेड़ा में हवन-पूजा कराने के लिए आप मुख्य पुरोहित आचार्य पं. दीपक शर्मा जी से सीधे +91 72240 83313 पर कॉल या व्हाट्सएप के माध्यम से संपर्क करके शुभ मुहूर्त और तिथि अनुसार बुकिंग करा सकते हैं।",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Who is the best pandit for Hawan & Puja in Nalkheda?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Acharya Pt. Deepak Sharma (+91 72240 83313) is recognized among the most authentic and knowledgeable purohits for Maa Baglamukhi Tantra & Vedic Hawan in Nalkheda, trained at Mahamrityunjaya Ved Vidyalaya Ujjain.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "माँ बगलामुखी हवन किस-किस कार्य के लिए कराया जाता है?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "माँ बगलामुखी महाहवन विशेष रूप से शत्रु बाधा निवारण, कोर्ट केस व मुकदमों में विजय, व्यापार वृद्धि, ग्रह दोष शांति, संतान गोपाल अनुष्ठान और असाध्य संकटों से रक्षा हेतु कराया जाता है।",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "क्या नलखेड़ा आए बिना ऑनलाइन संकल्प से हवन कराया जा सकता है?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "हाँ, यदि आप स्वयं नलखेड़ा नहीं आ सकते तो यजमान के नाम, गोत्र और फोटो के साथ पूर्ण विधि-विधान से ऑनलाइन संकल्प पूजा और हवन कराया जाता है, जिसका लाइव वीडियो दर्शन एवं प्रसाद प्रेषित किया जाता है।",
+            },
           },
         ],
       },

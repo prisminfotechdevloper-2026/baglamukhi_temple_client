@@ -32,30 +32,45 @@ const siteUrl = (() => {
       // Fallback if envUrl is invalid
     }
   }
-  return new URL("https://baglamukhi-temple-hazel.vercel.app");
+  return new URL("https://www.baglamukhipujanalkheda.com");
 })();
 
 export const metadata: Metadata = {
   metadataBase: siteUrl,
   title: {
-    default: "Maa Baglamukhi Havan Booking in Nalkheda | Pt. Deepak Sharma",
-    template: "%s | Maa Baglamukhi Mandir Nalkheda",
+    default: "Best Hawan Puja Pandit in Nalkheda | Maa Baglamukhi Temple Puja Booking",
+    template: "%s | Maa Baglamukhi Puja Hawan Nalkheda",
   },
   description:
-    "माँ बगलामुखी पूजा और हवन की जानकारी, उपलब्ध सेवाएँ और ऑनलाइन बुकिंग संबंधी सहायता प्राप्त करें। तारीख, प्रक्रिया और शुभ मुहूर्त की पुष्टि के लिए संपर्क करें। पं. दीपक शर्मा (+91 72240 83313)।",
+    "नलखेड़ा सिद्धपीठ में माँ बगलामुखी पूजा और महाहवन ऑनलाइन बुकिंग। शत्रु बाधा निवारण, कोर्ट केस विजय, तंत्र दोष शांति व ग्रह शांति। पं. दीपक शर्मा (+91 72240 83313)।",
   keywords: [
+    "Best Hawan Puja Pandit in Nalkheda",
+    "Best website for puja hawan",
+    "Nalkheda Mata Baglamukhi puja hawan",
+    "Best pandit for hawan in Nalkheda",
     "Maa Baglamukhi Havan Booking in Nalkheda",
     "Maa Baglamukhi Temple Nalkheda",
-    "बगलामुखी मंदिर नलखेड़ा",
-    "Pitambara Devi Siddhapeeth",
-    "Baglamukhi Puja Booking",
+    "Baglamukhi Mandir Nalkheda Puja Booking",
+    "Pandit in Agar Malwa",
+    "Hawan puja pandit in Ujjain Indore Madhya Pradesh India",
     "Pt Deepak Sharma Nalkheda",
-    "Tantra Puja Nalkheda",
-    "Shatru Badha Nivaran",
+    "Shatru Badha Nivaran Hawan",
+    "Court Case Victory Baglamukhi Puja",
+    "Ghar Shanti Puja Hawan",
+    "Pitambara Devi Siddhapeeth Nalkheda",
+    "Vedic Tantra Hawan Anushthan",
+    "Online Puja Booking Nalkheda",
     "7224083313",
     "9575664204",
+    "बगलामुखी मंदिर नलखेड़ा पूजा बुकिंग",
+    "नलखेड़ा में सबसे अच्छे पंडित जी",
+    "बगलामुखी हवन पूजा नलखेड़ा",
+    "शत्रु बाधा निवारण हवन",
+    "गृह शांति पूजा हवन",
   ],
   authors: [{ name: "Acharya Pt. Deepak Sharma - Chief Purohit Nalkheda" }],
+  category: "Religion & Spirituality",
+  classification: "Vedic Puja, Hawan & Hindu Temple Services",
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
@@ -68,13 +83,18 @@ export const metadata: Metadata = {
     shortcut: "/favicon.ico",
   },
   alternates: {
-    canonical: "https://baglamukhi-temple-hazel.vercel.app",
+    canonical: "https://www.baglamukhipujanalkheda.com",
+    languages: {
+      "hi-IN": "https://www.baglamukhipujanalkheda.com",
+      "en-US": "https://www.baglamukhipujanalkheda.com",
+      "x-default": "https://www.baglamukhipujanalkheda.com",
+    },
   },
   openGraph: {
-    title: "Maa Baglamukhi Havan Booking in Nalkheda | Pt. Deepak Sharma",
+    title: "Best Hawan Puja Pandit in Nalkheda | Maa Baglamukhi Temple Puja Booking",
     description:
-      "माँ बगलामुखी पूजा और हवन की जानकारी, उपलब्ध सेवाएँ और ऑनलाइन बुकिंग संबंधी सहायता प्राप्त करें। तारीख, प्रक्रिया और शुभ मुहूर्त की पुष्टि के लिए संपर्क करें।",
-    url: "https://baglamukhi-temple-hazel.vercel.app",
+      "माँ बगलामुखी पूजा और हवन की प्रामाणिक वैदिक बुकिंग। शत्रु बाधा निवारण, कोर्ट केस विजय, ग्रह शांति एवं तंत्र अनुष्ठान। पं. दीपक शर्मा (+91 72240 83313)।",
+    url: "https://www.baglamukhipujanalkheda.com",
     siteName: "Shri Maa Baglamukhi Temple Nalkheda",
     images: [
       {
@@ -85,15 +105,130 @@ export const metadata: Metadata = {
       },
     ],
     locale: "hi_IN",
+    alternateLocale: ["en_US", "en_IN"],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Maa Baglamukhi Havan Booking in Nalkheda | Pt. Deepak Sharma",
+    title: "Best Hawan Puja Pandit in Nalkheda | Maa Baglamukhi Temple Puja Booking",
     description:
-      "माँ बगलामुखी पूजा और हवन की जानकारी, उपलब्ध सेवाएँ और ऑनलाइन बुकिंग संबंधी सहायता प्राप्त करें।",
+      "माँ बगलामुखी पूजा और हवन की जानकारी एवं ऑनलाइन बुकिंग। आचार्य पं. दीपक शर्मा (+91 72240 83313)।",
     images: ["/images/baglamukhi-logo.webp"],
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  other: {
+    "geo.region": "IN-MP",
+    "geo.placename": "Nalkheda, Agar Malwa",
+    "geo.position": "23.8344;76.2239",
+    "ICBM": "23.8344, 76.2239",
+    "format-detection": "telephone=yes",
+  },
+};
+
+const rootJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.baglamukhipujanalkheda.com/#website",
+      url: "https://www.baglamukhipujanalkheda.com",
+      name: "Maa Baglamukhi Hawan & Puja Booking Nalkheda",
+      alternateName: [
+        "Best Website for Puja Hawan Nalkheda",
+        "Maa Baglamukhi Mandir Nalkheda Online Puja",
+      ],
+      description:
+        "Best Hawan Puja Pandit in Nalkheda | Official Vedic and Tantra Hawan Puja Booking with Pt. Deepak Sharma at Maa Baglamukhi Siddhapeeth.",
+      inLanguage: ["hi-IN", "en-US"],
+    },
+    {
+      "@type": "HinduTemple",
+      "@id": "https://www.baglamukhipujanalkheda.com/#temple",
+      name: "शासकीय माँ बगलामुखी सिद्धपीठ नलखेड़ा (Shri Maa Baglamukhi Temple)",
+      alternateName: ["Maa Baglamukhi Mandir Nalkheda", "Pitambara Peeth Nalkheda"],
+      description:
+        "महाभारत कालीन स्वयंभू त्रिमुखी माँ बगलामुखी सिद्धपीठ नलखेड़ा। शत्रु बाधा निवारण, कोर्ट केस विजय, तंत्र दोष शांति एवं सवा लाख जप महाहवन का पावन तीर्थ।",
+      url: "https://www.baglamukhipujanalkheda.com",
+      telephone: "+91-7224083313",
+      image: "https://www.baglamukhipujanalkheda.com/images/baglamukhi-mandir-real.webp",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "शासकीय माँ बगलामुखी सिद्धपीठ, लखुंदर नदी तट",
+        addressLocality: "नलखेड़ा",
+        addressRegion: "मध्य प्रदेश",
+        postalCode: "465445",
+        addressCountry: "IN",
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: "23.8344",
+        longitude: "76.2239",
+      },
+      openingHoursSpecification: [
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday",
+          ],
+          opens: "05:00",
+          closes: "23:00",
+        },
+      ],
+      hasMap: "https://maps.google.com/?q=23.8344,76.2239",
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://www.baglamukhipujanalkheda.com/#pandit-service",
+      name: "Pt. Deepak Sharma - Best Hawan Puja Pandit in Nalkheda",
+      alternateName: "आचार्य पं. दीपक शर्मा - मुख्य पुरोहित नलखेड़ा",
+      description:
+        "Top Hawan Puja Pandit in Nalkheda, Agar Malwa, Ujjain, India. Expert in Maa Baglamukhi Maha Hawan, Shatru Badha Nivaran, Court Case Victory, Grah Shanti.",
+      url: "https://www.baglamukhipujanalkheda.com/pandit-ji",
+      telephone: "+91-7224083313",
+      priceRange: "₹₹",
+      image: "https://www.baglamukhipujanalkheda.com/images/pandit-deepak-sharma.webp",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "माँ बगलामुखी मंदिर परिसर",
+        addressLocality: "नलखेड़ा",
+        addressRegion: "मध्य प्रदेश",
+        postalCode: "465445",
+        addressCountry: "IN",
+      },
+      areaServed: [
+        "Nalkheda",
+        "Agar Malwa",
+        "Ujjain",
+        "Indore",
+        "Bhopal",
+        "Madhya Pradesh",
+        "Delhi",
+        "Mumbai",
+        "India",
+        "Worldwide",
+      ],
+      sameAs: [
+        "https://www.instagram.com/maa_baglamukhi_mandir_nalkheda",
+        "https://www.youtube.com/@PanditDeepakSharmaNalkheda",
+      ],
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -103,6 +238,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="hi" className={`${geistSans.variable} ${cinzel.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(rootJsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
+      </head>
       <body className="min-h-screen max-w-full overflow-x-clip bg-[#FFF8E7] text-[#3D1B10] antialiased flex flex-col selection:bg-[#D89B18]/30 selection:text-[#8B0000]">
         <LanguageProvider>
           <PujaBookingProvider>

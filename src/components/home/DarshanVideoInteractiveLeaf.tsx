@@ -202,7 +202,7 @@ const PlaylistItem = memo(function PlaylistItem({
       <span className="relative block aspect-[16/10] w-24 min-[400px]:w-28 sm:w-36 shrink-0 overflow-hidden rounded-xl bg-black">
         <img
           src={thumb(item.id)}
-          alt=""
+          alt={item.title}
           loading="lazy"
           className="h-full w-full object-cover"
         />
@@ -428,7 +428,7 @@ export default function DarshanVideoInteractiveLeaf() {
               >
                 <img
                   src={thumb(active.id)}
-                  alt=""
+                  alt={active.title}
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <span className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-black/50" />

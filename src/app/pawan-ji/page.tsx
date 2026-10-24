@@ -35,14 +35,19 @@ export const metadata: Metadata = {
     "9575664204",
   ],
   alternates: {
-    canonical: "https://baglamukhi-temple-hazel.vercel.app/pawan-ji",
+    canonical: "https://www.baglamukhipujanalkheda.com/pawan-ji",
+    languages: {
+      "hi-IN": "https://www.baglamukhipujanalkheda.com/pawan-ji",
+      "en-US": "https://www.baglamukhipujanalkheda.com/pawan-ji",
+      "x-default": "https://www.baglamukhipujanalkheda.com/pawan-ji",
+    },
   },
   openGraph: {
     title:
       "पंडित पवन शर्मा परिचय | माँ बगलामुखी सिद्धपीठ नलखेड़ा - यज्ञाचार्य एवं वैदिक साधक",
     description:
       "विश्वविख्यात माँ बगलामुखी सिद्धपीठ नलखेड़ा में शास्त्रोक्त तांत्रिक-वैदिक अनुष्ठान, महाहवन, सवा लाख अखंड जाप एवं सटीक जन्म कुंडली परामर्श। पंडित पवन शर्मा (+91 95756 64204)।",
-    url: "https://baglamukhi-temple-hazel.vercel.app/pawan-ji",
+    url: "https://www.baglamukhipujanalkheda.com/pawan-ji",
     type: "profile",
     images: [
       {

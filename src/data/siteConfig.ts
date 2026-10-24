@@ -41,7 +41,7 @@ export const siteConfig = {
   },
 
   urls: {
-    base: process.env.NEXT_PUBLIC_SITE_URL || "https://baglamukhi-temple-hazel.vercel.app",
+    base: process.env.NEXT_PUBLIC_SITE_URL || "https://www.baglamukhipujanalkheda.com",
     instagram: "https://www.instagram.com/maa_baglamukhi_mandir_nalkheda",
     youtube: "https://www.youtube.com/@PanditDeepakSharmaNalkheda",
   },

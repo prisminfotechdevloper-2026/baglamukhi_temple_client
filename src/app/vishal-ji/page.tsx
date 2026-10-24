@@ -33,14 +33,19 @@ export const metadata: Metadata = {
     "9575664204",
   ],
   alternates: {
-    canonical: "https://baglamukhi-temple-hazel.vercel.app/vishal-ji",
+    canonical: "https://www.baglamukhipujanalkheda.com/vishal-ji",
+    languages: {
+      "hi-IN": "https://www.baglamukhipujanalkheda.com/vishal-ji",
+      "en-US": "https://www.baglamukhipujanalkheda.com/vishal-ji",
+      "x-default": "https://www.baglamukhipujanalkheda.com/vishal-ji",
+    },
   },
   openGraph: {
     title:
       "आचार्य वशिष्ठ विशाल शर्मा परिचय | वशिष्ठ ज्योतिष संस्थानम् - वरिष्ठ ज्योतिषाचार्य",
     description:
       "विगत 10 वर्षों की गूढ़ साधना एवं अखिल भारतीय काशी विद्वत् परिषद् से सम्मानित आदरणीय गुरुदेव आचार्य वशिष्ठ विशाल शर्मा जी द्वारा शास्त्रोक्त जन्म पत्रिका फलादेश व सम्पूर्ण जीवन विश्लेषण।",
-    url: "https://baglamukhi-temple-hazel.vercel.app/vishal-ji",
+    url: "https://www.baglamukhipujanalkheda.com/vishal-ji",
     type: "profile",
     images: [
       {

@@ -10,42 +10,58 @@ import TestimonialsSection from "@/components/home/TestimonialsSection";
 import PanditDirectBookingCard from "@/components/pandit/PanditDirectBookingCard";
 
 export const metadata: Metadata = {
-  title:
-    "पूज्य आचार्य एवं पुरोहित परिचय (Vedic Priests) | माँ बगलामुखी मंदिर नलखेड़ा",
+  title: "Best Hawan Puja Pandit in Nalkheda | Pt. Deepak Sharma - Chief Purohit",
   description:
-    "माँ बगलामुखी सिद्धपीठ नलखेड़ा में पूज्य आचार्य वशिष्ठ विशाल शर्मा (10+ वर्ष), पं. पवन शर्मा (7+ वर्ष) एवं मुख्य यज्ञाचार्य पं. दीपक शर्मा (5+ वर्ष) का प्रामाणिक परिचय, उज्जैन वेद विद्यालय दीक्षा एवं वैदिक साधना विवरण।",
+    "माँ बगलामुखी सिद्धपीठ नलखेड़ा में Best Hawan Puja Pandit - आचार्य पं. दीपक शर्मा (+91 72240 83313), पूज्य आचार्य वशिष्ठ विशाल शर्मा एवं पं. पवन शर्मा। उज्जैन वेद विद्यालय कर्मकाण्ड दीक्षा एवं 10+ वर्ष साधना अनुभव।",
   keywords: [
+    "Best Hawan Puja Pandit in Nalkheda",
+    "Best pandit in Nalkheda",
+    "Pandit in Agar Malwa",
+    "Best hawan puja pandit in India",
+    "Pandit for Baglamukhi puja",
+    "Pt Deepak Sharma Nalkheda",
+    "Pandit Deepak Sharma contact number",
+    "Best Vedic purohit in Nalkheda",
+    "Top pandit for Shatru Badha Nivaran hawan",
+    "नलखेड़ा में सबसे अच्छे पंडित जी",
     "माँ बगलामुखी पंडित जी",
     "आचार्य वशिष्ठ विशाल शर्मा",
     "पंडित पवन शर्मा नलखेड़ा",
     "पंडित दीपक शर्मा नलखेड़ा",
     "बगलामुखी महाहवन नलखेड़ा",
-    "बगलामुखी सवा लाख जाप",
-    "शत्रु बाधा निवारण हवन",
-    "कोर्ट कचहरी मुकदमा विजय अनुष्ठान",
     "उज्जैन वेद विद्यालय कर्मकाण्ड",
-    "श्री वशिष्ठ ज्योतिष संस्थान केन्द्र",
     "7224083313",
     "9575664204",
   ],
+  alternates: {
+    canonical: "https://www.baglamukhipujanalkheda.com/pandit-ji",
+    languages: {
+      "hi-IN": "https://www.baglamukhipujanalkheda.com/pandit-ji",
+      "en-US": "https://www.baglamukhipujanalkheda.com/pandit-ji",
+      "x-default": "https://www.baglamukhipujanalkheda.com/pandit-ji",
+    },
+  },
   openGraph: {
-    title:
-      "पूज्य आचार्य एवं पुरोहित परिचय | माँ बगलामुखी सिद्धपीठ नलखेड़ा - वैदिक आचार्य मंडल",
+    title: "Best Hawan Puja Pandit in Nalkheda | Pt. Deepak Sharma - Chief Purohit",
     description:
       "विश्वविख्यात माँ बगलामुखी सिद्धपीठ नलखेड़ा में शास्त्रोक्त तांत्रिक-वैदिक अनुष्ठान, महाहवन, सवा लाख अखंड जाप एवं सटीक जन्म कुंडली परामर्श। पूज्य आचार्य वशिष्ठ विशाल शर्मा, पं. पवन शर्मा एवं पं. दीपक शर्मा।",
-    url: "https://baglamukhi-temple-hazel.vercel.app/pandit-ji",
+    url: "https://www.baglamukhipujanalkheda.com/pandit-ji",
     type: "profile",
     images: [
       {
         url: "/images/pandit-deepak-sharma-new.webp",
         width: 800,
         height: 1000,
-        alt: "पूज्य पुरोहित मंडल - माँ बगलामुखी सिद्धपीठ नलखेड़ा",
+        alt: "Best Hawan Puja Pandit in Nalkheda - Pt. Deepak Sharma",
       },
     ],
   },
-  alternates: {
-    canonical: "https://baglamukhi-temple-hazel.vercel.app/pandit-ji",
+  twitter: {
+    card: "summary_large_image",
+    title: "Best Hawan Puja Pandit in Nalkheda | Pt. Deepak Sharma",
+    description:
+      "माँ बगलामुखी सिद्धपीठ नलखेड़ा में प्रामाणिक यज्ञाचार्य पं. दीपक शर्मा (+91 72240 83313)।",
+    images: ["/images/pandit-deepak-sharma-new.webp"],
   },
 };
 

@@ -45,39 +45,48 @@ const commonDictionary: Record<string, TranslationPair> = {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-const STORAGE_KEY = "baglamukhi_temple_lang";
+const SESSION_KEY = "baglamukhi_user_chosen_lang";
+const LEGACY_STORAGE_KEY = "baglamukhi_temple_lang";
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
+  // Always default strictly to Hindi ("hi") on site open
   const [language, setLanguageState] = useState<Language>("hi");
 
-  // Initialize language from localStorage on client mount
+  // Purge any legacy localStorage that forced English, and check current session
   useEffect(() => {
     try {
-      const saved = localStorage.getItem(STORAGE_KEY) as Language | null;
-      if (saved === "hi" || saved === "en") {
-        setLanguageState(saved);
+      // Remove stale permanent localStorage that forced English on previously visited devices
+      if (localStorage.getItem(LEGACY_STORAGE_KEY) === "en") {
+        localStorage.removeItem(LEGACY_STORAGE_KEY);
+      }
+
+      // Only if user explicitly toggled to English during current active session
+      const sessionLang = sessionStorage.getItem(SESSION_KEY) as Language | null;
+      if (sessionLang === "en") {
+        setLanguageState("en");
       }
     } catch {
-      // localStorage may be disabled
+      // Storage may be disabled in private mode
     }
   }, []);
-
-  // Sync language changes to localStorage
-  useEffect(() => {
-    try {
-      localStorage.setItem(STORAGE_KEY, language);
-    } catch {
-      // localStorage may be disabled
-    }
-  }, [language]);
 
   const setLanguage = useCallback((lang: Language) => {
     setLanguageState(lang);
+    try {
+      sessionStorage.setItem(SESSION_KEY, lang);
+      localStorage.setItem(LEGACY_STORAGE_KEY, lang);
+      if (typeof document !== "undefined") {
+        document.documentElement.lang = lang;
+      }
+    } catch {
+      // Storage may be disabled
+    }
   }, []);
 
   const toggleLanguage = useCallback(() => {
-    setLanguageState((prev) => (prev === "hi" ? "en" : "hi"));
-  }, []);
+    const nextLang: Language = language === "hi" ? "en" : "hi";
+    setLanguage(nextLang);
+  }, [language, setLanguage]);
 
   const t = useCallback(
     (input: TranslationPair | string, fallback?: string): string => {

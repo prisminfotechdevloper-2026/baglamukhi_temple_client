@@ -6,6 +6,7 @@ import BottomNav from "@/components/navbar/BottomNav";
 import Footer from "@/components/footer/Footer";
 import FloatingQuickContact from "@/components/common/FloatingQuickContact";
 import SmoothScroll from "@/components/common/SmoothScroll";
+import SitePreloader from "@/components/common/SitePreloader";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { PujaBookingProvider } from "@/context/PujaBookingContext";
 import QuickPujaBookingModal from "@/components/booking/QuickPujaBookingModal";
@@ -105,6 +106,7 @@ export default function RootLayout({
       <body className="min-h-screen max-w-full overflow-x-clip bg-[#FFF8E7] text-[#3D1B10] antialiased flex flex-col selection:bg-[#D89B18]/30 selection:text-[#8B0000]">
         <LanguageProvider>
           <PujaBookingProvider>
+            <SitePreloader />
             <SmoothScroll />
             <Navbar />
             <div className="flex-1 flex flex-col pb-20 lg:pb-0 max-w-full overflow-x-clip">
